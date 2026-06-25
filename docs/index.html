@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UQ-RV-ALNS Project Page</title>
+    <meta name="description" content="Project page for the UQ-RV-ALNS research code package.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="Project links">
+        <a class="brand" href="index.html">UQ-RV-ALNS</a>
+        <div class="navlinks">
+          <a href="#model">Model</a>
+          <a href="#algorithm">Algorithm</a>
+          <a href="#main-experiment">Results</a>
+          <a href="#evidence-boundary">Evidence</a>
+        </div>
+      </nav>
+      <div class="hero-grid">
+        <section class="hero-copy">
+          <p class="eyebrow" id="venue">Research code page</p>
+          <h1 id="title">Uncertainty-Aware Risk-Value ALNS for Vehicle-UAV Inspection</h1>
+          <p class="subtitle" id="subtitle"></p>
+          <p class="authors" id="authors"></p>
+          <div class="button-row" id="buttons"></div>
+        </section>
+        <figure class="teaser">
+          <img id="teaser-image" src="assets/fig3_algorithm_effects.png" alt="Algorithm comparison result figure">
+          <figcaption id="teaser-caption"></figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <main>
+      <section class="abstract-section">
+        <h2>Abstract</h2>
+        <p id="abstract"></p>
+      </section>
+
+      <section class="highlights" aria-label="Main result highlights">
+        <h2>Main Evidence</h2>
+        <div class="highlight-grid" id="result-highlights"></div>
+      </section>
+
+      <section class="method-strip" aria-label="Method flow">
+        <div class="flow-card">
+          <span>q95 service set</span>
+          <strong>same-stop sortie patterns</strong>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-card">
+          <span>schedule-state ALNS</span>
+          <strong>destroy and repair</strong>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-card">
+          <span>final portfolio</span>
+          <strong>RWCT-aware selection</strong>
+        </div>
+      </section>
+
+      <section class="sections" id="sections"></section>
+
+      <section class="media" id="media"></section>
+
+      <section class="evidence-table">
+        <h2>Traceable Evidence</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Evidence Path</th>
+                <th>Truth Level</th>
+              </tr>
+            </thead>
+            <tbody id="evidence-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="boundary" id="evidence-boundary-list">
+        <h2>Evidence Boundaries</h2>
+        <ul id="boundaries"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <span id="updated-at"></span>
+      <span>Project page generated from repository evidence.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

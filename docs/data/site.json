@@ -1,0 +1,169 @@
+{
+  "title": "Uncertainty-Aware Risk-Value ALNS for Vehicle-UAV Inspection",
+  "subtitle": "A research-code project page for the manuscript-facing mathematical model, proposed algorithm, and experiment evidence.",
+  "authors": "Paper1 research code package",
+  "venue": "Manuscript-facing code and reproducibility evidence, rebuilt 2026-06-25",
+  "buttons": [
+    {
+      "label": "GitHub Repository",
+      "href": "https://github.com/xuka0000/paper1-uqrv-alns"
+    },
+    {
+      "label": "Algorithm Notes",
+      "href": "https://github.com/xuka0000/paper1-uqrv-alns/blob/main/docs/algorithm.md"
+    },
+    {
+      "label": "Experiment Evidence",
+      "href": "https://github.com/xuka0000/paper1-uqrv-alns/blob/main/docs/experiments.md"
+    },
+    {
+      "label": "Main Result Table",
+      "href": "https://github.com/xuka0000/paper1-uqrv-alns/blob/main/results/tables/table_algorithm_results.tex"
+    }
+  ],
+  "teaser": {
+    "image": "assets/fig3_algorithm_effects.png",
+    "alt": "Algorithm comparison figure generated from project experiment results.",
+    "caption": "Main experiment evidence: Proposed ALNS is compared against external classical and strong metaheuristic baselines."
+  },
+  "abstract": "This project implements the final manuscript-facing vehicle-UAV inspection model with same-stop multi-tower sortie patterns, q95 energy screening, risk-value scheduling, schedule-state adaptive large-neighborhood search, and a metric-aware final portfolio. The rebuilt main experiment compares the complete proposed method against external baselines only; internal ALNS variants are reserved for ablation.",
+  "result_highlights": [
+    {
+      "label": "P2 main experiment",
+      "value": "640 rows from 10 matched seeds across eight corridor scales."
+    },
+    {
+      "label": "RWCT gain",
+      "value": "17.44% to 40.70% mean RWCT reduction versus the strongest external baseline at each scale."
+    },
+    {
+      "label": "Matched wins",
+      "value": "Proposed beats every external baseline in all 80 matched seed-scale cases."
+    },
+    {
+      "label": "Statistical evidence",
+      "value": "Holm-adjusted paired RWCT p value is 0.01367 against the strongest external baseline at each scale."
+    },
+    {
+      "label": "Feasibility",
+      "value": "Proposed reports zero infeasible-sortie rate across all P2 scales in the full run."
+    }
+  ],
+  "sections": [
+    {
+      "id": "model",
+      "title": "Mathematical Model",
+      "summary": "The code uses explicit same-stop sortie patterns and a finite service set. Each selected pattern is evaluated with duration, mean energy, q95 energy, completion time, and risk-value contribution.",
+      "bullets": [
+        "Decision layer: assign inspection towers to vehicle stops, UAVs, and bounded same-stop sortie patterns.",
+        "Objective evidence: makespan, RWCT, vehicle distance, q95 energy, missed service, duplicate service, and feasibility penalties are exported as diagnostics.",
+        "Uncertainty layer: q95 energy screening applies the battery reserve before schedule-state ALNS repair accepts a pattern."
+      ],
+      "source": "docs/model.md; src/uqrv/stop_batch_model.py"
+    },
+    {
+      "id": "algorithm",
+      "title": "Proposed Algorithm",
+      "summary": "The proposed method is the complete q95 risk-value schedule-state ALNS with adaptive destroy-repair search and final portfolio selection.",
+      "bullets": [
+        "Destroy operators include random, worst-energy, related, path-segment, and UAV-chain removal.",
+        "Repair operators include greedy, regret-k, energy-minimum, and synchronization-aware insertion.",
+        "Final selection is lexicographic: infeasible-sortie count, then RWCT, then makespan.",
+        "Risk-bucketed stop grouping is used as a portfolio candidate at large scales."
+      ],
+      "source": "docs/algorithm.md; src/uqrv/rv_alns.py; src/uqrv/solvers.py"
+    },
+    {
+      "id": "main-experiment",
+      "title": "Main Experiment",
+      "summary": "P2 is now a true main experiment: external baselines versus the complete proposed method.",
+      "bullets": [
+        "External baselines: Nearest, GA, ACO, simulated annealing, tabu search, VNS, and HGS-VNS.",
+        "Internal ALNS variants are excluded from P2 and moved to P4.",
+        "The regenerated manuscript table is available at results/tables/table_algorithm_results.tex."
+      ],
+      "source": "results/experiments/P2_algorithm_comparison/analysis_data/P2_algorithm_comparison_main_external_portfolio_full_20260625_summary.csv"
+    },
+    {
+      "id": "ablation",
+      "title": "Ablation Study",
+      "summary": "Ablation is interpreted only after the main experiment establishes the proposed method against external baselines.",
+      "bullets": [
+        "Internal variants: fixed ALNS, point-energy ALNS, and UQ-energy ALNS.",
+        "Module removals: no surrogate, no UQ, no risk-value, no adaptive scoring, no clustering, no energy repair, and no sync repair.",
+        "Ablation evidence is reported separately from the main algorithm-comparison claim."
+      ],
+      "source": "docs/experiments.md; results/experiments/P4_ablation/"
+    },
+    {
+      "id": "public-gis",
+      "title": "Public GIS Scenarios",
+      "summary": "Public GIS cases use public geometry and weather inputs while keeping risk, value, and some stop attributes as proxy-generated labels.",
+      "bullets": [
+        "The public-case runner now uses the same external-baseline method set as P2.",
+        "GIS evidence is useful for geometry-grounded scheduling checks, not utility field validation.",
+        "The AirLab branch supports energy calibration only, not full transmission-line field deployment claims."
+      ],
+      "source": "scripts/run_public_gis_case_experiment.py; docs/claim_algorithm_evidence_ledger.md"
+    },
+    {
+      "id": "evidence-boundary",
+      "title": "Evidence Boundary",
+      "summary": "The retained claim is RWCT dominance against external baselines in the rebuilt P2 run. Other metrics must be stated with their actual support.",
+      "bullets": [
+        "Top-risk coverage is not uniformly best at small and medium scales.",
+        "The current data support simulation and GIS-grounded proxy evidence, not real utility field validation.",
+        "Legacy P2 files that compare ALNS-family variants should not be used as final main-experiment evidence."
+      ],
+      "source": "docs/claim_algorithm_evidence_ledger.md"
+    },
+    {
+      "id": "code-docs",
+      "title": "Code and Documentation",
+      "summary": "The project is organized as one shared research-code package with tests, result tables, source data, and manuscript-facing documentation.",
+      "bullets": [
+        "Model notes: docs/model.md",
+        "Algorithm notes: docs/algorithm.md",
+        "API notes: docs/api.md",
+        "Experiment notes: docs/experiments.md",
+        "Claim ledger: docs/claim_algorithm_evidence_ledger.md"
+      ],
+      "source": "README.md"
+    }
+  ],
+  "media_sections": [
+    {
+      "title": "Algorithm Result Figure",
+      "image": "assets/fig3_algorithm_effects.png",
+      "caption": "RWCT, coverage, infeasibility, and runtime evidence from generated experiment figures."
+    },
+    {
+      "title": "Public GIS Cases",
+      "image": "assets/fig6_public_gis_cases.png",
+      "caption": "GIS-grounded case visualization from the project result figures."
+    }
+  ],
+  "evidence": [
+    {
+      "item": "P2 main experiment",
+      "path": "results/experiments/P2_algorithm_comparison/raw_data/P2_algorithm_comparison_main_external_portfolio_full_20260625_raw.csv",
+      "truth": "Completed full run"
+    },
+    {
+      "item": "P7 paired tests",
+      "path": "results/experiments/P7_statistical_tests/analysis_data/P7_statistical_tests_main_external_portfolio_full_20260625_summary.csv",
+      "truth": "Completed statistical run"
+    },
+    {
+      "item": "Main manuscript table",
+      "path": "results/tables/table_algorithm_results.tex",
+      "truth": "Regenerated from P2 full run"
+    }
+  ],
+  "boundaries": [
+    "Top-risk coverage is not uniformly best at small and medium scales.",
+    "Public GIS cases use public geometry and weather, but inspection risk and task value remain proxy labels.",
+    "AirLab telemetry validates the energy branch only; it is not full utility inspection field validation."
+  ],
+  "updated_at": "2026-06-25"
+}
