@@ -1,5 +1,9 @@
 # Paper1 Research Code Package
 
+GitHub repository: https://github.com/xuka0000/paper1-uqrv-alns
+
+Project page: https://xuka0000.github.io/paper1-uqrv-alns/
+
 This directory is organized as a standard research-code project. It uses one
 shared Python source tree instead of one duplicated code copy per manuscript
 subsection.
