@@ -1,0 +1,7 @@
+size,variant_index,tower_count,stop_count,vehicle_count,uavs_per_vehicle,seed,uncertainty,method,scenario_id,milp_status,makespan,total_vehicle_distance,expected_energy,energy_violation_rate,infeasible_sortie_rate,risk_weighted_completion_time,top_risk_coverage,missed_value,solver_runtime,objective_value,milp_gap,optimality_gap_pct
+CASE,0,200,100,4,3,0,high,alns_fixed,CASE200_P100_seed0_high,not_milp,149.944058,6624.985868,9754.455183,0.0,0.0,385292.283447,0.2,0,0.012465,13227.9061934024,0.0,
+CASE,0,200,100,4,3,0,high,alns_pinn,CASE200_P100_seed0_high,not_milp,151.675346,6714.439273,9754.393247,0.0,0.0,244396.694668,0.88,0,0.073864,14362.035282002402,0.0,
+CASE,0,200,100,4,3,0,high,alns_pinn_full,CASE200_P100_seed0_high,not_milp,151.612283,6353.017243,9754.393247,0.0,0.0,242847.437542,0.92,0,0.081662,14380.500842002411,0.0,
+CASE,0,200,100,4,3,1,high,alns_fixed,CASE200_P100_seed1_high,not_milp,152.488328,6584.874833,10737.52427,0.01,0.01,461879.215466,0.16,0,0.013166,13140.446732625604,0.0,
+CASE,0,200,100,4,3,1,high,alns_pinn,CASE200_P100_seed1_high,not_milp,148.177253,6393.833788,10705.63947,0.01,0.01,270575.486312,0.9,0,0.076327,14704.813934425596,0.0,
+CASE,0,200,100,4,3,1,high,alns_pinn_full,CASE200_P100_seed1_high,not_milp,148.52954,6352.618289,10709.269557,0.0,0.0,269911.093662,0.94,0,0.086167,14740.482151745606,0.0,

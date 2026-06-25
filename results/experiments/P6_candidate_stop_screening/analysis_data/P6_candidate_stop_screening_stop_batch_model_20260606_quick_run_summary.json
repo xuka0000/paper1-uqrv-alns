@@ -1,0 +1,8 @@
+{
+  "experiment_id": "P6_candidate_stop_screening",
+  "run_id": "stop_batch_model_20260606_quick",
+  "row_count": 12,
+  "raw_data": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P6_candidate_stop_screening\\raw_data\\P6_candidate_stop_screening_stop_batch_model_20260606_quick_raw.csv",
+  "summary_csv": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P6_candidate_stop_screening\\analysis_data\\P6_candidate_stop_screening_stop_batch_model_20260606_quick_summary.csv",
+  "summary_md": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P6_candidate_stop_screening\\analysis_data\\P6_candidate_stop_screening_stop_batch_model_20260606_quick_summary.md"
+}

@@ -1,0 +1,4 @@
+﻿"case_id","full_risk_time","best_nonfull_risk_method","best_nonfull_risk_time","full_risk_reduction_vs_best_nonfull_pct","full_top_risk_coverage","best_nonfull_coverage_method","best_nonfull_top_risk_coverage","full_infeasible_rate","best_nonfull_infeasible_method","best_nonfull_infeasible_rate"
+"public_bay_area_full","104.769423","aco","104.488883","-0.268488","1","ga","1","0","alns_pinn_uq","0"
+"public_dallas_fort_worth_full","152.205394","alns_pinn","153.353204","0.748475","0.866667","alns_pinn_uq","1","0.1","alns_pinn_uq","0.1"
+"public_los_angeles_inland_full","142.42789","ga","141.320984","-0.783257","0.933333","alns_pinn_uq","0.933333","0","alns_pinn_uq","0"

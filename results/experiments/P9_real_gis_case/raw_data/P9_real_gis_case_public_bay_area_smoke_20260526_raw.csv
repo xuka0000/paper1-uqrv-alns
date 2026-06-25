@@ -1,0 +1,13 @@
+case_id,seed,method,solver_method,tower_count,stop_count,vehicle_count,uav_count,iterations,scenario_id,objective_value,solver_runtime,makespan,total_vehicle_distance,expected_energy,energy_violation_rate,infeasible_sortie_rate,risk_weighted_completion_time,top_risk_coverage,missed_value,alns_accepted_moves,alns_improving_moves,alns_rejected_moves,alns_best_updates
+bay_area_public_smoke,0,greedy_nearest,greedy_nearest,30,15,2,4,0,bay_area_public_smoke_seed0,660.007979976,0.000738,74.257019,299.770977,1515.390077,0.066667,0.066667,65321.358562,0.428571,0,0.0,0.0,0.0,0.0
+bay_area_public_smoke,0,ga,ga,30,15,2,4,50,bay_area_public_smoke_seed0,824.702860976,0.018211,69.440074,278.161606,1515.390077,0.066667,0.066667,63396.212219,1.0,0,0.0,0.0,0.0,0.0
+bay_area_public_smoke,0,aco,aco,30,15,2,4,50,bay_area_public_smoke_seed0,824.342802976,0.030512,68.614474,298.674791,1515.390077,0.066667,0.066667,63392.018702,1.0,0,0.0,0.0,0.0,0.0
+bay_area_public_smoke,0,alns_fixed,alns_fixed,30,15,2,4,80,bay_area_public_smoke_seed0,654.5840479760001,0.017751,75.608658,241.707232,1515.390077,0.066667,0.066667,67617.672731,0.142857,0,71.0,15.0,9.0,12.0
+bay_area_public_smoke,0,alns_pinn,alns_point,30,15,2,4,80,bay_area_public_smoke_seed0,832.689021976,0.005023,69.233849,225.523463,1515.390077,0.066667,0.066667,63816.514655,1.0,0,0.0,0.0,0.0,0.0
+bay_area_public_smoke,0,alns_pinn_full,alns_full,30,15,2,4,80,bay_area_public_smoke_seed0,780.947822096,0.021938,72.613555,278.639434,1519.99164,0.0,0.0,62046.727674,1.0,0,65.0,19.0,15.0,4.0
+bay_area_public_smoke,1,greedy_nearest,greedy_nearest,30,15,2,4,0,bay_area_public_smoke_seed1,660.007979976,0.000978,74.257019,299.770977,1515.390077,0.066667,0.066667,65321.358562,0.428571,0,0.0,0.0,0.0,0.0
+bay_area_public_smoke,1,ga,ga,30,15,2,4,50,bay_area_public_smoke_seed1,824.702860976,0.019129,69.440074,278.161606,1515.390077,0.066667,0.066667,63396.212219,1.0,0,0.0,0.0,0.0,0.0
+bay_area_public_smoke,1,aco,aco,30,15,2,4,50,bay_area_public_smoke_seed1,824.342802976,0.028348,68.614474,298.674791,1515.390077,0.066667,0.066667,63392.018702,1.0,0,0.0,0.0,0.0,0.0
+bay_area_public_smoke,1,alns_fixed,alns_fixed,30,15,2,4,80,bay_area_public_smoke_seed1,654.5840479760001,0.015473,75.608658,241.707232,1515.390077,0.066667,0.066667,67617.672731,0.142857,0,68.0,13.0,12.0,10.0
+bay_area_public_smoke,1,alns_pinn,alns_point,30,15,2,4,80,bay_area_public_smoke_seed1,832.689021976,0.005081,69.233849,225.523463,1515.390077,0.066667,0.066667,63816.514655,1.0,0,0.0,0.0,0.0,0.0
+bay_area_public_smoke,1,alns_pinn_full,alns_full,30,15,2,4,80,bay_area_public_smoke_seed1,780.947822096,0.020482,72.613555,278.639434,1519.99164,0.0,0.0,62046.727674,1.0,0,61.0,23.0,19.0,9.0

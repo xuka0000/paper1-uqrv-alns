@@ -1,0 +1,22 @@
+﻿\begin{table*}[t]
+\centering
+\caption{Baseline algorithms used to separate generic routing competence from the proposed energy-uncertainty and risk-value mechanisms.}
+\label{tab:baseline-design}
+\small
+\setlength{\tabcolsep}{2.3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\centering\arraybackslash}p{0.10\textwidth}>{\centering\arraybackslash}p{0.10\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Family & Method label & Reference role & Search object & q95 energy & Risk-value & Selection reason \\
+\midrule
+Constructive & Nearest & TSP constructive heuristic \citep{rosenkrantz1977analysis} & Spatial tower order; nearest support stop & No & No & Low-complexity spatial baseline \\
+Population & GA & Evolutionary search \citep{holland1975adaptation} & Tower-order permutation & No & Indirect & Generic population metaheuristic \\
+Pheromone & ACO & Routing sequence search \citep{dorigo1997ant} & Tower-order permutation & No & Indirect & Generic routing metaheuristic with path memory \\
+Destroy--repair & Fixed ALNS & ALNS family \citep{ropke2006alns,sacramento2019alns} & Order and stop-assignment repairs & No & No & Same local-search infrastructure without paper-specific layers \\
+Energy model & Point energy ALNS & Internal controlled variant & Mean-energy order and stop choice & No & Partial & Tests whether point prediction alone explains the gain \\
+Uncertainty & UQ energy ALNS & Internal controlled variant & q95 screened sortie-pattern set & Yes & Partial & Isolates conservative feasibility from full risk-value configuration \\
+\rowcolor{gray!10}
+Proposed & \textbf{UQ-RV-ALNS} & This paper & q95 sortie-pattern set plus adaptive risk-value ALNS & Yes & Yes & Full configuration tested against all controls \\
+\bottomrule
+\end{tabularx}
+\end{table*}

@@ -1,0 +1,436 @@
+\begin{thebibliography}{54}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Agatz et~al.(2018)Agatz, Bouman, and Schmidt]{agatz2018tspdrone}
+Niels Agatz, Paul Bouman, and Marie Schmidt.
+\newblock Optimization approaches for the traveling salesman problem with
+  drone.
+\newblock \emph{Transportation Science}, 52\penalty0 (4):\penalty0 965--981,
+  2018.
+\newblock \doi{10.1287/trsc.2017.0791}.
+
+\bibitem[Ahmed et~al.(2024)Ahmed, Mohanta, and Keshari]{ahmed2024powerline}
+Faiyaz Ahmed, J.~C. Mohanta, and Anupam Keshari.
+\newblock Power transmission line inspections: Methods, challenges, current
+  status and usage of unmanned aerial systems.
+\newblock \emph{Journal of Intelligent \& Robotic Systems}, 110\penalty0
+  (2):\penalty0 54, 2024.
+\newblock \doi{10.1007/s10846-024-02061-y}.
+
+\bibitem[Aiello et~al.(2021)Aiello, Inguanta, D'Angelo, and
+  Venticinque]{aiello2021energy}
+Giuseppe Aiello, Rosalinda Inguanta, Giusj D'Angelo, and Mario Venticinque.
+\newblock Energy consumption model of aerial urban logistic infrastructures.
+\newblock \emph{Energies}, 14\penalty0 (18):\penalty0 5998, 2021.
+\newblock \doi{10.3390/en14185998}.
+
+\bibitem[Bertsimas and Sim(2004)]{bertsimas2004robustness}
+Dimitris Bertsimas and Melvyn Sim.
+\newblock The price of robustness.
+\newblock \emph{Operations Research}, 52\penalty0 (1):\penalty0 35--53, 2004.
+\newblock \doi{10.1287/opre.1030.0065}.
+
+\bibitem[Bouman et~al.(2018)Bouman, Agatz, and Schmidt]{bouman2018dynamic}
+Paul Bouman, Niels Agatz, and Marie Schmidt.
+\newblock Dynamic programming approaches for the traveling salesman problem
+  with drone.
+\newblock \emph{Networks}, 72\penalty0 (4):\penalty0 528--542, 2018.
+\newblock \doi{10.1002/net.21864}.
+
+\bibitem[Chung et~al.(2020)Chung, Sah, and Lee]{chung2020review}
+Sung~Hoon Chung, Bhawesh Sah, and Jinkun Lee.
+\newblock Optimization for drone and drone-truck combined operations: A review
+  of the state of the art and future directions.
+\newblock \emph{Computers \& Operations Research}, 123:\penalty0 105004, 2020.
+\newblock \doi{10.1016/j.cor.2020.105004}.
+
+\bibitem[Desaulniers et~al.(2016)Desaulniers, Errico, Irnich, and
+  Schneider]{desaulniers2016evrp}
+Guy Desaulniers, Fausto Errico, Stefan Irnich, and Michael Schneider.
+\newblock Exact algorithms for electric vehicle-routing problems with time
+  windows.
+\newblock \emph{Operations Research}, 64\penalty0 (6):\penalty0 1388--1405,
+  2016.
+\newblock \doi{10.1287/opre.2016.1535}.
+
+\bibitem[Dorigo and Gambardella(1997)]{dorigo1997ant}
+Marco Dorigo and Luca~Maria Gambardella.
+\newblock Ant colony system: A cooperative learning approach to the traveling
+  salesman problem.
+\newblock \emph{IEEE Transactions on Evolutionary Computation}, 1\penalty0
+  (1):\penalty0 53--66, 1997.
+\newblock \doi{10.1109/4235.585892}.
+
+\bibitem[Dorling et~al.(2017)Dorling, Heinrichs, Messier, and
+  Magierowski]{dorling2017vehicle}
+Kevin Dorling, Jordan Heinrichs, Geoffrey~G. Messier, and Sebastian
+  Magierowski.
+\newblock Vehicle routing problems for drone delivery.
+\newblock \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems},
+  47\penalty0 (1):\penalty0 70--85, 2017.
+\newblock \doi{10.1109/TSMC.2016.2582745}.
+
+\bibitem[Dukkanci et~al.(2021)Dukkanci, Kara, and Bektas]{dukkanci2021range}
+Okan Dukkanci, Bahar~Y. Kara, and Tolga Bektas.
+\newblock Minimizing energy and cost in range-limited drone deliveries with
+  speed optimization.
+\newblock \emph{Transportation Research Part C: Emerging Technologies},
+  125:\penalty0 102985, 2021.
+\newblock \doi{10.1016/j.trc.2021.102985}.
+
+\bibitem[Faisal et~al.(2025)Faisal, Mecheter, Qiblawey, Fernandez, Chowdhury,
+  and Kiranyaz]{li2025deeppowerline}
+Md. Ahasan~Atick Faisal, Imene Mecheter, Yazan Qiblawey, Javier~Hernandez
+  Fernandez, Muhammad E.~H. Chowdhury, and Serkan Kiranyaz.
+\newblock Deep learning in automated power line inspection: A review.
+\newblock \emph{Applied Energy}, 385:\penalty0 125507, 2025.
+\newblock \doi{10.1016/j.apenergy.2025.125507}.
+
+\bibitem[Figliozzi(2017)]{figliozzi2017lifecycle}
+Miguel~A. Figliozzi.
+\newblock Lifecycle modeling and assessment of unmanned aerial vehicles
+  ({Drones}) {CO2e} emissions.
+\newblock \emph{Transportation Research Part D: Transport and Environment},
+  57:\penalty0 251--261, 2017.
+\newblock \doi{10.1016/j.trd.2017.09.011}.
+
+\bibitem[Goodchild and Toy(2018)]{goodchild2018delivery}
+Anne Goodchild and Jordan Toy.
+\newblock Delivery by drone: An evaluation of unmanned aerial vehicle
+  technology in reducing {CO2} emissions in the delivery service industry.
+\newblock \emph{Transportation Research Part D: Transport and Environment},
+  61:\penalty0 58--67, 2018.
+\newblock \doi{10.1016/j.trd.2017.02.017}.
+
+\bibitem[Guan et~al.(2021)Guan, Sun, Su, Hu, Wang, Wang, Peng, and
+  Guo]{liu2021uavlidar}
+Hongcan Guan, Xiliang Sun, Yanjun Su, Tianyu Hu, Haitao Wang, Heping Wang,
+  Chigang Peng, and Qinghua Guo.
+\newblock Uav-lidar aids automatic intelligent powerline inspection.
+\newblock \emph{International Journal of Electrical Power \& Energy Systems},
+  130:\penalty0 106987, 2021.
+\newblock \doi{10.1016/j.ijepes.2021.106987}.
+
+\bibitem[Ha et~al.(2018)Ha, Deville, Pham, and Ha]{ha2018mincost}
+Quang~Minh Ha, Yves Deville, Quang~Dung Pham, and Minh~Hoang Ha.
+\newblock On the min-cost traveling salesman problem with drone.
+\newblock \emph{Transportation Research Part C: Emerging Technologies},
+  86:\penalty0 597--621, 2018.
+\newblock \doi{10.1016/j.trc.2017.11.015}.
+
+\bibitem[Holland(1975)]{holland1975adaptation}
+John~H. Holland.
+\newblock \emph{Adaptation in Natural and Artificial Systems}.
+\newblock University of Michigan Press, Ann Arbor, MI, 1975.
+
+\bibitem[Holm(1979)]{holm1979simple}
+Sture Holm.
+\newblock A simple sequentially rejective multiple test procedure.
+\newblock \emph{Scandinavian Journal of Statistics}, 6\penalty0 (2):\penalty0
+  65--70, 1979.
+
+\bibitem[{Homeland Infrastructure Foundation-Level
+  Data}(2026)]{hifld2026transmission}
+{Homeland Infrastructure Foundation-Level Data}.
+\newblock Electric power transmission lines, 2026.
+\newblock URL
+  \url{https://catalog.data.gov/dataset/electric-power-transmission-lines}.
+\newblock Accessed 26 May 2026.
+
+\bibitem[Huangfu and Hall(2018)]{huangfu2018parallelizing}
+Qi~Huangfu and J.~A.~Julian Hall.
+\newblock Parallelizing the dual revised simplex method.
+\newblock \emph{Mathematical Programming Computation}, 10\penalty0
+  (1):\penalty0 119--142, 2018.
+\newblock \doi{10.1007/s12532-017-0130-5}.
+
+\bibitem[Hui et~al.(2019)Hui, Bian, Zhao, and Tan]{hui2019monocular}
+Xiaolong Hui, Jiang Bian, Xiaoguang Zhao, and Min Tan.
+\newblock A monocular-based navigation approach for unmanned aerial vehicle
+  safe and autonomous transmission-line inspection.
+\newblock \emph{International Journal of Advanced Robotic Systems}, 16\penalty0
+  (1):\penalty0 1729881419829941, 2019.
+\newblock \doi{10.1177/1729881419829941}.
+
+\bibitem[Jeong et~al.(2019)Jeong, Song, and Lee]{jeong2019payloaddrone}
+Ho~Young Jeong, Byung~Duk Song, and Seokcheon Lee.
+\newblock Truck-drone hybrid delivery routing: Payload-energy dependency and
+  no-fly zones.
+\newblock \emph{International Journal of Production Economics}, 214:\penalty0
+  220--233, 2019.
+\newblock \doi{10.1016/j.ijpe.2019.01.010}.
+
+\bibitem[Karniadakis et~al.(2021)Karniadakis, Kevrekidis, Lu, Perdikaris, Wang,
+  and Yang]{karniadakis2021piml}
+George~Em Karniadakis, Ioannis~G. Kevrekidis, Lu~Lu, Paris Perdikaris, Sifan
+  Wang, and Liu Yang.
+\newblock Physics-informed machine learning.
+\newblock \emph{Nature Reviews Physics}, 3\penalty0 (6):\penalty0 422--440,
+  2021.
+\newblock \doi{10.1038/s42254-021-00314-5}.
+
+\bibitem[Kim et~al.(2026)Kim, Sari Darmawi~Purba, and
+  Kontou]{kim2026bidirectional}
+Hyunhwa Kim, Denissa Sari Darmawi~Purba, and Eleftheria Kontou.
+\newblock Bidirectional energy supply logistics using uncrewed electric aerial
+  and ground vehicles: A two-echelon location-routing problem with
+  resource-constrained demand allocation and time windows.
+\newblock \emph{Transportation Research Part E: Logistics and Transportation
+  Review}, 209:\penalty0 104726, 2026.
+\newblock \doi{10.1016/j.tre.2026.104726}.
+
+\bibitem[Kirkpatrick et~al.(1983)Kirkpatrick, Gelatt, and
+  Vecchi]{kirkpatrick1983annealing}
+S.~Kirkpatrick, C.~D. Gelatt, and M.~P. Vecchi.
+\newblock Optimization by simulated annealing.
+\newblock \emph{Science}, 220\penalty0 (4598):\penalty0 671--680, 1983.
+\newblock \doi{10.1126/science.220.4598.671}.
+
+\bibitem[Li et~al.(2021{\natexlab{a}})Li, Chen, Wang, and
+  Bai]{li2021groundvehicle}
+Hongqi Li, Jun Chen, Feilong Wang, and Ming Bai.
+\newblock Ground-vehicle and unmanned-aerial-vehicle routing problems from
+  two-echelon scheme perspective: A review.
+\newblock \emph{European Journal of Operational Research}, 294\penalty0
+  (3):\penalty0 1078--1095, 2021{\natexlab{a}}.
+\newblock \doi{10.1016/j.ejor.2021.02.022}.
+
+\bibitem[Li et~al.(2021{\natexlab{b}})Li, Li, Wang, and
+  Li]{li2021uavtransmission}
+Xin Li, Zijian Li, Haizhi Wang, and Wanlin Li.
+\newblock Unmanned aerial vehicle for transmission line inspection: Status,
+  standardization, and perspectives.
+\newblock \emph{Frontiers in Energy Research}, 9:\penalty0 713634,
+  2021{\natexlab{b}}.
+\newblock \doi{10.3389/fenrg.2021.713634}.
+
+\bibitem[Liu et~al.(2026)Liu, Yu, Tian, and Sun]{liu2026evtol}
+Shaojun Liu, Yitong Yu, Qingyun Tian, and Huijun Sun.
+\newblock Routing optimization for an evtol-and-drone delivery system in
+  continuous space with no-fly zones: A reinforcement learning approach.
+\newblock \emph{Transportation Research Part E: Logistics and Transportation
+  Review}, 209:\penalty0 104741, 2026.
+\newblock \doi{10.1016/j.tre.2026.104741}.
+
+\bibitem[Liu et~al.(2020)Liu, Miao, Jiang, and Chen]{zhang2020visualinspection}
+Xinyu Liu, Xiren Miao, Hao Jiang, and Jing Chen.
+\newblock Data analysis in visual power line inspection: An in-depth review of
+  deep learning for component detection and fault diagnosis.
+\newblock \emph{Annual Reviews in Control}, 50:\penalty0 253--277, 2020.
+\newblock \doi{10.1016/j.arcontrol.2020.09.002}.
+
+\bibitem[Moadab et~al.(2022)Moadab, Farajzadeh, and
+  Fatahi~Valilai]{moadab2022drone}
+Amirhossein Moadab, Fatemeh Farajzadeh, and Omid Fatahi~Valilai.
+\newblock Drone routing problem model for last-mile delivery using the public
+  transportation capacity as moving charging stations.
+\newblock \emph{Scientific Reports}, 12:\penalty0 6361, 2022.
+\newblock \doi{10.1038/s41598-022-10408-4}.
+
+\bibitem[Murray and Chu(2015)]{murray2015flying}
+Chase~C. Murray and Amanda~G. Chu.
+\newblock The flying sidekick traveling salesman problem: Optimization of
+  drone-assisted parcel delivery.
+\newblock \emph{Transportation Research Part C: Emerging Technologies},
+  54:\penalty0 86--109, 2015.
+\newblock \doi{10.1016/j.trc.2015.03.005}.
+
+\bibitem[Murray and Raj(2020)]{murray2020multiple}
+Chase~C. Murray and Ritwik Raj.
+\newblock The multiple flying sidekicks traveling salesman problem: Parcel
+  delivery with multiple drones.
+\newblock \emph{Transportation Research Part C: Emerging Technologies},
+  110:\penalty0 368--398, 2020.
+\newblock \doi{10.1016/j.trc.2019.11.003}.
+
+\bibitem[{NASA Langley Research Center}(2026)]{nasaPower2026}
+{NASA Langley Research Center}.
+\newblock {NASA POWER}: Prediction of worldwide energy resources hourly api,
+  2026.
+\newblock URL
+  \url{https://power.larc.nasa.gov/docs/services/api/temporal/hourly/}.
+\newblock Accessed 26 May 2026.
+
+\bibitem[Nemirovski and Shapiro(2007)]{nemirovski2007chance}
+Arkadi Nemirovski and Alexander Shapiro.
+\newblock Convex approximations of chance constrained programs.
+\newblock \emph{SIAM Journal on Optimization}, 17\penalty0 (4):\penalty0
+  969--996, 2007.
+\newblock \doi{10.1137/050622328}.
+
+\bibitem[Nguyen et~al.(2018)Nguyen, Jenssen, and
+  Roverso]{nguyen2018visionreview}
+Van~Nhan Nguyen, Robert Jenssen, and Davide Roverso.
+\newblock Automatic autonomous vision-based power line inspection: A review of
+  current status and the potential role of deep learning.
+\newblock \emph{International Journal of Electrical Power \& Energy Systems},
+  99:\penalty0 107--120, 2018.
+\newblock \doi{10.1016/j.ijepes.2017.12.016}.
+
+\bibitem[{OpenStreetMap contributors}(2026)]{openstreetmap2026}
+{OpenStreetMap contributors}.
+\newblock {OpenStreetMap} power-line and power-tower map data, 2026.
+\newblock URL \url{https://wiki.openstreetmap.org/wiki/Tag:power%3Dtower}.
+\newblock Accessed via Overpass API on 26 May 2026.
+
+\bibitem[Poikonen et~al.(2019)Poikonen, Golden, and Wasil]{poikonen2019branch}
+Stefan Poikonen, Bruce Golden, and Edward~A. Wasil.
+\newblock A branch-and-bound approach to the traveling salesman problem with a
+  drone.
+\newblock \emph{INFORMS Journal on Computing}, 31\penalty0 (2):\penalty0
+  335--346, 2019.
+\newblock \doi{10.1287/ijoc.2018.0826}.
+
+\bibitem[Raissi et~al.(2019)Raissi, Perdikaris, and
+  Karniadakis]{raissi2019pinn}
+M.~Raissi, P.~Perdikaris, and G.~E. Karniadakis.
+\newblock Physics-informed neural networks: A deep learning framework for
+  solving forward and inverse problems involving nonlinear partial differential
+  equations.
+\newblock \emph{Journal of Computational Physics}, 378:\penalty0 686--707,
+  2019.
+\newblock \doi{10.1016/j.jcp.2018.10.045}.
+
+\bibitem[Roberti and Ruthmair(2021)]{roberti2021exact}
+Roberto Roberti and Mario Ruthmair.
+\newblock Exact methods for the traveling salesman problem with drone.
+\newblock \emph{Transportation Science}, 55\penalty0 (2):\penalty0 315--335,
+  2021.
+\newblock \doi{10.1287/trsc.2020.1017}.
+
+\bibitem[Rodrigues et~al.(2021)Rodrigues, Patrikar, Choudhry, Feldgoise, Arcot,
+  Gahlaut, Lau, Moon, Wagner, Matthews, Scherer, and
+  Samaras]{airlab2021dataset}
+Thiago~A. Rodrigues, Jay Patrikar, Arnav Choudhry, Jacob Feldgoise, Vaibhav
+  Arcot, Aradhana Gahlaut, Sophia Lau, Brady Moon, Bastian Wagner, H.~Scott
+  Matthews, Sebastian Scherer, and Constantine Samaras.
+\newblock Data collected with package delivery quadcopter drone, 2021.
+\newblock Carnegie Mellon University, Figshare dataset.
+
+\bibitem[Ropke and Pisinger(2006)]{ropke2006alns}
+Stefan Ropke and David Pisinger.
+\newblock An adaptive large neighborhood search heuristic for the pickup and
+  delivery problem with time windows.
+\newblock \emph{Transportation Science}, 40\penalty0 (4):\penalty0 455--472,
+  2006.
+\newblock \doi{10.1287/trsc.1050.0135}.
+
+\bibitem[Rosenkrantz et~al.(1977)Rosenkrantz, Stearns, and
+  Lewis]{rosenkrantz1977analysis}
+Daniel~J. Rosenkrantz, Richard~E. Stearns, and Philip~M. Lewis.
+\newblock An analysis of several heuristics for the traveling salesman problem.
+\newblock \emph{SIAM Journal on Computing}, 6\penalty0 (3):\penalty0 563--581,
+  1977.
+\newblock \doi{10.1137/0206041}.
+
+\bibitem[Sacramento et~al.(2019)Sacramento, Pisinger, and
+  Ropke]{sacramento2019alns}
+David Sacramento, David Pisinger, and Stefan Ropke.
+\newblock An adaptive large neighborhood search metaheuristic for the vehicle
+  routing problem with drones.
+\newblock \emph{Transportation Research Part C: Emerging Technologies},
+  102:\penalty0 289--315, 2019.
+\newblock \doi{10.1016/j.trc.2019.02.018}.
+
+\bibitem[Schermer et~al.(2019)Schermer, Moeini, and
+  Wendt]{schermer2019matheuristic}
+Daniel Schermer, Mahdi Moeini, and Oliver Wendt.
+\newblock A matheuristic for the vehicle routing problem with drones and its
+  variants.
+\newblock \emph{Transportation Research Part C: Emerging Technologies},
+  106:\penalty0 166--204, 2019.
+\newblock \doi{10.1016/j.trc.2019.06.016}.
+
+\bibitem[Schneider et~al.(2014)Schneider, Stenger, and
+  Goeke]{schneider2014evrptw}
+Michael Schneider, Andreas Stenger, and Dominik Goeke.
+\newblock The electric vehicle-routing problem with time windows and recharging
+  stations.
+\newblock \emph{Transportation Science}, 48\penalty0 (4):\penalty0 500--520,
+  2014.
+\newblock \doi{10.1287/trsc.2013.0490}.
+
+\bibitem[Shi and Zhen(2026)]{shi2026llm}
+Haiyang Shi and Lu~Zhen.
+\newblock Llm-based automatic heuristic design for vehicle-drone collaborative
+  routing problems.
+\newblock \emph{Transportation Research Part E: Logistics and Transportation
+  Review}, 209:\penalty0 104760, 2026.
+\newblock \doi{10.1016/j.tre.2026.104760}.
+
+\bibitem[Stolaroff et~al.(2018)Stolaroff, Samaras, O'Neill, Lubers, Mitchell,
+  and Ceperley]{stolaroff2018energy}
+Joshuah~K. Stolaroff, Constantine Samaras, Emma~R. O'Neill, Alia Lubers,
+  Alexandra~S. Mitchell, and Daniel Ceperley.
+\newblock Energy use and life cycle greenhouse gas emissions of drones for
+  commercial package delivery.
+\newblock \emph{Nature Communications}, 9\penalty0 (1):\penalty0 409, 2018.
+\newblock \doi{10.1038/s41467-017-02411-5}.
+
+\bibitem[Wang and Sheu(2019)]{wang2019vrpd}
+Zheng Wang and Jiuh-Biing Sheu.
+\newblock Vehicle routing problem with drones.
+\newblock \emph{Transportation Research Part B: Methodological}, 122:\penalty0
+  350--364, 2019.
+\newblock \doi{10.1016/j.trb.2019.03.005}.
+
+\bibitem[Wilcoxon(1945)]{wilcoxon1945individual}
+Frank Wilcoxon.
+\newblock Individual comparisons by ranking methods.
+\newblock \emph{Biometrics Bulletin}, 1\penalty0 (6):\penalty0 80--83, 1945.
+\newblock \doi{10.2307/3001968}.
+
+\bibitem[Yang et~al.(2021)Yang, Meng, and Karniadakis]{yang2021bpinn}
+Liu Yang, Xuhui Meng, and George~Em Karniadakis.
+\newblock B-pinns: Bayesian physics-informed neural networks for forward and
+  inverse pde problems with noisy data.
+\newblock \emph{Journal of Computational Physics}, 425:\penalty0 109913, 2021.
+\newblock \doi{10.1016/j.jcp.2020.109913}.
+
+\bibitem[Yang and Li(2025)]{yang2025integrated}
+Ruiguang Yang and Xiangyong Li.
+\newblock Integrated order splitting, allocation, and delivery problem with a
+  synchronized truck and drone fleet.
+\newblock \emph{Transportation Research Part E: Logistics and Transportation
+  Review}, 202:\penalty0 104217, 2025.
+\newblock \doi{10.1016/j.tre.2025.104217}.
+
+\bibitem[Yang et~al.(2023)Yang, Yan, Cao, and Roberti]{yang2023robustdrone}
+Yu~Yang, Chiwei Yan, Yufeng Cao, and Roberto Roberti.
+\newblock Planning robust drone-truck delivery routes under road traffic
+  uncertainty.
+\newblock \emph{European Journal of Operational Research}, 309\penalty0
+  (3):\penalty0 1145--1160, 2023.
+\newblock \doi{10.1016/j.ejor.2023.02.031}.
+
+\bibitem[Zhang et~al.(2021)Zhang, Campbell, Sweeney, and
+  Hupman]{zhang2021energyconsumption}
+Juan Zhang, James~F. Campbell, Donald~C. Sweeney, and Andrea~C. Hupman.
+\newblock Energy consumption models for delivery drones: A comparison and
+  assessment.
+\newblock \emph{Transportation Research Part D: Transport and Environment},
+  90:\penalty0 102668, 2021.
+\newblock \doi{10.1016/j.trd.2020.102668}.
+
+\bibitem[Zhang et~al.(2023)Zhang, Li, and Wang]{asoc2023recharging}
+X.~Zhang, Y.~Li, and J.~Wang.
+\newblock Adaptive large neighborhood search algorithm for the unmanned aerial
+  vehicle routing problem with recharging.
+\newblock \emph{Applied Soft Computing}, 147:\penalty0 110831, 2023.
+\newblock \doi{10.1016/j.asoc.2023.110831}.
+
+\bibitem[Zhang et~al.(2026)Zhang, Yang, Xi, Peng, Yang, Gan, Liu, and
+  Ai]{zhang2026airground}
+Yimeng Zhang, Chenjie Yang, Haoning Xi, Songhan Peng, Junjie Yang, Mi~Gan,
+  Xiaobo Liu, and Ruixue Ai.
+\newblock Air-ground multimodal transport planning for joint passenger mobility
+  and parcel delivery: Integration of drones, aircraft, and ground vehicles.
+\newblock \emph{Transportation Research Part E: Logistics and Transportation
+  Review}, 210:\penalty0 104825, 2026.
+\newblock \doi{10.1016/j.tre.2026.104825}.
+
+\end{thebibliography}

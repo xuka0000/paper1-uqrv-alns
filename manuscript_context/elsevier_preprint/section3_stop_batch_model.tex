@@ -1,0 +1,390 @@
+﻿\section{Problem description and mathematical formulation}
+\label{sec:model}
+
+This section formulates the transmission-line inspection problem as an uncertainty-aware stop-batch vehicle--UAV scheduling problem. The formulation follows the structure commonly used in transportation optimization papers: we first define the operational network and the same-stop sortie-pattern service set, then introduce the uncertainty-aware energy interface, the inspection-priority weights, and finally the synchronized mixed-integer model. The model borrows the synchronization backbone of vehicle--drone routing \citep{murray2015flying,agatz2018tspdrone,wang2019vrpd}, but adapts it to corridor inspection where service nodes are risk-bearing towers, launch locations are road-access stops, and UAV feasibility is governed by upper-quantile energy rather than a fixed endurance threshold.
+
+The paper does not model the most general launch-at-\(s\), recover-at-\(r\) rendezvous variant. Instead, the main formulation uses two same-stop launch--recovery assumptions. First, a UAV launched from stop \(s\) may inspect an ordered subset of nearby towers in one sortie and then return to the same stop, provided that the whole sortie satisfies the energy-reserve constraint. Once recovered, the UAV becomes available for another dispatch. Second, a support vehicle may dispatch several UAVs in parallel at one stop; while the vehicle remains parked, the same UAV may also execute several inspection sorties sequentially. The vehicle can leave the stop only after every assigned sortie from that stop has returned. This boundary is appropriate for the proposed contribution because the paper focuses on candidate stop generation, probabilistic energy screening, risk-value priority and scalable ALNS scheduling, rather than on a full time-expanded truck--drone rendezvous model.
+
+\subsection{Operational network and inspection tasks}
+\label{sec:model-setting}
+
+Let \(\mathcal{T}\) be the set of transmission towers requiring inspection and let \(\mathcal{S}\) be the set of candidate road-access stops. The directed ground node set is
+\begin{equation}
+\mathcal{N}=\{0\}\cup\mathcal{S}\cup\{n+1\},
+\label{eq:sb-ground-node-set}
+\end{equation}
+where \(n=|\mathcal{S}|\), node \(0\) is the start depot and node \(n+1\) is the return depot. Ground movement is defined on a directed support graph
+\begin{equation}
+G^g=(\mathcal{N},\mathcal{A}^g),
+\qquad
+\mathcal{A}^g\subseteq\mathcal{N}\times\mathcal{N},
+\label{eq:ground-graph}
+\end{equation}
+with road distance \(l^g_{ab}\) and travel time \(t^g_{ab}\) on arc \((a,b)\in\mathcal{A}^g\). The fleet contains support vehicles \(\mathcal{V}\). Vehicle \(v\in\mathcal{V}\) carries a set of UAVs \(\mathcal{D}_v\).
+
+Each tower \(i\in\mathcal{T}\) is represented by
+\begin{equation}
+\xi_i=(p_i,h_i,pay_i,r_i,\nu_i,g_i),
+\label{eq:sb-task-tuple}
+\end{equation}
+where \(p_i\) is the tower coordinate, \(h_i\) is the inspection service time, \(pay_i\) is a payload or sensing-workload proxy, \(r_i\) is a risk score, \(\nu_i\) is an asset-value score, and \(g_i\) denotes the corridor segment used by the instance generator and neighborhood operators. Risk and value are exogenous planning inputs. In synthetic or public-GIS cases they are proxy labels, not field-validated defect labels.
+
+For every stop \(s\), let \(\mathcal{K}_s\) denote the set of candidate same-stop sortie patterns. A pattern \(k\in\mathcal{K}_s\) is an ordered tower sequence \(k=(i_1,\ldots,i_{m_k})\), \(m_k\geq 1\), launched from \(s\) and recovered at \(s\). Let \(\mathcal{T}_k\) be the towers included in \(k\), and define the membership indicator
+\begin{equation}
+\delta_{ik}=
+\begin{cases}
+1, & i\in\mathcal{T}_k,\\
+0, & \mathrm{otherwise}.
+\end{cases}
+\label{eq:sb-pattern-membership}
+\end{equation}
+The same-stop path length and duration of pattern \(k=(i_1,\ldots,i_{m_k})\) flown by UAV \(d\) are
+\begin{align}
+d^a_{sk}
+&=\|p_s-p_{i_1}\|_2
++\sum_{\ell=1}^{m_k-1}\|p_{i_\ell}-p_{i_{\ell+1}}\|_2
++\|p_{i_{m_k}}-p_s\|_2,
+\label{eq:sb-pattern-distance}\\
+\tau_{sdk}
+&=\frac{d^a_{sk}}{u^a_d}+\sum_{i\in\mathcal{T}}\delta_{ik}h_i,
+\label{eq:sb-sortie-duration}
+\end{align}
+where \(u^a_d\) is the cruise speed of UAV \(d\). Single-tower sorties are the special case \(m_k=1\); the revised model allows \(m_k>1\) whenever the whole ordered path passes the q95 energy screen.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig0_inspection_system_scene.pdf}
+\caption{Transmission-line inspection scheduling setting and modeling interface. A crew vehicle travels between road-access candidate stops; UAV sorties inspect one or more towers along a transmission corridor and return to the same stop; tower color indicates risk-value priority; wind and weather affect the q95 energy screen. The lower panels show how upper-quantile energy feasibility constructs same-stop sortie-pattern candidates and how the resulting feasible sortie assignments enter the risk-value schedule.}
+\label{fig:system-scene}
+\end{figure}
+
+\begin{table*}[t]
+\centering
+\caption{Main notation for the synchronized stop-batch vehicle--UAV inspection model. Superscripts \(g\) and \(a\) denote ground and aerial quantities, respectively; superscript \(v\) denotes vehicle-specific decisions; subscripts identify the indexed stop, UAV and sortie pattern. Numerical parameter settings are reported in Section~\ref{sec:experiments}.}
+\label{tab:notation}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}p{0.20\textwidth}p{0.28\textwidth}X@{}}
+\toprule
+Category & Symbol & Meaning \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Indices and sets}}\\
+Towers and stops & \(i,j\in\mathcal{T}\), \(s,r\in\mathcal{S}\), \(a,b\in\mathcal{N}\) & Tower indices, candidate-stop indices and ground-node indices, with \(\mathcal{N}=\{0\}\cup\mathcal{S}\cup\{n+1\}\). \\
+Fleet resources & \(v\in\mathcal{V}\), \(d\in\mathcal{D}_v\) & Support-vehicle index and UAV index carried by vehicle \(v\). \\
+Sortie patterns & \(k,k'\in\mathcal{K}_s\), \(\mathcal{F}\) & Candidate same-stop tower sequences from stop \(s\) and q95-feasible stop--UAV--pattern tuples. \\
+\addlinespace[2pt]
+\multicolumn{3}{@{}l}{\textit{Parameters}}\\
+Geometry and travel & \(\boldsymbol p_i,\boldsymbol p_s,l^g_{ab},t^g_{ab},u^g_v,u^a_d\) & Tower/stop coordinates, road distance, road travel time, vehicle speed and UAV cruise speed. \\
+Tower attributes & \(h_i,pay_i,r_i,\nu_i,g_i\) & Inspection service time, payload proxy, risk score, value score and corridor segment. \\
+Pattern membership & \(m_k,\mathcal{T}_k,\delta_{ik},\gamma_{ikd},\chi_{ikd}\) & Number of towers in pattern \(k\), included tower set, membership flag, and within-sortie elapsed times to tower service start and completion. \\
+Weather and battery & \(\omega=(u^w,\theta^w,\vartheta,\eta^w),B_d,\rho,z_\epsilon\) & Wind speed, wind direction, temperature, uncertainty level, battery capacity, reserve ratio and one-sided quantile coefficient. \\
+Energy coefficients & \(e_0,\kappa_f,\kappa_h,\kappa_s,\kappa_p,\kappa_w,\kappa_\vartheta,\zeta_w,\vartheta_0,\Delta_\vartheta\) & Physical energy constants for base, flight, hover, sensing, payload, wind and temperature effects. \\
+Surrogate parameters & \(\boldsymbol\theta,s_\theta,\sigma_{\min},\underline\kappa,\overline\kappa\) & Residual-surrogate coefficients, residual scale, uncertainty floor and lower/upper clipping factors. \\
+Objective parameters & \(\lambda_R,\lambda_C,\lambda_G,\lambda_E,R_0,C_0,G_0,E_0,M\) & Objective weights, normalization constants and big-\(M\). \\
+Priority normalization & \(\alpha_r,\alpha_\nu,\alpha_{r\nu},\varepsilon_r,\varepsilon_\nu,\varepsilon_\psi\) & Risk-value priority weights and small denominators used only for normalization. \\
+\addlinespace[2pt]
+\multicolumn{3}{@{}l}{\textit{Decision variables}}\\
+Route variables & \(x^v_{ab},z^v_s,g_v,u^v_s\) & Vehicle arc-use, stop-visit, vehicle-use and MTZ route-order variables. \\
+Assignment and order & \(y^v_{sdk},q^v_{sdkk'}\) & Stop--UAV--sortie-pattern assignment and same-UAV sortie order variables. \\
+Timing variables & \(A^v_a,D^v_a,L^v_{sdk},R^v_{sdk},S_i,C_i,C_{\max}\) & Vehicle arrival/departure, sortie launch/recovery, tower inspection start/completion and mission completion time. \\
+\addlinespace[2pt]
+\multicolumn{3}{@{}l}{\textit{Auxiliary quantities}}\\
+Energy service quantities & \(d^a_{sk},\tau_{sdk},E^{phy}_{sdk},\phi_{sdk}\) & Same-stop pattern flight distance, sortie duration, physical energy and surrogate features. \\
+Energy screen & \(\mu_{sdk},\sigma_{sdk},Q_{sdk},a_{sdk}\) & Mean energy, energy uncertainty, q95 energy and pattern feasibility. \\
+Priority and objective terms & \(\bar r_i,\bar\nu_i,\tilde\psi_i,\psi_i,R(x),G(x),E(x)\) & Normalized risk/value, priority weight and normalized objective components. \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\subsection{Upper-quantile energy service set}
+\label{sec:model-energy}
+
+The energy layer maps each candidate sortie pattern to a mean energy requirement and an uncertainty estimate. Let \(\omega=(u^w,\theta^w,\vartheta,\eta^w)\) denote wind speed, wind direction, temperature and uncertainty level. For pattern \(k\), define \(H_k=\sum_i\delta_{ik}h_i\) and \(P_k=\sum_i\delta_{ik}pay_i\). The implemented energy interface is a physics-informed residual surrogate rather than an unconstrained neural black box. Its physical component is
+\begin{align}
+E^{phy}_{sdk}=&\,e_0+\kappa_f d^a_{sk}+\kappa_h H_k+\kappa_s H_k
++\kappa_p P_k d^a_{sk} \nonumber\\
+&+\kappa_w d^a_{sk}u^w\left(1-\zeta_w\cos(\theta^w-\bar\varphi_{sk})\right)
++\kappa_\vartheta d^a_{sk}\left[|\vartheta-\vartheta_0|-\Delta_\vartheta\right]_+,
+\label{eq:sb-energy-physics}
+\end{align}
+where \(\bar\varphi_{sk}\) is the distance-weighted mean bearing over the legs of the same-stop pattern and \([x]_+=\max\{x,0\}\). The residual surrogate uses the feature vector \(\phi_{sdk}\) and coefficient vector \(\boldsymbol\theta\):
+\begin{align}
+\mu_{sdk} &=
+\min\left\{\overline\kappa E^{phy}_{sdk},
+\max\left(\underline\kappa E^{phy}_{sdk},\boldsymbol\theta^\top\phi_{sdk}\right)\right\},
+\label{eq:sb-energy-mean}\\
+\sigma_{sdk} &=
+\max\left\{\sigma_{\min},
+s_\theta(0.75+1.75\eta^w),
+\mu_{sdk}(0.025+0.10\eta^w)\right\}.
+\label{eq:surrogate}
+\end{align}
+The optimizer only uses the scheduler-facing quantities \((\mu_{sdk},\sigma_{sdk},\tau_{sdk})\). The telemetry and simulation evidence later test this interface; field deployment evidence of transmission-line inspection sorties is not claimed.
+
+The upper-quantile energy requirement is
+\begin{equation}
+Q_{sdk}=\mu_{sdk}+z_{\epsilon}\sigma_{sdk},
+\label{eq:q95}
+\end{equation}
+where \(z_{\epsilon}\) is the one-sided quantile coefficient. The q95 feasibility condition is
+\begin{equation}
+Q_{sdk}\leq B_d(1-\rho),
+\qquad s\in\mathcal{S},\ d\in\mathcal{D}_v,\ k\in\mathcal{K}_s.
+\label{eq:chance-constraint}
+\end{equation}
+The corresponding binary service indicator is
+\begin{equation}
+a_{sdk}=
+\begin{cases}
+1, & Q_{sdk}\leq B_d(1-\rho),\\
+0, & \mathrm{otherwise},
+\end{cases}
+\qquad s\in\mathcal{S},\ d\in\mathcal{D}_v,\ k\in\mathcal{K}_s.
+\label{eq:sb-service-indicator}
+\end{equation}
+The feasible service set is
+\begin{equation}
+\mathcal{F}=\{(v,s,d,k):v\in\mathcal{V},\ s\in\mathcal{S},
+d\in\mathcal{D}_v,\ k\in\mathcal{K}_s,\ a_{sdk}=1\}.
+\label{eq:feasible-sortie-set}
+\end{equation}
+This rule is a deterministic conservative interface between energy prediction and routing. It is not a full stochastic program. Its purpose is to keep the scheduler from selecting multi-tower sortie patterns that are feasible only under optimistic mean-energy estimates.
+
+\subsection{Unified risk-value priority and objective}
+\label{sec:model-objective}
+
+The inspection objective should penalize delayed service of high-risk and high-value towers. To avoid inconsistent priority definitions across construction, optimization and evaluation, risk-value priority is defined once. Normalized risk and value are
+\begin{align}
+\bar r_i &=
+\frac{r_i-\min_{j\in\mathcal{T}} r_j}
+{\max_{j\in\mathcal{T}} r_j-\min_{j\in\mathcal{T}} r_j+\varepsilon_r},
+\label{eq:sb-risk-normalization}\\
+\bar \nu_i &=
+\frac{\nu_i-\min_{j\in\mathcal{T}} \nu_j}
+{\max_{j\in\mathcal{T}} \nu_j-\min_{j\in\mathcal{T}} \nu_j+\varepsilon_{\nu}}.
+\label{eq:sb-value-normalization}
+\end{align}
+The unnormalized and normalized priority weights are
+\begin{align}
+\tilde\psi_i
+&=\alpha_r\bar r_i+\alpha_{\nu}\bar \nu_i+\alpha_{r\nu}\bar r_i\bar \nu_i,
+\label{eq:sb-priority-raw}\\
+\psi_i
+&=\frac{\tilde\psi_i}
+{\sum_{j\in\mathcal{T}}\tilde\psi_j+\varepsilon_{\psi}}.
+\label{eq:risk-value-weight}
+\end{align}
+The parameters \(\alpha_r,\alpha_{\nu},\alpha_{r\nu}\) are nonnegative. If all proxy scores are zero in a diagnostic instance, \(\psi_i=1/|\mathcal{T}|\) is used.
+
+The risk-weighted completion term, ground-travel term and q95 energy term are
+\begin{align}
+R(x)&=\sum_{i\in\mathcal{T}}\psi_i C_i,
+\label{eq:sb-rwct}\\
+G(x)&=\sum_{v\in\mathcal{V}}\sum_{(a,b)\in\mathcal{A}^g}t^g_{ab}x^v_{ab},
+\label{eq:sb-ground-term}\\
+E(x)&=\sum_{v\in\mathcal{V}}\sum_{s\in\mathcal{S}}
+\sum_{d\in\mathcal{D}_v}\sum_{k\in\mathcal{K}_s}Q_{sdk}y^v_{sdk}.
+\label{eq:sb-energy-term}
+\end{align}
+The scalar scheduling objective is written in normalized form:
+\begin{equation}
+\min F(x)=
+\lambda_R\frac{R(x)}{R_0}
++\lambda_C\frac{C_{\max}}{C_0}
++\lambda_G\frac{G(x)}{G_0}
++\lambda_E\frac{E(x)}{E_0}.
+\label{eq:objective}
+\end{equation}
+Here \(R_0,C_0,G_0,E_0\) are positive scaling constants and the \(\lambda\)'s are nonnegative weights. The primary inspection term is \(R(x)\), while \(C_{\max}\), ground travel and energy balance schedule compactness, support-vehicle movement and conservative battery use. The results section should still report RWCT, makespan, vehicle movement, q95 energy, infeasible-sortie rate, sortie count, average towers per sortie and top-risk coverage separately rather than relying on a single scalar objective value.
+
+\subsection{Synchronized stop-batch MILP}
+\label{sec:model-milp}
+
+The model uses binary route variables \(x^v_{ab}\), stop-visit variables \(z^v_s\), vehicle-use variables \(g_v\), sortie-pattern assignment variables \(y^v_{sdk}\), and same-UAV sortie sequencing variables \(q^v_{sdkk'}\). Continuous variables \(A^v_a\) and \(D^v_a\) record vehicle arrival and departure times, \(L^v_{sdk}\) and \(R^v_{sdk}\) record UAV launch and recovery times, \(S_i\) and \(C_i\) record tower service start and completion times, \(C_{\max}\) records mission completion, and \(u^v_s\) is the MTZ route-order variable. The complete model is:
+
+\paragraph{Coverage and assignment.}
+Each tower is inspected exactly once by one selected sortie pattern:
+\begin{equation}
+\sum_{v\in\mathcal{V}}\sum_{s\in\mathcal{S}}\sum_{d\in\mathcal{D}_v}
+\sum_{k\in\mathcal{K}_s}\delta_{ik}y^v_{sdk}=1,
+\qquad \forall i\in\mathcal{T}.
+\label{eq:sb-coverage}
+\end{equation}
+Assignments are allowed only from visited stops and only on q95-feasible sortie patterns:
+\begin{align}
+y^v_{sdk} &\leq z^v_s,
+\qquad \forall v\in\mathcal{V},\ s\in\mathcal{S},\ d\in\mathcal{D}_v,\ k\in\mathcal{K}_s,
+\label{eq:sb-stop-activation}\\
+y^v_{sdk} &\leq a_{sdk},
+\qquad \forall v\in\mathcal{V},\ s\in\mathcal{S},\ d\in\mathcal{D}_v,\ k\in\mathcal{K}_s.
+\label{eq:sb-energy-activation}
+\end{align}
+A visited stop must support at least one selected sortie pattern in the main model, and each stop is assigned to at most one vehicle:
+\begin{align}
+\sum_{d\in\mathcal{D}_v}\sum_{k\in\mathcal{K}_s}y^v_{sdk}
+&\geq z^v_s,
+\qquad \forall v\in\mathcal{V},s\in\mathcal{S},
+\label{eq:sb-visited-stop-use}\\
+\sum_{v\in\mathcal{V}} z^v_s
+&\leq 1,
+\qquad \forall s\in\mathcal{S}.
+\label{eq:sb-one-vehicle-per-stop}
+\end{align}
+
+\paragraph{Vehicle route.}
+Each used vehicle leaves the start depot and returns to the return depot:
+\begin{align}
+\sum_{s\in\mathcal{S}}x^v_{0s}&=g_v,
+\qquad \forall v\in\mathcal{V},
+\label{eq:sb-start-depot}\\
+\sum_{s\in\mathcal{S}}x^v_{s,n+1}&=g_v,
+\qquad \forall v\in\mathcal{V}.
+\label{eq:sb-return-depot}
+\end{align}
+Flow conservation links the route to visited stops:
+\begin{align}
+\sum_{a\in\mathcal{N}\setminus\{s\}}x^v_{as}&=z^v_s,
+\qquad \forall v\in\mathcal{V},s\in\mathcal{S},
+\label{eq:sb-inflow}\\
+\sum_{b\in\mathcal{N}\setminus\{s\}}x^v_{sb}&=z^v_s,
+\qquad \forall v\in\mathcal{V},s\in\mathcal{S}.
+\label{eq:sb-outflow}
+\end{align}
+No route enters the start depot or leaves the return depot:
+\begin{equation}
+\sum_{a\in\mathcal{N}\setminus\{0\}}x^v_{a0}=0,\qquad
+\sum_{b\in\mathcal{N}\setminus\{n+1\}}x^v_{n+1,b}=0,
+\qquad \forall v\in\mathcal{V}.
+\label{eq:sb-depot-direction}
+\end{equation}
+Subtours among candidate stops are eliminated with MTZ constraints:
+\begin{align}
+0\leq u^v_s &\leq |\mathcal{S}|z^v_s,
+\qquad \forall v\in\mathcal{V},s\in\mathcal{S},
+\label{eq:sb-mtz-bound}\\
+u^v_s-u^v_r+|\mathcal{S}|x^v_{sr}
+&\leq |\mathcal{S}|-1,
+\qquad \forall v\in\mathcal{V},\ s\neq r,\ s,r\in\mathcal{S}.
+\label{eq:sb-mtz}
+\end{align}
+
+\paragraph{Vehicle timing.}
+The depot start time is fixed at zero:
+\begin{equation}
+A^v_0=D^v_0=0,
+\qquad \forall v\in\mathcal{V}.
+\label{eq:sb-depot-time}
+\end{equation}
+Arrival and departure times are active only at visited stops, and departure cannot precede arrival:
+\begin{align}
+0\leq A^v_s &\leq Mz^v_s,
+\qquad \forall v\in\mathcal{V},\ s\in\mathcal{S},
+\label{eq:sb-arrival-active}\\
+0\leq D^v_s &\leq Mz^v_s,
+\qquad \forall v\in\mathcal{V},\ s\in\mathcal{S},
+\label{eq:sb-departure-active}\\
+D^v_s &\geq A^v_s,
+\qquad \forall v\in\mathcal{V},\ s\in\mathcal{S}.
+\label{eq:sb-departure-after-arrival}
+\end{align}
+Ground travel propagates time along selected arcs:
+\begin{equation}
+A^v_b\geq D^v_a+t^g_{ab}-M(1-x^v_{ab}),
+\qquad \forall v\in\mathcal{V},(a,b)\in\mathcal{A}^g.
+\label{eq:sb-ground-time}
+\end{equation}
+
+\paragraph{UAV timing and stop-batch synchronization.}
+If pattern \(k\) is assigned to UAV \(d\) from stop \(s\) of vehicle \(v\), launch cannot precede vehicle arrival and recovery must include the full same-stop sortie duration:
+\begin{align}
+L^v_{sdk}&\geq A^v_s-M(1-y^v_{sdk}),
+\qquad \forall v,s,d,k,
+\label{eq:sb-uav-start}\\
+R^v_{sdk}&\geq L^v_{sdk}+\tau_{sdk}-M(1-y^v_{sdk}),
+\qquad \forall v,s,d,k.
+\label{eq:sb-uav-completion}
+\end{align}
+Tower-level start and completion times are linked to the within-sortie offsets of the selected pattern:
+\begin{align}
+S_i&\geq L^v_{sdk}+\gamma_{ikd}-M(1-y^v_{sdk})-M(1-\delta_{ik}),
+\qquad \forall v,s,d,k,\ i\in\mathcal{T},
+\label{eq:sb-pattern-tower-start}\\
+C_i&\geq L^v_{sdk}+\chi_{ikd}-M(1-y^v_{sdk})-M(1-\delta_{ik}),
+\qquad \forall v,s,d,k,\ i\in\mathcal{T}.
+\label{eq:sb-pattern-tower-completion}
+\end{align}
+The vehicle cannot leave stop \(s\) until every sortie launched from \(s\) has returned:
+\begin{equation}
+D^v_s\geq R^v_{sdk}-M(1-y^v_{sdk}),
+\qquad \forall v\in\mathcal{V},\ s\in\mathcal{S},\ d\in\mathcal{D}_v,\ k\in\mathcal{K}_s.
+\label{eq:sb-stop-batch-sync}
+\end{equation}
+Equation~\eqref{eq:sb-stop-batch-sync} is the core synchronization constraint. It makes the vehicle departure time a function of sortie recoveries rather than a post-hoc waiting-time proxy.
+
+\paragraph{Sequential sorties by the same UAV.}
+If two sortie patterns are assigned to the same UAV at the same vehicle-stop pair, exactly one service order must be selected:
+\begin{align}
+q^v_{sdkk'} &\leq y^v_{sdk},
+\qquad \forall v,s,d,\ k,k'\in\mathcal{K}_s,\ k\neq k',
+\label{eq:sb-seq-upper-1}\\
+q^v_{sdkk'} &\leq y^v_{sdk'},
+\qquad \forall v,s,d,\ k,k'\in\mathcal{K}_s,\ k\neq k',
+\label{eq:sb-seq-upper-2}\\
+q^v_{sdkk'}+q^v_{sdk'k}
+&\geq y^v_{sdk}+y^v_{sdk'}-1,
+\qquad \forall v,s,d,\ k,k'\in\mathcal{K}_s,\ k\neq k',
+\label{eq:sb-seq-lower}\\
+q^v_{sdkk'}+q^v_{sdk'k}
+&\leq 1,
+\qquad \forall v,s,d,\ k,k'\in\mathcal{K}_s,\ k\neq k'.
+\label{eq:sb-seq-one-direction}
+\end{align}
+If pattern \(k\) precedes pattern \(k'\) on the same UAV at the same stop, the second launch cannot occur before the first sortie has returned:
+\begin{equation}
+L^v_{sdk'}\geq R^v_{sdk}-M(1-q^v_{sdkk'}),
+\qquad \forall v,s,d,\ k,k'\in\mathcal{K}_s,\ k\neq k'.
+\label{eq:sb-seq-time}
+\end{equation}
+These constraints allow several UAVs to operate in parallel at one stop while preventing overlapping sorties by the same UAV.
+
+\paragraph{Mission completion and domains.}
+Mission completion includes both tower service completion and vehicle return:
+\begin{align}
+C_{\max}&\geq C_i,
+\qquad \forall i\in\mathcal{T},
+\label{eq:sb-cmax-tower}\\
+C_{\max}&\geq A^v_{n+1},
+\qquad \forall v\in\mathcal{V}.
+\label{eq:sb-cmax-return}
+\end{align}
+The variable domains are
+\begin{align}
+x^v_{ab},z^v_s,g_v,y^v_{sdk},q^v_{sdkk'}
+&\in\{0,1\},
+\label{eq:sb-binary-domain}\\
+A^v_a,D^v_a,L^v_{sdk},R^v_{sdk},S_i,C_i,C_{\max},u^v_s
+&\geq 0.
+\label{eq:sb-continuous-domain}
+\end{align}
+
+\subsection{Diagnostic slack and scalable-solver interface}
+\label{sec:model-interface}
+
+The main model assumes that every tower has at least one q95-feasible service option. In stress tests with extremely sparse stops, high wind or tight reserve, this condition may fail. Rather than silently assigning infeasible sorties, a diagnostic missed-service variable \(m_i\in\{0,1\}\) can be introduced:
+\begin{equation}
+\sum_{v\in\mathcal{V}}\sum_{s\in\mathcal{S}}\sum_{d\in\mathcal{D}_v}
+\sum_{k\in\mathcal{K}_s}\delta_{ik}y^v_{sdk}+m_i=1,
+\qquad \forall i\in\mathcal{T},
+\label{eq:sb-slack-coverage}
+\end{equation}
+with a large penalty \(\lambda_M\sum_i\psi_i m_i\) added to Eq.~\eqref{eq:objective}. This extension is used only for diagnostic stress cases and must be reported through missed-value or infeasible-sortie metrics.
+
+The synchronized stop-batch MILP above is the manuscript's closed mathematical target. A reduced executable small-instance reference solver is reported as a compact makespan--energy reference, not as an exact RWCT benchmark. Compact models that omit sortie-pattern assignment variables, tower completion variables \(C_i\), stop departure times \(D^v_s\), launch/recovery times \(L^v_{sdk},R^v_{sdk}\), or same-UAV sortie sequencing variables solve a narrower validation problem than Eq.~\eqref{eq:objective}.
+
+For medium and large instances, the exact formulation is used as the mathematical target while the ALNS solver evaluates moves with an explicit schedule state:
+\begin{equation}
+x^{ALNS}=
+\{R_v,\mathcal{B}_{vsd},\alpha_k,\beta_k,\delta_k,
+L^v_{sdk},R^v_{sdk},S_i,C_i\}_{v,s,d,k,i}.
+\label{eq:sb-alns-state}
+\end{equation}
+Here \(R_v\) is the ordered stop route of vehicle \(v\), \(\mathcal{B}_{vsd}\) is the ordered list of selected sortie patterns served by UAV \(d\) from stop \(s\), \(\alpha_k\) is the selected launch--recovery stop of pattern \(k\), \(\beta_k\) is the selected vehicle, and \(\delta_k\) is the selected UAV. Each executable sortie record stores the stop, UAV, ordered tower list, launch time, recovery time and q95 energy. The evaluator recomputes vehicle arrival times, UAV sortie sequences, stop departure times, \(C_i\), RWCT, q95 infeasibility, sortie count, average towers per sortie and top-risk coverage from this state. This interface keeps the scalable heuristic aligned with the mathematical model: every reported completion-time and feasibility metric is derived from the same stop-batch schedule rather than from a detached distance-only proxy.

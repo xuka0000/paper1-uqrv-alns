@@ -1,0 +1,36 @@
+\begin{table}[H]
+\centering
+\caption{Full stress-test data for uncertainty and repair components. SHW: sparse high wind; TB: tight battery; VSC: very sparse corridor. Top/feas. cov. reports nominal early top-risk coverage followed by q95-feasible early top-risk coverage. Shaded rows denote the proposed configuration; bold values indicate the best value within each stress case.}
+\label{tab:stress-results}
+\small
+\setlength{\tabcolsep}{2.7pt}
+\begin{tabular}{@{}llrrrrrrr@{}}
+\toprule
+Case & Method & Makespan $\downarrow$ & RWCT $\downarrow$ & Top/feas. cov. $\uparrow$ & Infeas. $\downarrow$ & Time (s) $\downarrow$ & Acc. & Imp. \\
+\midrule
+SHW & Fixed ALNS & \textbf{532.34} & 212 & 0.250/0.250 & 0.745 & \textbf{0.110} & 125.5 & 20.9 \\
+SHW & No UQ & 610.58 & \textbf{158} & 0.633/0.272 & 0.745 & 0.133 & 110.9 & 18.9 \\
+SHW & No risk-value & 537.53 & 215 & 0.250/0.250 & \textbf{0.555} & 0.131 & 126.7 & 18.9 \\
+SHW & No energy repair & 604.35 & 167 & \textbf{0.611/0.406} & \textbf{0.555} & 0.129 & 121.7 & 15.7 \\
+SHW & No sync repair & 604.35 & 167 & \textbf{0.611/0.406} & \textbf{0.555} & 0.133 & 122.9 & 14.9 \\
+\rowcolor{gray!10}
+SHW & \textbf{Proposed} & 613.89 & 161 & 0.850/0.394 & \textbf{0.555} & 0.210 & 107.6 & 15.2 \\
+\addlinespace[2pt]
+TB & Fixed ALNS & 511.51 & 227 & 0.244/0.244 & 0.741 & \textbf{0.148} & 126.4 & 19.6 \\
+TB & No UQ & 534.22 & 145 & 0.772/0.283 & 0.741 & 0.179 & 110.3 & 19.5 \\
+TB & No risk-value & \textbf{510.91} & 229 & 0.244/0.244 & 0.466 & 0.186 & 126.5 & 19.7 \\
+TB & No energy repair & 553.24 & 149 & 0.756/0.456 & \textbf{0.465} & 0.181 & 123.6 & 17.7 \\
+TB & No sync repair & 553.24 & 149 & 0.756/0.456 & \textbf{0.465} & 0.173 & 123.5 & 13.0 \\
+\rowcolor{gray!10}
+TB & \textbf{Proposed} & 554.10 & \textbf{140} & \textbf{0.906/0.494} & \textbf{0.465} & 0.299 & 110.6 & 16.9 \\
+\addlinespace[2pt]
+VSC & Fixed ALNS & \textbf{963.16} & 329 & 0.264/0.260 & 0.732 & \textbf{0.203} & 126.5 & 22.8 \\
+VSC & No UQ & 1064.50 & \textbf{259} & 0.624/0.284 & 0.731 & 0.234 & 110.3 & 16.3 \\
+VSC & No risk-value & 973.23 & 333 & 0.264/0.264 & \textbf{0.646} & 0.248 & 128.0 & 23.7 \\
+VSC & No energy repair & 1059.49 & 268 & \textbf{0.536/0.360} & \textbf{0.646} & 0.249 & 123.7 & 21.2 \\
+VSC & No sync repair & 1059.49 & 268 & \textbf{0.536/0.360} & \textbf{0.646} & 0.254 & 123.2 & 17.6 \\
+\rowcolor{gray!10}
+VSC & \textbf{Proposed} & 1066.27 & 262 & \textbf{0.724/0.360} & \textbf{0.646} & 0.412 & 108.1 & 19.4 \\
+\bottomrule
+\end{tabular}
+\end{table}

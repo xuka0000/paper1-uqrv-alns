@@ -1,0 +1,22 @@
+﻿\begin{table*}[t]
+\centering
+\caption{Experimental blocks and traceability from design variables to reported evidence.}
+\label{tab:experiment-conditions}
+\small
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\centering\arraybackslash}p{0.07\textwidth}>{\centering\arraybackslash}p{0.06\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\multirow{2}{*}{Result block} & \multicolumn{2}{c}{Instance design} & \multicolumn{2}{c}{Compared factors} & \multicolumn{2}{c}{Reported evidence} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+ & Scale & Seeds & Fixed settings & Varied or compared & Primary metrics & Evidence target \\
+\midrule
+S-scale reference & 10--20 towers & 10 & Shared sortie-pattern set; HiGHS-compatible compact model & HiGHS; point energy ALNS; proposed & Makespan; stop-batch evaluated RWCT/top coverage; IFR & Model--evaluator consistency, not RWCT optimality \\
+Main algorithm comparison & 30--500 towers & 10 & $\rho=0.12$; $z_\epsilon=1.645$; K-means stops & Nearest; GA; ACO; fixed ALNS; point/UQ/full energy ALNS & RWCT; top coverage; IFR; runtime & Value of UQ/risk-value scheduling over generic routing \\
+Energy prediction & 10 seeds; 209 flights & Split & Same energy-feature definitions & Fixed physics; point/probabilistic residual surrogate; telemetry linear models & MAE; RMSE; MAPE; 95\% coverage; false feasible & Whether energy uncertainty is reliable enough for q95 screening \\
+Ablation and stress & 50 towers; adverse cases & 10 & Same ALNS budget within each block & No surrogate; no UQ; no risk; no adaptive; no clustering; no repair; stress removals & RWCT; top coverage; IFR; accepted/improving moves & Mechanism contribution and adverse feasibility behavior \\
+Public GIS cases & 60 towers/30 stops & 3 seeds & Public geometry/weather; proxy labels & Same seven routing methods & RWCT; top coverage; IFR; local map & External geometry grounding without field-validation claim \\
+Scalability/screening & 30--500 towers & 10 & Proposed method unless varied & Tower count; stop mode; iterations; $z_\epsilon$; $\rho$; UAV count & Runtime; pair reduction; feasible pairs; RWCT; IFR & Stage-1 graph density and operational parameter sensitivity \\
+\bottomrule
+\end{tabularx}
+\end{table*}

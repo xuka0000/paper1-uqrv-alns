@@ -1,0 +1,168 @@
+﻿\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,left=14.8mm,right=14.8mm,top=16mm,bottom=18mm]{geometry}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage[authoryear,round]{natbib}
+\usepackage{url}
+\usepackage{hyperref}
+
+\definecolor{ElsevierBlue}{RGB}{0,126,168}
+\definecolor{ElsevierOrange}{RGB}{242,148,0}
+\definecolor{HeaderGray}{RGB}{229,229,229}
+\definecolor{RuleGray}{RGB}{120,120,120}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=ElsevierBlue,
+  citecolor=ElsevierBlue,
+  urlcolor=ElsevierBlue
+}
+
+\graphicspath{{figures/}}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{10pt plus 2pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+\captionsetup{
+  font=small,
+  labelfont=normalfont,
+  justification=raggedright,
+  singlelinecheck=false,
+  skip=4pt
+}
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{2pt}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0pt}
+\setlength{\bibsep}{2pt}
+\linespread{1.03}
+\emergencystretch=2em
+\Urlmuskip=0mu plus 2mu
+\sloppy
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\itshape Uncertainty-aware vehicle--UAV inspection scheduling}
+\fancyhead[R]{}
+\fancyfoot[C]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\journalhead}{%
+  \thispagestyle{empty}%
+  \begin{center}
+    {\footnotesize\color{ElsevierBlue}Manuscript prepared for Transportation Research Part E}
+  \end{center}
+  \vspace{2mm}
+  \noindent\rule{\textwidth}{0.35pt}
+  \vspace{2mm}
+  \noindent
+  \begin{minipage}[c][24mm][c]{0.14\textwidth}
+    \centering
+    {\large\bfseries\color{ElsevierOrange}ELSEVIER}\\[-1mm]
+    {\scriptsize Article}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c][24mm][c]{0.69\textwidth}
+    \centering
+    \colorbox{HeaderGray}{%
+      \begin{minipage}[c][22mm][c]{0.96\linewidth}
+        \centering
+        {\small Contents lists available at \textcolor{ElsevierBlue}{ScienceDirect}}\\[3mm]
+        {\Large Transportation Research Part E}\\[3mm]
+        {\small journal homepage: \textcolor{ElsevierBlue}{www.elsevier.com/locate/tre}}
+      \end{minipage}}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c][24mm][c]{0.11\textwidth}
+    \centering
+    \fbox{\begin{minipage}[c][20mm][c]{0.82\linewidth}
+      \centering\tiny TRANSPORTATION\\ RESEARCH\\ PART E
+    \end{minipage}}
+  \end{minipage}
+  \vspace{2mm}
+  \noindent\rule{\textwidth}{1.7pt}
+  \vspace{8mm}
+}
+
+\newcommand{\papertitle}{Uncertainty-aware risk-value vehicle--UAV scheduling for transmission-line inspection with probabilistic energy prediction}
+
+\newcommand{\titleblock}{%
+  {\fontsize{16}{19}\selectfont\bfseries \papertitle\par}
+  \vspace{4mm}
+  {\large Anonymous authors\par}
+  \vspace{1.5mm}
+  {\footnotesize\itshape Affiliations omitted for review\par}
+  \vspace{4mm}
+  \noindent\rule{\textwidth}{0.35pt}
+  \vspace{5mm}
+}
+
+\newcommand{\articleabstract}{%
+Large-scale transmission-line inspection increasingly relies on coordinated ground vehicles and unmanned aerial vehicles, but routing decisions remain sensitive to uncertain UAV endurance, heterogeneous tower priorities and sparse feasible stopping locations. This paper formulates transmission-line inspection as an uncertainty-aware risk-value vehicle--UAV scheduling problem. The proposed framework combines a physics-informed probabilistic energy predictor, chance-constrained sortie screening, risk-value task prioritization and an adaptive large-neighborhood search procedure. The energy branch is evaluated with both simulation-generated inspection instances and public quadcopter telemetry, while the routing branch is tested on synthetic corridor instances and public GIS-grounded tower geometries.
+
+Computational experiments cover small reference instances, medium and large instances from 30 to 500 towers, energy-prediction accuracy, ablation tests, candidate-stop screening, sensitivity analysis, GIS-grounded cases and stress scenarios. The evidence supports an algorithmic and GIS-grounded scheduling contribution, while field deployment evidence with utility inspection records remains future work.}
+
+\begin{document}
+\journalhead
+\titleblock
+
+\noindent
+\begin{minipage}[t]{0.29\textwidth}
+  {\footnotesize\bfseries A R T I C L E\quad I N F O}\par
+  \vspace{2mm}
+  \noindent{\color{RuleGray}\rule{\linewidth}{0.35pt}}
+  \vspace{2mm}
+
+  {\footnotesize
+  \textit{Keywords:}\\
+  Transmission-line inspection\\
+  Vehicle--UAV scheduling\\
+  Energy uncertainty\\
+  Risk-value routing\\
+  Adaptive large-neighborhood search\\
+  GIS-grounded experiments
+  }
+\end{minipage}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
+  {\footnotesize\bfseries A B S T R A C T}\par
+  \vspace{2mm}
+  \noindent{\color{RuleGray}\rule{\linewidth}{0.35pt}}
+  \vspace{2mm}
+
+  {\footnotesize\articleabstract}
+\end{minipage}
+
+\vspace{5mm}
+\noindent\rule{\textwidth}{0.35pt}
+
+\input{full_body}
+
+{\footnotesize
+\raggedright
+\setlength{\bibsep}{0pt plus 0.2ex}
+\bibliographystyle{plainnat}
+\bibliography{../elsevier/tre_references,tre_published_extra_references}
+}
+
+\end{document}

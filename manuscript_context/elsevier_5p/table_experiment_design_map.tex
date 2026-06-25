@@ -1,0 +1,20 @@
+﻿\begin{table}[H]
+\centering
+\caption{Experiment-design map connecting the model components, controlled comparisons and result evidence.}
+\label{tab:experiment-design-map}
+\small
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Result block & Question being tested & Model or algorithm link & Main control & Evidence artifact & Claim boundary \\
+\midrule
+S-scale reference & Do the compact model and schedule evaluator operate on compatible scales? & Service graph; assignment; completion time & HiGHS vs ALNS variants & Table~\ref{tab:small-reference} & Sanity/reference check only \\
+Algorithm comparison & Does UQ/risk-value scheduling change priority performance beyond generic routing? & Objective Eq.~\eqref{eq:objective}; state Eq.~\eqref{eq:state} & Seven baseline families & Table~\ref{tab:algorithm-results}; Fig.~\ref{fig:algorithm-effects} & Heuristic comparison under matched seeds \\
+Energy evidence & Is the q95 energy gate supported by prediction and calibration evidence? & Eqs.~\eqref{eq:surrogate}--\eqref{eq:chance-constraint} & Fixed/point/probabilistic and telemetry models & Table~\ref{tab:energy-evidence}; Fig.~\ref{fig:energy-evidence} & External UAV telemetry is calibration evidence, not field deployment evidence \\
+Ablation/stress & Which components drive robust behavior under adverse feasibility? & q95 sortie-pattern set; risk-value repair; ALNS operators & Component removals and stress cases & Tables~\ref{tab:ablation-results}--\ref{tab:stress-results}; Fig.~\ref{fig:stress} & Operator effects are bounded by the order-based implementation \\
+Public GIS & Can the same pipeline be instantiated on public tower geometry/weather? & GIS-loaded $\mathcal{T}$, $\mathcal{S}$ and weather state & Region and baseline family & Table~\ref{tab:gis-results}; Fig.~\ref{fig:gis} & Public geometry plus proxy risk/value only \\
+Scale and screening & How does Stage-1 graph density affect runtime, feasibility and risk-time? & Feasible set $\mathcal{F}$ in Eq.~\eqref{eq:service-graph} & Tower count; stop mode; parameters & Tables~\ref{tab:scalability-screening}--\ref{tab:sensitivity-results}; Fig.~\ref{fig:scale} & Python-prototype runtime and controlled generator settings \\
+\bottomrule
+\end{tabularx}
+\end{table}

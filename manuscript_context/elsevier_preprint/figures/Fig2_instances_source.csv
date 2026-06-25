@@ -1,0 +1,12 @@
+size,tower_count,stop_count,vehicle_count,uavs_per_vehicle,purpose
+S,10,5,1,1,compact MILP reference validation
+S,15,8,1,2,compact MILP reference validation
+S,20,10,1,2,compact MILP reference validation
+M,30,15,2,2,algorithm comparison
+M,50,25,2,2,algorithm comparison
+M,75,35,3,3,algorithm comparison
+M,100,50,3,3,algorithm comparison
+L,150,75,3,2,scalability test
+L,200,100,4,3,scalability test
+L,300,150,5,3,scalability test
+L,500,250,5,4,scalability test

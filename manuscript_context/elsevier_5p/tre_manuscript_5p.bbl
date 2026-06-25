@@ -1,0 +1,315 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{murray2015flying}
+C.~C. Murray, A.~G. Chu, The flying sidekick traveling salesman problem:
+  Optimization of drone-assisted parcel delivery, Transportation Research Part
+  C: Emerging Technologies 54 (2015) 86--109.
+\newblock \href {https://doi.org/10.1016/j.trc.2015.03.005}
+  {\path{doi:10.1016/j.trc.2015.03.005}}.
+
+\bibitem{dorling2017vehicle}
+K.~Dorling, J.~Heinrichs, G.~G. Messier, S.~Magierowski, Vehicle routing
+  problems for drone delivery, IEEE Transactions on Systems, Man, and
+  Cybernetics: Systems 47~(1) (2017) 70--85.
+\newblock \href {https://doi.org/10.1109/TSMC.2016.2582745}
+  {\path{doi:10.1109/TSMC.2016.2582745}}.
+
+\bibitem{otto2018survey}
+A.~Otto, N.~Agatz, J.~Campbell, B.~Golden, E.~Pesch, Optimization approaches
+  for civil applications of unmanned aerial vehicles (uavs) or aerial drones: A
+  survey, Networks 72~(4) (2018) 411--458.
+\newblock \href {https://doi.org/10.1002/net.21818}
+  {\path{doi:10.1002/net.21818}}.
+
+\bibitem{kim2026bidirectional}
+H.~Kim, D.~Sari Darmawi~Purba, E.~Kontou, Bidirectional energy supply logistics
+  using uncrewed electric aerial and ground vehicles: A two-echelon
+  location-routing problem with resource-constrained demand allocation and time
+  windows, Transportation Research Part E: Logistics and Transportation Review
+  209 (2026) 104726.
+\newblock \href {https://doi.org/10.1016/j.tre.2026.104726}
+  {\path{doi:10.1016/j.tre.2026.104726}}.
+
+\bibitem{liu2026evtol}
+S.~Liu, Y.~Yu, Q.~Tian, H.~Sun, Routing optimization for an evtol-and-drone
+  delivery system in continuous space with no-fly zones: A reinforcement
+  learning approach, Transportation Research Part E: Logistics and
+  Transportation Review 209 (2026) 104741.
+\newblock \href {https://doi.org/10.1016/j.tre.2026.104741}
+  {\path{doi:10.1016/j.tre.2026.104741}}.
+
+\bibitem{zhang2026airground}
+Y.~Zhang, C.~Yang, H.~Xi, S.~Peng, J.~Yang, M.~Gan, X.~Liu, R.~Ai, Air-ground
+  multimodal transport planning for joint passenger mobility and parcel
+  delivery: Integration of drones, aircraft, and ground vehicles,
+  Transportation Research Part E: Logistics and Transportation Review 210
+  (2026) 104825.
+\newblock \href {https://doi.org/10.1016/j.tre.2026.104825}
+  {\path{doi:10.1016/j.tre.2026.104825}}.
+
+\bibitem{shi2026llm}
+H.~Shi, L.~Zhen, Llm-based automatic heuristic design for vehicle-drone
+  collaborative routing problems, Transportation Research Part E: Logistics and
+  Transportation Review 209 (2026) 104760.
+\newblock \href {https://doi.org/10.1016/j.tre.2026.104760}
+  {\path{doi:10.1016/j.tre.2026.104760}}.
+
+\bibitem{yang2025integrated}
+R.~Yang, X.~Li, Integrated order splitting, allocation, and delivery problem
+  with a synchronized truck and drone fleet, Transportation Research Part E:
+  Logistics and Transportation Review 202 (2025) 104217.
+\newblock \href {https://doi.org/10.1016/j.tre.2025.104217}
+  {\path{doi:10.1016/j.tre.2025.104217}}.
+
+\bibitem{hui2019monocular}
+X.~Hui, J.~Bian, X.~Zhao, M.~Tan, A monocular-based navigation approach for
+  unmanned aerial vehicle safe and autonomous transmission-line inspection,
+  International Journal of Advanced Robotic Systems 16~(1) (2019)
+  1729881419829941.
+\newblock \href {https://doi.org/10.1177/1729881419829941}
+  {\path{doi:10.1177/1729881419829941}}.
+
+\bibitem{li2021uavtransmission}
+X.~Li, Z.~Li, H.~Wang, W.~Li, Unmanned aerial vehicle for transmission line
+  inspection: Status, standardization, and perspectives, Frontiers in Energy
+  Research 9 (2021) 713634.
+\newblock \href {https://doi.org/10.3389/fenrg.2021.713634}
+  {\path{doi:10.3389/fenrg.2021.713634}}.
+
+\bibitem{nguyen2018visionreview}
+V.~N. Nguyen, R.~Jenssen, D.~Roverso, Automatic autonomous vision-based power
+  line inspection: A review of current status and the potential role of deep
+  learning, International Journal of Electrical Power \& Energy Systems 99
+  (2018) 107--120.
+\newblock \href {https://doi.org/10.1016/j.ijepes.2017.12.016}
+  {\path{doi:10.1016/j.ijepes.2017.12.016}}.
+
+\bibitem{liu2021uavlidar}
+H.~Guan, X.~Sun, Y.~Su, T.~Hu, H.~Wang, H.~Wang, C.~Peng, Q.~Guo, Uav-lidar
+  aids automatic intelligent powerline inspection, International Journal of
+  Electrical Power \& Energy Systems 130 (2021) 106987.
+\newblock \href {https://doi.org/10.1016/j.ijepes.2021.106987}
+  {\path{doi:10.1016/j.ijepes.2021.106987}}.
+
+\bibitem{zhang2020visualinspection}
+X.~Liu, X.~Miao, H.~Jiang, J.~Chen, Data analysis in visual power line
+  inspection: An in-depth review of deep learning for component detection and
+  fault diagnosis, Annual Reviews in Control 50 (2020) 253--277.
+\newblock \href {https://doi.org/10.1016/j.arcontrol.2020.09.002}
+  {\path{doi:10.1016/j.arcontrol.2020.09.002}}.
+
+\bibitem{stolaroff2018energy}
+J.~K. Stolaroff, C.~Samaras, E.~R. O'Neill, A.~Lubers, A.~S. Mitchell,
+  D.~Ceperley, Energy use and life cycle greenhouse gas emissions of drones for
+  commercial package delivery, Nature Communications 9~(1) (2018) 409.
+\newblock \href {https://doi.org/10.1038/s41467-017-02411-5}
+  {\path{doi:10.1038/s41467-017-02411-5}}.
+
+\bibitem{zhang2021energyconsumption}
+J.~Zhang, J.~F. Campbell, D.~C. Sweeney, A.~C. Hupman, Energy consumption
+  models for delivery drones: A comparison and assessment, Transportation
+  Research Part D: Transport and Environment 90 (2021) 102668.
+\newblock \href {https://doi.org/10.1016/j.trd.2020.102668}
+  {\path{doi:10.1016/j.trd.2020.102668}}.
+
+\bibitem{aiello2021energy}
+G.~Aiello, R.~Inguanta, G.~D'Angelo, M.~Venticinque, Energy consumption model
+  of aerial urban logistic infrastructures, Energies 14~(18) (2021) 5998.
+\newblock \href {https://doi.org/10.3390/en14185998}
+  {\path{doi:10.3390/en14185998}}.
+
+\bibitem{chiang2019sustainability}
+W.-C. Chiang, Y.~Li, J.~Shang, T.~L. Urban, Impact of drone delivery on
+  sustainability and cost: Realizing the uav potential through vehicle routing
+  optimization, Applied Energy 242 (2019) 1164--1175.
+\newblock \href {https://doi.org/10.1016/j.apenergy.2019.03.117}
+  {\path{doi:10.1016/j.apenergy.2019.03.117}}.
+
+\bibitem{cokyasar2023regional}
+T.~Cokyasar, M.~Stinson, O.~Sahin, N.~Prabhakar, D.~Karbowski, Comparing
+  regional energy consumption for direct drone and truck deliveries,
+  Transportation Research Record: Journal of the Transportation Research Board
+  2677~(2) (2023) 310--327.
+\newblock \href {https://doi.org/10.1177/03611981221145137}
+  {\path{doi:10.1177/03611981221145137}}.
+
+\bibitem{agatz2018tspdrone}
+N.~Agatz, P.~Bouman, M.~Schmidt, Optimization approaches for the traveling
+  salesman problem with drone, Transportation Science 52~(4) (2018) 965--981.
+\newblock \href {https://doi.org/10.1287/trsc.2017.0791}
+  {\path{doi:10.1287/trsc.2017.0791}}.
+
+\bibitem{poikonen2019branch}
+S.~Poikonen, B.~Golden, E.~A. Wasil, A branch-and-bound approach to the
+  traveling salesman problem with a drone, INFORMS Journal on Computing 31~(2)
+  (2019) 335--346.
+\newblock \href {https://doi.org/10.1287/ijoc.2018.0826}
+  {\path{doi:10.1287/ijoc.2018.0826}}.
+
+\bibitem{roberti2021exact}
+R.~Roberti, M.~Ruthmair, Exact methods for the traveling salesman problem with
+  drone, Transportation Science 55~(2) (2021) 315--335.
+\newblock \href {https://doi.org/10.1287/trsc.2020.1017}
+  {\path{doi:10.1287/trsc.2020.1017}}.
+
+\bibitem{poikonen2017extended}
+S.~Poikonen, X.~Wang, B.~Golden, The vehicle routing problem with drones:
+  Extended models and connections, Networks 70~(1) (2017) 34--43.
+\newblock \href {https://doi.org/10.1002/net.21746}
+  {\path{doi:10.1002/net.21746}}.
+
+\bibitem{wang2017worstcase}
+X.~Wang, S.~Poikonen, B.~Golden, The vehicle routing problem with drones:
+  several worst-case results, Optimization Letters 11~(4) (2017) 679--697.
+\newblock \href {https://doi.org/10.1007/s11590-016-1035-3}
+  {\path{doi:10.1007/s11590-016-1035-3}}.
+
+\bibitem{wang2019vrpd}
+Z.~Wang, J.-B. Sheu, Vehicle routing problem with drones, Transportation
+  Research Part B: Methodological 122 (2019) 350--364.
+\newblock \href {https://doi.org/10.1016/j.trb.2019.03.005}
+  {\path{doi:10.1016/j.trb.2019.03.005}}.
+
+\bibitem{moadab2022drone}
+A.~Moadab, F.~Farajzadeh, O.~Fatahi~Valilai, Drone routing problem model for
+  last-mile delivery using the public transportation capacity as moving
+  charging stations, Scientific Reports 12 (2022) 6361.
+\newblock \href {https://doi.org/10.1038/s41598-022-10408-4}
+  {\path{doi:10.1038/s41598-022-10408-4}}.
+
+\bibitem{asoc2023recharging}
+X.~Zhang, Y.~Li, J.~Wang, Adaptive large neighborhood search algorithm for the
+  unmanned aerial vehicle routing problem with recharging, Applied Soft
+  Computing 147 (2023) 110831.
+\newblock \href {https://doi.org/10.1016/j.asoc.2023.110831}
+  {\path{doi:10.1016/j.asoc.2023.110831}}.
+
+\bibitem{schermer2019matheuristic}
+D.~Schermer, M.~Moeini, O.~Wendt, A matheuristic for the vehicle routing
+  problem with drones and its variants, Transportation Research Part C:
+  Emerging Technologies 106 (2019) 166--204.
+\newblock \href {https://doi.org/10.1016/j.trc.2019.06.016}
+  {\path{doi:10.1016/j.trc.2019.06.016}}.
+
+\bibitem{sacramento2019alns}
+D.~Sacramento, D.~Pisinger, S.~Ropke, An adaptive large neighborhood search
+  metaheuristic for the vehicle routing problem with drones, Transportation
+  Research Part C: Emerging Technologies 102 (2019) 289--315.
+\newblock \href {https://doi.org/10.1016/j.trc.2019.02.018}
+  {\path{doi:10.1016/j.trc.2019.02.018}}.
+
+\bibitem{macrina2020review}
+G.~Macrina, L.~Di~Puglia~Pugliese, F.~Guerriero, G.~Laporte, Drone-aided
+  routing: A literature review, Transportation Research Part C: Emerging
+  Technologies 120 (2020) 102762.
+\newblock \href {https://doi.org/10.1016/j.trc.2020.102762}
+  {\path{doi:10.1016/j.trc.2020.102762}}.
+
+\bibitem{liang2022survey}
+Y.-J. Liang, Z.-X. Luo, A survey of truck--drone routing problem: Literature
+  review and research prospects, Journal of the Operations Research Society of
+  China 10 (2022) 343--377.
+\newblock \href {https://doi.org/10.1007/s40305-021-00383-4}
+  {\path{doi:10.1007/s40305-021-00383-4}}.
+
+\bibitem{ulmer2018sameday}
+M.~W. Ulmer, B.~W. Thomas, Same-day delivery with heterogeneous fleets of
+  drones and vehicles, Networks 72~(4) (2018) 475--505.
+\newblock \href {https://doi.org/10.1002/net.21855}
+  {\path{doi:10.1002/net.21855}}.
+
+\bibitem{chen2022deepq}
+X.~Chen, M.~W. Ulmer, B.~W. Thomas, Deep q-learning for same-day delivery with
+  vehicles and drones, European Journal of Operational Research 298~(3) (2022)
+  939--952.
+\newblock \href {https://doi.org/10.1016/j.ejor.2021.06.021}
+  {\path{doi:10.1016/j.ejor.2021.06.021}}.
+
+\bibitem{schneider2014evrptw}
+M.~Schneider, A.~Stenger, D.~Goeke, The electric vehicle-routing problem with
+  time windows and recharging stations, Transportation Science 48~(4) (2014)
+  500--520.
+\newblock \href {https://doi.org/10.1287/trsc.2013.0490}
+  {\path{doi:10.1287/trsc.2013.0490}}.
+
+\bibitem{desaulniers2016evrp}
+G.~Desaulniers, F.~Errico, S.~Irnich, M.~Schneider, Exact algorithms for
+  electric vehicle-routing problems with time windows, Operations Research
+  64~(6) (2016) 1388--1405.
+\newblock \href {https://doi.org/10.1287/opre.2016.1535}
+  {\path{doi:10.1287/opre.2016.1535}}.
+
+\bibitem{ahmed2024powerline}
+F.~Ahmed, J.~C. Mohanta, A.~Keshari, Power transmission line inspections:
+  Methods, challenges, current status and usage of unmanned aerial systems,
+  Journal of Intelligent \& Robotic Systems 110~(2) (2024) 54.
+\newblock \href {https://doi.org/10.1007/s10846-024-02061-y}
+  {\path{doi:10.1007/s10846-024-02061-y}}.
+
+\bibitem{li2025deeppowerline}
+M.~A.~A. Faisal, I.~Mecheter, Y.~Qiblawey, J.~H. Fernandez, M.~E.~H. Chowdhury,
+  S.~Kiranyaz, Deep learning in automated power line inspection: A review,
+  Applied Energy 385 (2025) 125507.
+\newblock \href {https://doi.org/10.1016/j.apenergy.2025.125507}
+  {\path{doi:10.1016/j.apenergy.2025.125507}}.
+
+\bibitem{ropke2006alns}
+S.~Ropke, D.~Pisinger, An adaptive large neighborhood search heuristic for the
+  pickup and delivery problem with time windows, Transportation Science 40~(4)
+  (2006) 455--472.
+\newblock \href {https://doi.org/10.1287/trsc.1050.0135}
+  {\path{doi:10.1287/trsc.1050.0135}}.
+
+\bibitem{kirkpatrick1983annealing}
+S.~Kirkpatrick, C.~D. Gelatt, M.~P. Vecchi, Optimization by simulated
+  annealing, Science 220~(4598) (1983) 671--680.
+\newblock \href {https://doi.org/10.1126/science.220.4598.671}
+  {\path{doi:10.1126/science.220.4598.671}}.
+
+\bibitem{raissi2019pinn}
+M.~Raissi, P.~Perdikaris, G.~E. Karniadakis, Physics-informed neural networks:
+  A deep learning framework for solving forward and inverse problems involving
+  nonlinear partial differential equations, Journal of Computational Physics
+  378 (2019) 686--707.
+\newblock \href {https://doi.org/10.1016/j.jcp.2018.10.045}
+  {\path{doi:10.1016/j.jcp.2018.10.045}}.
+
+\bibitem{karniadakis2021piml}
+G.~E. Karniadakis, I.~G. Kevrekidis, L.~Lu, P.~Perdikaris, S.~Wang, L.~Yang,
+  Physics-informed machine learning, Nature Reviews Physics 3~(6) (2021)
+  422--440.
+\newblock \href {https://doi.org/10.1038/s42254-021-00314-5}
+  {\path{doi:10.1038/s42254-021-00314-5}}.
+
+\bibitem{lu2021deepxde}
+L.~Lu, X.~Meng, Z.~Mao, G.~E. Karniadakis, Deepxde: A deep learning library for
+  solving differential equations, SIAM Review 63~(1) (2021) 208--228.
+\newblock \href {https://doi.org/10.1137/19M1274067}
+  {\path{doi:10.1137/19M1274067}}.
+
+\bibitem{cuomo2022pinnreview}
+S.~Cuomo, V.~S. Di~Cola, F.~Giampaolo, G.~Rozza, M.~Raissi, F.~Piccialli,
+  Scientific machine learning through physics-informed neural networks: Where
+  we are and what's next, Journal of Scientific Computing 92~(3) (2022) 88.
+\newblock \href {https://doi.org/10.1007/s10915-022-01939-z}
+  {\path{doi:10.1007/s10915-022-01939-z}}.
+
+\bibitem{yang2021bpinn}
+L.~Yang, X.~Meng, G.~E. Karniadakis, B-energy surrogates: Bayesian
+  physics-informed neural networks for forward and inverse pde problems with
+  noisy data, Journal of Computational Physics 425 (2021) 109913.
+\newblock \href {https://doi.org/10.1016/j.jcp.2020.109913}
+  {\path{doi:10.1016/j.jcp.2020.109913}}.
+
+\bibitem{bertsimas2004robustness}
+D.~Bertsimas, M.~Sim, The price of robustness, Operations Research 52~(1)
+  (2004) 35--53.
+\newblock \href {https://doi.org/10.1287/opre.1030.0065}
+  {\path{doi:10.1287/opre.1030.0065}}.
+
+\end{thebibliography}

@@ -1,0 +1,47 @@
+\begin{table}[H]
+\centering
+\caption{Full sensitivity-analysis data on the 50-tower high-uncertainty case. Shaded rows denote the default proposed setting used in the main experiments; bold values indicate the best value within each sensitivity factor.}
+\label{tab:sensitivity-results}
+\small
+\setlength{\tabcolsep}{2.7pt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+Factor & Level & Makespan $\downarrow$ & RWCT $\downarrow$ & Top cov. $\uparrow$ & Infeas. $\downarrow$ & Time (s) $\downarrow$ \\
+\midrule
+
+Stop mode & direct & 489.39 & 132 & \textbf{0.958} & \textbf{0.000} & 0.107 \\
+\rowcolor{gray!10}
+Stop mode & kmeans & \textbf{441.59} & \textbf{118} & 0.933 & \textbf{0.000} & 0.104 \\
+
+Stop mode & dbscan & 493.51 & 130 & 0.675 & 0.714 & \textbf{0.030} \\
+\addlinespace[2pt]
+
+Iterations & 50 & \textbf{440.19} & 118 & \textbf{0.933} & \textbf{0.000} & \textbf{0.102} \\
+\rowcolor{gray!10}
+Iterations & 100 & 441.59 & \textbf{118} & \textbf{0.933} & \textbf{0.000} & 0.105 \\
+
+Iterations & 160 & 441.59 & \textbf{118} & \textbf{0.933} & \textbf{0.000} & 0.117 \\
+\addlinespace[2pt]
+
+$z_\epsilon$ & 1.28 & \textbf{440.22} & 119 & 0.925 & \textbf{0.000} & \textbf{0.105} \\
+\rowcolor{gray!10}
+$z_\epsilon$ & 1.645 & 441.59 & \textbf{118} & \textbf{0.933} & \textbf{0.000} & 0.108 \\
+
+$z_\epsilon$ & 1.96 & 442.53 & 120 & \textbf{0.933} & 0.004 & 0.110 \\
+\addlinespace[2pt]
+
+$\rho$ & 0.08 & 442.08 & 119 & \textbf{0.933} & \textbf{0.000} & \textbf{0.105} \\
+\rowcolor{gray!10}
+$\rho$ & 0.12 & \textbf{441.59} & \textbf{118} & \textbf{0.933} & \textbf{0.000} & 0.106 \\
+
+$\rho$ & 0.2 & 442.51 & 120 & 0.925 & 0.006 & 0.106 \\
+\addlinespace[2pt]
+
+UAV count & 2 & 465.40 & 127 & \textbf{0.942} & \textbf{0.000} & \textbf{0.105} \\
+\rowcolor{gray!10}
+UAV count & 4 & \textbf{441.59} & \textbf{118} & 0.933 & \textbf{0.000} & 0.106 \\
+
+UAV count & 6 & \textbf{441.59} & \textbf{118} & 0.933 & \textbf{0.000} & 0.110 \\
+\bottomrule
+\end{tabular}
+\end{table}

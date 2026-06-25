@@ -1,0 +1,111 @@
+\begin{table*}[t]
+\centering
+\caption{Positioning of this study relative to representative vehicle--UAV and energy-aware routing literature.}
+\label{tab:literature-position}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}lccccccX@{}}
+\toprule
+Reference & EV & UAV & Sync. & Energy UQ & Risk/value & GIS/telemetry & Solution approach \\
+\midrule
+Murray and Chu (2015) &  & Y & Y &  &  &  & MILP/heuristic truck--drone delivery formulation \\
+Sacramento et al. (2019) &  & Y & Y &  &  &  & ALNS for drone-assisted routing \\
+Moadab et al. (2022) & Y & Y & Y & partial &  &  & Drone routing with public transport capacity \\
+Kim et al. (2026) & Y & Y & Y &  &  & Y & Two-echelon energy-supply location-routing \\
+Shi and Zhen (2026) &  & Y & Y &  &  &  & LLM-assisted heuristic design \\
+This work &  & Y & Y & Y & Y & Y & Probabilistic energy screening and risk-value ALNS for inspection \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{Selected algorithm-comparison results used in the main text.}
+\label{tab:algorithm-results}
+\footnotesize
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+Towers & Method & Makespan & Risk-time & Top-risk cov. & Infeasible & Runtime (s) \\
+\midrule
+100 & Fixed ALNS & 699.95 & 327 & 0.256 & 0.0020 & 0.318 \\
+100 & Point energy ALNS & 714.43 & 189 & 0.972 & 0.0020 & 0.100 \\
+100 & UQ energy ALNS & 720.96 & 190 & 0.972 & 0.0000 & 0.098 \\
+100 & Proposed & 718.58 & 188 & 0.972 & 0.0000 & 0.429 \\
+\addlinespace[2pt]
+500 & Fixed ALNS & 3624.31 & 1702 & 0.237 & 0.0032 & 5.863 \\
+500 & Point energy ALNS & 3627.36 & 1005 & 0.984 & 0.0032 & 1.950 \\
+500 & UQ energy ALNS & 3638.98 & 1001 & 0.985 & 0.0000 & 1.903 \\
+500 & Proposed & 3701.02 & 1035 & 0.974 & 0.0000 & 7.932 \\
+\addlinespace[2pt]
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{Energy-prediction evidence from simulation and AirLab telemetry.}
+\label{tab:energy-evidence}
+\footnotesize
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Evidence block & Model & Test count & MAE & 95\% coverage & False feasible \\
+\midrule
+Simulation, high uncertainty & Fixed physics & 10 seeds & 12.96 & 0.102 & 0.0040 \\
+Simulation, high uncertainty & Point residual & 10 seeds & 9.40 & 0.430 & 0.0020 \\
+Simulation, high uncertainty & Probabilistic residual & 10 seeds & 1.30 & 1.000 & 0.0000 \\
+AirLab telemetry & Constant mean & 41 flights & 3.902 Wh & 0.976 & 0.0000 \\
+AirLab telemetry & Parameter linear & 41 flights & 2.410 Wh & 0.976 & 0.0000 \\
+AirLab telemetry & Route linear & 41 flights & 1.260 Wh & 0.976 & 0.0000 \\
+AirLab telemetry & Telemetry-weather linear & 41 flights & 0.890 Wh & 1.000 & 0.0000 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{Public GIS-grounded case evidence. Risk and value labels are generated proxies rather than utility field records.}
+\label{tab:gis-results}
+\footnotesize
+\begin{tabular}{@{}llrrrrrr@{}}
+\toprule
+Case & Best non-full & Full risk-time & Baseline risk-time & Reduction & Full cov. & Baseline cov. & Full infeas. \\
+\midrule
+Public Bay Area Full & ACO & 105 & 104 & -0.268\% & 1.000 & 1.000 & 0.000 \\
+Public Dallas Fort Worth Full & Point energy ALNS & 152 & 153 & 0.748\% & 0.867 & 1.000 & 0.100 \\
+Public Los Angeles Inland Full & GA & 142 & 141 & -0.783\% & 0.933 & 0.933 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{Stress-test summary for repair and uncertainty components. Lower risk-time and infeasible rate are better; higher top-risk coverage is better.}
+\label{tab:stress-results}
+\footnotesize
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Stress case & Method & Risk-time & Top-risk cov. & Infeasible & Improving moves \\
+\midrule
+sparse high wind & Fixed ALNS & 212 & 0.250 & 0.745 & 20.9 \\
+sparse high wind & No UQ & 158 & 0.633 & 0.745 & 18.9 \\
+sparse high wind & No risk-value & 215 & 0.250 & 0.555 & 18.9 \\
+sparse high wind & No energy repair & 167 & 0.611 & 0.555 & 15.7 \\
+sparse high wind & No sync repair & 167 & 0.611 & 0.555 & 14.9 \\
+sparse high wind & Proposed & 167 & 0.611 & 0.555 & 15.2 \\
+\addlinespace[2pt]
+tight battery & Fixed ALNS & 227 & 0.244 & 0.741 & 19.6 \\
+tight battery & No UQ & 145 & 0.772 & 0.741 & 19.5 \\
+tight battery & No risk-value & 229 & 0.244 & 0.466 & 19.7 \\
+tight battery & No energy repair & 149 & 0.756 & 0.465 & 17.7 \\
+tight battery & No sync repair & 149 & 0.756 & 0.465 & 13.0 \\
+tight battery & Proposed & 149 & 0.756 & 0.465 & 16.9 \\
+\addlinespace[2pt]
+very sparse corridor & Fixed ALNS & 329 & 0.264 & 0.732 & 22.8 \\
+very sparse corridor & No UQ & 259 & 0.624 & 0.731 & 16.3 \\
+very sparse corridor & No risk-value & 333 & 0.264 & 0.646 & 23.7 \\
+very sparse corridor & No energy repair & 268 & 0.536 & 0.646 & 21.2 \\
+very sparse corridor & No sync repair & 268 & 0.536 & 0.646 & 17.6 \\
+very sparse corridor & Proposed & 268 & 0.536 & 0.646 & 19.4 \\
+\addlinespace[2pt]
+\bottomrule
+\end{tabular}
+\end{table*}

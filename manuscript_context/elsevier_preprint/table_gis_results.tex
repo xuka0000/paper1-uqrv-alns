@@ -1,0 +1,57 @@
+﻿\begin{table}[H]
+\centering
+\caption{Full public GIS-grounded case data. Geometry and weather are public data; risk/value labels remain proxies. Shaded rows denote the proposed configuration; bold values indicate the best value within each region.}
+\label{tab:gis-results}
+\small
+\setlength{\tabcolsep}{2.7pt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+Case & Method & Makespan $\downarrow$ & RWCT $\downarrow$ & Top cov. $\uparrow$ & Infeas. $\downarrow$ & Time (s) $\downarrow$ \\
+\midrule
+
+Bay Area & Nearest & 323.25 & 142 & 0.400 & \textbf{0.000} & \textbf{0.004} \\
+
+Bay Area & GA & 304.35 & 108 & \textbf{1.000} & \textbf{0.000} & 0.059 \\
+
+Bay Area & ACO & 299.29 & \textbf{105} & \textbf{1.000} & \textbf{0.000} & 0.102 \\
+
+Bay Area & Fixed ALNS & 328.21 & 149 & 0.200 & \textbf{0.000} & 0.096 \\
+
+Bay Area & Point energy ALNS & 312.55 & 109 & 0.933 & \textbf{0.000} & 0.029 \\
+
+Bay Area & UQ energy ALNS & 306.19 & 109 & 0.933 & \textbf{0.000} & 0.029 \\
+\rowcolor{gray!10}
+Bay Area & \textbf{Proposed} & \textbf{298.63} & 106 & \textbf{1.000} & \textbf{0.000} & 0.125 \\
+\addlinespace[2pt]
+
+Dallas--Fort Worth & Nearest & 599.58 & 306 & 0.067 & 0.117 & \textbf{0.004} \\
+
+Dallas--Fort Worth & GA & 555.47 & 158 & \textbf{1.000} & 0.117 & 0.076 \\
+
+Dallas--Fort Worth & ACO & 555.47 & 158 & \textbf{1.000} & 0.117 & 0.122 \\
+
+Dallas--Fort Worth & Fixed ALNS & 600.92 & 319 & 0.000 & 0.117 & 0.117 \\
+
+Dallas--Fort Worth & Point energy ALNS & 544.04 & 156 & \textbf{1.000} & 0.117 & 0.038 \\
+
+Dallas--Fort Worth & UQ energy ALNS & 566.70 & 159 & \textbf{1.000} & \textbf{0.100} & 0.035 \\
+\rowcolor{gray!10}
+Dallas--Fort Worth & \textbf{Proposed} & \textbf{535.56} & \textbf{155} & 0.867 & \textbf{0.100} & 0.157 \\
+\addlinespace[2pt]
+
+Los Angeles inland & Nearest & 461.81 & 231 & 0.200 & \textbf{0.000} & \textbf{0.004} \\
+
+Los Angeles inland & GA & 427.07 & 143 & \textbf{0.933} & \textbf{0.000} & 0.068 \\
+
+Los Angeles inland & ACO & 427.07 & 143 & \textbf{0.933} & \textbf{0.000} & 0.117 \\
+
+Los Angeles inland & Fixed ALNS & \textbf{423.16} & 211 & 0.133 & \textbf{0.000} & 0.110 \\
+
+Los Angeles inland & Point energy ALNS & 428.79 & 143 & \textbf{0.933} & \textbf{0.000} & 0.035 \\
+
+Los Angeles inland & UQ energy ALNS & 428.79 & 143 & \textbf{0.933} & \textbf{0.000} & 0.035 \\
+\rowcolor{gray!10}
+Los Angeles inland & \textbf{Proposed} & 430.27 & \textbf{142} & \textbf{0.933} & \textbf{0.000} & 0.140 \\
+\bottomrule
+\end{tabular}
+\end{table}

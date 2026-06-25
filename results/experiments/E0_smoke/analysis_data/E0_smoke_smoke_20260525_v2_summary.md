@@ -1,0 +1,7 @@
+# E0_smoke Summary
+
+| method | size | uncertainty | n | makespan_mean | makespan_sd | total_vehicle_distance_mean | total_vehicle_distance_sd | expected_energy_mean | expected_energy_sd | energy_violation_rate_mean | energy_violation_rate_sd | infeasible_sortie_rate_mean | infeasible_sortie_rate_sd | risk_weighted_completion_time_mean | risk_weighted_completion_time_sd | top_risk_coverage_mean | top_risk_coverage_sd | missed_value_mean | missed_value_sd | solver_runtime_mean | solver_runtime_sd |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| alns_point | S | medium | 2 | 62.3602 | 2.185111 | 80.588028 | 9.284563 | 709.791638 | 64.811425 | 0.0 | 0.0 | 0.0 | 0.0 | 8233.238755 | 2406.398486 | 1.0 | 0.0 | 0.0 | 0.0 | 0.001221 | 9e-06 |
+| greedy_nearest | S | medium | 2 | 62.119186 | 3.754087 | 84.328563 | 11.02489 | 709.791638 | 64.811425 | 0.0 | 0.0 | 0.0 | 0.0 | 13001.150192 | 4331.58254 | 0.0 | 0.0 | 0.0 | 0.0 | 0.000192 | 4.1e-05 |
+| uq_rv_alns | S | medium | 2 | 62.3602 | 2.185111 | 80.588028 | 9.284563 | 709.791638 | 64.811425 | 0.0 | 0.0 | 0.0 | 0.0 | 8233.238755 | 2406.398486 | 1.0 | 0.0 | 0.0 | 0.0 | 0.001243 | 6.6e-05 |

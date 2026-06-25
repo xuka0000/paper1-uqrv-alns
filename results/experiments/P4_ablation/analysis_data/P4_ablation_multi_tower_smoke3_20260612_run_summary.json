@@ -1,0 +1,8 @@
+{
+  "experiment_id": "P4_ablation",
+  "run_id": "multi_tower_smoke3_20260612",
+  "row_count": 16,
+  "raw_data": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P4_ablation\\raw_data\\P4_ablation_multi_tower_smoke3_20260612_raw.csv",
+  "summary_csv": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P4_ablation\\analysis_data\\P4_ablation_multi_tower_smoke3_20260612_summary.csv",
+  "summary_md": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P4_ablation\\analysis_data\\P4_ablation_multi_tower_smoke3_20260612_summary.md"
+}

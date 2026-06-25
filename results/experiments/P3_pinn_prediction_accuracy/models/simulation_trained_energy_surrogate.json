@@ -1,0 +1,24 @@
+{
+  "coefficients": [
+    -13.296753690771292,
+    190.9625746193375,
+    -161.87740473239808,
+    -18.21983549397101,
+    0.39661518757558845,
+    5.521915522124384,
+    -0.6182556359344414,
+    2.1982272280173225,
+    0.5182864152766485,
+    7.065837982037577
+  ],
+  "residual_std": 2.5,
+  "energy_model": {
+    "battery_capacity": 150.0,
+    "reserve_ratio": 0.12,
+    "quantile_z": 1.645,
+    "drone_speed_kmph": 46.0
+  },
+  "evidence_level": "simulation_trained",
+  "training_status": "simulation_trained_not_field_validated",
+  "source_model": "physics_informed_residual_ridge_surrogate"
+}

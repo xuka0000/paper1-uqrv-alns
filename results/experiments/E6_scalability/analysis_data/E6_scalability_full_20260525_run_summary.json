@@ -1,0 +1,8 @@
+{
+  "experiment_id": "E6_scalability",
+  "run_id": "full_20260525",
+  "row_count": 60,
+  "raw_data": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\E6_scalability\\raw_data\\E6_scalability_full_20260525_raw.csv",
+  "summary_csv": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\E6_scalability\\analysis_data\\E6_scalability_full_20260525_summary.csv",
+  "summary_md": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\E6_scalability\\analysis_data\\E6_scalability_full_20260525_summary.md"
+}

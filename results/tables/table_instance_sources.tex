@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\caption{Instance blocks, data attributes and evidence boundaries used in the computational study.}
+\label{tab:instance-sources}
+\small
+\setlength{\tabcolsep}{2.4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\centering\arraybackslash}p{0.08\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.13\textwidth}@{}}
+\toprule
+\multirow{2}{*}{Block} & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{Observed or generated inputs} & \multicolumn{2}{c}{Experimental use} & \multirow{2}{*}{Boundary} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+ & & Source & Key fields & Controlled fields & Result blocks & \\
+\midrule
+Synthetic corridors & S/M/L & Seeded corridor generator & Tower $x,y$; corridor segment; candidate stops; weather state & Risk; value; service time; payload; stop-generation mode & S-scale reference; algorithm comparison; ablation; screening; sensitivity & Controlled simulation, not utility work orders \\
+Public GIS cases & 3 regions & OpenStreetMap towers, HIFLD line context and NASA POWER weather \citep{openstreetmap2026,hifld2026transmission,nasaPower2026} & Projected tower geometry; local weather; 60 towers; 30 stops & Proxy risk/value labels; generated road-access stops & GIS map; GIS baseline table; operating-state diagnostic & Public-data grounded geometry; no field-operation claim \\
+AirLab telemetry & 209 flights & Public AirLab package-delivery UAV telemetry \citep{airlab2021dataset} & Route variables; weather variables; measured energy & Train/test split; model family; calibration features & Energy table; energy figure; scheduler-interface check & UAV energy calibration only, not line-inspection telemetry \\
+Stress/screening variants & M/L & Perturbed synthetic generator and candidate-stop modes & Wind; battery reserve; stop density; feasible-pair count & Sparse high wind; tight battery; DBSCAN/K-means/direct; UAV count & Stress tests; scalability; response surface & Mechanism robustness under controlled adverse settings \\
+\bottomrule
+\end{tabularx}
+\end{table*}

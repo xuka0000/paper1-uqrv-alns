@@ -1,0 +1,25 @@
+Revision-highlight validation for experiment data updates
+Date: 2026-06-14
+
+Issue checked:
+- The modified-assumption experiment data had been updated in manuscript tables, figures and result text, but table captions and several experimental figure captions were not visibly marked with the revision color.
+
+Actions applied:
+- Added visible \rev{} highlighting to experiment setup and result-table captions in both manuscript versions.
+- Added visible \rev{} highlighting to experimental data-figure captions in full_body.tex for both manuscript versions.
+- Added visible \rev{} highlighting to previously unmarked result-analysis paragraphs in the small reference, L-scale algorithm comparison, ablation/stress, public GIS and scalability/screening result blocks.
+
+Verified source markers:
+- Published-style full_body.tex \rev{} count: 23.
+- Single-column full_body.tex \rev{} count: 23.
+- Published-style table files \rev{} count: 15.
+- Single-column table files \rev{} count: 15.
+
+Compile verification:
+- compile_all_latex.ps1 completed with exit code 0.
+- tre_published_style.pdf rebuilt: 28 pages, 4242904 bytes.
+- tre_submission_current.pdf rebuilt: 28 pages, 4289789 bytes.
+- Final log scan found no Fatal error, Emergency stop, LaTeX Error, undefined references, Citation undefined or Reference undefined entries.
+
+Boundary:
+- The numerical data were not altered in this pass. This pass only made the already-updated experiment figures, tables and related prose visibly marked in the highlighted manuscript.

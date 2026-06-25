@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="526.79952pt" height="199.19952pt" viewBox="0 0 526.79952 199.19952" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-05-25T13:46:19.472428</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 199.19952 
+L 526.79952 199.19952 
+L 526.79952 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 27.695981 84.815798 
+L 94.307918 84.815798 
+L 94.307918 44.159904 
+L 27.695981 44.159904 
+z
+" clip-path="url(#p4daa27bb5e)" style="fill: #bfdfd2; stroke: #51999f; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 119.927894 84.815798 
+L 186.539832 84.815798 
+L 186.539832 44.159904 
+L 119.927894 44.159904 
+z
+" clip-path="url(#p4daa27bb5e)" style="fill: #bfdfd2; stroke: #51999f; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 222.407798 84.815798 
+L 289.019736 84.815798 
+L 289.019736 44.159904 
+L 222.407798 44.159904 
+z
+" clip-path="url(#p4daa27bb5e)" style="fill: #bfdfd2; stroke: #51999f; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 335.135693 84.815798 
+L 401.74763 84.815798 
+L 401.74763 44.159904 
+L 335.135693 44.159904 
+z
+" clip-path="url(#p4daa27bb5e)" style="fill: #bfdfd2; stroke: #51999f; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 437.615597 84.815798 
+L 504.227534 84.815798 
+L 504.227534 44.159904 
+L 437.615597 44.159904 
+z
+" clip-path="url(#p4daa27bb5e)" style="fill: #bfdfd2; stroke: #51999f; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 119.927894 162.431597 
+L 186.539832 162.431597 
+L 186.539832 121.775702 
+L 119.927894 121.775702 
+z
+" clip-path="url(#p4daa27bb5e)" style="fill: #bfdfd2; stroke: #51999f; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 283.895741 162.431597 
+L 350.507678 162.431597 
+L 350.507678 121.775702 
+L 283.895741 121.775702 
+z
+" clip-path="url(#p4daa27bb5e)" style="fill: #bfdfd2; stroke: #51999f; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(47.639168 62.487423)">Corridor</text>
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(47.017684 70.314311)">scenario</text>
+   </g>
+   <g id="text_2">
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(133.287394 62.444064)">Probabilistic</text>
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(130.817066 70.270951)">energy model</text>
+   </g>
+   <g id="text_3">
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(222.602236 62.487423)">Chance-constrained</text>
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(238.649252 70.314311)">sortie filter</text>
+   </g>
+   <g id="text_4">
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(351.170755 62.487423)">Risk-value</text>
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(358.77599 70.314311)">ALNS</text>
+   </g>
+   <g id="text_5">
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(454.055925 62.487423)">Inspection</text>
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(463.926831 70.314311)">plan</text>
+   </g>
+   <g id="text_6">
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(134.315879 140.059862)">Wind, road,</text>
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(130.815332 147.88675)">urgent events</text>
+   </g>
+   <g id="text_7">
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(291.907006 140.016503)">Event-triggered</text>
+    <text style="font: 7.4px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif" transform="translate(299.92271 147.930109)">replanning</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 96.306352 64.487851 
+Q 107.117994 64.487851 116.811602 64.487851 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+    <path d="M 114.011602 63.087851 
+L 116.811602 64.487851 
+L 114.011602 65.887851 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 188.540767 64.487851 
+Q 204.475883 64.487851 219.292966 64.487851 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+    <path d="M 216.492966 63.087851 
+L 219.292966 64.487851 
+L 216.492966 65.887851 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 291.020984 64.487851 
+Q 312.078057 64.487851 332.017096 64.487851 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+    <path d="M 329.217096 63.087851 
+L 332.017096 64.487851 
+L 329.217096 65.887851 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 403.748566 64.487851 
+Q 419.683682 64.487851 434.500764 64.487851 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+    <path d="M 431.700764 63.087851 
+L 434.500764 64.487851 
+L 431.700764 65.887851 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 188.53936 142.10365 
+Q 235.21795 142.10365 280.778505 142.10365 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+    <path d="M 277.978505 140.70365 
+L 280.778505 142.10365 
+L 277.978505 143.50365 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 321.158232 120.338724 
+Q 337.69955 103.293834 353.46224 87.051276 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+    <path d="M 350.507567 88.085638 
+L 353.46224 87.051276 
+L 352.516925 90.035632 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 466.423214 85.297423 
+Q 394.062448 103.295549 322.786659 121.023811 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+    <path d="M 325.841792 121.70657 
+L 322.786659 121.023811 
+L 325.165946 118.98936 
+" style="fill: none; stroke: #2f3e46; stroke-linecap: round"/>
+   </g>
+   <g id="text_8">
+    <text style="font: 700 9px 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="27.695981" y="23.831957" transform="rotate(-0 27.695981 23.831957)">UQ-RV-ALNS closed-loop inspection scheduling</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p4daa27bb5e">
+   <rect x="7.2" y="7.2" width="512.39952" height="184.79952"/>
+  </clipPath>
+ </defs>
+</svg>

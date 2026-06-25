@@ -1,0 +1,2 @@
+wind_speed,wind_direction,temperature,uncertainty,battery_capacity,vehicle_count,uav_count,vehicle_speed_kmph,drone_speed_kmph
+3.5279,16.8008,5.6679,0.1433,150.0,3,6,65.0,46.0

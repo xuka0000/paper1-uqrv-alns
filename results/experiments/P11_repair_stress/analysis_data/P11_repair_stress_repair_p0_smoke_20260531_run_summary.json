@@ -1,0 +1,9 @@
+{
+  "experiment_id": "P11_repair_stress",
+  "run_id": "repair_p0_smoke_20260531",
+  "row_count": 36,
+  "raw_data": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P11_repair_stress\\raw_data\\P11_repair_stress_repair_p0_smoke_20260531_raw.csv",
+  "summary_csv": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P11_repair_stress\\analysis_data\\P11_repair_stress_repair_p0_smoke_20260531_summary.csv",
+  "summary_md": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P11_repair_stress\\analysis_data\\P11_repair_stress_repair_p0_smoke_20260531_summary.md",
+  "evidence_boundary": "Synthetic stress scenarios designed to expose repair-operator behavior."
+}

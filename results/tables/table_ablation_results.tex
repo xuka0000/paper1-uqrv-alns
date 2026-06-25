@@ -1,0 +1,22 @@
+\begin{table}[H]
+\centering
+\caption{Full ablation data on the 50-tower high-uncertainty case. Shaded rows denote the proposed configuration; bold values indicate the best value within the ablation block.}
+\label{tab:ablation-results}
+\small
+\setlength{\tabcolsep}{2.7pt}
+\begin{tabular}{@{}llrrrrrrr@{}}
+\toprule
+Method & Stop mode & Makespan $\downarrow$ & RWCT $\downarrow$ & Top/feas. cov. $\uparrow$ & Infeas. $\downarrow$ & Time (s) $\downarrow$ & Acc. & Imp. \\
+\midrule
+No surrogate & kmeans & 416.93 & 198 & 0.233/0.233 & 0.020 & \textbf{0.104} & 89.0 & 21.4 \\
+No UQ & kmeans & 449.94 & 120 & 0.942/0.933 & 0.018 & 0.128 & 76.8 & 19.4 \\
+No risk-value & kmeans & \textbf{415.74} & 197 & 0.233/0.233 & \textbf{0.000} & 0.134 & 89.8 & 21.0 \\
+No adaptive & kmeans & 437.83 & \textbf{116} & 0.933/0.933 & \textbf{0.000} & 0.125 & 58.4 & 23.1 \\
+No clustering & direct & 484.52 & 129 & 0.958/0.958 & \textbf{0.000} & 0.213 & 75.9 & 15.1 \\
+No energy repair & kmeans & 441.84 & 117 & 0.933/0.933 & \textbf{0.000} & 0.128 & 87.6 & 16.6 \\
+No sync repair & kmeans & 441.84 & 117 & 0.933/0.933 & \textbf{0.000} & 0.127 & 84.2 & 11.2 \\
+\rowcolor{gray!10}
+\textbf{Proposed} & kmeans & 443.51 & 117 & \textbf{0.967/0.967} & \textbf{0.000} & 0.213 & 76.2 & 17.4 \\
+\bottomrule
+\end{tabular}
+\end{table}

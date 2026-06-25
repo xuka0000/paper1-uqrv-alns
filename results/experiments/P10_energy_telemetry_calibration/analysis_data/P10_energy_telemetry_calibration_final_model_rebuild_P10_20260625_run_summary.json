@@ -1,0 +1,10 @@
+{
+  "experiment_id": "P10_energy_telemetry_calibration",
+  "run_id": "final_model_rebuild_P10_20260625",
+  "flight_count": 209,
+  "train_count": 168,
+  "test_count": 41,
+  "summary_csv": "D:\\博士研究生\\刘师姐代写\\paper1\\coding\\results\\experiments\\P10_energy_telemetry_calibration\\analysis_data\\P10_energy_telemetry_calibration_final_model_rebuild_P10_20260625_summary.csv",
+  "predictions_csv": "D:\\博士研究生\\刘师姐代写\\paper1\\coding\\results\\experiments\\P10_energy_telemetry_calibration\\analysis_data\\P10_energy_telemetry_calibration_final_model_rebuild_P10_20260625_predictions.csv",
+  "evidence_boundary": "AirLab uses package-delivery quadcopter telemetry, not transmission-line inspection flights."
+}

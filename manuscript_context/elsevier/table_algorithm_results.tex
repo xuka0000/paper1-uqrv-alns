@@ -1,0 +1,136 @@
+﻿\begingroup
+\small
+\setlength{\tabcolsep}{3.0pt}
+\begin{longtable}{@{}rrlrrrrr@{}}
+\caption{Full P2 medium-uncertainty algorithm-comparison data across all tested corridor scales; values are means over ten matched seeds. Shaded rows denote the proposed configuration; bold values indicate the best value within each tower-count block for the corresponding metric direction.}\label{tab:algorithm-results}\\
+\toprule
+Scale & Towers & Method & Makespan $\downarrow$ & RWCT $\downarrow$ & Top cov. $\uparrow$ & Infeas. $\downarrow$ & Time (s) $\downarrow$ \\
+\midrule
+\endfirsthead
+\caption[]{Full P2 medium-uncertainty algorithm-comparison data across all tested corridor scales (continued).}\\
+\toprule
+Scale & Towers & Method & Makespan $\downarrow$ & RWCT $\downarrow$ & Top cov. $\uparrow$ & Infeas. $\downarrow$ & Time (s) $\downarrow$ \\
+\midrule
+\endhead
+
+M & 30 & Nearest & \textbf{182.89} & 88 & 0.214 & \textbf{0.0000} & \textbf{0.002} \\
+
+M & 30 & GA & 221.66 & 55 & 0.971 & \textbf{0.0000} & 0.031 \\
+
+M & 30 & ACO & 219.61 & \textbf{55} & 0.957 & \textbf{0.0000} & 0.055 \\
+
+M & 30 & Fixed ALNS & 212.29 & 100 & 0.229 & \textbf{0.0000} & 0.035 \\
+
+M & 30 & Point energy ALNS & 219.25 & 55 & \textbf{0.986} & \textbf{0.0000} & 0.009 \\
+
+M & 30 & UQ energy ALNS & 218.96 & 55 & \textbf{0.986} & \textbf{0.0000} & 0.009 \\
+\rowcolor{gray!10}
+M & 30 & \textbf{Proposed} & 221.44 & 55 & 0.957 & \textbf{0.0000} & 0.043 \\
+\addlinespace[2pt]
+
+M & 50 & Nearest & \textbf{329.19} & 155 & 0.267 & 0.0080 & \textbf{0.003} \\
+
+M & 50 & GA & 450.75 & 122 & 0.967 & 0.0080 & 0.061 \\
+
+M & 50 & ACO & 447.01 & 121 & 0.950 & 0.0080 & 0.101 \\
+
+M & 50 & Fixed ALNS & 416.93 & 199 & 0.233 & 0.0080 & 0.086 \\
+
+M & 50 & Point energy ALNS & 452.61 & 122 & 0.958 & 0.0080 & 0.027 \\
+
+M & 50 & UQ energy ALNS & 449.57 & 122 & \textbf{0.975} & \textbf{0.0000} & 0.026 \\
+\rowcolor{gray!10}
+M & 50 & \textbf{Proposed} & 443.81 & \textbf{121} & 0.925 & \textbf{0.0000} & 0.118 \\
+\addlinespace[2pt]
+
+M & 75 & Nearest & \textbf{384.99} & 178 & 0.250 & 0.0013 & \textbf{0.006} \\
+
+M & 75 & GA & 482.15 & 123 & 0.961 & 0.0013 & 0.104 \\
+
+M & 75 & ACO & 481.97 & 123 & 0.956 & 0.0013 & 0.165 \\
+
+M & 75 & Fixed ALNS & 464.74 & 221 & 0.250 & 0.0013 & 0.177 \\
+
+M & 75 & Point energy ALNS & 477.46 & \textbf{121} & 0.967 & 0.0013 & 0.052 \\
+
+M & 75 & UQ energy ALNS & 480.50 & 122 & \textbf{0.972} & \textbf{0.0000} & 0.051 \\
+\rowcolor{gray!10}
+M & 75 & \textbf{Proposed} & 496.97 & 125 & 0.961 & \textbf{0.0000} & 0.225 \\
+\addlinespace[2pt]
+
+M & 100 & Nearest & \textbf{564.20} & 255 & 0.260 & 0.0020 & \textbf{0.009} \\
+
+M & 100 & GA & 725.32 & 192 & 0.968 & 0.0020 & 0.156 \\
+
+M & 100 & ACO & 717.67 & 191 & 0.964 & 0.0020 & 0.239 \\
+
+M & 100 & Fixed ALNS & 699.95 & 329 & 0.256 & 0.0020 & 0.311 \\
+
+M & 100 & Point energy ALNS & 714.43 & 190 & \textbf{0.972} & 0.0020 & 0.097 \\
+
+M & 100 & UQ energy ALNS & 716.77 & 191 & \textbf{0.972} & \textbf{0.0000} & 0.099 \\
+\rowcolor{gray!10}
+M & 100 & \textbf{Proposed} & 719.69 & \textbf{188} & 0.968 & \textbf{0.0000} & 0.400 \\
+\addlinespace[2pt]
+
+L & 150 & Nearest & \textbf{943.23} & 430 & 0.235 & 0.0027 & \textbf{0.019} \\
+
+L & 150 & GA & 1247.30 & \textbf{342} & 0.970 & 0.0027 & 0.315 \\
+
+L & 150 & ACO & 1239.30 & 343 & 0.973 & 0.0027 & 0.418 \\
+
+L & 150 & Fixed ALNS & 1216.52 & 589 & 0.241 & 0.0027 & 0.706 \\
+
+L & 150 & Point energy ALNS & 1253.11 & 350 & 0.978 & 0.0027 & 0.219 \\
+
+L & 150 & UQ energy ALNS & 1238.62 & 343 & \textbf{0.981} & \textbf{0.0000} & 0.231 \\
+\rowcolor{gray!10}
+L & 150 & \textbf{Proposed} & 1257.46 & 346 & 0.962 & \textbf{0.0000} & 0.916 \\
+\addlinespace[2pt]
+
+L & 200 & Nearest & \textbf{986.53} & 462 & 0.234 & 0.0040 & \textbf{0.024} \\
+
+L & 200 & GA & 1323.09 & 362 & 0.982 & 0.0040 & 0.393 \\
+
+L & 200 & ACO & 1334.54 & 370 & 0.982 & 0.0040 & 0.519 \\
+
+L & 200 & Fixed ALNS & 1274.15 & 628 & 0.236 & 0.0040 & 0.996 \\
+
+L & 200 & Point energy ALNS & 1318.01 & 363 & 0.974 & 0.0040 & 0.309 \\
+
+L & 200 & UQ energy ALNS & 1315.39 & \textbf{359} & \textbf{0.984} & \textbf{0.0000} & 0.298 \\
+\rowcolor{gray!10}
+L & 200 & \textbf{Proposed} & 1325.00 & 366 & 0.980 & \textbf{0.0000} & 1.218 \\
+\addlinespace[2pt]
+
+L & 300 & Nearest & \textbf{1362.51} & 610 & 0.251 & 0.0010 & \textbf{0.074} \\
+
+L & 300 & GA & 1796.39 & 491 & 0.979 & 0.0010 & 1.003 \\
+
+L & 300 & ACO & 1779.97 & 488 & 0.975 & 0.0010 & 1.157 \\
+
+L & 300 & Fixed ALNS & 1662.68 & 788 & 0.256 & 0.0010 & 2.529 \\
+
+L & 300 & Point energy ALNS & 1758.88 & 487 & 0.977 & 0.0010 & 0.801 \\
+
+L & 300 & UQ energy ALNS & 1743.52 & 489 & \textbf{0.980} & \textbf{0.0000} & 0.811 \\
+\rowcolor{gray!10}
+L & 300 & \textbf{Proposed} & 1734.48 & \textbf{477} & 0.973 & \textbf{0.0000} & 3.346 \\
+\addlinespace[2pt]
+
+L & 500 & Nearest & \textbf{2764.30} & 1194 & 0.241 & 0.0032 & \textbf{0.145} \\
+
+L & 500 & GA & 3693.48 & 1022 & 0.981 & 0.0032 & 2.520 \\
+
+L & 500 & ACO & 3644.80 & 1003 & 0.975 & 0.0032 & 3.003 \\
+
+L & 500 & Fixed ALNS & 3624.31 & 1703 & 0.237 & 0.0032 & 7.465 \\
+
+L & 500 & Point energy ALNS & 3627.36 & 1006 & 0.984 & 0.0032 & 2.329 \\
+
+L & 500 & UQ energy ALNS & 3643.20 & \textbf{1002} & \textbf{0.985} & \textbf{0.0000} & 2.207 \\
+\rowcolor{gray!10}
+L & 500 & \textbf{Proposed} & 3713.07 & 1037 & 0.972 & \textbf{0.0000} & 9.429 \\
+\bottomrule
+\end{longtable}
+\endgroup

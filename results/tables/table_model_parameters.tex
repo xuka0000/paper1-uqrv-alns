@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{Default model and algorithm parameters used in the computational experiments. Sensitivity rows that vary \(z_\epsilon\), \(\rho\), stop-generation mode, iteration budget or UAV count are reported separately in Table~\ref{tab:sensitivity-results}.}
+\label{tab:model-parameters}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{0.22\textwidth}p{0.25\textwidth}p{0.18\textwidth}X@{}}
+\toprule
+Parameter group & Symbols & Default setting & Implementation role \\
+\midrule
+Fleet and battery & \(B_d,\rho,z_\epsilon,u^g_v,u^a_d\) & \(B_d=150\) Wh, \(\rho=0.12\), \(z_\epsilon=1.645\), \(u^g_v=65\) km/h, \(u^a_d=46\) km/h & Defines the q95 sortie-pattern service set and stop-batch travel-time evaluator. \\
+Physical energy constants & \(e_0,\kappa_f,\kappa_h,\kappa_s\) & \(e_0=12\) Wh, \(\kappa_f=8.6\) Wh/km, \(\kappa_h=1.85\) Wh/min, \(\kappa_s=0.55\) Wh/min & Base, flight, hover and sensing energy in Eq.~\eqref{eq:sb-energy-physics}. \\
+Payload/weather constants & \(\kappa_p,\kappa_w,\zeta_w,\kappa_\vartheta,\vartheta_0,\Delta_\vartheta\) & \(\kappa_p=0.08\kappa_f\), \(\kappa_w=0.025\kappa_f\), \(\zeta_w=0.35\), \(\kappa_\vartheta=0.006\kappa_f\), \(\vartheta_0=22^\circ\)C, \(\Delta_\vartheta=5^\circ\)C & Payload, wind-alignment and temperature terms in the physical energy model. \\
+Residual surrogate & \(\boldsymbol\theta,s_\theta,\sigma_{\min},\underline\kappa,\overline\kappa\) & \(\boldsymbol\theta\) and \(s_\theta\) are fitted from simulation samples; \(\sigma_{\min}=2.5\) Wh, \(\underline\kappa=0.55\), \(\overline\kappa=2.10\) & Produces \((\mu_{sdk},\sigma_{sdk},Q_{sdk})\) for sortie-pattern screening. \\
+Risk-value priority & \(\alpha_r,\alpha_\nu,\alpha_{r\nu},\varepsilon_r,\varepsilon_\nu,\varepsilon_\psi\) & \(\alpha_r=0\), \(\alpha_\nu=1\), \(\alpha_{r\nu}=2\); \(\varepsilon_r=\varepsilon_\nu=\varepsilon_\psi=10^{-9}\) & Creates the normalized \(\psi_i\) used in RWCT, construction order and evaluation. \\
+Objective weights & \(\lambda_R,\lambda_C,\lambda_G,\lambda_E\) & \(1.00,0.20,0.10,0.10\) & Weights the normalized RWCT, makespan, ground-travel and q95-energy terms. \\
+ALNS search & \(H,\eta,\alpha,\epsilon_\pi,\kappa\) & \(H=80,100,60,80\) for S/M/L/GIS blocks; \(\eta=0.20\), \(\alpha=0.992\), \(\epsilon_\pi=10^{-6}\), \(\kappa=2\) & Controls iteration budgets, adaptive operator updates, simulated-annealing cooling and regret insertion. \\
+\bottomrule
+\end{tabularx}
+\end{table*}

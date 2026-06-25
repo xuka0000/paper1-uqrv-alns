@@ -1,0 +1,9 @@
+{
+  "experiment_id": "P9_real_gis_case",
+  "run_id": "public_dallas_fort_worth_full_stop_batch_20260606",
+  "row_count": 70,
+  "raw_data": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P9_real_gis_case\\raw_data\\P9_real_gis_case_public_dallas_fort_worth_full_stop_batch_20260606_raw.csv",
+  "summary_csv": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P9_real_gis_case\\analysis_data\\P9_real_gis_case_public_dallas_fort_worth_full_stop_batch_20260606_summary.csv",
+  "summary_md": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P9_real_gis_case\\analysis_data\\P9_real_gis_case_public_dallas_fort_worth_full_stop_batch_20260606_summary.md",
+  "evidence_boundary": "GIS-grounded coordinates and weather; risk/value/stop labels remain proxy-generated."
+}

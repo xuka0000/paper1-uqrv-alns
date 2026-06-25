@@ -1,0 +1,14 @@
+﻿LaTeX clean compile validation
+
+Command run:
+& "07_delivery\paper1_colleague_compile_ready_viewable_delivery_20260613_233737\02_LaTeX_compile_ready\compile_all_latex.ps1"
+
+Result:
+- published_style_journal_version/tre_published_style.pdf generated: 28 pages, 4242745 bytes.
+- single_column_review_version/tre_submission_current.pdf generated: 28 pages, 4289695 bytes.
+- Log scan found no "Failed to find", "I WON'T RUN", "undefined references", "Fatal error", or "Emergency stop" entries.
+
+Main fix relative to previous package:
+- Published-style TeX bibliography path was localized from ../elsevier/tre_references to tre_references, so the folder compiles independently.
+- Compile scripts were added for both TeX folders and for all LaTeX sources.
+- Result CSV files were converted to Excel and HTML for direct viewing.

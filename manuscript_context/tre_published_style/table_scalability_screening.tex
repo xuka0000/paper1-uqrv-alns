@@ -1,0 +1,51 @@
+\begin{table}[H]
+\centering
+\caption{Raw scalability, candidate-stop screening and UAV-count sensitivity data used in Fig.~\ref{fig:scale}; values are means over ten matched seeds. Scale and screening rows use the stop-batch evaluator with normalized risk-value RWCT. Feasible pairs are q95-feasible support pairs used to seed same-stop sortie patterns, including direct enumeration. Top/feas. cov. reports nominal and q95-feasible early top-risk coverage. Shaded rows denote the K-means screened proposed configuration or the largest tested UAV count.}
+\label{tab:scalability-screening}
+\small
+\setlength{\tabcolsep}{2.7pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.11\textwidth}>{\raggedright\arraybackslash}Xrrrrrrrr@{}}
+\toprule
+Block & Setting & Towers & Stops & Pair red. & Feas. pairs & RWCT & Top/feas. cov. & Infeas. & Time (s) \\
+\midrule
+\rowcolor{gray!10}
+Scale & K-means & 30 & 15 & 80.0\% & 55.5 & 53 & 0.957/0.957 & 0.000 & 0.065 \\
+\rowcolor{gray!10}
+Scale & K-means & 50 & 25 & 88.1\% & 93.9 & 118 & 0.975/0.975 & 0.000 & 0.175 \\
+\rowcolor{gray!10}
+Scale & K-means & 75 & 35 & 91.4\% & 135.7 & 120 & 0.972/0.972 & 0.000 & 0.341 \\
+\rowcolor{gray!10}
+Scale & K-means & 100 & 50 & 94.0\% & 200.3 & 186 & 0.976/0.976 & 0.000 & 0.754 \\
+\rowcolor{gray!10}
+Scale & K-means & 150 & 75 & 96.0\% & 290.7 & 334 & 0.970/0.970 & 0.000 & 1.464 \\
+\rowcolor{gray!10}
+Scale & K-means & 200 & 100 & 97.0\% & 398.7 & 353 & 0.980/0.980 & 0.000 & 3.971 \\
+\rowcolor{gray!10}
+Scale & K-means & 300 & 150 & 98.0\% & 625.1 & 466 & 0.971/0.971 & 0.000 & 8.728 \\
+\rowcolor{gray!10}
+Scale & K-means & 500 & 250 & 98.8\% & 964.5 & 988 & 0.983/0.983 & 0.000 & 15.891 \\
+\addlinespace[2pt]
+Screening & Direct & 30 & 15 & 0.0\% & 55.9 & 58 & 0.957/0.957 & 0.000 & 0.090 \\
+Screening & DBSCAN & 30 & 15 & 38.2\% & 12.8 & 52 & 0.829/0.529 & 0.373 & 0.036 \\
+\rowcolor{gray!10}
+Screening & K-means & 30 & 15 & 80.0\% & 55.5 & 53 & 0.957/0.957 & 0.000 & 0.098 \\
+Screening & Direct & 50 & 25 & 0.0\% & 96.5 & 129 & 0.983/0.983 & 0.000 & 0.213 \\
+Screening & DBSCAN & 50 & 25 & 50.7\% & 12.0 & 120 & 0.825/0.375 & 0.624 & 0.060 \\
+\rowcolor{gray!10}
+Screening & K-means & 50 & 25 & 88.1\% & 93.9 & 118 & 0.975/0.975 & 0.000 & 0.219 \\
+Screening & Direct & 75 & 35 & 0.0\% & 136.3 & 132 & 0.972/0.967 & 0.024 & 0.426 \\
+Screening & DBSCAN & 75 & 35 & 55.6\% & 12.5 & 91 & 0.844/0.272 & 0.767 & 0.096 \\
+\rowcolor{gray!10}
+Screening & K-means & 75 & 35 & 91.4\% & 135.7 & 120 & 0.972/0.972 & 0.000 & 0.427 \\
+Screening & Direct & 100 & 50 & 0.0\% & 204.1 & 203 & 0.964/0.964 & 0.002 & 0.709 \\
+Screening & DBSCAN & 100 & 50 & 58.1\% & 12.8 & 155 & 0.772/0.196 & 0.809 & 0.118 \\
+\rowcolor{gray!10}
+Screening & K-means & 100 & 50 & 94.0\% & 200.3 & 186 & 0.976/0.976 & 0.000 & 0.699 \\
+\addlinespace[2pt]
+UAV count & 2 UAVs & 50 & 25 & 88.1\% & 78.8 & 123 & 0.983/0.983 & 0.000 & 0.197 \\
+UAV count & 4 UAVs & 50 & 25 & 88.1\% & 78.8 & 117 & 0.967/0.967 & 0.000 & 0.201 \\
+\rowcolor{gray!10}
+UAV count & 6 UAVs & 50 & 25 & 88.1\% & 78.8 & 117 & 0.967/0.967 & 0.000 & 0.205 \\
+\bottomrule
+\end{tabularx}
+\end{table}

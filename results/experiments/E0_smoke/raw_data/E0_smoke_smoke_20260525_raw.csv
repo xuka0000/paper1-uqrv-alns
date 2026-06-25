@@ -1,0 +1,7 @@
+experiment,size,seed,uncertainty,method,makespan,total_vehicle_distance,expected_energy,energy_violation_rate,infeasible_sortie_rate,risk_weighted_completion_time,top_risk_coverage,missed_value,solver_runtime
+E0_smoke,S,0,medium,greedy_nearest,64.773727,76.532788,755.620236,0.0,0.0,16064.041579,0.0,0,0.000176
+E0_smoke,S,0,medium,alns_point,62.910068,74.480198,755.620236,0.0,0.0,18653.185062,0.0,0,0.001259
+E0_smoke,S,0,medium,uq_rv_alns,62.030384,79.919835,755.620236,0.0,0.0,19019.249842,0.0,0,0.001335
+E0_smoke,S,1,medium,greedy_nearest,59.464646,92.124337,663.96304,0.0,0.0,9938.258804,0.0,0,0.000147
+E0_smoke,S,1,medium,alns_point,62.362841,82.688215,663.96304,0.0,0.0,16387.487066,0.0,0,0.001133
+E0_smoke,S,1,medium,uq_rv_alns,62.362841,86.980205,663.96304,0.0,0.0,16671.589471,0.0,0,0.001186

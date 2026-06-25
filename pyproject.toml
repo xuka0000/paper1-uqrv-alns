@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paper1-uqrv-alns"
+version = "0.1.0"
+description = "Research code package for Paper1 vehicle-UAV inspection experiments."
+requires-python = ">=3.9,<3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "matplotlib",
+    "Pillow",
+    "python-pptx",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

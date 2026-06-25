@@ -1,0 +1,27 @@
+﻿PDF-LaTeX paired package validation
+
+Requested layout:
+- Each manuscript PDF is placed in the same folder as its corresponding main LaTeX source.
+
+Verified manuscript pairs:
+1. 01_published_style_journal_version
+   - PDF: tre_published_style.pdf
+   - Main TeX: tre_published_style.tex
+   - Clean compile output: 28 pages, 4242745 bytes.
+
+2. 02_single_column_review_version
+   - PDF: tre_submission_current.pdf
+   - Main TeX: tre_submission_current.tex
+   - Clean compile output: 28 pages, 4289695 bytes.
+
+Validation command:
+& "07_delivery\paper1_colleague_pdf_latex_paired_delivery_20260613_234820\compile_all_latex.ps1"
+
+Log scan result:
+- No "Failed to find" entries.
+- No "I WON'T RUN" entries.
+- No "undefined references" entries.
+- No "Citation ... undefined" entries.
+- No "Reference ... undefined" entries.
+- No "Fatal error" entries.
+- No "Emergency stop" entries.

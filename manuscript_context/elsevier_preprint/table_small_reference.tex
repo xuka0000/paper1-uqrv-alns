@@ -1,0 +1,27 @@
+﻿\begin{table}[H]
+\centering
+\caption{S-scale compact-reference diagnostics. The HiGHS row optimizes the compact makespan--energy model; RWCT and top-risk coverage are computed afterwards by the common stop-batch schedule evaluator and are not HiGHS objective values. Values are means over matched seeds; shaded rows denote the proposed configuration.}
+\label{tab:small-reference}
+\small
+\setlength{\tabcolsep}{3.0pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}rrlrrrrr@{}}
+\toprule
+Towers & Stops & Method & Makespan & Eval. RWCT & Eval. top cov. & Infeas. & Time (s) \\
+\midrule
+10 & 5 & Compact HiGHS (Cmax ref.) & 126.89 & 53 & 0.450 & 0.010 & 0.016 \\
+10 & 5 & Point energy ALNS & 143.51 & 35 & 1.000 & 0.070 & 0.002 \\
+\rowcolor{gray!10}
+10 & 5 & \textbf{Proposed} & 143.07 & 35 & 1.000 & 0.010 & 0.006 \\
+\addlinespace[2pt]
+15 & 8 & Compact HiGHS (Cmax ref.) & 140.95 & 66 & 0.233 & 0.000 & 0.104 \\
+15 & 8 & Point energy ALNS & 216.70 & 54 & 1.000 & 0.000 & 0.003 \\
+\rowcolor{gray!10}
+15 & 8 & \textbf{Proposed} & 215.52 & 54 & 0.967 & 0.000 & 0.011 \\
+\addlinespace[2pt]
+20 & 10 & Compact HiGHS (Cmax ref.) & 184.62 & 86 & 0.340 & 0.000 & 0.150 \\
+20 & 10 & Point energy ALNS & 310.77 & 85 & 1.000 & 0.000 & 0.004 \\
+\rowcolor{gray!10}
+20 & 10 & \textbf{Proposed} & 310.75 & 85 & 1.000 & 0.000 & 0.021 \\
+\bottomrule
+\end{tabular*}
+\end{table}

@@ -1,0 +1,26 @@
+{
+  "model_path": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P3_pinn_prediction_accuracy\\models\\simulation_trained_energy_surrogate.json",
+  "metrics_csv": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P3_pinn_prediction_accuracy\\models\\simulation_trained_energy_surrogate_metrics.csv",
+  "train_seed_start": 30,
+  "train_seed_count": 12,
+  "test_seed_start": 90,
+  "test_seed_count": 6,
+  "max_pairs_per_scenario": 14,
+  "trained_metrics": {
+    "mae": 1.1626312606837614,
+    "rmse": 1.4523022443516824,
+    "coverage_95": 1.0,
+    "false_feasible_rate": 0.0,
+    "training_sample_count": 936,
+    "test_sample_count": 468
+  },
+  "nominal_metrics": {
+    "mae": 7.3277956538461515,
+    "rmse": 8.112670134458797,
+    "coverage_95": 0.8376068376068376,
+    "false_feasible_rate": 0.0,
+    "training_sample_count": 0,
+    "test_sample_count": 468
+  },
+  "evidence_boundary": "simulation-trained synthetic energy labels; not field validated"
+}

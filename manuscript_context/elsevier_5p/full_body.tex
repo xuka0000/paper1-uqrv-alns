@@ -1,0 +1,360 @@
+﻿\section{Introduction}
+
+Transmission-line inspection is becoming a larger operational bottleneck for power-grid resilience. Long overhead corridors are exposed to wind, vegetation, lightning, icing, heat and aging components, while inspection resources must be allocated before incipient defects become outages or safety events. Reviews of power-line inspection show that unmanned aerial systems can improve access to towers, conductors and right-of-way components, but they also introduce perception, navigation, endurance and data-quality constraints that are different from conventional ground patrols \citep{nguyen2018visionreview,li2021uavtransmission,ahmed2024powerline}. Recent surveys further indicate that automated inspection is moving from isolated visual detection toward integrated planning pipelines in which sensing, route execution and defect prioritization must be coordinated \citep{zhang2020visualinspection,li2025deeppowerline}. These features make transmission-line inspection not only a perception task, but also a transportation scheduling problem in which high-risk assets should be visited early under limited mobility and energy resources.
+
+A practical inspection operation often combines ground vehicles and unmanned aerial vehicles (UAVs). Ground vehicles move crews, batteries and support equipment along accessible roads, while UAVs are launched from feasible stopping points to inspect nearby towers or line segments. This operating mode resembles truck--drone routing, but the objective is not parcel delivery: tower tasks have heterogeneous risk and value, launch and recovery locations are constrained by corridor geometry, and UAV energy depends on weather, payload, service time and the distance between a tower and its candidate stop. Classical truck--drone models established the basic synchronization problem for vehicle-assisted UAV operations \citep{murray2015flying,agatz2018tspdrone,wang2019vrpd,murray2020multiple}, and later work developed exact, branch-and-bound, dynamic-programming and matheuristic methods for several vehicle--drone routing variants \citep{poikonen2019branch,roberti2021exact,bouman2018dynamic,ha2018mincost,schermer2019matheuristic}. However, inspection scheduling requires a stronger connection between task priority, energy feasibility and corridor-specific stop generation than is needed in many delivery formulations.
+
+Recent routing studies show that the transportation-research literature is already moving toward richer vehicle--drone systems. Examples include energy supply logistics with uncrewed aerial and ground vehicles \citep{kim2026bidirectional}, eVTOL--drone routing in continuous spaces with no-fly zones \citep{liu2026evtol}, air--ground multimodal planning \citep{zhang2026airground}, automatic heuristic design for vehicle--drone routing \citep{shi2026llm}, and synchronized truck--drone order splitting \citep{yang2025integrated}. In parallel, electric-vehicle and drone-routing research has studied time windows, recharging, public transport capacity and other energy-related operational constraints \citep{schneider2014evrptw,desaulniers2016evrp,moadab2022drone}. These papers demonstrate the importance of integrated energy and routing decisions, yet most are not designed around inspection-specific risk values or probabilistic UAV endurance.
+
+Energy uncertainty is a central reason why a deterministic endurance model can be misleading in inspection planning. Empirical and modeling studies show that UAV energy consumption varies with payload, speed, wind, temperature, routing geometry and vehicle type \citep{stolaroff2018energy,zhang2021energyconsumption,aiello2021energy,dukkanci2021range,jeong2019payloaddrone}, and broader drone-delivery assessments show that operational distance and energy assumptions strongly affect environmental and cost conclusions \citep{goodchild2018delivery,figliozzi2017lifecycle}. Physics-informed and uncertainty-aware learning methods provide a way to combine mechanistic structure with data-driven residual correction \citep{raissi2019pinn,karniadakis2021piml,yang2021bpinn}, but their scheduling value depends on how the predicted uncertainty is used by the optimizer. A route that is nominally feasible under mean energy may still violate a battery reserve under wind or payload perturbations. Conversely, an overly conservative route can delay high-risk towers and reduce the operational value of early inspection. This creates a coupled problem: the scheduler must jointly decide which high-value towers to prioritize, which candidate stops to use, and which sorties remain feasible under probabilistic energy bounds.
+
+This paper formulates transmission-line inspection as an uncertainty-aware risk-value vehicle--UAV scheduling problem. We develop a probabilistic energy prediction layer that returns mean and upper-quantile energy estimates, a chance-constrained sortie-screening rule, and a risk-weighted completion objective that prioritizes towers with higher defect risk and asset value. The solution method is an adaptive large-neighborhood search (ALNS) framework built on the destroy--repair and adaptive-weight principles of routing metaheuristics \citep{ropke2006alns,sacramento2019alns,asoc2023recharging}, with simulated-annealing acceptance used to diversify the search \citep{kirkpatrick1983annealing}. Unlike a generic truck--drone delivery model, the proposed framework explicitly uses corridor candidate stops, probabilistic energy feasibility and risk-value task ordering for infrastructure inspection.
+
+The main contributions are as follows.
+\begin{itemize}
+  \item We formulate a vehicle--UAV transmission-line inspection scheduling problem that couples tower coverage, candidate stopping points, UAV energy feasibility and risk-weighted inspection priority.
+  \item We introduce a probabilistic energy-prediction and chance-screening layer that passes upper-quantile UAV energy estimates to the routing solver instead of relying on fixed endurance.
+  \item We design an ALNS-based scheduling framework that combines uncertainty-aware feasibility filtering with risk-value task prioritization for medium and large corridor instances.
+  \item We evaluate the framework using proposal-scale synthetic instances, public GIS-grounded tower geometries from OpenStreetMap and HIFLD data \citep{openstreetmap2026,hifld2026transmission}, public weather from NASA POWER \citep{nasaPower2026}, and a public quadcopter telemetry dataset for energy calibration \citep{airlab2021dataset}.
+\end{itemize}
+
+The evidence should be interpreted with a clear boundary. The experiments support an algorithmic and GIS-grounded scheduling contribution, and the energy branch is calibrated against public quadcopter telemetry. They provide computational and calibration evidence rather than utility-provided inspection-log evidence. The remainder of the paper reviews related vehicle--UAV and inspection-routing studies, defines the optimization model, presents the probabilistic ALNS framework, and reports the computational evidence across synthetic, GIS-grounded and telemetry-calibrated experiment blocks.
+
+\section{Related work}
+\label{sec:related}
+
+This section follows the modeling pipeline used in Sections~\ref{sec:model} and~\ref{sec:method}. The review is organized around three questions: how ground vehicles and UAVs are synchronized, how uncertain energy feasibility enters a routing model, and how an adaptive search procedure can exploit the resulting sortie-pattern service set for infrastructure inspection. This structure keeps the literature review connected to the formulation rather than treating vehicle--UAV routing, energy modeling, inspection sensing and metaheuristics as independent topics.
+
+\subsection{Vehicle--UAV routing for infrastructure inspection}
+
+Vehicle--UAV routing supplies the structural starting point for this paper: the inspection plan must decide where a ground vehicle stops, which UAV sorties are launched, and how launch--service--recovery timing is synchronized. The flying sidekick traveling salesman problem introduced this basic coupling for a vehicle that launches a UAV, lets it serve a task and later recovers it \citep{murray2015flying}. Later work extended the idea to vehicle-routing settings, multiple drones and exact or dynamic-programming solution methods \citep{agatz2018tspdrone,wang2019vrpd,roberti2021exact}. These studies justify the route variables, assignment variables and timing constraints used later in the model, because any vehicle-supported inspection scheduler needs the same synchronization backbone.
+
+This backbone is necessary but not sufficient for transmission corridors. Recent drone-assisted routing studies include multiple flying sidekicks, matheuristics, public-transport charging capacity, synchronized order splitting and air-ground multimodal transport networks \citep{murray2020multiple,schermer2019matheuristic,yang2025integrated,zhang2026airground}. These extensions are relevant because they move beyond a single truck and a single drone, but their service nodes are still usually customers, parcels or passenger-demand points. A support vehicle in transmission-line inspection is instead positioning a crew near sparse road-access points so that UAVs can inspect linearly arranged infrastructure assets.
+
+Transmission-line inspection research explains why those assets cannot be treated as anonymous delivery customers. UAV navigation, lidar-assisted sensing and vision-based defect analysis have made aerial inspection practical for long linear infrastructure \citep{hui2019monocular,liu2021uavlidar,li2021uavtransmission}. Reviews of visual and deep-learning-based power-line inspection show a broader shift from manual patrols toward automated sensing and component-level defect recognition \citep{nguyen2018visionreview,zhang2020visualinspection,li2025deeppowerline}. However, this sensing literature usually asks whether a UAV can acquire useful imagery, navigate safely or identify defects; it less often asks how a ground crew should schedule road-access stops and UAV sorties when many towers compete for limited vehicle time and battery capacity. The first gap is therefore a transport model that keeps vehicle--UAV synchronization, but reinterprets the service nodes as risk-bearing inspection tasks.
+
+\subsection{Energy uncertainty and risk-value scheduling}
+
+Energy-aware routing is the second foundation because synchronization decisions are meaningful only when the corresponding aerial sorties can actually be flown. Electric-vehicle routing provides the broader precedent for representing range, recharging and time-window restrictions as routing constraints \citep{schneider2014evrptw,desaulniers2016evrp}. UAV energy studies then show why a fixed distance threshold is too crude for aerial service: consumption can depend on payload, speed, distance, hovering, route geometry and environmental conditions \citep{dorling2017vehicle,dukkanci2021range,zhang2021energyconsumption}. These findings map directly to the same-stop pattern \((s,k)\) in this paper, because a group of nearby towers may be geographically close to a candidate stop but still fragile under wind, dwell-time, path-order or payload conditions.
+
+Energy modeling also affects the interpretation of routing results. Drone-delivery sustainability studies show that energy and emissions conclusions are sensitive to assumptions about routing, payload and operating context \citep{stolaroff2018energy,goodchild2018delivery,figliozzi2017lifecycle}. Payload-dependent truck--drone routing further shows that sortie feasibility and route design can interact rather than remain separable preprocessing steps \citep{jeong2019payloaddrone}. For transmission-line inspection, this interaction appears as a sortie-pattern construction problem. If energy is underestimated, the optimizer may select unsafe multi-tower sorties; if it is made too conservative without regard to task priority, the schedule may delay high-value towers.
+
+The scheduling layer also needs a reason for serving some feasible towers earlier than others. Inspection value is heterogeneous: a tower with higher defect likelihood, criticality or asset value should not be treated as interchangeable with a low-priority tower simply because both require one service visit. Robust and chance-constrained optimization provide a natural decision logic for conservative sortie-pattern screening \citep{bertsimas2004robustness,nemirovski2007chance}, while physics-informed and probabilistic learning motivate using uncertainty-aware energy estimates rather than mean predictions alone \citep{raissi2019pinn,karniadakis2021piml,yang2021bpinn}. The second gap is therefore the interface between energy uncertainty and priority-aware scheduling: the upper-quantile energy rule should decide which same-stop patterns are admissible, and tower risk-value should decide how the admissible towers and sorties are ordered.
+
+\subsection{Adaptive search for integrated sortie-pattern sets}
+
+The preceding two streams define the structure of the problem, but they do not by themselves provide a scalable solution method. Vehicle--UAV synchronization, road-access stop selection, q95 sortie-pattern screening and risk-weighted completion order create a combinatorial scheduling problem whose exact route--sortie formulation grows quickly with the number of towers, stops and UAVs. Exact models remain useful for small reference instances, but medium and large corridor cases require a heuristic that can manipulate task order, stop assignment and feasibility repair without rebuilding a full MILP at every move.
+
+ALNS is well suited to this role because its destroy and repair operators can be specialized to the vehicle route, the feasible sortie-pattern set and the inspection objective, while its adaptive weights learn which operators are useful during the run. The original ALNS framework introduced adaptive operator selection for large routing problems \citep{ropke2006alns}. Drone-routing applications show that ALNS can handle vehicle--drone synchronization while remaining computationally practical for richer variants \citep{sacramento2019alns,asoc2023recharging}. For the present paper, the important point is not ALNS as a generic metaheuristic, but the way operator scores can be made sensitive to q95 energy margins, segment workload and risk-value priority.
+
+The missing connection across the literature is a complete loop in which a conservative energy predictor constructs feasible same-stop sortie patterns, inspection risk-value scores guide insertion order, and the schedule is evaluated with inspection-specific metrics rather than makespan alone. Table~\ref{tab:literature-position} summarizes this position. Existing vehicle--UAV routing supplies launch--recovery synchronization, energy-aware routing supplies consumption and endurance logic, inspection research supplies the infrastructure-service motivation, and adaptive search supplies scalability. None of these streams alone provides a reproducible scheduling framework that couples road-access candidate stops, upper-quantile UAV energy, tower risk-value priority and ALNS. This is why the model formulation in the next section first defines the corridor sortie-pattern service set, then defines q95 feasibility, then embeds risk-value priority in the objective, and finally prepares the state representation used by the algorithm.
+
+\input{generated_tables}
+
+
+\input{section3_stop_batch_model}
+
+\section{Solution method}
+\label{sec:method}
+
+The solution method is organized around the computational bottleneck created by the model: the scheduler must choose a vehicle-supported UAV service order while avoiding same-stop sortie patterns that are only feasible under optimistic energy assumptions. We therefore separate the algorithm into a sortie-pattern service-set construction stage and a risk-value ALNS stage (Fig.~\ref{fig:framework}). The first stage converts the probabilistic energy interface into a sparse q95-feasible pattern set. The second stage searches over sortie sequences, stop assignments and completion times on that set.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig2_solution_framework.pdf}
+\caption{Formula-linked two-stage inspection scheduler. Stage 1 converts corridor towers, candidate stops, weather state and fleet limits into a q95-feasible sortie-pattern service set; Stage 2 improves the current schedule through destroy, repair, local stop reassignment, simulated-annealing acceptance and adaptive operator-weight updating. The output panel summarizes the best risk-value schedule and the evaluation metrics used in Eqs.~\eqref{eq:metric-rwct}--\eqref{eq:metric-ifr}; the lower band shows the S-scale HiGHS reference and calibration checks.}
+\label{fig:framework}
+\end{figure}
+
+Figure~\ref{fig:framework} should be read as the executable link between the formulation and the experiments. The left block implements the chance-feasible service set in Eqs.~\eqref{eq:q95}--\eqref{eq:feasible-sortie-set}; the central loop updates the stop-batch schedule state in Eqs.~\eqref{eq:state} and~\eqref{eq:sb-alns-state}; and the right block reports the same RWCT, coverage and infeasibility diagnostics used later in Section~\ref{sec:results}. This structure prevents the algorithm from becoming a collection of unrelated heuristic operators: every move is evaluated on the q95 sortie-pattern service set and against the risk-value objective. Stage 1 constructs this feasible service layer. It generates candidate stops from corridor geometry, enumerates nearby same-stop tower sequences, evaluates stop--UAV--pattern candidates with the probabilistic energy interface, and removes all candidates outside $\mathcal{F}$. Direct enumeration is possible but creates many weak support pairs and pattern candidates. Therefore, K-means and density-based stop generation are tested as screening alternatives, and the default screening mode is selected from the candidate-stop experiment. The output of Stage 1 is a sparse sortie-pattern service set
+\begin{equation}
+G_K=(\mathcal{S},\{\mathcal{K}_s\}_{s\in\mathcal{S}},\mathcal{F}; Q_{sdk},\tau_{sdk},d^a_{sk},m_{sdk}),
+\qquad
+m_{sdk}=\frac{B_d(1-\rho)-Q_{sdk}}{B_d},
+\label{eq:service-graph}
+\end{equation}
+where $m_{sdk}$ is the normalized energy margin for assigning sortie pattern $k$ to UAV $d$ from stop $s$. Positive margin indicates a chance-feasible sortie, while small positive margin identifies patterns that are feasible but operationally fragile.
+
+Stage 2 searches over inspection schedules. A solution state is represented as
+\begin{equation}
+x=\{R_v,\mathcal{B}_{vsd},\alpha_k,\beta_k,\delta_k,L^v_{sdk},R^v_{sdk},A^v_s,D^v_s,S_i,C_i\}_{v,s,d,k,i},
+\label{eq:state}
+\end{equation}
+where $R_v$ is the ordered route of support vehicle $v$, $\mathcal{B}_{vsd}$ is the ordered list of selected sortie patterns served by UAV $d$ from stop $s$, $\alpha_k$ is the selected launch--recovery stop of pattern $k$, $\beta_k$ is the selected vehicle, $\delta_k$ is the selected UAV, and $(A^v_s,D^v_s,L^v_{sdk},R^v_{sdk},S_i,C_i)$ are the vehicle, sortie and tower timing variables. Given a route and sortie order, the evaluator recomputes vehicle arrivals, stop-batch departures, UAV launch/recovery times, makespan, risk-weighted completion time, energy use, infeasible-sortie rate, sortie count, average towers per sortie and top-risk coverage. This representation is computationally light enough for 500-tower instances, but it remains tied to the synchronization constraints in Section~\ref{sec:model}; this explains why the repair-operator evidence is interpreted conservatively in Section~\ref{sec:results}.
+
+The ALNS neighborhood contains destroy and repair operators matched to the inspection setting. Random removal diversifies the search. Worst-energy removal targets towers whose selected sortie pattern has high upper-quantile energy or narrow battery margins. Let $k(i)$ denote the selected sortie pattern containing tower $i$. The removal priority is
+\begin{equation}
+\Omega_i=\omega_1\frac{Q_{\alpha_{k(i)}\delta_{k(i)}k(i)}}{B_d(1-\rho)}
++\omega_2\left(1-m_{\alpha_{k(i)}\delta_{k(i)}k(i)}\right)
++\omega_3\frac{\psi_i}{\max_{j\in\mathcal{T}}\psi_j}.
+\label{eq:removal-score}
+\end{equation}
+The first two terms target energy-fragile assignments; the third allows high-priority tasks to be reconsidered when the current ordering delays them.
+
+Shaw-related removal removes towers that are similar in corridor position, service feasibility and risk-value. For seed tower $i$, relatedness to tower $j$ is measured as
+\begin{equation}
+R_{ij}=\alpha_1\frac{\|p_i-p_j\|}{\bar d}
++\alpha_2\frac{|\psi_i-\psi_j|}{\bar\psi}
++\alpha_3\left(1-\frac{|\mathcal{F}_i\cap\mathcal{F}_j|}{|\mathcal{F}_i\cup\mathcal{F}_j|}\right),
+\label{eq:shaw-relatedness}
+\end{equation}
+where $p_i$ is tower position, $\mathcal{F}_i=\{(v,s,d,k):(v,s,d,k)\in\mathcal{F},\delta_{ik}=1\}$ and lower $R_{ij}$ means stronger relatedness. Path-segment removal changes contiguous corridor sections, while UAV-chain removal removes a group of sortie patterns served from the same support stop.
+
+The repair pool includes greedy insertion, regret insertion, energy-minimum insertion and synchronization-aware insertion. For a removed tower $i$, candidate insertion at position $p$ into pattern $k$ from stop $s$ and UAV $d$ is scored by
+\begin{equation}
+I(i,p,s,d,k)=\Delta F(i,p,s,d,k)
++\beta_1\frac{Q_{sdk}}{B_d(1-\rho)}
++\beta_2\Delta W(s,d)
+-\beta_3\frac{\psi_i}{1+\widehat C_i},
+\label{eq:insertion-score}
+\end{equation}
+where $\Delta F$ is the change in the weighted routing objective, $\Delta W$ is the induced dwell-time change and $\widehat C_i$ is the tentative completion time. Greedy repair selects the feasible insertion with minimum $I$. Regret repair first computes the ordered insertion scores $I_{i(1)}\leq I_{i(2)}\leq\cdots$ and selects the tower with the largest
+\begin{equation}
+\operatorname{regret}_\kappa(i)=\sum_{r=2}^{\kappa}\left(I_{i(r)}-I_{i(1)}\right).
+\label{eq:regret}
+\end{equation}
+Energy-minimum repair emphasizes the second term in Eq.~\eqref{eq:insertion-score}; synchronization-aware repair emphasizes $\Delta W$. These operators are implemented as search components rather than claimed as independent theoretical contributions.
+
+Let $\mathcal{O}$ denote the operator pool. Operator weights are updated from accepted and improving moves:
+\begin{equation}
+\pi^{k}_{h+1}=(1-\eta)\pi^k_h+\eta\frac{s^k_h+\epsilon_\pi}{\sum_{\ell\in\mathcal{O}}(s^\ell_h+\epsilon_\pi)},
+\label{eq:weights}
+\end{equation}
+where $\pi^k_h$ is the probability of operator $k$ at update epoch $h$, $s^k_h$ is its accumulated score, $\epsilon_\pi$ prevents zero-score collapse and $\eta$ is the adaptation rate. The score is increased when an operator produces a feasible solution, an accepted non-improving solution, an improving incumbent or a new global best. A simulated-annealing acceptance rule is used for non-improving moves:
+\begin{equation}
+P(\mathrm{accept})=\exp\left[-\frac{F(x')-F(x)}{T_h}\right].
+\label{eq:sa}
+\end{equation}
+Here $F(x)$ is the weighted objective in Eq.~\eqref{eq:objective} evaluated by the heuristic schedule simulator. The temperature follows $T_{h+1}=\alpha T_h$. After accepted moves, a local search step tests adjacent tower swaps within a pattern, short segment reversals and stop reassignment for towers whose feasible pattern set has more than one support stop. A stop reassignment for tower $i$ selects
+\begin{equation}
+s_i^\star=\arg\min_{s:\exists k\in\mathcal{K}_s,\ \delta_{ik}=1,\ (\beta_k,s,\delta_k,k)\in\mathcal{F}}
+\left\{\gamma_1 Q_{s\delta_k k}+\gamma_2 d^{road}_{s,\mathrm{prev}(i)}+\gamma_3\Delta W(s)\right\}.
+\label{eq:stop-reassignment}
+\end{equation}
+These local moves are deliberately limited so that the experiment can separate broad uncertainty/risk-value effects from expensive exact synchronization.
+
+Equations~\eqref{eq:service-graph}--\eqref{eq:stop-reassignment} form one algorithmic loop rather than separate heuristic decorations. Eq.~\eqref{eq:service-graph} defines the feasible search space, Eq.~\eqref{eq:state} defines the mutable solution state, Eqs.~\eqref{eq:removal-score} and~\eqref{eq:shaw-relatedness} choose what to destroy, Eqs.~\eqref{eq:insertion-score} and~\eqref{eq:regret} choose how to repair, Eq.~\eqref{eq:stop-reassignment} performs a local feasible-stop move, and Eqs.~\eqref{eq:sa} and~\eqref{eq:weights} decide whether the move is retained and how future operators are sampled.
+
+\begin{algorithm}[t]
+\caption{Probabilistic risk-value ALNS for vehicle--UAV inspection}
+\label{alg:alns}
+\begin{algorithmic}[1]
+\Require Towers $\mathcal{T}$, stops $\mathcal{S}$, weather $(\omega,T)$, UAV parameters $(B_d,\rho)$, weights $\lambda$ and iteration budget $H$.
+\Ensure Best schedule $x^\star$, objective trace, feasibility diagnostics and figure/table source data.
+\State Enumerate bounded same-stop tower sequences $\mathcal{K}_s$ around each candidate stop.
+\State Evaluate $(\mu_{sdk},\sigma_{sdk},\tau_{sdk})$ for each stop--UAV--sortie-pattern candidate using Eq.~\eqref{eq:surrogate}.
+\State Compute $Q_{sdk}$ and build $\mathcal{F}$ from Eqs.~\eqref{eq:q95}--\eqref{eq:feasible-sortie-set}.
+\State Construct $G_K$ and margins $m_{sdk}$ by Eq.~\eqref{eq:service-graph}.
+\State Initialize $x=\{R_v,\mathcal{B}_{vsd},\alpha_k,\beta_k,\delta_k,L^v_{sdk},R^v_{sdk},A^v_s,D^v_s,S_i,C_i\}$ from Eq.~\eqref{eq:state} with a risk-value ordered feasible assignment.
+\For{$h=1,\ldots,H$}
+  \State Select destroy and repair operators according to $\pi_h^k$ in Eq.~\eqref{eq:weights}.
+  \State Remove towers using random, path, UAV-chain, $\Omega_i$ in Eq.~\eqref{eq:removal-score} or $R_{ij}$ in Eq.~\eqref{eq:shaw-relatedness}.
+  \State Reinsert removed towers by minimizing $I(i,p,s,d,k)$ in Eq.~\eqref{eq:insertion-score}; use Eq.~\eqref{eq:regret} when regret repair is selected.
+  \State Apply adjacent swaps, short segment reversals and feasible-stop reassignment by Eq.~\eqref{eq:stop-reassignment}.
+  \State Recompute vehicle arrivals, stop departures, UAV launch/recovery times, $C_i$, $C_{\max}$, objective value in Eq.~\eqref{eq:objective}, RWCT and infeasible-sortie diagnostics.
+  \State Accept $x'$ if it improves $F(x)$ or passes Eq.~\eqref{eq:sa}; update $x^\star$ if the incumbent improves.
+  \State Update operator scores, $\pi_h^k$ by Eq.~\eqref{eq:weights} and temperature $T_h$.
+\EndFor
+\State \Return $x^\star$ and diagnostics.
+\end{algorithmic}
+\end{algorithm}
+
+The three mechanisms most specific to inspection scheduling are sortie-pattern screening, risk-value destroy--repair and feasible-stop reassignment. They are summarized in Fig.~\ref{fig:framework} and should be read with Algorithm~\ref{alg:alns}: the q95 gate defines the retained patterns before ALNS begins, destroy--repair acts during each iteration, and local reassignment is applied only when a tower has more than one feasible support stop. This avoids treating the operators as isolated tricks; each move is tied to the feasible sortie-pattern service set, objective in Eq.~\eqref{eq:objective} and stop-batch schedule state in Eqs.~\eqref{eq:state} and~\eqref{eq:sb-alns-state}.
+
+The stress experiment is deliberately used to restrict the contribution claim. It shows that the full uncertainty/risk-value framework is useful under difficult conditions, but it does not show that energy-minimum and synchronization-aware repair operators independently improve final aggregate quality in the scalable stop-batch ALNS approximation. They are therefore described as search components and diagnostics, not as independent headline innovations.
+
+\section{Computational experiments}
+\label{sec:experiments}
+
+The experiments are designed to test the modeling and algorithmic choices introduced in Sections~\ref{sec:model} and~\ref{sec:method}. Small instances check whether the compact formulation, q95 sortie-pattern set and heuristic evaluator operate on compatible scales. Medium and large synthetic instances test the risk-value ALNS against controlled baselines. Energy-prediction experiments test the probabilistic interface before it is used for routing. Stress, public-GIS and screening blocks then test whether the same design remains interpretable under adverse feasibility, external geometry and pattern-sparsity changes.
+
+\subsection{Instances and data sources}
+
+The instance design separates reproducible synthetic control from public-source grounding (Table~\ref{tab:instance-sources}). Synthetic corridor instances follow the proposal scale. S-scale instances contain 10, 15 and 20 towers with 5, 8 and 10 candidate stops and are used only for compact MILP/HiGHS reference checks. M-scale instances contain 30, 50, 75 and 100 towers and support algorithm comparison, ablation and candidate-stop screening. L-scale instances contain 150, 200, 300 and 500 towers and support scalability analysis. Synthetic instances use ten random seeds per main parameter combination. Tower coordinates are generated along two to four perturbed transmission corridors; candidate stops are generated from simplified road-access geometry or from clustering modes that emulate the K-means/DBSCAN stop-generation step. The same nominal ``50 towers/25 stops/K-means'' label appears in several tables, but the blocks differ by purpose and uncertainty setting: P2 and P6 use medium-uncertainty comparison/screening settings, whereas P4 and P8 use high-uncertainty ablation/sensitivity settings.
+
+\input{table_instance_sources}
+\input{table_experiment_conditions}
+\input{table_model_parameters}
+\clearpage
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig1_topology_dispatch.pdf}
+\caption{Representative synthetic corridor and dispatch representation used for the controlled experiments. Towers are colored by risk-value priority; candidate road-access stops and the depot define the support network; solid blue arrows show the selected vehicle stop order and dashed blue arcs show UAV launch--recovery sorties. The insets report the q95-feasible sortie-pattern set and the instance parameters used to connect the generated corridor data to the scheduler.}
+\label{fig:topology}
+\end{figure}
+
+Figure~\ref{fig:topology} is included before the numerical results to fix the common experimental language. The tower colors correspond to the priority weights $\psi_i$ used in RWCT; the q95 service-graph inset corresponds to the feasible service set $\mathcal{F}$; and the vehicle/UAV routes correspond to the stop-batch schedule state in Eqs.~\eqref{eq:state} and~\eqref{eq:sb-alns-state}. Thus the later tables are not abstract benchmark scores alone: they measure how changing energy uncertainty, risk priority or candidate-stop screening changes this dispatch structure.
+
+The public GIS batch uses three regions built from OpenStreetMap tower nodes, HIFLD transmission-line context and NASA POWER weather \citep{openstreetmap2026,hifld2026transmission,nasaPower2026}. These cases use real public geometry and weather, but tower risk, inspection value and candidate-stop attributes are generated proxies. The energy-calibration block uses 209 public AirLab package-delivery quadcopter flights \citep{airlab2021dataset}. That telemetry is real UAV data, but it is not transmission-line inspection telemetry.
+
+Unless a sensitivity run states otherwise, the numerical settings in Table~\ref{tab:model-parameters} are used. The publishable experiment driver uses 80, 100, 60 and 80 ALNS iterations for S, M, L and case-study runs, respectively; GA and ACO use half of the corresponding budget with a minimum of 40 iterations. The repair-stress experiment uses 140 iterations and tighter reserve/quantile settings to create adverse feasibility conditions. These budgets are intended to compare algorithmic behavior under a common local Python implementation, not to benchmark optimized production solvers.
+
+\subsection{Baselines}
+
+The baseline set is organized as a controlled design ladder rather than a list of unrelated algorithms (Table~\ref{tab:baseline-design}). The first three methods test whether generic order construction or generic metaheuristic routing already explains the results. Fixed ALNS then keeps the same destroy--repair search family but removes the two manuscript-specific layers. The point and UQ energy ALNS variants isolate the energy-prediction and conservative-screening effects before the full UQ-RV-ALNS configuration is evaluated.
+
+\input{table_baseline_design}
+
+This structure is important for interpretation in Section~\ref{sec:results}. A large gap over nearest, GA or ACO would only show that the problem benefits from a stronger routing heuristic. A gap over fixed ALNS tests the value of departing from fixed endurance and cost-only priority. A gap over point or UQ energy ALNS is narrower but more relevant: it asks whether upper-quantile feasibility and risk-value scheduling still matter after the solver already uses the same ALNS infrastructure.
+
+\subsection{Evaluation metrics}
+
+The evaluation does not rely on a single objective value, because the model itself couples time, priority, energy feasibility and sortie-pattern sparsity. Table~\ref{tab:metric-design} lists the metric groups, implementation fields and selection logic. The key point is that each reported metric corresponds to a model or algorithmic decision: RWCT evaluates the risk-value objective, infeasible-sortie rate evaluates the q95 gate at sortie level, sortie count and average towers per sortie evaluate the revised multi-tower assumption, and candidate-pair reduction evaluates the Stage-1 support layer before ALNS search begins.
+
+\input{table_metric_design}
+
+Risk-weighted completion time is
+\begin{equation}
+\operatorname{RWCT}=\sum_{i\in\mathcal{T}}\psi_i C_i,
+\label{eq:metric-rwct}
+\end{equation}
+and measures whether high-risk, high-value towers are inspected early. For the highest-priority subset $\mathcal{T}_\alpha$ and early-service cutoff $\theta_\mathrm{early}$, top-risk coverage is
+\begin{equation}
+\operatorname{TopCov}=\frac{1}{|\mathcal{T}_\alpha|}\sum_{i\in\mathcal{T}_\alpha}\mathbf{1}\{C_i\leq \theta_\mathrm{early}\}.
+\label{eq:metric-topcov}
+\end{equation}
+In adverse-feasibility experiments we also report feasible top-risk coverage,
+\begin{equation}
+\operatorname{FeasTopCov}=\frac{1}{|\mathcal{T}_\alpha|}\sum_{i\in\mathcal{T}_\alpha}\mathbf{1}\{C_i\leq \theta_\mathrm{early},\ Q_{\alpha_{k(i)}\delta_{k(i)}k(i)}\leq B_d(1-\rho)\},
+\label{eq:metric-feasible-topcov}
+\end{equation}
+which prevents an early but energy-infeasible high-risk service from being counted as reliable coverage.
+For the selected sortie assignments $\mathcal{Y}^{K}$, the infeasible-sortie rate is
+\begin{equation}
+\operatorname{IFR}=\frac{1}{|\mathcal{Y}^{K}|}\sum_{(v,s,d,k)\in\mathcal{Y}^{K}}\mathbf{1}\{Q_{sdk}>B_d(1-\rho)\}.
+\label{eq:metric-ifr}
+\end{equation}
+Candidate-stop screening is evaluated by feasible support-pair count and candidate-pair reduction, because these determine whether the pattern set in Eq.~\eqref{eq:service-graph} is rich enough for ALNS; sortie count and average towers per sortie then report how much of that support layer is actually consolidated into multi-tower sorties.
+
+\subsection{Statistical protocol and claim boundary}
+
+All main comparisons use matched random seeds where possible. Statistical testing uses paired Wilcoxon tests with Holm correction in the P7 block \citep{wilcoxon1945individual,holm1979simple}, pairing methods by seed, tower count, stop count and uncertainty level. The compact MILP/HiGHS reference uses the open-source HiGHS solver \citep{huangfu2018parallelizing}; it is used only for S-scale sanity checks and is not claimed as a complete branch-and-price benchmark. Public GIS cases are treated as GIS-grounded computational evidence, not utility deployment evidence. AirLab telemetry validates that route/weather variables improve energy prediction on public quadcopter flights, while full inspection-simulator deployment evidence remains outside this experiment block.
+
+\subsection{Experiment design map}
+
+Before reporting the results, Table~\ref{tab:experiment-design-map} connects each result block to the specific model component, controlled factor and claim boundary it is meant to test. This table is included to avoid a common weakness in simulation papers: moving from setup directly to isolated figures without showing how each experiment defends a particular part of the formulation or algorithm.
+
+\input{table_experiment_design_map}
+
+\section{Results and analysis}
+\label{sec:results}
+
+The results follow the evidence ladder summarized in Table~\ref{tab:experiment-design-map}. The first block checks whether the compact formulation and heuristic evaluator are numerically aligned on S-scale cases. The second block tests whether the risk-value objective in Eq.~\eqref{eq:objective} and the ALNS state in Eq.~\eqref{eq:state} improve inspection-priority metrics. The third block isolates the probabilistic energy interface in Eqs.~\eqref{eq:surrogate}--\eqref{eq:chance-constraint}. The remaining blocks then ask whether the same mechanism is robust under adverse feasibility, transferable to public GIS geometry and scalable when the candidate-stop support layer is screened. Each result block is paired with a full raw-data table so that the reader can distinguish visual patterns from the underlying mean values, variances and evidence boundaries. This ordering is important: later figures are interpreted only after the model, energy and algorithm components they depend on have been tested.
+
+\subsection{Small reference and evidence boundary}
+
+Before interpreting the large-instance heuristic results, the compact reference checks whether the mathematical model and the schedule evaluator describe the same operational scale. Table~\ref{tab:small-reference} reports the raw S-scale means used for this check. On 10-, 15- and 20-tower cases, the stop-batch evaluator gives proposed-method makespans of 143.07, 215.52 and 310.75, compared with 126.89, 140.95 and 184.62 for the compact HiGHS reference. The compact reference is therefore faster on makespan, while the ALNS variants produce much better evaluated top-priority coverage and keep residual infeasible sorties at zero or near zero. This block is not an optimality claim, because the compact reference does not optimize RWCT and does not include every synchronization and risk-value feature used by the heuristic evaluator. Its role is narrower: it checks that coverage, sortie-pattern feasibility and completion-time accounting remain plausible before the paper moves to M- and L-scale corridor experiments.
+
+\input{table_small_reference}
+
+\subsection{Algorithm comparison}
+
+The main routing question is whether the inspection-specific terms added in the model change scheduling behavior beyond generic order search. Table~\ref{tab:algorithm-results} gives the full M/L-scale comparison across all tested tower counts and baselines, while Fig.~\ref{fig:algorithm-effects} focuses on the 100- and 500-tower cases to make the main pattern visible. On the 100-tower benchmark, the proposed method reduces normalized RWCT by 42.84\% relative to fixed ALNS and by 26.45\% relative to nearest dispatch. The paired RWCT comparisons against fixed ALNS and nearest dispatch are significant after Holm adjustment, with $p_{Holm}=0.0117$ in both cases. Against point energy ALNS, however, the proposed method shows only a 1.23\% mean RWCT reduction and the paired comparison is not significant ($p_{Holm}=0.4805$). Top-risk coverage is also slightly lower than point energy ALNS, 0.968 versus 0.972. These comparisons answer different parts of the method design. The large gap over fixed ALNS supports the move away from fixed endurance and cost-only priority. The narrow and non-significant gap over point energy ALNS means that, once a strong point-prediction ALNS is already in place, the full UQ-risk-value configuration should be interpreted mainly as a feasibility-protecting and priority-consistent variant rather than a scheduler with scale-dependent statistical support.
+
+\input{table_algorithm_results}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig3_algorithm_effects.pdf}
+\caption{Algorithm-comparison evidence under matched 100- and 500-tower seeds. A--B: mean risk-weighted completion time with standard-deviation bars for all baselines; dashed vertical lines mark the proposed mean. C: top-risk coverage for the main ALNS variants. D: residual infeasible-sortie rate. Lower is better in A, B and D, whereas higher is better in C; Table~\ref{tab:algorithm-results} reports the raw values.}
+\label{fig:algorithm-effects}
+\end{figure}
+
+The L-scale results reinforce that boundary. At 500 towers, the proposed method reduces RWCT by 39.11\% relative to fixed ALNS and 13.12\% relative to nearest dispatch, again with paired evidence significant after Holm adjustment against fixed ALNS. It is not better than point energy ALNS or UQ energy ALNS on normalized RWCT in this batch: the proposed mean is 1036.97, compared with 1006.26 for point energy ALNS and 1002.36 for UQ energy ALNS. Top-risk coverage is also lower, 0.972 versus 0.984 for point energy ALNS, while the infeasible-sortie rate falls from 0.0032 to zero. The main interpretation is therefore not that the proposed method always minimizes makespan or dominates every ALNS variant. It changes the tradeoff toward explicit risk-value accounting and q95 feasibility, which is exactly the role assigned to $\psi_i C_i$ and selected-pattern energy \(Q_{sdk}\) in the formulation.
+
+\subsection{Energy-prediction evidence}
+
+The routing gains rely on the energy interface being more than a cosmetic predictor. Table~\ref{tab:energy-evidence} and Fig.~\ref{fig:energy-evidence} therefore separate scheduler-facing simulation evidence from external telemetry calibration. In the simulation prediction task, the probabilistic PINN surrogate reduces high-uncertainty MAE from 12.96 for fixed physics and 9.40 for point PINN to 1.30, while increasing 95\% coverage to 1.00 and eliminating false-feasible decisions in the high-uncertainty block. In the low- and medium-uncertainty blocks, the residual false-feasible rate is 0.0020, so the supported general claim is reduction rather than universal elimination. This supports using \(Q_{sdk}\) as the q95 energy gate for selected sortie patterns. In the public AirLab telemetry calibration, the best telemetry-weather linear model reduces held-out MAE from 3.902 Wh for the constant baseline to 0.890 Wh. Because percentage error can be unstable for low-energy flights, Table~\ref{tab:energy-evidence} also reports WAPE and SMAPE: the telemetry-weather model gives the lowest WAPE (0.043), whereas the route-linear model has the lowest SMAPE (0.071) but higher MAE and RMSE. That second block supports the premise that route and weather variables matter in real quadcopter energy data; it does not validate the full inspection simulator in the field.
+
+\input{table_energy_evidence}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig4_energy_evidence.pdf}
+\caption{Energy-prediction evidence supporting the q95 sortie-pattern service set. A: high-uncertainty simulation MAE with standard-deviation bars and 95\% coverage on the right axis; B: held-out AirLab telemetry MAE for progressively richer calibration models; C: actual versus predicted held-out energy for the telemetry-weather model. The telemetry block is external calibration evidence, calibration evidence for energy prediction only.}
+\label{fig:energy-evidence}
+\end{figure}
+
+\subsection{Ablation, stress tests and operator interpretation}
+
+The ablation block first removes individual modeling and search components on the 50-tower high-uncertainty case (Table~\ref{tab:ablation-results}). Removing the risk-value term changes the inspection-priority behavior most strongly: RWCT rises from 118.24 to 197.93 and top-risk coverage drops from 0.933 to 0.233. Removing UQ gives a slightly lower nominal RWCT in this batch, but it reintroduces residual infeasible sorties and lowers feasible top-risk coverage from 0.933 to 0.925. Removing only the named energy-minimum or synchronization-aware repair operator has no final metric separation in this implementation, so these operators should be read as search components rather than independently proven quality drivers. The stress tests then connect the framework to adverse feasibility settings. Under sparse high-wind, tight-battery and very sparse-corridor cases, the full framework reduces RWCT relative to fixed ALNS by 20.0\%, 33.3\% and 17.7\%, respectively (Table~\ref{tab:stress-results}). Removing UQ changes the tradeoff sharply: nominal top-risk coverage rises to 0.604--0.772 in the stress cases, but q95-feasible coverage falls to 0.272--0.284 and the infeasible-sortie rate stays near 0.73--0.75. The supported claim is therefore deliberately bounded: the broad UQ/risk-value framework improves the reliability side of adverse scheduling, while the two named repair operators are useful diagnostics rather than independently proven final-quality drivers.
+
+\input{table_ablation_results}
+\input{table_stress_results}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig5_ablation_stress_heatmaps.pdf}
+\caption{Stress-test heatmaps for adverse feasibility cases. A: risk-weighted completion time; B: infeasible-sortie rate; C: nominal top-risk coverage. Rows and columns are shared across panels, but each panel uses its own colorbar because the metrics have different units and favorable directions. Lower is better in A and B, whereas higher is better in C; Table~\ref{tab:stress-results} pairs the nominal coverage values with q95-feasible top-risk coverage.}
+\label{fig:stress}
+\end{figure}
+
+\subsection{Public GIS-grounded cases}
+
+After the synthetic and stress evidence, the public GIS block asks whether the same sortie-pattern service-set construction can be instantiated on real public tower geometry and weather inputs. Figure~\ref{fig:gis} maps the Bay Area, Los Angeles inland and Dallas--Fort Worth cases in projected local coordinates, with towers colored by proxy risk-value and candidate stops shown as support positions. Table~\ref{tab:gis-results} reports all baseline rows for the three regions. The full method has the lowest RWCT in Dallas--Fort Worth and Los Angeles inland, but not in Bay Area, where ACO has a slightly lower RWCT. Dallas--Fort Worth has the strongest full-method RWCT signal, with 154.73 versus 155.85 for point energy ALNS and 158.01 for GA/ACO, but the proposed top-risk coverage is 0.867 while several non-full baselines reach 1.000. Bay Area shows the opposite pattern: the proposed row reaches top-risk coverage 1.000 but has RWCT 105.73, slightly above ACO's 105.48. These cases therefore show that the proxy risk-value objective changes aggregate delay and coverage tradeoffs, not that one heuristic dominates every public-geometry case. Because risk, value and stops are generated proxies, these cases are GIS-grounded computational evidence rather than utility field deployment evidence.
+
+\input{table_gis_results}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig6_public_gis_cases.pdf}
+\caption{Public GIS-grounded cases in projected local coordinates. Towers are colored by proxy risk-value score; triangles denote generated candidate stops; dashed links show representative high-risk service relations used to visualize the sortie-pattern support layer. The coordinates and weather inputs are public-data grounded, whereas risk/value labels and stops remain generated proxies.}
+\label{fig:gis}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig9_public_gis_operation_state.pdf}
+\caption{Representative operating-state diagnostic for the Bay Area public-GIS case solved by the proposed configuration. A: selected stops, vehicle stop order and high-risk UAV sortie relations in local projected coordinates; B: UAV service timeline colored by tower risk-value score, with the early-service cutoff used in top-risk coverage; C: q95 energy margin for early high-risk sortie records. This figure is a computational dispatch trace from the solver, not a field-operation log.}
+\label{fig:gis-operation}
+\end{figure}
+
+Figure~\ref{fig:gis-operation} adds the operating-state view that the aggregate GIS table cannot show. The Bay Area run serves the highest-risk quartile before the early cutoff and retains positive q95 energy margins for the displayed high-risk sorties, which is consistent with the zero infeasible-sortie rate reported by the proposed row in Table~\ref{tab:gis-results}. The diagnostic is deliberately tied to the same \texttt{PlanSortie} and \texttt{PlanTask} records used by the metric evaluator; it should therefore be read as an internal schedule trace for checking route, timeline and energy-margin consistency.
+
+\subsection{Scalability and candidate-stop screening}
+
+The final result block returns to Stage 1 of the algorithm: the candidate-stop generator controls the density of the support layer used to build the sortie-pattern set in Eq.~\eqref{eq:service-graph}. Table~\ref{tab:scalability-screening} gives the raw scale, screening and UAV-count values behind Fig.~\ref{fig:scale}; Table~\ref{tab:sensitivity-results} reports the additional parameter-sensitivity rows for candidate mode, iteration budget, quantile coefficient, reserve ratio and UAV count. K-means screening removes 80.0\% of candidate support pairs at 30 towers and 94.0\% at 100 towers while preserving zero infeasible sorties in the tested corridor generator. Direct enumeration still reports the full screened support layer, but its q95-feasible subset is much smaller than the raw stop/support product: 55.9 feasible pairs out of 450 total pairs at 30 towers and 204.1 out of 5000 at 100 towers. DBSCAN leaves only about 12--13 feasible support pairs across these M-scale cases, which is too sparse for reliable sortie construction and leads to infeasible-sortie rates from 0.37 to 0.81, even when its nominal RWCT is low in some sparse cases. Increasing the UAV count from two to four reduces makespan in the sensitivity setting, while six UAVs gives no additional gain because the tested stop-batch route becomes vehicle/stop constrained. The runtime curve remains practical in the current Python prototype, but these absolute runtimes should not be interpreted as optimized production solver times.
+
+\input{table_scalability_screening}
+\input{table_sensitivity_results}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig7_scalability_screening.pdf}
+\caption{Scalability and screening trade-offs for the Stage-1 sortie-pattern support layer. A--B: risk-time and runtime scaling of point-estimate energy ALNS and the proposed method with value labels at representative endpoints; C: candidate-pair reduction and infeasible-sortie rate for direct, K-means and DBSCAN stop screening; D: UAV-count sensitivity with makespan and RWCT shown on separate axes. Table~\ref{tab:scalability-screening} reports the raw data behind all panels.}
+\label{fig:scale}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig8_candidate_screening_surface.pdf}
+\caption{Candidate-stop screening response surface built from the observed screening experiment in Table~\ref{tab:scalability-screening}. A: RWCT surface over tower count and categorical stop-generation mode, with red markers denoting the original data points; B: feasible support pairs used to seed sortie patterns and residual infeasible-sortie rate across the same conditions. The mode axis is categorical, so the surface should be read as a compact visualization of the observed grid rather than a continuous physical interpolation.}
+\label{fig:screening-surface}
+\end{figure}
+
+Figure~\ref{fig:screening-surface} makes the support-density mechanism explicit. Direct enumeration preserves all candidate pairs for evaluation, but the feasible-pair column counts only q95-admissible stop/support relations before pattern construction. DBSCAN creates a very sparse feasible support layer and the infeasible-sortie rate rises sharply. K-means lies between those extremes: it removes most candidate pairs while preserving enough feasible support for the tested generator. This explains why K-means is used as the default candidate-stop screening mode in Table~\ref{tab:experiment-conditions} rather than being treated as an arbitrary preprocessing choice.
+
+\section{Discussion}
+\label{sec:discussion}
+
+The evidence supports three main conclusions. First, risk-value scheduling changes the optimization target in a way that is relevant to inspection. The proposed method is not always the fastest in nominal makespan and shows scale-dependent gains over point or UQ energy ALNS, but Tables~\ref{tab:algorithm-results} and~\ref{tab:stress-results} show lower risk-weighted completion time or a more reliable feasible-coverage tradeoff than fixed ALNS across the main large-scale and stress tests. Second, probabilistic energy screening converts energy prediction into a routing decision. The $q_{0.95}$ filter removes residual infeasible sorties in the 100- and 500-tower comparisons, while Table~\ref{tab:energy-evidence} shows that route and weather variables can materially reduce held-out energy error in telemetry calibration. Third, candidate-stop generation is a substantial computational layer, not a preprocessing detail. Figure~\ref{fig:scale} shows that screening changes the feasible support layer used to seed sortie patterns, and overly aggressive screening can dominate the final schedule.
+
+The main limitations are also clear. The MILP reference is compact and used only for small instances. The public GIS cases use real tower geometries and weather but not real utility defect labels or field crew schedules. The AirLab telemetry data are real quadcopter flights, but they are package-delivery flights rather than transmission-line inspection sorties. The ALNS repair operators are implemented and tested as a scalable stop-batch approximation, but this heuristic state still limits their independent effect on final aggregate metrics relative to a full time-expanded exact solver.
+
+\section{Conclusions}
+\label{sec:conclusion}
+
+This paper develops an uncertainty-aware risk-value vehicle--UAV scheduling framework for transmission-line inspection. The method combines probabilistic energy prediction, chance-style sortie screening, candidate-stop generation and ALNS-based routing. The computational evidence follows a computational experiment structure: formulation, algorithm, benchmark comparison, energy validation, ablation, sensitivity and GIS-grounded cases. The proposed method improves normalized risk-weighted completion time relative to fixed ALNS and nearest dispatch and reduces residual infeasible-sortie rates in the main large-scale comparisons, but it shows scale-dependent gains over point or UQ energy ALNS. Stress cases show a reliability tradeoff rather than scale-dependent statistical strength on nominal coverage. Public GIS-grounded cases and AirLab telemetry provide useful external grounding, but the manuscript should reserve utility deployment claims for real inspection logs. Future work should incorporate real inspection logs, defect labels, field battery records and a fuller exact optimization benchmark for synchronization-rich small instances.
+
+\section*{Data availability}
+
+The computational results are generated from reproducible simulation scripts and CSV source data. Public-source inputs include OpenStreetMap tower nodes, HIFLD transmission-line context, NASA POWER weather and the AirLab quadcopter telemetry dataset. The synthetic instance data, experiment outputs and figure source data can be made available with the implementation package.
+
+\section*{Declaration of competing interest}
+
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Acknowledgements}
+
+No acknowledgements are included in the review version.

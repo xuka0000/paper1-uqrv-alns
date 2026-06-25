@@ -1,0 +1,26 @@
+{
+  "battery_capacity": 150.0,
+  "bbox": {
+    "max_lat": 37.5,
+    "max_lon": -121.9,
+    "min_lat": 37.3,
+    "min_lon": -122.1
+  },
+  "date_yyyymmdd": "20250101",
+  "drone_speed_kmph": 46.0,
+  "evidence_boundary": "Tower coordinates and weather are public-data grounded. Risk, value, service time, payload and generated stops are transparent proxies, not field labels.",
+  "source_counts": {
+    "generated_stops": 15,
+    "hifld_features": 50,
+    "osm_tower_nodes": 886,
+    "used_towers": 30
+  },
+  "sources": {
+    "hifld_arcgis": "https://services2.arcgis.com/LYMgRMwHfrWWEg3s/ArcGIS/rest/services/HIFLD_US_Electric_Power_Transmission_Lines/FeatureServer/0/query",
+    "nasa_power": "https://power.larc.nasa.gov/api/temporal/hourly/point",
+    "osm_overpass": "https://overpass-api.de/api/interpreter"
+  },
+  "uav_count": 4,
+  "vehicle_count": 2,
+  "vehicle_speed_kmph": 65.0
+}

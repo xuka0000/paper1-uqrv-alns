@@ -1,0 +1,33 @@
+\begin{table}[H]
+\centering
+\caption{Full energy-prediction data for scheduler-facing simulation and AirLab telemetry calibration. AirLab rows report MAPE, WAPE and SMAPE because MAPE is unstable for low-energy flights. Shaded rows denote the selected probabilistic or telemetry-weather model; bold values indicate the best value within each uncertainty level or telemetry block.}
+\label{tab:energy-evidence}
+\small
+\setlength{\tabcolsep}{2.1pt}
+\begin{tabular}{@{}lllrrrrrrrr@{}}
+\toprule
+Block & Level & Model & Test & MAE $\downarrow$ & RMSE $\downarrow$ & MAPE $\downarrow$ & WAPE $\downarrow$ & SMAPE $\downarrow$ & Cov. $\uparrow$ & False feas. $\downarrow$ \\
+\midrule
+Simulation & Low & Fixed physics & 10 seeds & 12.03 & 12.86 & 0.188 & -- & -- & 0.132 & 0.0040 \\
+Simulation & Low & Point PINN & 10 seeds & 8.51 & 9.08 & 0.135 & -- & -- & 0.516 & \textbf{0.0020} \\
+\rowcolor{gray!10}
+Simulation & Low & \textbf{Prob. PINN} & 10 seeds & \textbf{0.91} & \textbf{1.15} & \textbf{0.015} & -- & -- & \textbf{1.000} & \textbf{0.0020} \\
+\addlinespace[2pt]
+Simulation & Medium & Fixed physics & 10 seeds & 12.37 & 13.23 & 0.192 & -- & -- & 0.118 & 0.0040 \\
+Simulation & Medium & Point PINN & 10 seeds & 8.84 & 9.45 & 0.140 & -- & -- & 0.484 & \textbf{0.0020} \\
+\rowcolor{gray!10}
+Simulation & Medium & \textbf{Prob. PINN} & 10 seeds & \textbf{1.05} & \textbf{1.32} & \textbf{0.017} & -- & -- & \textbf{0.998} & \textbf{0.0020} \\
+\addlinespace[2pt]
+Simulation & High & Fixed physics & 10 seeds & 12.96 & 13.87 & 0.200 & -- & -- & 0.102 & 0.0040 \\
+Simulation & High & Point PINN & 10 seeds & 9.40 & 10.12 & 0.147 & -- & -- & 0.430 & 0.0020 \\
+\rowcolor{gray!10}
+Simulation & High & \textbf{Prob. PINN} & 10 seeds & \textbf{1.30} & \textbf{1.64} & \textbf{0.021} & -- & -- & \textbf{1.000} & \textbf{0.0000} \\
+\addlinespace[2pt]
+AirLab & Held-out & Constant mean & 41 flights & 3.902 Wh & 5.316 Wh & 3.281 & 0.188 & 0.209 & 0.976 & \textbf{0.0000} \\
+AirLab & Held-out & Parameter linear & 41 flights & 2.410 Wh & 3.250 Wh & 2.112 & 0.116 & 0.147 & 0.976 & \textbf{0.0000} \\
+AirLab & Held-out & Route linear & 41 flights & 1.260 Wh & 1.544 Wh & 0.075 & 0.061 & \textbf{0.071} & 0.976 & \textbf{0.0000} \\
+\rowcolor{gray!10}
+AirLab & Held-out & \textbf{Telemetry-weather} & 41 flights & \textbf{0.890 Wh} & \textbf{1.083 Wh} & \textbf{0.067} & \textbf{0.043} & 0.091 & \textbf{1.000} & \textbf{0.0000} \\
+\bottomrule
+\end{tabular}
+\end{table}

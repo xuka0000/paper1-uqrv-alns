@@ -1,0 +1,21 @@
+\begin{table}[H]
+\centering
+\caption{Metric groups, code fields and selection logic used in the computational study.}
+\label{tab:metric-design}
+\small
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}>{\centering\arraybackslash}p{0.08\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Metric group & Reported metric & Formula or implementation field & Direction & Used in & Selection logic \\
+\midrule
+Operational efficiency & Makespan; vehicle distance; runtime & Evaluator fields: makespan, distance and runtime & Down & Tables~\ref{tab:small-reference}, \ref{tab:algorithm-results}, \ref{tab:gis-results} & Captures time, ground support movement and computational cost \\
+Inspection priority & RWCT & Eq.~\eqref{eq:metric-rwct}; evaluator RWCT field & Down & Routing/stress/GIS blocks; diagnostic in S-scale reference & Directly matches the ALNS risk-value term; diagnostic only for compact HiGHS rows \\
+Inspection priority & Top-risk and feasible top-risk coverage & Eqs.~\eqref{eq:metric-topcov}--\eqref{eq:metric-feasible-topcov}; evaluator fields & Up & Algorithm, stress, GIS and screening blocks & Separates nominal early service from early service that is also q95-feasible \\
+Reliability & Infeasible-sortie rate & Eq.~\eqref{eq:metric-ifr}; evaluator IFR field & Down & Algorithm, stress, GIS, screening and sensitivity blocks & Tests whether q95 feasibility changes decisions, not only reported scores \\
+Energy prediction & MAE; RMSE; MAPE; 95\% coverage; false feasible & Prediction-summary CSV fields & Mixed & Energy-evidence block & Separates accuracy, calibration and decision-side false feasibility \\
+Service graph & Feasible pairs; candidate-pair reduction & Feasible-pair count and pair-reduction ratio & Mixed & Scalability and screening blocks & Measures Stage-1 graph sparsity before ALNS sees the instance \\
+Statistical evidence & Paired Wilcoxon; Holm correction & P7 paired seed tests \citep{wilcoxon1945individual,holm1979simple} & By metric & Main matched-seed comparisons & Avoids treating repeated seeded runs as unrelated samples \\
+\bottomrule
+\end{tabularx}
+\end{table}

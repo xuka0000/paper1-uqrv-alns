@@ -1,0 +1,9 @@
+{
+  "experiment_id": "P9_real_gis_case",
+  "run_id": "public_bay_area_full_multi_tower_20260612",
+  "row_count": 70,
+  "raw_data": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P9_real_gis_case\\raw_data\\P9_real_gis_case_public_bay_area_full_multi_tower_20260612_raw.csv",
+  "summary_csv": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P9_real_gis_case\\analysis_data\\P9_real_gis_case_public_bay_area_full_multi_tower_20260612_summary.csv",
+  "summary_md": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P9_real_gis_case\\analysis_data\\P9_real_gis_case_public_bay_area_full_multi_tower_20260612_summary.md",
+  "evidence_boundary": "GIS-grounded coordinates and weather; risk/value/stop labels remain proxy-generated."
+}

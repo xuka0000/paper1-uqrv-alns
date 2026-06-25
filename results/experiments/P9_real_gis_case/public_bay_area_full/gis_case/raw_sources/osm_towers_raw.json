@@ -1,0 +1,8186 @@
+{
+  "elements": [
+    {
+      "id": 65391099,
+      "lat": 37.4515766,
+      "lon": -122.0874216,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65391101,
+      "lat": 37.4527334,
+      "lon": -122.0897358,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65391110,
+      "lat": 37.4487399,
+      "lon": -122.0799811,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65391112,
+      "lat": 37.4486921,
+      "lon": -122.0794006,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65391114,
+      "lat": 37.4471961,
+      "lon": -122.0744872,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65396446,
+      "lat": 37.465996,
+      "lon": -122.0227875,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65396448,
+      "lat": 37.462153,
+      "lon": -122.0259009,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65396450,
+      "lat": 37.4531227,
+      "lon": -122.0330505,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65396456,
+      "lat": 37.4498813,
+      "lon": -122.0356177,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65396457,
+      "lat": 37.4490719,
+      "lon": -122.038071,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65401403,
+      "lat": 37.4267579,
+      "lon": -122.0309435,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65401407,
+      "lat": 37.4324775,
+      "lon": -122.0435088,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65401410,
+      "lat": 37.4415732,
+      "lon": -122.0444313,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65401412,
+      "lat": 37.4445419,
+      "lon": -122.0447324,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65401417,
+      "lat": 37.4475814,
+      "lon": -122.0401459,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65402474,
+      "lat": 37.3002316,
+      "lon": -122.0640601,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65405621,
+      "lat": 37.4576553,
+      "lon": -122.09957,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65412845,
+      "lat": 37.4080785,
+      "lon": -122.0060228,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 65412847,
+      "lat": 37.4106637,
+      "lon": -122.0051642,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 189800513,
+      "lat": 37.402202,
+      "lon": -122.007903,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317256,
+      "lat": 37.341238,
+      "lon": -122.0649096,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317257,
+      "lat": 37.3447261,
+      "lon": -122.0646394,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317258,
+      "lat": 37.3472317,
+      "lon": -122.0636536,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317259,
+      "lat": 37.3487899,
+      "lon": -122.0641986,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317260,
+      "lat": 37.3510531,
+      "lon": -122.0632653,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317261,
+      "lat": 37.3528963,
+      "lon": -122.0629186,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317262,
+      "lat": 37.3547171,
+      "lon": -122.0610867,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317263,
+      "lat": 37.3562778,
+      "lon": -122.0608051,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317264,
+      "lat": 37.3589641,
+      "lon": -122.0614944,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317265,
+      "lat": 37.3611758,
+      "lon": -122.0612749,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317266,
+      "lat": 37.3632747,
+      "lon": -122.0619933,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317268,
+      "lat": 37.3656237,
+      "lon": -122.0622362,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317269,
+      "lat": 37.3693005,
+      "lon": -122.0648283,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317270,
+      "lat": 37.370883,
+      "lon": -122.066742,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317271,
+      "lat": 37.3721414,
+      "lon": -122.0674248,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317272,
+      "lat": 37.3727861,
+      "lon": -122.067738,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317273,
+      "lat": 37.3746618,
+      "lon": -122.068493,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317274,
+      "lat": 37.3765034,
+      "lon": -122.0687936,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317275,
+      "lat": 37.3783859,
+      "lon": -122.069111,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317276,
+      "lat": 37.3798929,
+      "lon": -122.0691002,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 276317277,
+      "lat": 37.3825345,
+      "lon": -122.0687208,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 277359195,
+      "lat": 37.3725169,
+      "lon": -122.0678587,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 277359206,
+      "lat": 37.3634583,
+      "lon": -122.0208094,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918187,
+      "lat": 37.3783842,
+      "lon": -122.069331,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918188,
+      "lat": 37.3767686,
+      "lon": -122.0690652,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918189,
+      "lat": 37.374626,
+      "lon": -122.068705,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918190,
+      "lat": 37.3707995,
+      "lon": -122.066894,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918192,
+      "lat": 37.3689509,
+      "lon": -122.0654346,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918193,
+      "lat": 37.3676344,
+      "lon": -122.0638296,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918194,
+      "lat": 37.3656015,
+      "lon": -122.0623876,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918195,
+      "lat": 37.363036,
+      "lon": -122.0620845,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918196,
+      "lat": 37.3619274,
+      "lon": -122.061717,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918197,
+      "lat": 37.3596889,
+      "lon": -122.0617063,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918198,
+      "lat": 37.356702,
+      "lon": -122.06143,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918199,
+      "lat": 37.3546595,
+      "lon": -122.0613603,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918200,
+      "lat": 37.3529736,
+      "lon": -122.0630571,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918201,
+      "lat": 37.3510862,
+      "lon": -122.0634126,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918203,
+      "lat": 37.3488233,
+      "lon": -122.0643619,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918204,
+      "lat": 37.3471221,
+      "lon": -122.0645401,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918205,
+      "lat": 37.3411604,
+      "lon": -122.0651131,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918206,
+      "lat": 37.3390633,
+      "lon": -122.0650823,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918207,
+      "lat": 37.3373799,
+      "lon": -122.0650654,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918208,
+      "lat": 37.3354601,
+      "lon": -122.0652791,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918209,
+      "lat": 37.3334526,
+      "lon": -122.0654765,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918210,
+      "lat": 37.3305096,
+      "lon": -122.0658208,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918282,
+      "lat": 37.325926,
+      "lon": -122.0739696,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918283,
+      "lat": 37.3270831,
+      "lon": -122.0724383,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918284,
+      "lat": 37.3278444,
+      "lon": -122.0706024,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918286,
+      "lat": 37.3284882,
+      "lon": -122.0681676,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918287,
+      "lat": 37.3304414,
+      "lon": -122.0656148,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918288,
+      "lat": 37.3334405,
+      "lon": -122.0653222,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 279918289,
+      "lat": 37.3347204,
+      "lon": -122.0651603,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 281363441,
+      "lat": 37.3723366,
+      "lon": -122.0677624,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 288673951,
+      "lat": 37.4137354,
+      "lon": -122.0041159,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768358,
+      "lat": 37.3278273,
+      "lon": -122.076075,
+      "tags": {
+        "line_management": "split",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768359,
+      "lat": 37.3265403,
+      "lon": -122.0773414,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768360,
+      "lat": 37.3241554,
+      "lon": -122.077191,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768361,
+      "lat": 37.3210014,
+      "lon": -122.080279,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768362,
+      "lat": 37.3196574,
+      "lon": -122.0819929,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768363,
+      "lat": 37.3163263,
+      "lon": -122.0849696,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768365,
+      "lat": 37.3106478,
+      "lon": -122.0892939,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768366,
+      "lat": 37.3077862,
+      "lon": -122.0908548,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768367,
+      "lat": 37.3047995,
+      "lon": -122.0904716,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768368,
+      "lat": 37.3033116,
+      "lon": -122.0899872,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768370,
+      "lat": 37.300912,
+      "lon": -122.0868211,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 320768371,
+      "lat": 37.3009792,
+      "lon": -122.0783848,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 373423729,
+      "lat": 37.3394742,
+      "lon": -121.9030396,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 433476891,
+      "lat": 37.3148218,
+      "lon": -122.0795727,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 433482953,
+      "lat": 37.3270335,
+      "lon": -122.097746,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 433482954,
+      "lat": 37.3269448,
+      "lon": -122.091335,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 447926067,
+      "lat": 37.3970848,
+      "lon": -122.0096071,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 447926289,
+      "lat": 37.3996344,
+      "lon": -122.0087728,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 519659536,
+      "lat": 37.4321266,
+      "lon": -122.0699406,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 519659537,
+      "lat": 37.4292233,
+      "lon": -122.0690688,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 519659538,
+      "lat": 37.4289225,
+      "lon": -122.0688187,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950203,
+      "lat": 37.3664605,
+      "lon": -122.0197894,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950209,
+      "lat": 37.369588,
+      "lon": -122.0187685,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950212,
+      "lat": 37.372723,
+      "lon": -122.0177511,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950226,
+      "lat": 37.374911,
+      "lon": -122.0168156,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950228,
+      "lat": 37.3755056,
+      "lon": -122.0168268,
+      "tags": {
+        "man_made": "mast",
+        "material": "metal",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950230,
+      "lat": 37.3783641,
+      "lon": -122.0157817,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950231,
+      "lat": 37.3812527,
+      "lon": -122.0147609,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950233,
+      "lat": 37.383985,
+      "lon": -122.0139435,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950236,
+      "lat": 37.3870789,
+      "lon": -122.0128743,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950237,
+      "lat": 37.39223,
+      "lon": -122.0112035,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950240,
+      "lat": 37.3947341,
+      "lon": -122.010377,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 663950242,
+      "lat": 37.4178016,
+      "lon": -122.0025554,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 670110451,
+      "lat": 37.3390705,
+      "lon": -122.0648705,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 671828309,
+      "lat": 37.3830253,
+      "lon": -122.0691877,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 671828311,
+      "lat": 37.383745,
+      "lon": -122.0701463,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 671828324,
+      "lat": 37.3799085,
+      "lon": -122.0692942,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 671828341,
+      "lat": 37.3830658,
+      "lon": -122.0693718,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588293,
+      "lat": 37.3265622,
+      "lon": -122.077711,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588295,
+      "lat": 37.3286416,
+      "lon": -122.0682582,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588301,
+      "lat": 37.3238602,
+      "lon": -122.0795443,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588304,
+      "lat": 37.323274,
+      "lon": -122.0784633,
+      "tags": {
+        "line_management": "split",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588306,
+      "lat": 37.3251801,
+      "lon": -122.0745962,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588308,
+      "lat": 37.3265236,
+      "lon": -122.077023,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588309,
+      "lat": 37.3272973,
+      "lon": -122.0763531,
+      "tags": {
+        "line_management": "split",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588311,
+      "lat": 37.3260455,
+      "lon": -122.0740704,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588313,
+      "lat": 37.3237042,
+      "lon": -122.0822028,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588314,
+      "lat": 37.3280452,
+      "lon": -122.0705482,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588317,
+      "lat": 37.3234326,
+      "lon": -122.0753728,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588320,
+      "lat": 37.3251236,
+      "lon": -122.0767191,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588321,
+      "lat": 37.3283147,
+      "lon": -122.0759752,
+      "tags": {
+        "line_management": "split",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588323,
+      "lat": 37.3276833,
+      "lon": -122.0720043,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588325,
+      "lat": 37.3235222,
+      "lon": -122.0864985,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588326,
+      "lat": 37.3252304,
+      "lon": -122.0853604,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588327,
+      "lat": 37.323988,
+      "lon": -122.0810341,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588330,
+      "lat": 37.3250163,
+      "lon": -122.0751178,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588331,
+      "lat": 37.3192713,
+      "lon": -122.0774083,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588335,
+      "lat": 37.3241591,
+      "lon": -122.0774913,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588337,
+      "lat": 37.3239902,
+      "lon": -122.0767314,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588341,
+      "lat": 37.3246177,
+      "lon": -122.0732411,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 672588342,
+      "lat": 37.3254496,
+      "lon": -122.0744713,
+      "tags": {
+        "line_management": "split",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725622619,
+      "lat": 37.4302894,
+      "lon": -121.9651518,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725622622,
+      "lat": 37.4288257,
+      "lon": -121.9672332,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725622625,
+      "lat": 37.4276336,
+      "lon": -121.9689104,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725622629,
+      "lat": 37.4264464,
+      "lon": -121.9705823,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725622631,
+      "lat": 37.4252653,
+      "lon": -121.9722501,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725622635,
+      "lat": 37.4234073,
+      "lon": -121.9737536,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623543,
+      "lat": 37.4233157,
+      "lon": -121.9736302,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623544,
+      "lat": 37.425183,
+      "lon": -121.9721125,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623545,
+      "lat": 37.4263492,
+      "lon": -121.9704639,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623547,
+      "lat": 37.427532,
+      "lon": -121.968796,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623550,
+      "lat": 37.4287218,
+      "lon": -121.9671182,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623552,
+      "lat": 37.4301851,
+      "lon": -121.9650418,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623555,
+      "lat": 37.4317591,
+      "lon": -121.9629055,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623557,
+      "lat": 37.4331296,
+      "lon": -121.9609716,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623559,
+      "lat": 37.434579,
+      "lon": -121.9588781,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623562,
+      "lat": 37.4360491,
+      "lon": -121.9568484,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623563,
+      "lat": 37.4374888,
+      "lon": -121.9548199,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623564,
+      "lat": 37.4389551,
+      "lon": -121.952762,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623566,
+      "lat": 37.4402376,
+      "lon": -121.9509039,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623567,
+      "lat": 37.4427186,
+      "lon": -121.9508958,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623569,
+      "lat": 37.4450484,
+      "lon": -121.9509226,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623576,
+      "lat": 37.4472438,
+      "lon": -121.9509173,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623579,
+      "lat": 37.4494478,
+      "lon": -121.9509226,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623581,
+      "lat": 37.4516538,
+      "lon": -121.9509146,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623582,
+      "lat": 37.4538491,
+      "lon": -121.9509092,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623583,
+      "lat": 37.4563978,
+      "lon": -121.9509039,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623584,
+      "lat": 37.4589272,
+      "lon": -121.9509012,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623586,
+      "lat": 37.4621144,
+      "lon": -121.9508931,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623587,
+      "lat": 37.4649992,
+      "lon": -121.9508985,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623588,
+      "lat": 37.4671898,
+      "lon": -121.9508878,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623590,
+      "lat": 37.4695294,
+      "lon": -121.9508905,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623591,
+      "lat": 37.4723713,
+      "lon": -121.9508851,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623592,
+      "lat": 37.4742893,
+      "lon": -121.9508958,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623593,
+      "lat": 37.475973,
+      "lon": -121.9523496,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623594,
+      "lat": 37.477827,
+      "lon": -121.9539428,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623595,
+      "lat": 37.4802706,
+      "lon": -121.9560698,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623596,
+      "lat": 37.4825225,
+      "lon": -121.9579956,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623598,
+      "lat": 37.4843487,
+      "lon": -121.9595459,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623599,
+      "lat": 37.4861535,
+      "lon": -121.961107,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623600,
+      "lat": 37.4879307,
+      "lon": -121.9626573,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623601,
+      "lat": 37.4890629,
+      "lon": -121.9651035,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623602,
+      "lat": 37.4901526,
+      "lon": -121.9674424,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623603,
+      "lat": 37.4912273,
+      "lon": -121.9697866,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623605,
+      "lat": 37.492302,
+      "lon": -121.9721282,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623606,
+      "lat": 37.4933874,
+      "lon": -121.9744832,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623607,
+      "lat": 37.4944749,
+      "lon": -121.9768113,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623608,
+      "lat": 37.4955517,
+      "lon": -121.9791556,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623609,
+      "lat": 37.4966391,
+      "lon": -121.9814945,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623611,
+      "lat": 37.497735,
+      "lon": -121.9838736,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725623612,
+      "lat": 37.4985081,
+      "lon": -121.985603,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624564,
+      "lat": 37.4984721,
+      "lon": -121.9851442,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624565,
+      "lat": 37.4978478,
+      "lon": -121.983777,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624566,
+      "lat": 37.496754,
+      "lon": -121.9814006,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624567,
+      "lat": 37.4956772,
+      "lon": -121.9790697,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624568,
+      "lat": 37.4946004,
+      "lon": -121.9767228,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624569,
+      "lat": 37.4935023,
+      "lon": -121.9743866,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624570,
+      "lat": 37.4924319,
+      "lon": -121.972045,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624571,
+      "lat": 37.4913422,
+      "lon": -121.9697035,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624572,
+      "lat": 37.4902654,
+      "lon": -121.9673565,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624573,
+      "lat": 37.4891991,
+      "lon": -121.9650096,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624574,
+      "lat": 37.4881265,
+      "lon": -121.96266,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624576,
+      "lat": 37.4859684,
+      "lon": -121.9579983,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624577,
+      "lat": 37.4848829,
+      "lon": -121.9556487,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624578,
+      "lat": 37.4837932,
+      "lon": -121.9532884,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624579,
+      "lat": 37.4827141,
+      "lon": -121.9509468,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624580,
+      "lat": 37.4816222,
+      "lon": -121.9486052,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624581,
+      "lat": 37.4805473,
+      "lon": -121.9462395,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624582,
+      "lat": 37.4795171,
+      "lon": -121.9440106,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624583,
+      "lat": 37.4780888,
+      "lon": -121.9416717,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624584,
+      "lat": 37.4764669,
+      "lon": -121.939998,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624585,
+      "lat": 37.474781,
+      "lon": -121.9382304,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624586,
+      "lat": 37.4730908,
+      "lon": -121.9364655,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624587,
+      "lat": 37.4714368,
+      "lon": -121.9346497,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624588,
+      "lat": 37.469755,
+      "lon": -121.9328794,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624589,
+      "lat": 37.4680392,
+      "lon": -121.9311709,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624590,
+      "lat": 37.4662531,
+      "lon": -121.9295454,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624591,
+      "lat": 37.4644712,
+      "lon": -121.9279415,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624592,
+      "lat": 37.4626977,
+      "lon": -121.9263214,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725624770,
+      "lat": 37.4985125,
+      "lon": -121.9860128,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625530,
+      "lat": 37.4647522,
+      "lon": -121.9510702,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625534,
+      "lat": 37.4671813,
+      "lon": -121.9510648,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625538,
+      "lat": 37.4696592,
+      "lon": -121.9510594,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625543,
+      "lat": 37.4723777,
+      "lon": -121.9510648,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625546,
+      "lat": 37.4743233,
+      "lon": -121.9511372,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625550,
+      "lat": 37.4758964,
+      "lon": -121.9524891,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625552,
+      "lat": 37.4776376,
+      "lon": -121.9539884,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625555,
+      "lat": 37.4802025,
+      "lon": -121.9562093,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625558,
+      "lat": 37.4824501,
+      "lon": -121.9581271,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625570,
+      "lat": 37.4842593,
+      "lon": -121.9597042,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625574,
+      "lat": 37.4860727,
+      "lon": -121.9612599,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625577,
+      "lat": 37.4877966,
+      "lon": -121.9627592,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625581,
+      "lat": 37.4889203,
+      "lon": -121.9652081,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625584,
+      "lat": 37.4900078,
+      "lon": -121.967547,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625588,
+      "lat": 37.491089,
+      "lon": -121.9698885,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625591,
+      "lat": 37.4921637,
+      "lon": -121.9722355,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625596,
+      "lat": 37.4932448,
+      "lon": -121.9745797,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625599,
+      "lat": 37.4943323,
+      "lon": -121.9769106,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625603,
+      "lat": 37.4954112,
+      "lon": -121.9792575,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625606,
+      "lat": 37.4964965,
+      "lon": -121.9815991,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625609,
+      "lat": 37.4975903,
+      "lon": -121.9839728,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625765,
+      "lat": 37.431872,
+      "lon": -121.9630194,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625766,
+      "lat": 37.4332277,
+      "lon": -121.9610855,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625767,
+      "lat": 37.4346855,
+      "lon": -121.9589934,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625768,
+      "lat": 37.4361508,
+      "lon": -121.9569415,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625769,
+      "lat": 37.4375947,
+      "lon": -121.9549165,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625770,
+      "lat": 37.438979,
+      "lon": -121.952937,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625771,
+      "lat": 37.4403889,
+      "lon": -121.9510809,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625772,
+      "lat": 37.4427186,
+      "lon": -121.9510755,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625773,
+      "lat": 37.4450526,
+      "lon": -121.9510943,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625774,
+      "lat": 37.4472502,
+      "lon": -121.9510943,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625775,
+      "lat": 37.4494499,
+      "lon": -121.9510863,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625776,
+      "lat": 37.4516453,
+      "lon": -121.9510782,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625777,
+      "lat": 37.4538512,
+      "lon": -121.9510863,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625778,
+      "lat": 37.4563978,
+      "lon": -121.9510755,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625779,
+      "lat": 37.4589314,
+      "lon": -121.9510755,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 725625780,
+      "lat": 37.4618312,
+      "lon": -121.9510728,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 805891774,
+      "lat": 37.4990452,
+      "lon": -121.9878226,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 805891928,
+      "lat": 37.4997665,
+      "lon": -121.9893263,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 805891942,
+      "lat": 37.4979168,
+      "lon": -121.9868801,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 805891997,
+      "lat": 37.4989642,
+      "lon": -121.9865624,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 805892057,
+      "lat": 37.4984964,
+      "lon": -121.9861204,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 805892120,
+      "lat": 37.4994156,
+      "lon": -121.9875996,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 805892147,
+      "lat": 37.4985758,
+      "lon": -121.9862609,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 805892214,
+      "lat": 37.4995944,
+      "lon": -121.9879174,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 805892260,
+      "lat": 37.4994954,
+      "lon": -121.9894619,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 897481487,
+      "lat": 37.4164972,
+      "lon": -122.0032344,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 897481496,
+      "lat": 37.4050306,
+      "lon": -122.0070098,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556929,
+      "lat": 37.4006113,
+      "lon": -121.9684912,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556934,
+      "lat": 37.4005739,
+      "lon": -121.9683361,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556939,
+      "lat": 37.4004977,
+      "lon": -121.9681494,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556947,
+      "lat": 37.4004756,
+      "lon": -121.9680617,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556952,
+      "lat": 37.4010489,
+      "lon": -121.967599,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556954,
+      "lat": 37.4010257,
+      "lon": -121.967508,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556959,
+      "lat": 37.4009273,
+      "lon": -121.9674515,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556967,
+      "lat": 37.4013948,
+      "lon": -121.9668095,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556983,
+      "lat": 37.4021576,
+      "lon": -121.9678341,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556988,
+      "lat": 37.4022152,
+      "lon": -121.9673568,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556992,
+      "lat": 37.4017826,
+      "lon": -121.9680248,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 988556998,
+      "lat": 37.4019871,
+      "lon": -121.968215,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1087468301,
+      "lat": 37.3008678,
+      "lon": -122.0892357,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1087469671,
+      "lat": 37.3009348,
+      "lon": -122.0828491,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1116411132,
+      "lat": 37.4288881,
+      "lon": -122.0682753,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1116411136,
+      "lat": 37.4348135,
+      "lon": -122.0707729,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1116411192,
+      "lat": 37.4292505,
+      "lon": -122.0693872,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1116412206,
+      "lat": 37.3450809,
+      "lon": -122.0647416,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705135,
+      "lat": 37.4179332,
+      "lon": -122.0036995,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705138,
+      "lat": 37.4312753,
+      "lon": -122.0408678,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705139,
+      "lat": 37.4932474,
+      "lon": -122.0007544,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705142,
+      "lat": 37.4700621,
+      "lon": -122.0192053,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705143,
+      "lat": 37.4751285,
+      "lon": -122.015646,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705144,
+      "lat": 37.491511,
+      "lon": -122.0023906,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705146,
+      "lat": 37.4997498,
+      "lon": -121.9882225,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705147,
+      "lat": 37.4716737,
+      "lon": -122.0181941,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705149,
+      "lat": 37.4878462,
+      "lon": -122.0054215,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705150,
+      "lat": 37.480567,
+      "lon": -122.0109253,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705151,
+      "lat": 37.4684591,
+      "lon": -122.0204901,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705152,
+      "lat": 37.4592045,
+      "lon": -122.0277938,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705154,
+      "lat": 37.4969845,
+      "lon": -121.9913133,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705155,
+      "lat": 37.4955586,
+      "lon": -121.9980911,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705156,
+      "lat": 37.4914257,
+      "lon": -122.0022189,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705157,
+      "lat": 37.4201913,
+      "lon": -122.0178615,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705158,
+      "lat": 37.4788514,
+      "lon": -122.012709,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705159,
+      "lat": 37.489787,
+      "lon": -122.0040804,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705161,
+      "lat": 37.4581902,
+      "lon": -122.0290277,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705162,
+      "lat": 37.4843685,
+      "lon": -122.0081734,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705163,
+      "lat": 37.4533215,
+      "lon": -122.0324393,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705166,
+      "lat": 37.4999452,
+      "lon": -121.991103,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705167,
+      "lat": 37.4302201,
+      "lon": -122.0385495,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705168,
+      "lat": 37.4233739,
+      "lon": -122.0275121,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705170,
+      "lat": 37.4470221,
+      "lon": -122.046327,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705171,
+      "lat": 37.4548302,
+      "lon": -122.0316596,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705173,
+      "lat": 37.4865286,
+      "lon": -122.006658,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705174,
+      "lat": 37.4934433,
+      "lon": -122.0008349,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705175,
+      "lat": 37.4700834,
+      "lon": -122.0196398,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705178,
+      "lat": 37.476923,
+      "lon": -122.0140528,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705179,
+      "lat": 37.4805925,
+      "lon": -122.0113384,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705182,
+      "lat": 37.4676843,
+      "lon": -122.021343,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705187,
+      "lat": 37.438534,
+      "lon": -122.0441231,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705189,
+      "lat": 37.4973908,
+      "lon": -121.997898,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705192,
+      "lat": 37.4768314,
+      "lon": -122.0138865,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705194,
+      "lat": 37.4770017,
+      "lon": -122.0141789,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705196,
+      "lat": 37.4573458,
+      "lon": -122.0292529,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705197,
+      "lat": 37.4700133,
+      "lon": -122.0194923,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705198,
+      "lat": 37.4715948,
+      "lon": -122.0180037,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705199,
+      "lat": 37.4251187,
+      "lon": -122.0292814,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705200,
+      "lat": 37.419729,
+      "lon": -122.0154985,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705201,
+      "lat": 37.4974261,
+      "lon": -121.9892378,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705202,
+      "lat": 37.4732958,
+      "lon": -122.0169174,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705204,
+      "lat": 37.4995205,
+      "lon": -121.993812,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705205,
+      "lat": 37.482521,
+      "lon": -122.0096379,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705206,
+      "lat": 37.4842939,
+      "lon": -122.0079856,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705207,
+      "lat": 37.4896253,
+      "lon": -122.0037826,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705208,
+      "lat": 37.4717566,
+      "lon": -122.0183202,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705209,
+      "lat": 37.4880482,
+      "lon": -122.005451,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705211,
+      "lat": 37.4989167,
+      "lon": -121.9967018,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705212,
+      "lat": 37.4990589,
+      "lon": -121.9874693,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705213,
+      "lat": 37.4638401,
+      "lon": -122.0244832,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705214,
+      "lat": 37.4734213,
+      "lon": -122.0165607,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705215,
+      "lat": 37.4749773,
+      "lon": -122.0153349,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705217,
+      "lat": 37.4226091,
+      "lon": -122.0251223,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705218,
+      "lat": 37.4735085,
+      "lon": -122.0169362,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705219,
+      "lat": 37.4601367,
+      "lon": -122.0274695,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705220,
+      "lat": 37.4355193,
+      "lon": -122.0438173,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705221,
+      "lat": 37.4183444,
+      "lon": -122.0066392,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705222,
+      "lat": 37.4787663,
+      "lon": -122.0125883,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705223,
+      "lat": 37.495431,
+      "lon": -121.9992685,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705225,
+      "lat": 37.4463636,
+      "lon": -122.0489793,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705226,
+      "lat": 37.4786896,
+      "lon": -122.0124086,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705228,
+      "lat": 37.4657629,
+      "lon": -122.0226439,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705231,
+      "lat": 37.4677417,
+      "lon": -122.0214772,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705232,
+      "lat": 37.4750541,
+      "lon": -122.0155119,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705233,
+      "lat": 37.4187917,
+      "lon": -122.0098954,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705234,
+      "lat": 37.4845876,
+      "lon": -122.0081841,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705235,
+      "lat": 37.4994145,
+      "lon": -121.985702,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705237,
+      "lat": 37.480648,
+      "lon": -122.0111024,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705238,
+      "lat": 37.4562789,
+      "lon": -122.0305334,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705239,
+      "lat": 37.4877694,
+      "lon": -122.0052552,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705241,
+      "lat": 37.4513306,
+      "lon": -122.0340084,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705242,
+      "lat": 37.4210199,
+      "lon": -122.0203024,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705243,
+      "lat": 37.429172,
+      "lon": -122.0362469,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705244,
+      "lat": 37.4861477,
+      "lon": -122.0065292,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705245,
+      "lat": 37.4993533,
+      "lon": -121.9855692,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705246,
+      "lat": 37.496478,
+      "lon": -121.9940062,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705247,
+      "lat": 37.4461468,
+      "lon": -122.0423107,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705248,
+      "lat": 37.4953819,
+      "lon": -121.9994859,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705249,
+      "lat": 37.4825869,
+      "lon": -122.0097666,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705250,
+      "lat": 37.4192093,
+      "lon": -122.0128485,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705251,
+      "lat": 37.4612399,
+      "lon": -122.0261898,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705252,
+      "lat": 37.4219807,
+      "lon": -122.0232286,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705253,
+      "lat": 37.4824315,
+      "lon": -122.0094555,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705254,
+      "lat": 37.4477225,
+      "lon": -122.0435062,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705255,
+      "lat": 37.498769,
+      "lon": -121.9966377,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705256,
+      "lat": 37.4973335,
+      "lon": -121.9977721,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705257,
+      "lat": 37.4983677,
+      "lon": -121.9960876,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705258,
+      "lat": 37.4495697,
+      "lon": -122.0354059,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705259,
+      "lat": 37.4489628,
+      "lon": -122.0380613,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705260,
+      "lat": 37.4897105,
+      "lon": -122.003957,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705261,
+      "lat": 37.4993848,
+      "lon": -121.9937852,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705262,
+      "lat": 37.4555445,
+      "lon": -122.0306745,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705263,
+      "lat": 37.4917769,
+      "lon": -122.0027205,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705264,
+      "lat": 37.4935241,
+      "lon": -122.0009529,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705265,
+      "lat": 37.4638735,
+      "lon": -122.024103,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705266,
+      "lat": 37.42809,
+      "lon": -122.0338698,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705267,
+      "lat": 37.4953415,
+      "lon": -121.9990835,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705268,
+      "lat": 37.4862286,
+      "lon": -122.0066928,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276705269,
+      "lat": 37.4483921,
+      "lon": -122.040809,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817553,
+      "lat": 37.4054658,
+      "lon": -122.0688799,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817559,
+      "lat": 37.4219274,
+      "lon": -122.0697221,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817562,
+      "lat": 37.4386115,
+      "lon": -122.0693282,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817583,
+      "lat": 37.4108732,
+      "lon": -122.0689845,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817585,
+      "lat": 37.4580908,
+      "lon": -122.0289124,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817586,
+      "lat": 37.4342338,
+      "lon": -122.0688822,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817589,
+      "lat": 37.4439585,
+      "lon": -122.0593744,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817591,
+      "lat": 37.4480638,
+      "lon": -122.0773369,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817592,
+      "lat": 37.4538922,
+      "lon": -122.0921185,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817593,
+      "lat": 37.429255,
+      "lon": -122.0955784,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817594,
+      "lat": 37.4515498,
+      "lon": -122.0340891,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817596,
+      "lat": 37.4174374,
+      "lon": -122.0689282,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817605,
+      "lat": 37.4437967,
+      "lon": -122.0593172,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817607,
+      "lat": 37.4406005,
+      "lon": -122.0697299,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817608,
+      "lat": 37.4177725,
+      "lon": -122.0675991,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817609,
+      "lat": 37.4549609,
+      "lon": -122.0945458,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817612,
+      "lat": 37.4315654,
+      "lon": -122.068622,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817617,
+      "lat": 37.4431898,
+      "lon": -122.0617614,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817618,
+      "lat": 37.442492,
+      "lon": -122.0637538,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817619,
+      "lat": 37.4465299,
+      "lon": -122.0490261,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817623,
+      "lat": 37.4169578,
+      "lon": -122.0695076,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817626,
+      "lat": 37.4543732,
+      "lon": -122.0318682,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817627,
+      "lat": 37.4154949,
+      "lon": -122.0689391,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817628,
+      "lat": 37.4087811,
+      "lon": -122.0692017,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817634,
+      "lat": 37.4132411,
+      "lon": -122.0691709,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817637,
+      "lat": 37.431545,
+      "lon": -122.0690229,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817638,
+      "lat": 37.4286129,
+      "lon": -122.0899958,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817640,
+      "lat": 37.4219317,
+      "lon": -122.0693037,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817645,
+      "lat": 37.4241236,
+      "lon": -122.0691374,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817648,
+      "lat": 37.457665,
+      "lon": -122.099996,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817651,
+      "lat": 37.4479469,
+      "lon": -122.0773904,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817659,
+      "lat": 37.4173752,
+      "lon": -122.0675964,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817663,
+      "lat": 37.4418223,
+      "lon": -122.0656655,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817665,
+      "lat": 37.4470686,
+      "lon": -122.046858,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817666,
+      "lat": 37.4562214,
+      "lon": -122.0303876,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817667,
+      "lat": 37.4416991,
+      "lon": -122.073072,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817668,
+      "lat": 37.4285982,
+      "lon": -122.0809497,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817672,
+      "lat": 37.452657,
+      "lon": -122.0898573,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817673,
+      "lat": 37.4088876,
+      "lon": -122.0689308,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817674,
+      "lat": 37.4419713,
+      "lon": -122.0657548,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817686,
+      "lat": 37.4364669,
+      "lon": -122.0712624,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817689,
+      "lat": 37.4529551,
+      "lon": -122.0329786,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817690,
+      "lat": 37.4417392,
+      "lon": -122.0728649,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817691,
+      "lat": 37.438905,
+      "lon": -122.0722244,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817692,
+      "lat": 37.4241279,
+      "lon": -122.0693062,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817698,
+      "lat": 37.4486409,
+      "lon": -122.04053,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817707,
+      "lat": 37.4433474,
+      "lon": -122.0618338,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817711,
+      "lat": 37.4477771,
+      "lon": -122.0440064,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817714,
+      "lat": 37.4041619,
+      "lon": -122.0688476,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817715,
+      "lat": 37.4285702,
+      "lon": -122.0697409,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817716,
+      "lat": 37.4495269,
+      "lon": -122.0825831,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817721,
+      "lat": 37.4219253,
+      "lon": -122.0695182,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817722,
+      "lat": 37.4178268,
+      "lon": -122.0691427,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817723,
+      "lat": 37.442628,
+      "lon": -122.0638839,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817724,
+      "lat": 37.4411539,
+      "lon": -122.0675736,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817726,
+      "lat": 37.4175764,
+      "lon": -122.0675992,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817728,
+      "lat": 37.4286083,
+      "lon": -122.0869537,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817731,
+      "lat": 37.4459248,
+      "lon": -122.051461,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817733,
+      "lat": 37.4197248,
+      "lon": -122.0691239,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817744,
+      "lat": 37.4152959,
+      "lon": -122.0693144,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817748,
+      "lat": 37.4263314,
+      "lon": -122.0692826,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817755,
+      "lat": 37.4241257,
+      "lon": -122.0695182,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817756,
+      "lat": 37.432192,
+      "lon": -122.0702611,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817766,
+      "lat": 37.4286171,
+      "lon": -122.0930272,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817770,
+      "lat": 37.4538026,
+      "lon": -122.0921747,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817772,
+      "lat": 37.4561021,
+      "lon": -122.0968739,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817773,
+      "lat": 37.4365368,
+      "lon": -122.0715324,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817774,
+      "lat": 37.4167871,
+      "lon": -122.0697006,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817782,
+      "lat": 37.4550754,
+      "lon": -122.0944691,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817786,
+      "lat": 37.4197397,
+      "lon": -122.0689361,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817789,
+      "lat": 37.4219274,
+      "lon": -122.0691293,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817793,
+      "lat": 37.4404968,
+      "lon": -122.069515,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817796,
+      "lat": 37.4132331,
+      "lon": -122.0689618,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817803,
+      "lat": 37.4344253,
+      "lon": -122.0692483,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817806,
+      "lat": 37.4299263,
+      "lon": -122.0982742,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817809,
+      "lat": 37.4176372,
+      "lon": -122.0693037,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817813,
+      "lat": 37.419727,
+      "lon": -122.0696978,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817816,
+      "lat": 37.4389444,
+      "lon": -122.0720154,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817818,
+      "lat": 37.4285858,
+      "lon": -122.0719741,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817822,
+      "lat": 37.4241342,
+      "lon": -122.0697234,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817825,
+      "lat": 37.4503233,
+      "lon": -122.0851527,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817829,
+      "lat": 37.4445481,
+      "lon": -122.0737187,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817832,
+      "lat": 37.4071597,
+      "lon": -122.0688852,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817835,
+      "lat": 37.4180184,
+      "lon": -122.0688951,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817841,
+      "lat": 37.4263276,
+      "lon": -122.0689035,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817843,
+      "lat": 37.4471164,
+      "lon": -122.0746653,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817847,
+      "lat": 37.4264104,
+      "lon": -122.0691017,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817850,
+      "lat": 37.4360146,
+      "lon": -122.0690683,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817857,
+      "lat": 37.4360691,
+      "lon": -122.0693777,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817870,
+      "lat": 37.4452227,
+      "lon": -122.0542869,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817873,
+      "lat": 37.4286035,
+      "lon": -122.0839567,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817879,
+      "lat": 37.4108742,
+      "lon": -122.0691937,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817881,
+      "lat": 37.4285883,
+      "lon": -122.074875,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817895,
+      "lat": 37.4514731,
+      "lon": -122.0875023,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817901,
+      "lat": 37.438629,
+      "lon": -122.0695786,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817903,
+      "lat": 37.4457624,
+      "lon": -122.0514004,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817908,
+      "lat": 37.4620892,
+      "lon": -122.0257796,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817910,
+      "lat": 37.4413077,
+      "lon": -122.0676458,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817915,
+      "lat": 37.4197333,
+      "lon": -122.069309,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817924,
+      "lat": 37.4263355,
+      "lon": -122.0697376,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817927,
+      "lat": 37.4444541,
+      "lon": -122.0566696,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817930,
+      "lat": 37.4348552,
+      "lon": -122.0710541,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817933,
+      "lat": 37.4219211,
+      "lon": -122.0689361,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817937,
+      "lat": 37.4504255,
+      "lon": -122.0850937,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817939,
+      "lat": 37.4241236,
+      "lon": -122.0689307,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817945,
+      "lat": 37.406691,
+      "lon": -122.0691615,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817949,
+      "lat": 37.4497016,
+      "lon": -122.0355348,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817951,
+      "lat": 37.4446132,
+      "lon": -122.05674,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817953,
+      "lat": 37.4492797,
+      "lon": -122.0379588,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817955,
+      "lat": 37.4179748,
+      "lon": -122.067592,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817958,
+      "lat": 37.4285952,
+      "lon": -122.077938,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817959,
+      "lat": 37.419728,
+      "lon": -122.0695115,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817960,
+      "lat": 37.4263324,
+      "lon": -122.0694909,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817961,
+      "lat": 37.4496438,
+      "lon": -122.0825261,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1276817962,
+      "lat": 37.4444846,
+      "lon": -122.0739035,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142625,
+      "lat": 37.4131288,
+      "lon": -121.9715025,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142626,
+      "lat": 37.4147607,
+      "lon": -121.97257,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142627,
+      "lat": 37.416738,
+      "lon": -121.9740029,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142628,
+      "lat": 37.4182288,
+      "lon": -121.9753287,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142629,
+      "lat": 37.4195708,
+      "lon": -121.9766041,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142630,
+      "lat": 37.4212365,
+      "lon": -121.9752907,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142652,
+      "lat": 37.4130819,
+      "lon": -121.9717546,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142654,
+      "lat": 37.4146627,
+      "lon": -121.9728061,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142655,
+      "lat": 37.416627,
+      "lon": -121.974271,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142656,
+      "lat": 37.4181146,
+      "lon": -121.9755505,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142658,
+      "lat": 37.4194316,
+      "lon": -121.9768071,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142661,
+      "lat": 37.4211221,
+      "lon": -121.9784232,
+      "tags": {
+        "power": "tower",
+        "source": "Observation"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1277142665,
+      "lat": 37.4221101,
+      "lon": -121.9764056,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1313505523,
+      "lat": 37.3346857,
+      "lon": -122.0208796,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1313505528,
+      "lat": 37.3344661,
+      "lon": -122.02076,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1313512225,
+      "lat": 37.3469793,
+      "lon": -121.9216614,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1317245390,
+      "lat": 37.4176307,
+      "lon": -122.0014357,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1317245392,
+      "lat": 37.4201657,
+      "lon": -121.9803779,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1317245431,
+      "lat": 37.4175689,
+      "lon": -121.9891993,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1317245474,
+      "lat": 37.4176989,
+      "lon": -122.0027929,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1317245482,
+      "lat": 37.4175519,
+      "lon": -121.9962215,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1317245512,
+      "lat": 37.4175773,
+      "lon": -121.9868312,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1317245529,
+      "lat": 37.4187769,
+      "lon": -121.9838004,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1317245549,
+      "lat": 37.4175348,
+      "lon": -121.9995555,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1317245656,
+      "lat": 37.4175647,
+      "lon": -121.9915516,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1317245709,
+      "lat": 37.4175583,
+      "lon": -121.9939147,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544978,
+      "lat": 37.4536733,
+      "lon": -121.9193897,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544979,
+      "lat": 37.4482116,
+      "lon": -121.9156802,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544980,
+      "lat": 37.4424896,
+      "lon": -121.9118124,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544983,
+      "lat": 37.4520333,
+      "lon": -121.9182739,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544984,
+      "lat": 37.4408328,
+      "lon": -121.9106832,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544987,
+      "lat": 37.4592208,
+      "lon": -121.9231863,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544989,
+      "lat": 37.455289,
+      "lon": -121.9204759,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544990,
+      "lat": 37.4381409,
+      "lon": -121.9053,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544992,
+      "lat": 37.4375903,
+      "lon": -121.9021699,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544993,
+      "lat": 37.457698,
+      "lon": -121.9215656,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544994,
+      "lat": 37.4501269,
+      "lon": -121.9169783,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544995,
+      "lat": 37.438636,
+      "lon": -121.9062804,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544996,
+      "lat": 37.4604429,
+      "lon": -121.9242753,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544997,
+      "lat": 37.4398265,
+      "lon": -121.9086689,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544998,
+      "lat": 37.4572978,
+      "lon": -121.921864,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349544999,
+      "lat": 37.4572083,
+      "lon": -121.9212209,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349545002,
+      "lat": 37.4463121,
+      "lon": -121.9143847,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349545003,
+      "lat": 37.4444062,
+      "lon": -121.9130891,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564057,
+      "lat": 37.40652,
+      "lon": -121.9673371,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564059,
+      "lat": 37.411382,
+      "lon": -121.9703422,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564062,
+      "lat": 37.3897144,
+      "lon": -121.9614716,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564065,
+      "lat": 37.4022377,
+      "lon": -121.9643975,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564066,
+      "lat": 37.3841796,
+      "lon": -121.9575213,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564067,
+      "lat": 37.3993801,
+      "lon": -121.967593,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564068,
+      "lat": 37.399459,
+      "lon": -121.9674106,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564069,
+      "lat": 37.3854519,
+      "lon": -121.941395,
+      "tags": {
+        "material": "metal",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564070,
+      "lat": 37.3876044,
+      "lon": -121.9473208,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564074,
+      "lat": 37.4088658,
+      "lon": -121.9689302,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564075,
+      "lat": 37.4040844,
+      "lon": -121.9656896,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564076,
+      "lat": 37.3834571,
+      "lon": -121.957008,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564077,
+      "lat": 37.3974928,
+      "lon": -121.9663516,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564079,
+      "lat": 37.3897888,
+      "lon": -121.9612804,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564081,
+      "lat": 37.3956842,
+      "lon": -121.9648531,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564097,
+      "lat": 37.4041783,
+      "lon": -121.9654609,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564100,
+      "lat": 37.3878324,
+      "lon": -121.9599808,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564101,
+      "lat": 37.3938302,
+      "lon": -121.9635978,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564103,
+      "lat": 37.3858078,
+      "lon": -121.9588436,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564107,
+      "lat": 37.3833644,
+      "lon": -121.9401312,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564109,
+      "lat": 37.3877557,
+      "lon": -121.9601498,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564121,
+      "lat": 37.4066173,
+      "lon": -121.967109,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564124,
+      "lat": 37.3956192,
+      "lon": -121.9650422,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564128,
+      "lat": 37.3917654,
+      "lon": -121.9626389,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564132,
+      "lat": 37.3883801,
+      "lon": -121.9455023,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564135,
+      "lat": 37.381313,
+      "lon": -121.9388584,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564136,
+      "lat": 37.4112861,
+      "lon": -121.9705622,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564145,
+      "lat": 37.3918196,
+      "lon": -121.962431,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564149,
+      "lat": 37.389158,
+      "lon": -121.9436703,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564154,
+      "lat": 37.3975668,
+      "lon": -121.9661821,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564156,
+      "lat": 37.3842562,
+      "lon": -121.9551426,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564159,
+      "lat": 37.4021791,
+      "lon": -121.9640738,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564164,
+      "lat": 37.3718498,
+      "lon": -121.9278977,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564169,
+      "lat": 37.3698408,
+      "lon": -121.9267914,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564171,
+      "lat": 37.3762301,
+      "lon": -121.9319425,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564172,
+      "lat": 37.4090874,
+      "lon": -121.9687841,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564173,
+      "lat": 37.3776858,
+      "lon": -121.9341178,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564174,
+      "lat": 37.3866987,
+      "lon": -121.9494398,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564181,
+      "lat": 37.3852324,
+      "lon": -121.9528006,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564184,
+      "lat": 37.3858845,
+      "lon": -121.9586505,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564186,
+      "lat": 37.3874893,
+      "lon": -121.9426538,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564188,
+      "lat": 37.3750919,
+      "lon": -121.9299013,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564189,
+      "lat": 37.4021968,
+      "lon": -121.9641615,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564190,
+      "lat": 37.3795355,
+      "lon": -121.9365276,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564197,
+      "lat": 37.3937876,
+      "lon": -121.9637065,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349564199,
+      "lat": 37.3840986,
+      "lon": -121.9576902,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349575213,
+      "lat": 37.3798852,
+      "lon": -121.9548217,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349575216,
+      "lat": 37.3799576,
+      "lon": -121.9546447,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349575221,
+      "lat": 37.3819722,
+      "lon": -121.9560095,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349575222,
+      "lat": 37.37719,
+      "lon": -121.9515158,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349575223,
+      "lat": 37.3778864,
+      "lon": -121.9534779,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349575224,
+      "lat": 37.381895,
+      "lon": -121.956187,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349575225,
+      "lat": 37.3780099,
+      "lon": -121.9533258,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349575226,
+      "lat": 37.37734,
+      "lon": -121.9515206,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349603967,
+      "lat": 37.428848,
+      "lon": -121.9317656,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349603993,
+      "lat": 37.4287798,
+      "lon": -121.9318058,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349614952,
+      "lat": 37.4134812,
+      "lon": -121.9372448,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349614960,
+      "lat": 37.4252995,
+      "lon": -121.934166,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349614971,
+      "lat": 37.422243,
+      "lon": -121.9331115,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349614975,
+      "lat": 37.4145123,
+      "lon": -121.9375881,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349614978,
+      "lat": 37.4202489,
+      "lon": -121.9373497,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349614980,
+      "lat": 37.4185468,
+      "lon": -121.938849,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349614983,
+      "lat": 37.4218699,
+      "lon": -121.9348661,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349614996,
+      "lat": 37.4115936,
+      "lon": -121.9365796,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349614998,
+      "lat": 37.4238087,
+      "lon": -121.9336453,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349615000,
+      "lat": 37.4266509,
+      "lon": -121.934638,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349615004,
+      "lat": 37.416506,
+      "lon": -121.9382375,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349615011,
+      "lat": 37.4214205,
+      "lon": -121.9377064,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349615022,
+      "lat": 37.4197568,
+      "lon": -121.9387525,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622306,
+      "lat": 37.396477,
+      "lon": -121.9300308,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622308,
+      "lat": 37.3873467,
+      "lon": -121.9249788,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622311,
+      "lat": 37.3865795,
+      "lon": -121.9260638,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622312,
+      "lat": 37.3882089,
+      "lon": -121.9239501,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622313,
+      "lat": 37.3858527,
+      "lon": -121.9272742,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622314,
+      "lat": 37.403515,
+      "lon": -121.9335753,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622315,
+      "lat": 37.3901022,
+      "lon": -121.9255153,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622318,
+      "lat": 37.3948,
+      "lon": -121.9288479,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622319,
+      "lat": 37.3826097,
+      "lon": -121.9258239,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622320,
+      "lat": 37.384964,
+      "lon": -121.9266338,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622321,
+      "lat": 37.3999599,
+      "lon": -121.9324836,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622326,
+      "lat": 37.3819479,
+      "lon": -121.926663,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622331,
+      "lat": 37.3830921,
+      "lon": -121.9252684,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622333,
+      "lat": 37.3839815,
+      "lon": -121.9259364,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622334,
+      "lat": 37.3981732,
+      "lon": -121.9312565,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622335,
+      "lat": 37.4075782,
+      "lon": -121.9351195,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622336,
+      "lat": 37.3932444,
+      "lon": -121.9277656,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622337,
+      "lat": 37.4015196,
+      "lon": -121.932945,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622338,
+      "lat": 37.4096085,
+      "lon": -121.9358997,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622339,
+      "lat": 37.4052685,
+      "lon": -121.9341721,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349622340,
+      "lat": 37.3916536,
+      "lon": -121.926623,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349628151,
+      "lat": 37.3778071,
+      "lon": -121.9313464,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349628159,
+      "lat": 37.3788493,
+      "lon": -121.9301153,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349628160,
+      "lat": 37.381661,
+      "lon": -121.926795,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349628161,
+      "lat": 37.3799065,
+      "lon": -121.9288841,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349628169,
+      "lat": 37.3809642,
+      "lon": -121.9276406,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349628173,
+      "lat": 37.3767808,
+      "lon": -121.9325581,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656279,
+      "lat": 37.3375658,
+      "lon": -121.902397,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656280,
+      "lat": 37.3368706,
+      "lon": -121.9016326,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656281,
+      "lat": 37.3404927,
+      "lon": -121.9097315,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656283,
+      "lat": 37.341254,
+      "lon": -121.9018511,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656285,
+      "lat": 37.3395363,
+      "lon": -121.9031943,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656286,
+      "lat": 37.3384748,
+      "lon": -121.9028275,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656287,
+      "lat": 37.3413691,
+      "lon": -121.911947,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656288,
+      "lat": 37.3362811,
+      "lon": -121.9009802,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656289,
+      "lat": 37.3408589,
+      "lon": -121.9030897,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656293,
+      "lat": 37.3379899,
+      "lon": -121.9045679,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656294,
+      "lat": 37.3382642,
+      "lon": -121.9033125,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656295,
+      "lat": 37.3399443,
+      "lon": -121.9086187,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656299,
+      "lat": 37.3393355,
+      "lon": -121.9073846,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656301,
+      "lat": 37.3386811,
+      "lon": -121.9065313,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656304,
+      "lat": 37.3381495,
+      "lon": -121.905684,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349656313,
+      "lat": 37.3410738,
+      "lon": -121.9109036,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349658933,
+      "lat": 37.3453215,
+      "lon": -121.918733,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349658934,
+      "lat": 37.3407155,
+      "lon": -121.9136877,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349658935,
+      "lat": 37.3436337,
+      "lon": -121.9168165,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349658936,
+      "lat": 37.3416229,
+      "lon": -121.9146574,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349658937,
+      "lat": 37.3443545,
+      "lon": -121.9176293,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349658941,
+      "lat": 37.3425453,
+      "lon": -121.9156614,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1349658944,
+      "lat": 37.3410706,
+      "lon": -121.9124499,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1726196083,
+      "lat": 37.3419553,
+      "lon": -121.903339,
+      "tags": {
+        "location:transition": "yes",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212221,
+      "lat": 37.3632589,
+      "lon": -122.0206588,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212222,
+      "lat": 37.3641996,
+      "lon": -122.0249729,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212223,
+      "lat": 37.3654772,
+      "lon": -122.0287757,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212225,
+      "lat": 37.3643658,
+      "lon": -122.0249169,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212226,
+      "lat": 37.3664437,
+      "lon": -122.0196267,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212227,
+      "lat": 37.3671122,
+      "lon": -122.0413204,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212229,
+      "lat": 37.367773,
+      "lon": -122.045333,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212232,
+      "lat": 37.366575,
+      "lon": -122.0368518,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212234,
+      "lat": 37.366413,
+      "lon": -122.0368733,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212237,
+      "lat": 37.3663938,
+      "lon": -122.0325845,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212244,
+      "lat": 37.3665622,
+      "lon": -122.0325549,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212245,
+      "lat": 37.3653215,
+      "lon": -122.0288052,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212246,
+      "lat": 37.3685532,
+      "lon": -122.0491686,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212249,
+      "lat": 37.3669587,
+      "lon": -122.0413633,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212251,
+      "lat": 37.3679308,
+      "lon": -122.0452793,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212254,
+      "lat": 37.3687195,
+      "lon": -122.0491149,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212256,
+      "lat": 37.3693036,
+      "lon": -122.0527305,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212259,
+      "lat": 37.3694613,
+      "lon": -122.0526822,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212261,
+      "lat": 37.3702799,
+      "lon": -122.0566787,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212263,
+      "lat": 37.3701179,
+      "lon": -122.0567485,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212266,
+      "lat": 37.3716756,
+      "lon": -122.0609154,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212269,
+      "lat": 37.3715168,
+      "lon": -122.0609665,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212272,
+      "lat": 37.3720875,
+      "lon": -122.0643981,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212276,
+      "lat": 37.3719425,
+      "lon": -122.0644947,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811212277,
+      "lat": 37.3695389,
+      "lon": -122.0186075,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232196,
+      "lat": 37.3897369,
+      "lon": -122.012025,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232197,
+      "lat": 37.3946896,
+      "lon": -122.0101786,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232198,
+      "lat": 37.4136992,
+      "lon": -122.0039516,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232199,
+      "lat": 37.3726778,
+      "lon": -122.0175611,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232200,
+      "lat": 37.3970445,
+      "lon": -122.0094062,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232201,
+      "lat": 37.3870133,
+      "lon": -122.0127063,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232202,
+      "lat": 37.3839614,
+      "lon": -122.0137202,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232203,
+      "lat": 37.3754859,
+      "lon": -122.0166175,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232204,
+      "lat": 37.3922004,
+      "lon": -122.0110004,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232205,
+      "lat": 37.3896943,
+      "lon": -122.0118265,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232206,
+      "lat": 37.4081331,
+      "lon": -122.0057918,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232207,
+      "lat": 37.4021607,
+      "lon": -122.0077009,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232208,
+      "lat": 37.3995933,
+      "lon": -122.0085709,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232209,
+      "lat": 37.4106173,
+      "lon": -122.0049711,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232210,
+      "lat": 37.3783149,
+      "lon": -122.0156101,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232212,
+      "lat": 37.4164631,
+      "lon": -122.0030345,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232213,
+      "lat": 37.4049833,
+      "lon": -122.0068123,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1811232214,
+      "lat": 37.3812449,
+      "lon": -122.0145627,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1812142533,
+      "lat": 37.3978271,
+      "lon": -122.0679653,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1812142536,
+      "lat": 37.3888478,
+      "lon": -122.0696059,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1812142537,
+      "lat": 37.3910697,
+      "lon": -122.0692416,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1812142538,
+      "lat": 37.3964952,
+      "lon": -122.0680608,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1812142543,
+      "lat": 37.3928956,
+      "lon": -122.0691313,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1812142544,
+      "lat": 37.400302,
+      "lon": -122.0689094,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1812142545,
+      "lat": 37.4020041,
+      "lon": -122.0688562,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 1812142546,
+      "lat": 37.3949439,
+      "lon": -122.0689309,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 2301997742,
+      "lat": 37.4986872,
+      "lon": -121.9395488,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3049908410,
+      "lat": 37.3081913,
+      "lon": -122.0780672,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3049908417,
+      "lat": 37.3036299,
+      "lon": -122.0733679,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3049908420,
+      "lat": 37.3115099,
+      "lon": -122.0791339,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3049908425,
+      "lat": 37.305057,
+      "lon": -122.0771195,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3049908426,
+      "lat": 37.3022736,
+      "lon": -122.0699036,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3065952200,
+      "lat": 37.3142518,
+      "lon": -122.0865572,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3065952201,
+      "lat": 37.3189408,
+      "lon": -122.0829601,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3065952202,
+      "lat": 37.3209176,
+      "lon": -122.0808598,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3070596137,
+      "lat": 37.3852198,
+      "lon": -122.0694838,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3070596139,
+      "lat": 37.386773,
+      "lon": -122.0698851,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3070596140,
+      "lat": 37.3868544,
+      "lon": -122.0695133,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3180918878,
+      "lat": 37.4181242,
+      "lon": -122.0659006,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3180918880,
+      "lat": 37.4182284,
+      "lon": -122.0644433,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3572043734,
+      "lat": 37.3242978,
+      "lon": -121.9024438,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3572043743,
+      "lat": 37.3278619,
+      "lon": -121.9026342,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3646555370,
+      "lat": 37.3258523,
+      "lon": -121.9026024,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3646555371,
+      "lat": 37.3217634,
+      "lon": -121.9024602,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3646555372,
+      "lat": 37.3197605,
+      "lon": -121.9034714,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3646555373,
+      "lat": 37.3185873,
+      "lon": -121.9017951,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3646555374,
+      "lat": 37.3170216,
+      "lon": -121.9024173,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3646555375,
+      "lat": 37.3153897,
+      "lon": -121.9037906,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3646555376,
+      "lat": 37.3133077,
+      "lon": -121.9040481,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3678888014,
+      "lat": 37.3353182,
+      "lon": -122.0650831,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3678888017,
+      "lat": 37.3373076,
+      "lon": -122.0648596,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3678888019,
+      "lat": 37.3432003,
+      "lon": -122.0647646,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3678888020,
+      "lat": 37.3432504,
+      "lon": -122.0649524,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3710857023,
+      "lat": 37.4043822,
+      "lon": -122.0692218,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3710857026,
+      "lat": 37.4021897,
+      "lon": -122.0692326,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3710857027,
+      "lat": 37.4001122,
+      "lon": -122.0692648,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3710857028,
+      "lat": 37.3984055,
+      "lon": -122.0683877,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3710857029,
+      "lat": 37.396884,
+      "lon": -122.0686022,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3710857030,
+      "lat": 37.3947276,
+      "lon": -122.0694632,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3710857031,
+      "lat": 37.3929717,
+      "lon": -122.0696724,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3710857032,
+      "lat": 37.3910537,
+      "lon": -122.0697717,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3710857033,
+      "lat": 37.3889653,
+      "lon": -122.0699594,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3987079866,
+      "lat": 37.4451649,
+      "lon": -122.054076,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990763746,
+      "lat": 37.3339869,
+      "lon": -122.0435588,
+      "tags": {
+        "line_management": "branch",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990763747,
+      "lat": 37.3357296,
+      "lon": -122.0435972,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990763748,
+      "lat": 37.3357181,
+      "lon": -122.0428674,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990798820,
+      "lat": 37.3338819,
+      "lon": -122.0435924,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990798821,
+      "lat": 37.3337616,
+      "lon": -122.0469725,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990798822,
+      "lat": 37.3330955,
+      "lon": -122.0501126,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990798823,
+      "lat": 37.331431,
+      "lon": -122.0522828,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990798824,
+      "lat": 37.3308488,
+      "lon": -122.0559462,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990798825,
+      "lat": 37.3316257,
+      "lon": -122.0588893,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990798826,
+      "lat": 37.3324007,
+      "lon": -122.0618613,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990798827,
+      "lat": 37.3340899,
+      "lon": -122.063465,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990812242,
+      "lat": 37.3351872,
+      "lon": -122.0651348,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990812243,
+      "lat": 37.3348532,
+      "lon": -122.0651805,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990822772,
+      "lat": 37.3259295,
+      "lon": -122.0741483,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990822775,
+      "lat": 37.3261511,
+      "lon": -122.0739556,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990822776,
+      "lat": 37.3256685,
+      "lon": -122.073649,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990822777,
+      "lat": 37.325175,
+      "lon": -122.074249,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990825522,
+      "lat": 37.3245733,
+      "lon": -122.0727411,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990825523,
+      "lat": 37.3252661,
+      "lon": -122.0731975,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990825524,
+      "lat": 37.3258301,
+      "lon": -122.0735631,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990825525,
+      "lat": 37.3263092,
+      "lon": -122.0738846,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 3990825526,
+      "lat": 37.3266181,
+      "lon": -122.0740539,
+      "tags": {
+        "line_management": "split",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 4029115828,
+      "lat": 37.493712,
+      "lon": -121.9391272,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 4029115829,
+      "lat": 37.4940648,
+      "lon": -121.9380385,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 4029115830,
+      "lat": 37.4964988,
+      "lon": -121.9384704,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202669,
+      "lat": 37.373365,
+      "lon": -121.9288341,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202670,
+      "lat": 37.3673594,
+      "lon": -121.9254485,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202671,
+      "lat": 37.3660452,
+      "lon": -121.9229151,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202672,
+      "lat": 37.365477,
+      "lon": -121.9216759,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202673,
+      "lat": 37.3646734,
+      "lon": -121.9207801,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202674,
+      "lat": 37.3633324,
+      "lon": -121.9197783,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202675,
+      "lat": 37.3620432,
+      "lon": -121.9188167,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202676,
+      "lat": 37.3600755,
+      "lon": -121.9173227,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202677,
+      "lat": 37.3587385,
+      "lon": -121.9160822,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202678,
+      "lat": 37.3573642,
+      "lon": -121.9149878,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202679,
+      "lat": 37.3562896,
+      "lon": -121.9141778,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5360202680,
+      "lat": 37.3541135,
+      "lon": -121.9126469,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5365217866,
+      "lat": 37.3011092,
+      "lon": -121.928013,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5365217867,
+      "lat": 37.3024139,
+      "lon": -121.9265727,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5365217868,
+      "lat": 37.3037538,
+      "lon": -121.9250988,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5365217869,
+      "lat": 37.3050926,
+      "lon": -121.9236169,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5365217870,
+      "lat": 37.3064292,
+      "lon": -121.9221497,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5365217871,
+      "lat": 37.307769,
+      "lon": -121.9206772,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5365217872,
+      "lat": 37.3091173,
+      "lon": -121.9191953,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5365217873,
+      "lat": 37.3104581,
+      "lon": -121.9177174,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5365217874,
+      "lat": 37.3114874,
+      "lon": -121.9165855,
+      "tags": {
+        "line_attachment": "suspension",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5365217875,
+      "lat": 37.3128026,
+      "lon": -121.9151371,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661615,
+      "lat": 37.4222478,
+      "lon": -121.9392425,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661616,
+      "lat": 37.4215982,
+      "lon": -121.9378412,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661617,
+      "lat": 37.4217817,
+      "lon": -121.9365609,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661618,
+      "lat": 37.4220439,
+      "lon": -121.9348808,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661619,
+      "lat": 37.4223527,
+      "lon": -121.9333437,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661822,
+      "lat": 37.4234679,
+      "lon": -121.9540231,
+      "tags": {
+        "location:transition": "yes",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661834,
+      "lat": 37.4224852,
+      "lon": -121.9392592,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661835,
+      "lat": 37.4218073,
+      "lon": -121.9377417,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661836,
+      "lat": 37.4220297,
+      "lon": -121.9366036,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661837,
+      "lat": 37.422313,
+      "lon": -121.9349868,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 5739661838,
+      "lat": 37.422521,
+      "lon": -121.9336635,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 6903123957,
+      "lat": 37.3253635,
+      "lon": -122.0734517,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7012954366,
+      "lat": 37.3892819,
+      "lon": -121.9228135,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7012954367,
+      "lat": 37.3923677,
+      "lon": -121.9192716,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7012954368,
+      "lat": 37.3940016,
+      "lon": -121.9172909,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7012954369,
+      "lat": 37.3961661,
+      "lon": -121.9148259,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7012954370,
+      "lat": 37.3985537,
+      "lon": -121.9120619,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7012954371,
+      "lat": 37.402371,
+      "lon": -121.907309,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7012954372,
+      "lat": 37.4030238,
+      "lon": -121.9065862,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7012954373,
+      "lat": 37.4029252,
+      "lon": -121.9062334,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7674265476,
+      "lat": 37.4900666,
+      "lon": -121.9380112,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7674265477,
+      "lat": 37.4900908,
+      "lon": -121.9380196,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7674265478,
+      "lat": 37.4901012,
+      "lon": -121.9379726,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7674409008,
+      "lat": 37.4936398,
+      "lon": -121.9393232,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7674409009,
+      "lat": 37.4937931,
+      "lon": -121.9394037,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 7674564712,
+      "lat": 37.4989721,
+      "lon": -121.9384665,
+      "tags": {
+        "line_attachment": "anchor",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9080904608,
+      "lat": 37.4216103,
+      "lon": -121.9365066,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9316491643,
+      "lat": 37.328622,
+      "lon": -121.9019499,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9316491644,
+      "lat": 37.3290848,
+      "lon": -121.901968,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9316491645,
+      "lat": 37.3291392,
+      "lon": -121.9008033,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482822603,
+      "lat": 37.3786288,
+      "lon": -121.9501807,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482822604,
+      "lat": 37.3781152,
+      "lon": -121.9501619,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482822605,
+      "lat": 37.3773947,
+      "lon": -121.9501391,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482822606,
+      "lat": 37.3766583,
+      "lon": -121.9501458,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482822607,
+      "lat": 37.3761041,
+      "lon": -121.9503,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482822608,
+      "lat": 37.3756512,
+      "lon": -121.9504596,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482822610,
+      "lat": 37.3769898,
+      "lon": -121.9501428,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482822611,
+      "lat": 37.3778135,
+      "lon": -121.9501403,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482822615,
+      "lat": 37.3788267,
+      "lon": -121.950537,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832621,
+      "lat": 37.3789507,
+      "lon": -121.9511419,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832622,
+      "lat": 37.379084,
+      "lon": -121.9517534,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832623,
+      "lat": 37.3792214,
+      "lon": -121.9523864,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832625,
+      "lat": 37.3793504,
+      "lon": -121.9529738,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832626,
+      "lat": 37.3794868,
+      "lon": -121.9536068,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832627,
+      "lat": 37.3796669,
+      "lon": -121.9543699,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832628,
+      "lat": 37.3798598,
+      "lon": -121.9550874,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832629,
+      "lat": 37.3800623,
+      "lon": -121.9558223,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832630,
+      "lat": 37.380253,
+      "lon": -121.9565103,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832631,
+      "lat": 37.3803692,
+      "lon": -121.9569113,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832632,
+      "lat": 37.3805557,
+      "lon": -121.9575188,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832633,
+      "lat": 37.3799457,
+      "lon": -121.9575407,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832640,
+      "lat": 37.3811478,
+      "lon": -121.9575608,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832641,
+      "lat": 37.381703,
+      "lon": -121.9578411,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832642,
+      "lat": 37.3820163,
+      "lon": -121.9580141,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832643,
+      "lat": 37.382451,
+      "lon": -121.9582984,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832644,
+      "lat": 37.3829018,
+      "lon": -121.9586109,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832645,
+      "lat": 37.3832652,
+      "lon": -121.9587718,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832646,
+      "lat": 37.3837703,
+      "lon": -121.9588832,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832647,
+      "lat": 37.3839802,
+      "lon": -121.9583709,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832648,
+      "lat": 37.3841188,
+      "lon": -121.9580436,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832649,
+      "lat": 37.3845546,
+      "lon": -121.957011,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832650,
+      "lat": 37.3848913,
+      "lon": -121.956234,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832654,
+      "lat": 37.3849233,
+      "lon": -121.9565697,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832655,
+      "lat": 37.384691,
+      "lon": -121.9571116,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832656,
+      "lat": 37.3844779,
+      "lon": -121.9576145,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832657,
+      "lat": 37.3842317,
+      "lon": -121.9581885,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832658,
+      "lat": 37.3840883,
+      "lon": -121.9586428,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832659,
+      "lat": 37.3843756,
+      "lon": -121.9589033,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832660,
+      "lat": 37.3846026,
+      "lon": -121.9590495,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832661,
+      "lat": 37.3849286,
+      "lon": -121.959264,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832662,
+      "lat": 37.3857076,
+      "lon": -121.9597964,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832663,
+      "lat": 37.3862052,
+      "lon": -121.960129,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9482832664,
+      "lat": 37.3865728,
+      "lon": -121.9603798,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9503082688,
+      "lat": 37.3256118,
+      "lon": -122.0749236,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9503082691,
+      "lat": 37.3244936,
+      "lon": -122.0759188,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9982578452,
+      "lat": 37.4025041,
+      "lon": -121.9670424,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9982578456,
+      "lat": 37.4018788,
+      "lon": -121.9681656,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9982578458,
+      "lat": 37.40156,
+      "lon": -121.9689596,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9982578459,
+      "lat": 37.4016953,
+      "lon": -121.9688832,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9982578460,
+      "lat": 37.4014673,
+      "lon": -121.969429,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9982578461,
+      "lat": 37.4013543,
+      "lon": -121.9693901,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9982578462,
+      "lat": 37.4012084,
+      "lon": -121.9699989,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9982578463,
+      "lat": 37.401028,
+      "lon": -121.9699696,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 9982578464,
+      "lat": 37.4008387,
+      "lon": -121.9706641,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 11826586841,
+      "lat": 37.3284823,
+      "lon": -122.0712259,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 11826586842,
+      "lat": 37.3278046,
+      "lon": -122.0720914,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 11826586843,
+      "lat": 37.3270162,
+      "lon": -122.0731019,
+      "tags": {
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 11833983050,
+      "lat": 37.3929286,
+      "lon": -121.9683541,
+      "tags": {
+        "location:transition": "yes",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 11833983051,
+      "lat": 37.3930643,
+      "lon": -121.9683239,
+      "tags": {
+        "location:transition": "yes",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 11833988387,
+      "lat": 37.3772034,
+      "lon": -121.9513656,
+      "tags": {
+        "location:transition": "yes",
+        "power": "tower"
+      },
+      "type": "node"
+    },
+    {
+      "id": 11835745291,
+      "lat": 37.4572295,
+      "lon": -121.9218657,
+      "tags": {
+        "power": "tower",
+        "source": "Bing"
+      },
+      "type": "node"
+    }
+  ],
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+    "timestamp_osm_base": "2026-05-26T07:53:15Z"
+  },
+  "version": 0.6
+}

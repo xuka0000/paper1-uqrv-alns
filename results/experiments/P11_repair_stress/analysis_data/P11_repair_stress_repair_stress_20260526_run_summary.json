@@ -1,0 +1,9 @@
+{
+  "experiment_id": "P11_repair_stress",
+  "run_id": "repair_stress_20260526",
+  "row_count": 180,
+  "raw_data": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P11_repair_stress\\raw_data\\P11_repair_stress_repair_stress_20260526_raw.csv",
+  "summary_csv": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P11_repair_stress\\analysis_data\\P11_repair_stress_repair_stress_20260526_summary.csv",
+  "summary_md": "D:\\博士研究生\\刘师姐代写\\paper1\\03_experiments\\P11_repair_stress\\analysis_data\\P11_repair_stress_repair_stress_20260526_summary.md",
+  "evidence_boundary": "Synthetic stress scenarios designed to expose repair-operator behavior."
+}

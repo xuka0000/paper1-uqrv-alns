@@ -1,0 +1,54 @@
+﻿\documentclass[preprint,10pt,authoryear]{elsarticle}
+
+\usepackage[a4paper,left=14.8mm,right=14.8mm,top=16mm,bottom=18mm]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{newtxtext,newtxmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{url}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\journal{Transportation Research Part E: Logistics and Transportation Review}
+\bibliographystyle{elsarticle-harv}
+\biboptions{authoryear,round}
+\setlength{\bibsep}{2pt}
+\renewcommand{\bibfont}{\small}
+\emergencystretch=2em
+\Urlmuskip=0mu plus 2mu
+\sloppy
+\graphicspath{{figures/}}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Uncertainty-aware risk-value vehicle--UAV scheduling for transmission-line inspection with probabilistic energy prediction}
+
+\author[inst1]{Author names withheld for review}
+\affiliation[inst1]{organization={School of Management Science and Engineering}, city={--}, country={China}}
+
+\begin{abstract}
+Large-scale transmission-line inspection increasingly relies on coordinated ground vehicles and unmanned aerial vehicles, but routing decisions remain sensitive to uncertain UAV endurance, heterogeneous tower priorities and sparse feasible stopping locations. This paper formulates transmission-line inspection as an uncertainty-aware risk-value vehicle--UAV scheduling problem. The proposed framework combines a physics-informed probabilistic energy predictor, chance-constrained sortie screening, risk-value task prioritization and an adaptive large-neighborhood search procedure. The energy branch is evaluated with both simulation-generated inspection instances and public quadcopter telemetry, while the routing branch is tested on synthetic corridor instances and public GIS-grounded tower geometries. Computational experiments cover small reference instances, medium and large instances from 30 to 500 towers, energy-prediction accuracy, ablation tests, candidate-stop screening, sensitivity analysis, GIS-grounded cases and stress scenarios. The evidence supports an algorithmic and GIS-grounded scheduling contribution, while field deployment evidence with utility inspection records remains future work.
+\end{abstract}
+
+\begin{keyword}
+Vehicle--UAV routing \sep transmission-line inspection \sep adaptive large-neighborhood search \sep probabilistic energy prediction \sep risk-value scheduling \sep public GIS proxy
+\end{keyword}
+
+\end{frontmatter}
+
+\input{full_body}
+
+\bibliography{tre_references,tre_published_extra_references}
+
+\end{document}

@@ -1,0 +1,94 @@
+\begin{thebibliography}{8}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Kim et~al.(2026)Kim, Sari Darmawi~Purba and
+  Kontou}]{kim2026bidirectional}
+\bibinfo{author}{Kim, H.}, \bibinfo{author}{Sari Darmawi~Purba, D.},
+  \bibinfo{author}{Kontou, E.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Bidirectional energy supply logistics using uncrewed
+  electric aerial and ground vehicles: A two-echelon location-routing problem
+  with resource-constrained demand allocation and time windows}.
+\newblock \bibinfo{journal}{Transportation Research Part E: Logistics and
+  Transportation Review} \bibinfo{volume}{209}, \bibinfo{pages}{104726}.
+\newblock \DOIprefix\doi{10.1016/j.tre.2026.104726}.
+%Type = Article
+\bibitem[{Liu et~al.(2026)Liu, Yu, Tian and Sun}]{liu2026evtol}
+\bibinfo{author}{Liu, S.}, \bibinfo{author}{Yu, Y.}, \bibinfo{author}{Tian,
+  Q.}, \bibinfo{author}{Sun, H.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Routing optimization for an evtol-and-drone delivery
+  system in continuous space with no-fly zones: A reinforcement learning
+  approach}.
+\newblock \bibinfo{journal}{Transportation Research Part E: Logistics and
+  Transportation Review} \bibinfo{volume}{209}, \bibinfo{pages}{104741}.
+\newblock \DOIprefix\doi{10.1016/j.tre.2026.104741}.
+%Type = Article
+\bibitem[{Murray and Chu(2015)}]{murray2015flying}
+\bibinfo{author}{Murray, C.C.}, \bibinfo{author}{Chu, A.G.},
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{The flying sidekick traveling salesman problem:
+  Optimization of drone-assisted parcel delivery}.
+\newblock \bibinfo{journal}{Transportation Research Part C: Emerging
+  Technologies} \bibinfo{volume}{54}, \bibinfo{pages}{86--109}.
+\newblock \DOIprefix\doi{10.1016/j.trc.2015.03.005}.
+%Type = Article
+\bibitem[{Raissi et~al.(2019)Raissi, Perdikaris and
+  Karniadakis}]{raissi2019pinn}
+\bibinfo{author}{Raissi, M.}, \bibinfo{author}{Perdikaris, P.},
+  \bibinfo{author}{Karniadakis, G.E.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Physics-informed neural networks: A deep learning
+  framework for solving forward and inverse problems involving nonlinear
+  partial differential equations}.
+\newblock \bibinfo{journal}{Journal of Computational Physics}
+  \bibinfo{volume}{378}, \bibinfo{pages}{686--707}.
+\newblock \DOIprefix\doi{10.1016/j.jcp.2018.10.045}.
+%Type = Article
+\bibitem[{Ropke and Pisinger(2006)}]{ropke2006alns}
+\bibinfo{author}{Ropke, S.}, \bibinfo{author}{Pisinger, D.},
+  \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{An adaptive large neighborhood search heuristic for
+  the pickup and delivery problem with time windows}.
+\newblock \bibinfo{journal}{Transportation Science} \bibinfo{volume}{40},
+  \bibinfo{pages}{455--472}.
+\newblock \DOIprefix\doi{10.1287/trsc.1050.0135}.
+%Type = Article
+\bibitem[{Shi and Zhen(2026)}]{shi2026llm}
+\bibinfo{author}{Shi, H.}, \bibinfo{author}{Zhen, L.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Llm-based automatic heuristic design for
+  vehicle-drone collaborative routing problems}.
+\newblock \bibinfo{journal}{Transportation Research Part E: Logistics and
+  Transportation Review} \bibinfo{volume}{209}, \bibinfo{pages}{104760}.
+\newblock \DOIprefix\doi{10.1016/j.tre.2026.104760}.
+%Type = Article
+\bibitem[{Yang and Li(2025)}]{yang2025integrated}
+\bibinfo{author}{Yang, R.}, \bibinfo{author}{Li, X.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Integrated order splitting, allocation, and delivery
+  problem with a synchronized truck and drone fleet}.
+\newblock \bibinfo{journal}{Transportation Research Part E: Logistics and
+  Transportation Review} \bibinfo{volume}{202}, \bibinfo{pages}{104217}.
+\newblock \DOIprefix\doi{10.1016/j.tre.2025.104217}.
+%Type = Article
+\bibitem[{Zhang et~al.(2026)Zhang, Yang, Xi, Peng, Yang, Gan, Liu and
+  Ai}]{zhang2026airground}
+\bibinfo{author}{Zhang, Y.}, \bibinfo{author}{Yang, C.}, \bibinfo{author}{Xi,
+  H.}, \bibinfo{author}{Peng, S.}, \bibinfo{author}{Yang, J.},
+  \bibinfo{author}{Gan, M.}, \bibinfo{author}{Liu, X.}, \bibinfo{author}{Ai,
+  R.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Air-ground multimodal transport planning for joint
+  passenger mobility and parcel delivery: Integration of drones, aircraft, and
+  ground vehicles}.
+\newblock \bibinfo{journal}{Transportation Research Part E: Logistics and
+  Transportation Review} \bibinfo{volume}{210}, \bibinfo{pages}{104825}.
+\newblock \DOIprefix\doi{10.1016/j.tre.2026.104825}.
+
+\end{thebibliography}
