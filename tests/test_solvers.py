@@ -547,6 +547,23 @@ class SolverTests(unittest.TestCase):
         self.assertGreater(ga.diagnostics["candidate_evaluations"], 12)
         self.assertGreater(aco.diagnostics["candidate_evaluations"], 12)
 
+    def test_external_public_baselines_are_not_alns_variants(self):
+        scenario = generate_scenario(size="S", seed=17, uncertainty="medium")
+        energy = EnergyModel(battery_capacity=scenario.battery_capacity)
+        expected_families = {
+            "simulated_annealing": "simulated_annealing_order_search",
+            "tabu_search": "tabu_swap_insert_search",
+            "variable_neighborhood_search": "variable_neighborhood_search",
+            "hybrid_genetic_search": "hybrid_genetic_vns_search",
+        }
+
+        for method, family in expected_families.items():
+            plan = solve(scenario, method=method, energy_model=energy, iterations=8, seed=5)
+            self.assertEqual(sorted(task.tower_id for task in plan.tasks), sorted(t.id for t in scenario.towers))
+            self.assertEqual(plan.diagnostics["baseline_family"], family)
+            self.assertNotIn("implementation_family", plan.diagnostics)
+            self.assertGreater(plan.diagnostics["candidate_evaluations"], 0)
+
     def test_fixed_alns_uses_operator_pool_without_uq_or_risk_value(self):
         scenario = generate_scenario(size="S", seed=15, uncertainty="medium")
         energy = EnergyModel(battery_capacity=scenario.battery_capacity)

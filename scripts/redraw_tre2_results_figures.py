@@ -37,6 +37,10 @@ METHOD_LABELS = {
     "greedy_nearest": "Nearest",
     "ga": "GA",
     "aco": "ACO",
+    "simulated_annealing": "SA",
+    "tabu_search": "Tabu",
+    "variable_neighborhood_search": "VNS",
+    "hybrid_genetic_search": "HGS-VNS",
     "alns_fixed": "Fixed ALNS",
     "alns_pinn": "Point energy ALNS",
     "alns_pinn_uq": "UQ energy ALNS",
@@ -54,6 +58,10 @@ METHOD_COLORS = {
     "greedy_nearest": PALETTE["gray"],
     "ga": PALETTE["gold"],
     "aco": PALETTE["orange"],
+    "simulated_annealing": PALETTE["gold"],
+    "tabu_search": "#8E6BBE",
+    "variable_neighborhood_search": "#5F7F62",
+    "hybrid_genetic_search": "#51646A",
     "alns_fixed": PALETTE["light_blue"],
     "alns_pinn": PALETTE["blue"],
     "alns_pinn_uq": PALETTE["teal"],
@@ -127,12 +135,13 @@ def draw_algorithm_effects() -> None:
         "greedy_nearest",
         "ga",
         "aco",
-        "alns_fixed",
-        "alns_pinn",
-        "alns_pinn_uq",
+        "simulated_annealing",
+        "tabu_search",
+        "variable_neighborhood_search",
+        "hybrid_genetic_search",
         "alns_pinn_full",
     ]
-    focus_methods = ["alns_fixed", "alns_pinn", "alns_pinn_full"]
+    focus_methods = ["aco", "hybrid_genetic_search", "alns_pinn_full"]
     focus_labels = [METHOD_LABELS[m] for m in focus_methods]
     scales = [100, 500]
 
@@ -159,8 +168,7 @@ def draw_algorithm_effects() -> None:
                 alpha=0.96,
             )
         full = float(sub.loc[sub.method.eq("alns_pinn_full"), "risk_weighted_completion_time_mean"].iloc[0])
-        point = float(sub.loc[sub.method.eq("alns_pinn"), "risk_weighted_completion_time_mean"].iloc[0])
-        fixed = float(sub.loc[sub.method.eq("alns_fixed"), "risk_weighted_completion_time_mean"].iloc[0])
+        external = float(sub[sub.method.ne("alns_pinn_full")]["risk_weighted_completion_time_mean"].min())
         ax.axvline(full, color=PALETTE["coral"], ls="--", lw=0.75, alpha=0.8)
         ax.set_yticks(y, [METHOD_LABELS[m] for m in methods])
         for tick, method in zip(ax.get_yticklabels(), methods):
@@ -174,7 +182,7 @@ def draw_algorithm_effects() -> None:
         ax.text(
             0.98,
             0.08,
-            f"vs point: {(point - full) / point * 100:.2f}%\nvs fixed: {(fixed - full) / fixed * 100:.1f}%",
+            f"vs best external: {(external - full) / external * 100:.2f}%",
             transform=ax.transAxes,
             ha="right",
             va="bottom",

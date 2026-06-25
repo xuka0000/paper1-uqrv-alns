@@ -34,7 +34,9 @@ PALETTE = {
 }
 
 METHOD_LABELS = {
-    "alns_pinn": "Point energy ALNS",
+    "aco": "ACO",
+    "variable_neighborhood_search": "VNS",
+    "hybrid_genetic_search": "HGS-VNS",
     "alns_pinn_full": "Proposed",
 }
 
@@ -77,8 +79,14 @@ def draw_fig7() -> None:
     fig, axes = plt.subplots(2, 2, figsize=(7.25, 3.75), constrained_layout=True)
     ax_a, ax_b, ax_c, ax_d = axes.ravel()
 
-    colors = {"alns_pinn": PALETTE["blue"], "alns_pinn_full": PALETTE["coral"]}
-    for method in ["alns_pinn", "alns_pinn_full"]:
+    colors = {
+        "aco": PALETTE["orange"],
+        "variable_neighborhood_search": PALETTE["teal"],
+        "hybrid_genetic_search": PALETTE["dark"],
+        "alns_pinn_full": PALETTE["coral"],
+    }
+    plot_methods = ["hybrid_genetic_search", "variable_neighborhood_search", "aco", "alns_pinn_full"]
+    for method in plot_methods:
         sub = p2[p2["method"].eq(method)].sort_values("tower_count")
         x = sub["tower_count"].to_numpy()
         ax_a.plot(
@@ -105,12 +113,11 @@ def draw_fig7() -> None:
     max_towers = int(p2["tower_count"].max())
     max_scale = p2[p2["tower_count"].eq(max_towers)].set_index("method")
     full = float(max_scale.loc["alns_pinn_full", "risk_weighted_completion_time_mean"])
-    point = float(max_scale.loc["alns_pinn", "risk_weighted_completion_time_mean"])
-    fixed = float(max_scale.loc["alns_fixed", "risk_weighted_completion_time_mean"])
+    external = float(max_scale.loc[[m for m in plot_methods if m != "alns_pinn_full"], "risk_weighted_completion_time_mean"].min())
     ax_a.text(
         0.98,
         0.06,
-        f"{max_towers} towers:\n{(point - full) / point * 100:.1f}% vs point\n{(fixed - full) / fixed * 100:.1f}% vs fixed",
+        f"{max_towers} towers:\n{(external - full) / external * 100:.1f}% vs best external",
         transform=ax_a.transAxes,
         ha="right",
         va="bottom",

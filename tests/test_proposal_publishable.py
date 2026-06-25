@@ -44,7 +44,24 @@ class ProposalPublishableTests(unittest.TestCase):
         self.assertIn("P8_sensitivity", matrix)
         self.assertTrue(any(row["method"] == "milp_highs" for row in matrix["P1_milp_exact_small"]))
         self.assertTrue(any(row["tower_count"] == 500 for row in matrix["P2_algorithm_comparison"]))
+        p2_methods = {row["method"] for row in matrix["P2_algorithm_comparison"]}
+        self.assertTrue(
+            {
+                "greedy_nearest",
+                "ga",
+                "aco",
+                "simulated_annealing",
+                "tabu_search",
+                "variable_neighborhood_search",
+                "hybrid_genetic_search",
+                "alns_pinn_full",
+            }.issubset(p2_methods)
+        )
+        self.assertFalse({"alns_fixed", "alns_pinn", "alns_pinn_uq"}.intersection(p2_methods))
         p4_methods = {row["method"] for row in matrix["P4_ablation"]}
+        self.assertIn("alns_fixed", p4_methods)
+        self.assertIn("alns_pinn", p4_methods)
+        self.assertIn("alns_pinn_uq", p4_methods)
         self.assertIn("no_energy_repair", p4_methods)
         self.assertIn("no_sync_repair", p4_methods)
         p6_modes = {row["candidate_mode"] for row in matrix["P6_candidate_stop_screening"]}

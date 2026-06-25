@@ -118,8 +118,20 @@ def generate_custom_scenario(
 def build_proposal_experiment_matrix(seeds: Iterable[int], quick: bool = False) -> Dict[str, List[dict]]:
     seeds = list(seeds)
     small_methods = ["milp_highs", "alns_pinn", "alns_pinn_full"]
-    comparison_methods = ["greedy_nearest", "ga", "aco", "alns_fixed", "alns_pinn", "alns_pinn_uq", "alns_pinn_full"]
+    comparison_methods = [
+        "greedy_nearest",
+        "ga",
+        "aco",
+        "simulated_annealing",
+        "tabu_search",
+        "variable_neighborhood_search",
+        "hybrid_genetic_search",
+        "alns_pinn_full",
+    ]
     ablation_methods = [
+        "alns_fixed",
+        "alns_pinn",
+        "alns_pinn_uq",
         "alns_pinn_full",
         "no_pinn",
         "no_adaptive",

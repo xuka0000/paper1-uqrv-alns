@@ -37,6 +37,10 @@ METHOD_MAP = {
     "greedy_nearest": ("greedy_nearest", 0),
     "ga": ("ga", 50),
     "aco": ("aco", 50),
+    "simulated_annealing": ("simulated_annealing", 50),
+    "tabu_search": ("tabu_search", 50),
+    "variable_neighborhood_search": ("variable_neighborhood_search", 50),
+    "hybrid_genetic_search": ("hybrid_genetic_search", 50),
     "alns_fixed": ("alns_fixed", 80),
     "alns_pinn": ("alns_point", 80),
     "alns_pinn_uq": ("uq_alns", 80),
@@ -50,7 +54,10 @@ def main() -> int:
     parser.add_argument("--case-id", default="public_gis_case")
     parser.add_argument("--run-id", default="public_gis_smoke_20260526")
     parser.add_argument("--seeds", type=int, default=2)
-    parser.add_argument("--methods", default="greedy_nearest,ga,aco,alns_fixed,alns_pinn,alns_pinn_full")
+    parser.add_argument(
+        "--methods",
+        default="greedy_nearest,ga,aco,simulated_annealing,tabu_search,variable_neighborhood_search,hybrid_genetic_search,alns_pinn_full",
+    )
     parser.add_argument("--iterations", type=int, default=0, help="0 uses method defaults")
     args = parser.parse_args()
 

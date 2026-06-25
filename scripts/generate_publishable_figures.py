@@ -43,6 +43,10 @@ METHOD_LABELS = {
     "greedy_nearest": "Nearest",
     "ga": "GA",
     "aco": "ACO",
+    "simulated_annealing": "SA",
+    "tabu_search": "Tabu",
+    "variable_neighborhood_search": "VNS",
+    "hybrid_genetic_search": "HGS-VNS",
     "alns_fixed": "Fixed ALNS",
     "alns_pinn": "Point energy ALNS",
     "alns_pinn_uq": "UQ energy ALNS",
@@ -64,6 +68,10 @@ COLORS = {
     "greedy_nearest": PALETTE["gray"],
     "ga": PALETTE["amber"],
     "aco": PALETTE["orange"],
+    "simulated_annealing": PALETTE["muted_gold"],
+    "tabu_search": "#8E6BBE",
+    "variable_neighborhood_search": "#5F7F62",
+    "hybrid_genetic_search": "#51646A",
     "alns_fixed": PALETTE["light_cyan"],
     "alns_pinn": PALETTE["blue_teal"],
     "alns_pinn_uq": PALETTE["teal"],
@@ -484,7 +492,16 @@ def fig3_milp_validation() -> Path:
 def fig4_algorithm_comparison() -> Path:
     df = read("P2_algorithm_comparison")
     df = df[df.tower_count.eq(100)].copy()
-    order = ["greedy_nearest", "ga", "aco", "alns_fixed", "alns_pinn", "alns_pinn_uq", "alns_pinn_full"]
+    order = [
+        "greedy_nearest",
+        "ga",
+        "aco",
+        "simulated_annealing",
+        "tabu_search",
+        "variable_neighborhood_search",
+        "hybrid_genetic_search",
+        "alns_pinn_full",
+    ]
     df = df.set_index("method").loc[order].reset_index()
     fig, axes = plt.subplots(1, 4, figsize=(7.2, 2.35), constrained_layout=True)
     panels = [
@@ -589,10 +606,11 @@ def fig7_case_study() -> Path:
 
 def fig8_scalability() -> Path:
     df = read("P2_algorithm_comparison")
-    df = df[df.method.isin(["alns_pinn", "alns_pinn_full"])].copy()
+    plot_methods = ["hybrid_genetic_search", "variable_neighborhood_search", "aco", "alns_pinn_full"]
+    df = df[df.method.isin(plot_methods)].copy()
     sizes = [30, 50, 75, 100, 150, 200, 300, 500]
     fig, axes = plt.subplots(1, 4, figsize=(7.2, 2.35), constrained_layout=True)
-    for method in ["alns_pinn", "alns_pinn_full"]:
+    for method in plot_methods:
         sub = df[df.method.eq(method)].set_index("tower_count").loc[sizes]
         label = METHOD_LABELS[method]
         color = COLORS[method]
@@ -640,18 +658,18 @@ def fig9_candidate_screening_statistics() -> Path:
         )
     risk = p7[
         p7.metric.eq("risk_weighted_completion_time")
-        & p7.baseline_method.isin(["ga", "alns_pinn", "alns_fixed"])
+        & p7.baseline_method.isin(["ga", "aco", "hybrid_genetic_search"])
     ].copy()
-    for baseline, color in [("alns_pinn", PALETTE["blue_teal"]), ("ga", PALETTE["amber"]), ("alns_fixed", PALETTE["gray"])]:
+    for baseline, color in [("hybrid_genetic_search", "#51646A"), ("aco", PALETTE["orange"]), ("ga", PALETTE["amber"])]:
         sub = risk[risk.baseline_method.eq(baseline)].sort_values("tower_count")
         axes[2].plot(sub["tower_count"], sub["effect_pct"], marker="o", color=color, label=METHOD_LABELS[baseline])
     stat500 = risk[risk.tower_count.eq(500)].copy()
     stat500["neg_log10_p"] = stat500["p_holm"].apply(lambda value: -log10(max(float(value), 1e-12)))
-    stat500 = stat500.set_index("baseline_method").loc[["alns_fixed", "ga", "alns_pinn"]].reset_index()
+    stat500 = stat500.set_index("baseline_method").loc[["ga", "aco", "hybrid_genetic_search"]].reset_index()
     axes[3].bar(
         [METHOD_LABELS[m] for m in stat500.baseline_method],
         stat500["neg_log10_p"],
-        color=[PALETTE["gray"], PALETTE["amber"], PALETTE["blue_teal"]],
+        color=[PALETTE["amber"], PALETTE["orange"], "#51646A"],
         edgecolor="white",
         lw=0.5,
     )

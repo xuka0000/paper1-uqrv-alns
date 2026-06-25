@@ -13,7 +13,7 @@ Unit and integration tests:
 Latest verified output:
 
 ```text
-Ran 101 tests
+Ran 106 tests
 OK
 ```
 
@@ -21,25 +21,62 @@ OK
 
 ### P2 Algorithm Comparison
 
+P2 is the main algorithm comparison. It compares the complete proposed method
+only against external classical and strong metaheuristic baselines:
+nearest, GA, ACO, simulated annealing, tabu search, VNS and hybrid GA-VNS.
+Internal ALNS variants are not P2 baselines; they are reserved for P4 ablation.
+
 Command:
 
 ```powershell
-.\RUN_REPRODUCE_FULL.ps1 -ExperimentId P2_algorithm_comparison -RunId final_model_rebuild_P2_full_20260625 -Seeds 10
+.\RUN_REPRODUCE_FULL.ps1 -ExperimentId P2_algorithm_comparison -RunId main_external_portfolio_full_20260625 -Seeds 10
 ```
 
 Output:
 
 ```text
-P2_algorithm_comparison: wrote 560 rows
+P2_algorithm_comparison: wrote 640 rows
 ```
 
 Key files:
 
-- `results/experiments/P2_algorithm_comparison/raw_data/P2_algorithm_comparison_final_model_rebuild_P2_full_20260625_raw.csv`
-- `results/experiments/P2_algorithm_comparison/analysis_data/P2_algorithm_comparison_final_model_rebuild_P2_full_20260625_summary.csv`
-- `results/experiments/P2_algorithm_comparison/analysis_data/P2_algorithm_comparison_final_model_rebuild_P2_full_20260625_run_summary.json`
+- `results/experiments/P2_algorithm_comparison/raw_data/P2_algorithm_comparison_main_external_portfolio_full_20260625_raw.csv`
+- `results/experiments/P2_algorithm_comparison/analysis_data/P2_algorithm_comparison_main_external_portfolio_full_20260625_summary.csv`
+- `results/experiments/P2_algorithm_comparison/analysis_data/P2_algorithm_comparison_main_external_portfolio_full_20260625_run_summary.json`
+
+Summary:
+
+- Proposed beats every external baseline on RWCT in all 80 matched seed-scale cases.
+- Mean RWCT gain versus the strongest external baseline at each scale ranges from 17.44% to 40.70%.
+- Holm-adjusted paired RWCT p value against the strongest external baseline is 0.01367 at each tested scale.
+- Proposed has zero infeasible-sortie rate across all P2 scales in this run.
+- Top-risk coverage is not uniformly best at small and medium scales; manuscript claims should not state universal TopCov dominance.
+
+### P7 Statistical Tests From P2
+
+Command:
+
+```powershell
+python scripts\run_statistical_tests.py --run-id main_external_portfolio_full_20260625
+```
+
+Output:
+
+```text
+P7_statistical_tests: wrote 224 rows
+```
+
+Key files:
+
+- `results/experiments/P7_statistical_tests/raw_data/P7_statistical_tests_main_external_portfolio_full_20260625_raw.csv`
+- `results/experiments/P7_statistical_tests/analysis_data/P7_statistical_tests_main_external_portfolio_full_20260625_summary.csv`
+- `results/experiments/P7_statistical_tests/analysis_data/P7_statistical_tests_main_external_portfolio_full_20260625_run_summary.json`
 
 ### P4 Ablation Quick Check
+
+P4 is run after P2 establishes the proposed method against external baselines.
+It contains internal ALNS variants (`alns_fixed`, `alns_pinn`,
+`alns_pinn_uq`) and module-removal ablations.
 
 ```powershell
 .\RUN_REPRODUCE_QUICK.ps1 -ExperimentId P4_ablation -RunId final_model_rebuild_P4_quick_20260625
@@ -89,4 +126,12 @@ P10_energy_telemetry_calibration: 209 flights, 164 test predictions
 
 ## Result Interpretation Boundary
 
-The rebuilt P2 results support a different claim boundary from the old manuscript draft. The full q95 risk-value ALNS strongly reduces infeasible-sortie rates relative to fixed/point energy ALNS. It does not uniformly dominate UQ energy ALNS on RWCT at every scale. Manuscript text and tables must be regenerated from the rebuilt result files before final submission.
+Do not use legacy P2 files that compare ALNS-family variants as the main
+algorithm evidence. The current manuscript-facing hierarchy is:
+
+1. P2: external baseline comparison versus the complete proposed method.
+2. P7: paired statistical tests from P2 against external baselines.
+3. P4/P11: ablation and stress diagnostics after the P2 main claim is supported.
+
+Manuscript text and tables must be regenerated from the rebuilt result files
+before final submission.

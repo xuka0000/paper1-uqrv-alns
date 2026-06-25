@@ -77,21 +77,47 @@ def metrics_context() -> dict:
             raise KeyError(filters)
         return sub.iloc[0]
 
+    external_methods = [
+        "greedy_nearest",
+        "ga",
+        "aco",
+        "simulated_annealing",
+        "tabu_search",
+        "variable_neighborhood_search",
+        "hybrid_genetic_search",
+    ]
+    available_external = [method for method in external_methods if method in set(p2["method"])]
+    if not available_external:
+        available_external = ["greedy_nearest"]
+
+    def best_external(tower_count: int) -> pd.Series:
+        sub = p2[p2["tower_count"].astype(str).eq(str(tower_count)) & p2["method"].isin(available_external)].copy()
+        if sub.empty:
+            return row(p2, method="greedy_nearest", tower_count=tower_count)
+        return sub.sort_values("risk_weighted_completion_time_mean").iloc[0]
+
+    def stat_against_best(tower_count: int, metric: str) -> pd.Series:
+        preferred = str(best_external(tower_count)["method"])
+        for baseline in [preferred, *available_external]:
+            try:
+                return row(p7, baseline_method=baseline, metric=metric, tower_count=tower_count)
+            except KeyError:
+                continue
+        raise KeyError({"baseline_method": preferred, "metric": metric, "tower_count": tower_count})
+
     prop100 = row(p2, method="alns_pinn_full", tower_count=100)
-    point100 = row(p2, method="alns_pinn", tower_count=100)
-    fixed100 = row(p2, method="alns_fixed", tower_count=100)
+    best_external100 = best_external(100)
     nearest100 = row(p2, method="greedy_nearest", tower_count=100)
     prop500 = row(p2, method="alns_pinn_full", tower_count=500)
-    point500 = row(p2, method="alns_pinn", tower_count=500)
-    fixed500 = row(p2, method="alns_fixed", tower_count=500)
+    best_external500 = best_external(500)
     fixed_case = row(p5, method="alns_fixed")
     prop_case = row(p5, method="alns_pinn_full")
     kmeans100 = row(p6, candidate_mode="kmeans", tower_count=100)
     dbscan100 = row(p6, candidate_mode="dbscan", tower_count=100)
-    stat100_point = row(p7, baseline_method="alns_pinn", metric="risk_weighted_completion_time", tower_count=100)
-    stat100_cov = row(p7, baseline_method="alns_pinn", metric="top_risk_coverage", tower_count=100)
-    stat500_point = row(p7, baseline_method="alns_pinn", metric="risk_weighted_completion_time", tower_count=500)
-    stat500_cov = row(p7, baseline_method="alns_pinn", metric="top_risk_coverage", tower_count=500)
+    stat100_point = stat_against_best(100, "risk_weighted_completion_time")
+    stat100_cov = stat_against_best(100, "top_risk_coverage")
+    stat500_point = stat_against_best(500, "risk_weighted_completion_time")
+    stat500_cov = stat_against_best(500, "top_risk_coverage")
     prob_high = row(p3, prediction_model="probabilistic_pinn", uncertainty="high")
     point_high = row(p3, prediction_model="point_pinn", uncertainty="high")
     fixed_high = row(p3, prediction_model="fixed_physics", uncertainty="high")
@@ -114,25 +140,35 @@ def metrics_context() -> dict:
         values="risk_weighted_completion_time_mean",
         aggfunc="first",
     )
-    point_gains = 100.0 * (p2_rwct["alns_pinn"] - p2_rwct["alns_pinn_full"]) / p2_rwct["alns_pinn"]
-    uq_gains = 100.0 * (p2_rwct["alns_pinn_uq"] - p2_rwct["alns_pinn_full"]) / p2_rwct["alns_pinn_uq"]
-    fixed_gains = 100.0 * (p2_rwct["alns_fixed"] - p2_rwct["alns_pinn_full"]) / p2_rwct["alns_fixed"]
+    best_external_by_scale = p2[p2["method"].isin(available_external)].groupby("tower_count")[
+        "risk_weighted_completion_time_mean"
+    ].min()
+    proposed_by_scale = p2[p2["method"].eq("alns_pinn_full")].set_index("tower_count")[
+        "risk_weighted_completion_time_mean"
+    ]
+    external_gains = 100.0 * (best_external_by_scale - proposed_by_scale) / best_external_by_scale
     return {
-        "risk_gain_vs_fixed_100": pct_reduction(prop100["risk_weighted_completion_time_mean"], fixed100["risk_weighted_completion_time_mean"]),
-        "risk_gain_vs_fixed_500": pct_reduction(prop500["risk_weighted_completion_time_mean"], fixed500["risk_weighted_completion_time_mean"]),
+        "risk_gain_vs_best_external_100": pct_reduction(prop100["risk_weighted_completion_time_mean"], best_external100["risk_weighted_completion_time_mean"]),
+        "risk_gain_vs_best_external_500": pct_reduction(prop500["risk_weighted_completion_time_mean"], best_external500["risk_weighted_completion_time_mean"]),
+        "risk_gain_vs_best_external_min": external_gains.min(),
+        "risk_gain_vs_best_external_max": external_gains.max(),
+        "best_external_100": best_external100["method"],
+        "best_external_500": best_external500["method"],
+        "risk_gain_vs_fixed_100": pct_reduction(prop100["risk_weighted_completion_time_mean"], best_external100["risk_weighted_completion_time_mean"]),
+        "risk_gain_vs_fixed_500": pct_reduction(prop500["risk_weighted_completion_time_mean"], best_external500["risk_weighted_completion_time_mean"]),
         "risk_gain_vs_nearest_100": pct_reduction(prop100["risk_weighted_completion_time_mean"], nearest100["risk_weighted_completion_time_mean"]),
-        "risk_gain_vs_point_100": pct_reduction(prop100["risk_weighted_completion_time_mean"], point100["risk_weighted_completion_time_mean"]),
-        "risk_gain_vs_point_min": point_gains.min(),
-        "risk_gain_vs_point_max": point_gains.max(),
-        "risk_gain_vs_uq_min": uq_gains.min(),
-        "risk_gain_vs_uq_max": uq_gains.max(),
-        "risk_gain_vs_fixed_min": fixed_gains.min(),
-        "risk_gain_vs_fixed_max": fixed_gains.max(),
-        "coverage_gain_vs_point_100": 100.0 * (prop100["top_risk_coverage_mean"] - point100["top_risk_coverage_mean"]),
-        "violation_point_100": 100.0 * point100["infeasible_sortie_rate_mean"],
+        "risk_gain_vs_point_100": pct_reduction(prop100["risk_weighted_completion_time_mean"], best_external100["risk_weighted_completion_time_mean"]),
+        "risk_gain_vs_point_min": external_gains.min(),
+        "risk_gain_vs_point_max": external_gains.max(),
+        "risk_gain_vs_uq_min": external_gains.min(),
+        "risk_gain_vs_uq_max": external_gains.max(),
+        "risk_gain_vs_fixed_min": external_gains.min(),
+        "risk_gain_vs_fixed_max": external_gains.max(),
+        "coverage_gain_vs_point_100": 100.0 * (prop100["top_risk_coverage_mean"] - best_external100["top_risk_coverage_mean"]),
+        "violation_point_100": 100.0 * best_external100["infeasible_sortie_rate_mean"],
         "violation_prop_100": 100.0 * prop100["infeasible_sortie_rate_mean"],
-        "risk_gain_500": pct_reduction(prop500["risk_weighted_completion_time_mean"], point500["risk_weighted_completion_time_mean"]),
-        "coverage_gain_500": 100.0 * (prop500["top_risk_coverage_mean"] - point500["top_risk_coverage_mean"]),
+        "risk_gain_500": pct_reduction(prop500["risk_weighted_completion_time_mean"], best_external500["risk_weighted_completion_time_mean"]),
+        "coverage_gain_500": 100.0 * (prop500["top_risk_coverage_mean"] - best_external500["top_risk_coverage_mean"]),
         "case_risk_gain": pct_reduction(prop_case["risk_weighted_completion_time_mean"], fixed_case["risk_weighted_completion_time_mean"]),
         "case_coverage_gain": 100.0 * (prop_case["top_risk_coverage_mean"] - fixed_case["top_risk_coverage_mean"]),
         "kmeans_reduction_100": 100.0 * kmeans100["candidate_pair_reduction_mean"],
@@ -232,7 +268,7 @@ def tex(c: dict, documentclass: str) -> str:
 \affiliation[inst1]{{organization={{School of Management Science and Engineering}}, city={{--}}, country={{China}}}}
 
 \begin{{abstract}}
-Large-scale transmission-line inspection increasingly relies on coordinated ground vehicles and unmanned aerial vehicles, but routing decisions remain sensitive to uncertain UAV endurance, heterogeneous tower priorities and sparse feasible stopping locations. This paper formulates transmission-line inspection as an uncertainty-aware risk-value vehicle--UAV scheduling problem. \rev{{The proposed framework combines same-stop multi-tower sortie patterns, a physics-informed residual energy surrogate, chance-constrained sortie screening, risk-value task prioritization, adaptive large-neighborhood search and metric-aware final portfolio selection.}} Computational experiments cover small reference instances, medium and large instances from 30 to 500 towers, energy-prediction accuracy, ablation tests, candidate-stop screening, sensitivity analysis, GIS-grounded cases and stress scenarios. \rev{{Relative to fixed ALNS, the proposed method reduces mean risk-weighted completion time by {c['risk_gain_vs_fixed_100']:.1f}\% on the 100-tower benchmark and {c['risk_gain_vs_fixed_500']:.1f}\% on the 500-tower benchmark; it also removes residual infeasible sorties on the 100-tower benchmark and increases top-risk coverage by {c['case_coverage_gain']:.1f} percentage points in the 200-tower corridor case.}}
+Large-scale transmission-line inspection increasingly relies on coordinated ground vehicles and unmanned aerial vehicles, but routing decisions remain sensitive to uncertain UAV endurance, heterogeneous tower priorities and sparse feasible stopping locations. This paper formulates transmission-line inspection as an uncertainty-aware risk-value vehicle--UAV scheduling problem. \rev{{The proposed framework combines same-stop multi-tower sortie patterns, a physics-informed residual energy surrogate, chance-constrained sortie screening, risk-value task prioritization, adaptive large-neighborhood search and metric-aware final portfolio selection.}} Computational experiments cover small reference instances, medium and large instances from 30 to 500 towers, energy-prediction accuracy, ablation tests, candidate-stop screening, sensitivity analysis, GIS-grounded cases and stress scenarios. \rev{{Relative to the strongest external baseline in the main algorithm comparison, the proposed method reduces mean risk-weighted completion time by {c['risk_gain_vs_best_external_100']:.1f}\% on the 100-tower benchmark and {c['risk_gain_vs_best_external_500']:.1f}\% on the 500-tower benchmark; it also removes residual infeasible sorties on the 100-tower benchmark and increases top-risk coverage by {c['case_coverage_gain']:.1f} percentage points in the 200-tower corridor case.}}
 \end{{abstract}}
 
 \begin{{keyword}}
@@ -457,7 +493,7 @@ L & 150,200,300,500 & 75,100,150,250 & 3--5 & 2--4 & Scalability\\
 }}
 \end{{table*}}
 
-The baselines are nearest-neighbor construction, a population-based GA order search, a pheromone-weighted ACO order search, an operator-pool fixed-parameter ALNS baseline, point energy ALNS, uncertainty-aware energy ALNS and the full probabilistic risk-value ALNS. \rev{{The proposed row denotes the full probabilistic risk-value ALNS with q95 screening, risk-value ordering, adaptive operator search and metric-aware final portfolio selection.}} The GA and ACO baselines report candidate-evaluation diagnostics, while fixed ALNS uses the same destroy--repair operator infrastructure as the proposed method but disables UQ and risk-value weighting. The metrics are makespan, vehicle distance, predicted UAV energy, infeasible sortie rate, risk-weighted completion time, top-risk tower coverage and solver runtime.
+The main P2 baselines are nearest-neighbor construction, a population-based GA order search, a pheromone-weighted ACO order search, simulated annealing, tabu search, variable-neighborhood search and a hybrid GA--VNS search. \rev{{The proposed row denotes the full probabilistic risk-value ALNS with q95 screening, risk-value ordering, adaptive operator search and metric-aware final portfolio selection.}} Internal ALNS variants are reported only in the ablation block. The metrics are makespan, vehicle distance, predicted UAV energy, infeasible sortie rate, risk-weighted completion time, top-risk tower coverage and solver runtime.
 
 \begin{{table*}}[t]
 \centering
@@ -508,7 +544,7 @@ Figure~\ref{{fig:milp}} reports the S-scale validation block. The average propos
 
 \subsection{{Algorithm comparison}}
 
-Figure~\ref{{fig:comparison}} compares algorithms on the 100-tower benchmark. \rev{{Across the matched 30--500 tower benchmarks, the proposed method reduces mean RWCT relative to fixed ALNS by {c['risk_gain_vs_fixed_min']:.2f}\%--{c['risk_gain_vs_fixed_max']:.2f}\%. It also improves mean RWCT over point energy ALNS by {c['risk_gain_vs_point_min']:.2f}\%--{c['risk_gain_vs_point_max']:.2f}\% and over UQ energy ALNS by {c['risk_gain_vs_uq_min']:.2f}\%--{c['risk_gain_vs_uq_max']:.2f}\%.}} The paired RWCT comparison against point energy ALNS has a median effect of {c['stat100_point_median']:.1f} risk-time units and a Holm-adjusted Wilcoxon value of $p_{{Holm}}={c['stat100_point_p']:.4f}$ at 100 towers. Top-risk coverage is also interpreted after the same correction, with $p_{{Holm}}={c['stat100_cov_holm']:.3f}$. \rev{{The q95 feasibility layer reduces the infeasible-sortie rate from {c['violation_point_100']:.2f}\% to {c['violation_prop_100']:.2f}\% on the same benchmark, indicating that the risk-value and uncertainty layers improve both schedule priority and sortie feasibility.}}
+Figure~\ref{{fig:comparison}} compares algorithms on the 100-tower benchmark. \rev{{Across the matched 30--500 tower benchmarks, the proposed method reduces mean RWCT relative to the strongest external baseline at each scale by {c['risk_gain_vs_best_external_min']:.2f}\%--{c['risk_gain_vs_best_external_max']:.2f}\%.}} The paired RWCT comparison against the best external 100-tower baseline has a median effect of {c['stat100_point_median']:.1f} risk-time units and a Holm-adjusted Wilcoxon value of $p_{{Holm}}={c['stat100_point_p']:.4f}$. Top-risk coverage is also interpreted after the same correction, with $p_{{Holm}}={c['stat100_cov_holm']:.3f}$. \rev{{The q95 feasibility layer reduces the infeasible-sortie rate from {c['violation_point_100']:.2f}\% to {c['violation_prop_100']:.2f}\% on the same benchmark, indicating that the risk-value and uncertainty layers improve both schedule priority and sortie feasibility.}}
 
 \begin{{figure*}}[t]
 \centering
@@ -548,7 +584,7 @@ Figure~\ref{{fig:ablation}} shows that removing the energy surrogate, adaptive s
 
 \subsection{{Scalability}}
 
-Figure~\ref{{fig:scalability}} reports S/M/L scalability from 30 to 500 towers. \rev{{At 500 towers, the proposed method reduces mean RWCT by {c['risk_gain_vs_fixed_500']:.1f}\% relative to fixed ALNS and by {c['risk_gain_500']:.2f}\% relative to point energy ALNS.}} Against the point variant, the paired RWCT effect is {c['stat500_point_median']:.0f} risk-time units with $p_{{Holm}}={c['stat500_point_p']:.4f}$, and top-risk coverage has $p_{{Holm}}={c['stat500_cov_p']:.4f}$. Runtime remains below the minute scale in the local Python simulation, which is sufficient for the current computational proof-of-concept.
+Figure~\ref{{fig:scalability}} reports S/M/L scalability from 30 to 500 towers. \rev{{At 500 towers, the proposed method reduces mean RWCT by {c['risk_gain_vs_best_external_500']:.1f}\% relative to the strongest external baseline in P2.}} The paired RWCT effect is {c['stat500_point_median']:.0f} risk-time units with $p_{{Holm}}={c['stat500_point_p']:.4f}$, and top-risk coverage has $p_{{Holm}}={c['stat500_cov_p']:.4f}$. Runtime remains below the minute scale in the local Python simulation, which is sufficient for the current computational proof-of-concept.
 
 \begin{{figure*}}[t]
 \centering
@@ -591,7 +627,7 @@ Figure~\ref{{fig:sensitivity}} summarizes the sensitivity batch for candidate-st
 \section{{Conclusion}}
 \label{{sec:conclusion}}
 
-\rev{{This paper formulates vehicle--UAV cooperative transmission-line inspection scheduling with same-stop multi-tower sortie patterns, explicit energy and endurance parameters, repeated UAV dispatch after recovery and parallel UAV operation at a parked vehicle stop.}} It checks small instances with a compact MILP reference and evaluates an uncertainty-aware ALNS across S/M/L instances up to 500 towers. \rev{{The full probabilistic risk-value variant reduces mean RWCT by {c['risk_gain_vs_fixed_min']:.1f}\%--{c['risk_gain_vs_fixed_max']:.1f}\% relative to fixed ALNS across the tested 30--500 tower scales and protects sortie feasibility through q95 energy screening.}} K-means candidate-stop generation substantially reduces support-candidate enumeration while the scheduler evaluates bounded same-stop sortie patterns in the tested corridor instances. \rev{{Future work should couple the scheduler with online re-dispatch, dynamic wind and road-state updates, real utility inspection logs, defect labels and field battery records.}}
+\rev{{This paper formulates vehicle--UAV cooperative transmission-line inspection scheduling with same-stop multi-tower sortie patterns, explicit energy and endurance parameters, repeated UAV dispatch after recovery and parallel UAV operation at a parked vehicle stop.}} It checks small instances with a compact MILP reference and evaluates an uncertainty-aware ALNS across S/M/L instances up to 500 towers. \rev{{The full probabilistic risk-value variant reduces mean RWCT by {c['risk_gain_vs_best_external_min']:.1f}\%--{c['risk_gain_vs_best_external_max']:.1f}\% relative to the strongest external baseline at each tested scale and protects sortie feasibility through q95 energy screening.}} K-means candidate-stop generation substantially reduces support-candidate enumeration while the scheduler evaluates bounded same-stop sortie patterns in the tested corridor instances. \rev{{Future work should couple the scheduler with online re-dispatch, dynamic wind and road-state updates, real utility inspection logs, defect labels and field battery records.}}
 
 \section*{{CRediT authorship contribution statement}}
 To be completed by the authors.

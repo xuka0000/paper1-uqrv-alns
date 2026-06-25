@@ -14,7 +14,15 @@ from uqrv.io_utils import ensure_experiment_dirs, write_json, write_markdown, wr
 from uqrv.stat_tests import compare_paired_methods, holm_adjust
 
 
-BASELINES = ["greedy_nearest", "ga", "aco", "alns_fixed", "alns_pinn", "alns_pinn_uq"]
+BASELINES = [
+    "greedy_nearest",
+    "ga",
+    "aco",
+    "simulated_annealing",
+    "tabu_search",
+    "variable_neighborhood_search",
+    "hybrid_genetic_search",
+]
 METRICS = [
     ("makespan", True),
     ("risk_weighted_completion_time", True),

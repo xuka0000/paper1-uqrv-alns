@@ -11,6 +11,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 import generate_publishable_figures
 import write_full_result_tables
 import write_elsevier_latex
+import run_statistical_tests
 
 
 class PublishableOutputTests(unittest.TestCase):
@@ -18,6 +19,28 @@ class PublishableOutputTests(unittest.TestCase):
         for method in ["no_energy_repair", "no_sync_repair"]:
             self.assertIn(method, generate_publishable_figures.METHOD_LABELS)
             self.assertIn(method, generate_publishable_figures.COLORS)
+
+    def test_main_algorithm_outputs_use_external_baseline_order(self):
+        expected = [
+            "greedy_nearest",
+            "ga",
+            "aco",
+            "simulated_annealing",
+            "tabu_search",
+            "variable_neighborhood_search",
+            "hybrid_genetic_search",
+            "alns_pinn_full",
+        ]
+        self.assertEqual(write_full_result_tables.MAIN_ALGORITHM_ORDER, expected)
+        self.assertEqual(run_statistical_tests.BASELINES, expected[:-1])
+        for method in expected:
+            self.assertIn(method, write_full_result_tables.METHOD_LABELS)
+            self.assertIn(method, generate_publishable_figures.METHOD_LABELS)
+
+    def test_ablation_order_keeps_internal_alns_variants_outside_main_order(self):
+        internal = {"alns_fixed", "alns_pinn", "alns_pinn_uq"}
+        self.assertFalse(internal.intersection(write_full_result_tables.MAIN_ALGORITHM_ORDER))
+        self.assertTrue(internal.issubset(write_full_result_tables.ABLATION_METHOD_ORDER))
 
     def test_latex_context_exposes_repair_ablation_deltas(self):
         context = write_elsevier_latex.metrics_context()

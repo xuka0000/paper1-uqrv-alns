@@ -16,6 +16,18 @@ class PublishableRunnerTests(unittest.TestCase):
         self.assertEqual(method, "alns_full")
         self.assertGreater(iterations, 0)
 
+    def test_main_experiment_external_baselines_map_to_non_alns_solvers(self):
+        expected = {
+            "simulated_annealing": "simulated_annealing",
+            "tabu_search": "tabu_search",
+            "variable_neighborhood_search": "variable_neighborhood_search",
+            "hybrid_genetic_search": "hybrid_genetic_search",
+        }
+        for public_method, solver_method in expected.items():
+            method, iterations = _solver_mapping(public_method, "M")
+            self.assertEqual(method, solver_method)
+            self.assertGreater(iterations, 0)
+
     def test_repair_ablation_methods_map_to_operator_alns_aliases(self):
         method, iterations = _solver_mapping("no_energy_repair", "M")
         self.assertEqual(method, "alns_full_no_energy_repair")
@@ -135,7 +147,15 @@ class PublishableRunnerTests(unittest.TestCase):
         self.assertGreaterEqual(result["alns_portfolio_candidate_count"], 1.0)
         self.assertIn(
             result["alns_selected_portfolio_candidate"],
-            {"alns_search", "point_local", "uq_local", "risk_value_order"},
+            {
+                "alns_search",
+                "point_local",
+                "uq_local",
+                "risk_value_order",
+                "risk_bucket_stop_4",
+                "risk_bucket_stop_5",
+                "risk_bucket_stop_8",
+            },
         )
         self.assertGreater(result["alns_selected_portfolio_rwct"], 0.0)
 
@@ -178,6 +198,25 @@ class PublishableRunnerTests(unittest.TestCase):
         }
         result = run_solver_experiment([row])[0]
         self.assertEqual(result["baseline_family"], "genetic_order_search")
+        self.assertGreater(result["baseline_candidate_evaluations"], 0)
+        self.assertGreater(result["baseline_population_size"], 0)
+
+    def test_solver_experiment_records_public_sota_baseline_diagnostics(self):
+        row = {
+            "size": "S",
+            "variant_index": 0,
+            "tower_count": 10,
+            "stop_count": 5,
+            "vehicle_count": 1,
+            "uavs_per_vehicle": 1,
+            "seed": 3,
+            "uncertainty": "medium",
+            "method": "hybrid_genetic_search",
+            "candidate_mode": "direct",
+            "nearest_per_tower": 3,
+        }
+        result = run_solver_experiment([row])[0]
+        self.assertEqual(result["baseline_family"], "hybrid_genetic_vns_search")
         self.assertGreater(result["baseline_candidate_evaluations"], 0)
         self.assertGreater(result["baseline_population_size"], 0)
 

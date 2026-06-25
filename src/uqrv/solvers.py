@@ -114,6 +114,30 @@ def solve(
         )
         stop_picker = _pick_energy_aware
         quantile = False
+    elif method_key in {"simulated_annealing", "sa"}:
+        ordered, diagnostics = _simulated_annealing_order_search(
+            scenario.towers, scenario.stops, rng, iterations, value_weight=0.16
+        )
+        stop_picker = _pick_value_aware
+        quantile = True
+    elif method_key in {"tabu_search", "tabu"}:
+        ordered, diagnostics = _tabu_order_search(
+            scenario.towers, scenario.stops, rng, iterations, value_weight=0.16
+        )
+        stop_picker = _pick_value_aware
+        quantile = True
+    elif method_key in {"variable_neighborhood_search", "vns", "ils"}:
+        ordered, diagnostics = _variable_neighborhood_order_search(
+            scenario.towers, scenario.stops, rng, iterations, value_weight=0.18
+        )
+        stop_picker = _pick_value_aware
+        quantile = True
+    elif method_key in {"hybrid_genetic_search", "hgs", "hybrid_ga_vns"}:
+        ordered, diagnostics = _hybrid_genetic_vns_order_search(
+            scenario.towers, scenario.stops, rng, iterations, value_weight=0.18
+        )
+        stop_picker = _pick_value_aware
+        quantile = True
     elif method_key == "alns_fixed":
         return _solve_schedule_state_alns_plan(
             scenario=scenario,
@@ -439,6 +463,50 @@ def _solve_schedule_state_alns_plan(
     )
     tasks, sorties = state_to_plan_tasks(result.state)
     diagnostics = dict(result.diagnostics)
+    if method in {"alns_full", "alns_operator", "uq_rv_alns_full", "proposed"}:
+        tower_by_id = {tower.id: tower for tower in scenario.towers}
+        search_order = [
+            tower_by_id[task.tower_id]
+            for task in sorted(result.state.tasks, key=lambda task: (task.finish, task.tower_id))
+            if task.tower_id in tower_by_id
+        ]
+        priority_scores = scaled_risk_value_priority_map(scenario.towers)
+        portfolio_orders = _operator_portfolio_orders(
+            scenario=scenario,
+            search_order=search_order,
+            schedule_stop_picker=_pick_value_aware,
+            use_quantile=use_quantile,
+            iterations=iterations,
+            selection_seed=scenario.seed,
+            priority_scores=priority_scores,
+        )
+        portfolio_orders.extend(_risk_bucket_stop_portfolio_orders(scenario, priority_scores))
+        _order, tasks, sorties, portfolio_diagnostics = _select_metric_aware_schedule(
+            scenario=scenario,
+            candidate_orders=portfolio_orders,
+            stop_picker=_pick_value_aware,
+            energy_model=energy_model,
+            quantile=use_quantile,
+            allow_multi_tower_sorties=use_quantile,
+        )
+        diagnostics.update(portfolio_diagnostics)
+        diagnostics["alns_portfolio_candidate_count"] = float(portfolio_diagnostics["portfolio_candidate_count"])
+        diagnostics["alns_selected_portfolio_candidate"] = portfolio_diagnostics["selected_portfolio_candidate"]
+        diagnostics["alns_selected_portfolio_infeasible_count"] = float(
+            portfolio_diagnostics["selected_portfolio_infeasible_count"]
+        )
+        diagnostics["alns_selected_portfolio_rwct"] = float(portfolio_diagnostics["selected_portfolio_rwct"])
+        diagnostics["alns_selected_portfolio_makespan"] = float(portfolio_diagnostics["selected_portfolio_makespan"])
+        diagnostics["selected_sortie_count"] = len(sorties)
+        diagnostics["missed_service_count"] = 0
+        diagnostics["duplicate_service_count"] = 0
+        diagnostics["objective_rwct"] = float(portfolio_diagnostics["selected_portfolio_rwct"])
+        diagnostics["objective_makespan"] = float(portfolio_diagnostics["selected_portfolio_makespan"])
+        diagnostics["objective_ground_travel"] = sum(sortie.road_travel for sortie in sorties)
+        diagnostics["objective_q95_energy"] = sum(sortie.energy_q95 for sortie in sorties)
+        diagnostics["objective_missed_penalty"] = 0.0
+        diagnostics["objective_duplicate_penalty"] = 0.0
+        diagnostics["objective_total"] = _plan_objective(tasks)
     diagnostics["final_objective"] = result.objective.total_objective
     diagnostics["best_objective"] = result.objective.total_objective
     diagnostics["solver_wall_time"] = round(perf_counter() - start_time, 6)
@@ -446,7 +514,7 @@ def _solve_schedule_state_alns_plan(
         method=method,
         tasks=tasks,
         runtime=result.runtime,
-        objective=result.objective.total_objective,
+        objective=float(diagnostics.get("objective_total", result.objective.total_objective)),
         diagnostics=diagnostics,
         sorties=sorties,
     )
@@ -756,6 +824,53 @@ def _operator_portfolio_orders(
             True,
         ),
     ]
+
+
+def _risk_bucket_stop_portfolio_orders(
+    scenario: Scenario,
+    priority_scores: Dict[int, float],
+) -> List[tuple]:
+    nearest_stop_by_tower = {
+        tower.id: min(
+            scenario.stops,
+            key=lambda stop: ((stop.x - tower.x) ** 2 + (stop.y - tower.y) ** 2, stop.id),
+        ).id
+        for tower in scenario.towers
+    }
+    ranked = sorted(
+        scenario.towers,
+        key=lambda tower: (
+            priority_scores.get(tower.id, 0.0),
+            -_nearest_distance(tower, scenario.stops),
+        ),
+        reverse=True,
+    )
+    orders: List[tuple] = []
+    for bucket_count in (4, 5, 8):
+        bucket_size = max(1, len(ranked) // bucket_count)
+        order: List[Tower] = []
+        for offset in range(0, len(ranked), bucket_size):
+            bucket = ranked[offset : offset + bucket_size]
+            order.extend(
+                sorted(
+                    bucket,
+                    key=lambda tower: (
+                        nearest_stop_by_tower[tower.id],
+                        -priority_scores.get(tower.id, 0.0),
+                        tower.id,
+                    ),
+                )
+            )
+        orders.append(
+            (
+                f"risk_bucket_stop_{bucket_count}",
+                order,
+                _pick_value_aware,
+                True,
+                True,
+            )
+        )
+    return orders
 
 
 def _select_metric_aware_schedule(
@@ -1182,6 +1297,254 @@ def _ant_colony_order_search(
         "candidate_evaluations": evaluations,
         "best_order_score": round(best_score, 6),
     }
+
+
+def _simulated_annealing_order_search(
+    towers: Sequence[Tower],
+    stops: Sequence[Stop],
+    rng: Random,
+    iterations: int,
+    value_weight: float,
+) -> tuple[List[Tower], Dict[str, object]]:
+    priorities = _priority_scores(towers, stops, value_weight)
+    current = sorted(towers, key=lambda tower: priorities[tower.id], reverse=True)
+    best = list(current)
+    current_score = _order_score_from_priorities(current, priorities)
+    best_score = current_score
+    temperature = max(1.0, abs(current_score) * 0.05)
+    evaluations = 1
+    accepted = 0
+    improved = 0
+    rounds = max(1, iterations)
+
+    for _ in range(rounds):
+        candidate = _order_neighbor(current, rng)
+        candidate_score = _order_score_from_priorities(candidate, priorities)
+        evaluations += 1
+        delta = candidate_score - current_score
+        if delta <= 0.0 or rng.random() < pow(2.718281828459045, -delta / max(temperature, 1e-9)):
+            current = candidate
+            current_score = candidate_score
+            accepted += 1
+            if candidate_score < best_score:
+                best = list(candidate)
+                best_score = candidate_score
+                improved += 1
+        temperature *= 0.985
+
+    return best, {
+        "baseline_family": "simulated_annealing_order_search",
+        "generations": rounds,
+        "candidate_evaluations": evaluations,
+        "accepted_moves": accepted,
+        "improving_moves": improved,
+        "best_order_score": round(best_score, 6),
+    }
+
+
+def _tabu_order_search(
+    towers: Sequence[Tower],
+    stops: Sequence[Stop],
+    rng: Random,
+    iterations: int,
+    value_weight: float,
+) -> tuple[List[Tower], Dict[str, object]]:
+    priorities = _priority_scores(towers, stops, value_weight)
+    current = sorted(towers, key=lambda tower: priorities[tower.id], reverse=True)
+    best = list(current)
+    best_score = _order_score_from_priorities(best, priorities)
+    current_score = best_score
+    tabu: dict[tuple[int, int], int] = {}
+    tenure = max(5, min(20, len(towers) // 4))
+    evaluations = 1
+    best_updates = 0
+    rounds = max(1, iterations)
+
+    for round_idx in range(rounds):
+        neighborhood: List[tuple[float, tuple[int, int], List[Tower]]] = []
+        sample_count = max(8, min(48, len(current)))
+        for _ in range(sample_count):
+            i = rng.randrange(len(current))
+            j = rng.randrange(len(current))
+            if i == j:
+                continue
+            candidate = list(current)
+            candidate[i], candidate[j] = candidate[j], candidate[i]
+            move = tuple(sorted((current[i].id, current[j].id)))
+            score = _order_score_from_priorities(candidate, priorities)
+            evaluations += 1
+            if tabu.get(move, -1) <= round_idx or score < best_score:
+                neighborhood.append((score, move, candidate))
+        if not neighborhood:
+            continue
+        score, move, candidate = min(neighborhood, key=lambda item: item[0])
+        current = candidate
+        current_score = score
+        tabu[move] = round_idx + tenure
+        if current_score < best_score:
+            best = list(current)
+            best_score = current_score
+            best_updates += 1
+        expired = [move_key for move_key, until in tabu.items() if until <= round_idx]
+        for move_key in expired:
+            tabu.pop(move_key, None)
+
+    return best, {
+        "baseline_family": "tabu_swap_insert_search",
+        "generations": rounds,
+        "candidate_evaluations": evaluations,
+        "tabu_tenure": tenure,
+        "best_updates": best_updates,
+        "best_order_score": round(best_score, 6),
+    }
+
+
+def _variable_neighborhood_order_search(
+    towers: Sequence[Tower],
+    stops: Sequence[Stop],
+    rng: Random,
+    iterations: int,
+    value_weight: float,
+) -> tuple[List[Tower], Dict[str, object]]:
+    priorities = _priority_scores(towers, stops, value_weight)
+    best = sorted(towers, key=lambda tower: priorities[tower.id], reverse=True)
+    best_score = _order_score_from_priorities(best, priorities)
+    evaluations = 1
+    best_updates = 0
+    rounds = max(1, iterations)
+    k = 0
+
+    for _ in range(rounds):
+        candidate = _vns_neighbor(best, k, rng)
+        candidate = _first_improvement_descent(candidate, priorities, rng, max_moves=10)
+        score = _order_score_from_priorities(candidate, priorities)
+        evaluations += 1
+        if score < best_score:
+            best = candidate
+            best_score = score
+            best_updates += 1
+            k = 0
+        else:
+            k = (k + 1) % 3
+
+    return best, {
+        "baseline_family": "variable_neighborhood_search",
+        "generations": rounds,
+        "candidate_evaluations": evaluations,
+        "best_updates": best_updates,
+        "best_order_score": round(best_score, 6),
+    }
+
+
+def _hybrid_genetic_vns_order_search(
+    towers: Sequence[Tower],
+    stops: Sequence[Stop],
+    rng: Random,
+    iterations: int,
+    value_weight: float,
+) -> tuple[List[Tower], Dict[str, object]]:
+    priorities = _priority_scores(towers, stops, value_weight)
+    population_size = max(10, min(36, len(towers)))
+    generations = max(1, iterations)
+    population = _seed_order_population(towers, stops, rng, population_size, value_weight)
+    population = [
+        _first_improvement_descent(order, priorities, rng, max_moves=6)
+        for order in population
+    ]
+    evaluations = len(population)
+    best = min(population, key=lambda order: _order_score_from_priorities(order, priorities))
+    best_score = _order_score_from_priorities(best, priorities)
+    elite_count = max(2, population_size // 5)
+    crossovers = 0
+    mutations = 0
+    local_searches = len(population)
+
+    for _ in range(generations):
+        ranked = sorted(population, key=lambda order: _order_score_from_priorities(order, priorities))
+        elites = ranked[:elite_count]
+        next_population = [list(order) for order in elites]
+        while len(next_population) < population_size:
+            parent_a = list(rng.choice(elites))
+            parent_b = list(rng.choice(ranked[: max(elite_count + 2, population_size // 2)]))
+            child = _order_crossover(parent_a, parent_b, rng)
+            crossovers += 1
+            if rng.random() < 0.55:
+                _mutate_order(child, rng)
+                mutations += 1
+            child = _first_improvement_descent(child, priorities, rng, max_moves=8)
+            local_searches += 1
+            next_population.append(child)
+        population = _dedupe_population(next_population, towers)
+        evaluations += len(population)
+        candidate = min(population, key=lambda order: _order_score_from_priorities(order, priorities))
+        candidate_score = _order_score_from_priorities(candidate, priorities)
+        if candidate_score < best_score:
+            best = list(candidate)
+            best_score = candidate_score
+
+    return list(best), {
+        "baseline_family": "hybrid_genetic_vns_search",
+        "population_size": population_size,
+        "generations": generations,
+        "candidate_evaluations": evaluations,
+        "crossovers": crossovers,
+        "mutations": mutations,
+        "local_searches": local_searches,
+        "best_order_score": round(best_score, 6),
+    }
+
+
+def _order_neighbor(order: Sequence[Tower], rng: Random) -> List[Tower]:
+    candidate = list(order)
+    if len(candidate) < 2:
+        return candidate
+    move = rng.randrange(3)
+    i = rng.randrange(len(candidate))
+    j = rng.randrange(len(candidate))
+    if i > j:
+        i, j = j, i
+    if i == j:
+        j = min(len(candidate) - 1, i + 1)
+    if move == 0:
+        candidate[i], candidate[j] = candidate[j], candidate[i]
+    elif move == 1:
+        item = candidate.pop(j)
+        candidate.insert(i, item)
+    else:
+        candidate[i : j + 1] = reversed(candidate[i : j + 1])
+    return candidate
+
+
+def _vns_neighbor(order: Sequence[Tower], neighborhood: int, rng: Random) -> List[Tower]:
+    candidate = list(order)
+    if len(candidate) < 2:
+        return candidate
+    if neighborhood == 0:
+        return _order_neighbor(candidate, rng)
+    if neighborhood == 1:
+        for _ in range(2):
+            candidate = _order_neighbor(candidate, rng)
+        return candidate
+    for _ in range(3):
+        candidate = _order_neighbor(candidate, rng)
+    return candidate
+
+
+def _first_improvement_descent(
+    order: Sequence[Tower],
+    priorities: dict[int, float],
+    rng: Random,
+    max_moves: int,
+) -> List[Tower]:
+    best = list(order)
+    best_score = _order_score_from_priorities(best, priorities)
+    for _ in range(max(0, max_moves)):
+        candidate = _order_neighbor(best, rng)
+        score = _order_score_from_priorities(candidate, priorities)
+        if score < best_score:
+            best = candidate
+            best_score = score
+    return best
 
 
 def _seed_order_population(

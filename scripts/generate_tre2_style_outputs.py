@@ -47,6 +47,10 @@ METHOD_LABELS = {
     "greedy_nearest": "Nearest",
     "ga": "GA",
     "aco": "ACO",
+    "simulated_annealing": "SA",
+    "tabu_search": "Tabu",
+    "variable_neighborhood_search": "VNS",
+    "hybrid_genetic_search": "HGS-VNS",
     "alns_fixed": "Fixed ALNS",
     "alns_pinn": "Point energy ALNS",
     "alns_pinn_uq": "UQ energy ALNS",
@@ -72,6 +76,10 @@ METHOD_COLORS = {
     "greedy_nearest": PALETTE["gray"],
     "ga": PALETTE["amber"],
     "aco": PALETTE["orange"],
+    "simulated_annealing": PALETTE["muted_gold"],
+    "tabu_search": "#8E6BBE",
+    "variable_neighborhood_search": "#5F7F62",
+    "hybrid_genetic_search": "#51646A",
     "alns_fixed": PALETTE["light_cyan"],
     "alns_pinn": PALETTE["blue_teal"],
     "alns_pinn_uq": PALETTE["teal"],
@@ -263,14 +271,22 @@ def fig2_solution_framework() -> Path:
 
 def fig3_algorithm_effects() -> Path:
     df = read_summary("P2_algorithm_comparison")
-    order = ["greedy_nearest", "ga", "aco", "alns_fixed", "alns_pinn", "alns_pinn_uq", "alns_pinn_full"]
+    order = [
+        "greedy_nearest",
+        "ga",
+        "aco",
+        "simulated_annealing",
+        "tabu_search",
+        "variable_neighborhood_search",
+        "hybrid_genetic_search",
+        "alns_pinn_full",
+    ]
     rows = []
     for towers in [100, 500]:
         sub = df[df["tower_count"].eq(towers)].set_index("method").loc[order].reset_index()
-        point = float(sub.loc[sub.method.eq("alns_pinn"), "risk_weighted_completion_time_mean"].iloc[0])
         full = float(sub.loc[sub.method.eq("alns_pinn_full"), "risk_weighted_completion_time_mean"].iloc[0])
-        fixed = float(sub.loc[sub.method.eq("alns_fixed"), "risk_weighted_completion_time_mean"].iloc[0])
-        rows.append({"tower_count": towers, "point_gain_pct": (point - full) / point * 100, "fixed_gain_pct": (fixed - full) / fixed * 100})
+        external = sub[sub.method.ne("alns_pinn_full")]["risk_weighted_completion_time_mean"].min()
+        rows.append({"tower_count": towers, "best_external_gain_pct": (external - full) / external * 100})
     gains = pd.DataFrame(rows)
 
     fig, axes = plt.subplots(2, 2, figsize=(7.2, 4.05), constrained_layout=True)
@@ -283,14 +299,15 @@ def fig3_algorithm_effects() -> Path:
         ax.grid(axis="x", alpha=0.18, lw=0.45)
         ax.invert_yaxis()
         gain = gains[gains.tower_count.eq(towers)].iloc[0]
-        ax.text(0.98, 0.08, f"Gain vs point: {gain.point_gain_pct:.2f}%\nGain vs fixed: {gain.fixed_gain_pct:.1f}%",
+        ax.text(0.98, 0.08, f"Gain vs best external: {gain.best_external_gain_pct:.2f}%",
                 transform=ax.transAxes, ha="right", va="bottom", fontsize=6.2,
                 bbox={"boxstyle": "round,pad=0.22", "fc": "white", "ec": PALETTE["light_gray"], "lw": 0.4})
 
     for col, metric in enumerate(["top_risk_coverage_mean", "infeasible_sortie_rate_mean"]):
         ax = axes[1, col]
-        plot = df[df["tower_count"].isin([100, 500]) & df["method"].isin(["alns_fixed", "alns_pinn", "alns_pinn_full"])]
-        for method in ["alns_fixed", "alns_pinn", "alns_pinn_full"]:
+        plot_methods = ["aco", "hybrid_genetic_search", "alns_pinn_full"]
+        plot = df[df["tower_count"].isin([100, 500]) & df["method"].isin(plot_methods)]
+        for method in plot_methods:
             sub = plot[plot.method.eq(method)].sort_values("tower_count")
             ax.plot(sub["tower_count"], sub[metric], marker="o", color=METHOD_COLORS[method], label=METHOD_LABELS[method], lw=1.2)
         ax.set_title("Top-risk coverage" if metric.startswith("top") else "Infeasible sortie rate")
@@ -419,7 +436,7 @@ def fig7_scalability_screening() -> Path:
     p8 = read_summary("P8_sensitivity")
     fig, axes = plt.subplots(2, 2, figsize=(7.2, 4.05), constrained_layout=True)
 
-    for method in ["alns_pinn", "alns_pinn_full"]:
+    for method in ["hybrid_genetic_search", "variable_neighborhood_search", "alns_pinn_full"]:
         sub = p2[p2.method.eq(method)].sort_values("tower_count")
         axes[0, 0].plot(sub["tower_count"], sub["risk_weighted_completion_time_mean"], marker="o", color=METHOD_COLORS[method], label=METHOD_LABELS[method], lw=1.2)
         axes[0, 1].plot(sub["tower_count"], sub["solver_runtime_mean"], marker="o", color=METHOD_COLORS[method], label=METHOD_LABELS[method], lw=1.2)
@@ -492,7 +509,16 @@ def write_tables() -> None:
     lines.append(r"Towers & Method & Makespan & Risk-time & Top-risk cov. & Infeasible & Runtime (s) \\")
     lines.append(r"\midrule")
     for towers in [100, 500]:
-        sub = p2[p2["tower_count"].eq(towers)].set_index("method").loc[["alns_fixed", "alns_pinn", "alns_pinn_uq", "alns_pinn_full"]].reset_index()
+        sub = p2[p2["tower_count"].eq(towers)].set_index("method").loc[[
+            "greedy_nearest",
+            "ga",
+            "aco",
+            "simulated_annealing",
+            "tabu_search",
+            "variable_neighborhood_search",
+            "hybrid_genetic_search",
+            "alns_pinn_full",
+        ]].reset_index()
         for row in sub.itertuples():
             lines.append(
                 f"{towers} & {METHOD_LABELS[row.method]} & {row.makespan_mean:.2f} & {row.risk_weighted_completion_time_mean:.0f} & "

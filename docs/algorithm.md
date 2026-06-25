@@ -41,6 +41,12 @@ Main loop:
 7. Apply bounded local search on small cases through alternative same-tower-set patterns.
 8. Update operator weights.
 
+For the complete proposed method, the ALNS incumbent is followed by a
+metric-aware portfolio selection step. The portfolio includes the adaptive ALNS
+schedule and risk-bucketed stop-grouping schedules. The selected final schedule
+minimizes infeasible-sortie count first, then RWCT, then makespan. This is the
+code path behind `alns_pinn_full` in the manuscript-facing P2 main experiment.
+
 ## Operators
 
 Destroy operators:
@@ -74,4 +80,19 @@ All operator counts are exported to experiment CSV files.
 | `no_sync_repair` | full ALNS with synchronization-aware repair disabled |
 | `no_adaptive` | full ALNS with adaptive scoring disabled |
 
-Simple baselines such as nearest, GA and ACO remain in `src/uqrv/solvers.py`.
+## Main-Experiment External Baselines
+
+P2 main comparison uses external baselines only:
+
+| Experiment method | Code path |
+| --- | --- |
+| `greedy_nearest` | nearest-stop constructive order |
+| `ga` | population-based genetic search over tower order |
+| `aco` | pheromone-guided ant-colony order construction |
+| `simulated_annealing` | temperature-based swap/insert order search |
+| `tabu_search` | tabu swap/insert order search |
+| `variable_neighborhood_search` | VNS order search with local descent |
+| `hybrid_genetic_search` | GA population search with VNS polishing |
+
+These baselines remain in `src/uqrv/solvers.py` and do not call the
+schedule-state ALNS implementation.

@@ -23,6 +23,10 @@ METHOD_LABELS = {
     "greedy_nearest": "Nearest",
     "ga": "GA",
     "aco": "ACO",
+    "simulated_annealing": "SA",
+    "tabu_search": "Tabu",
+    "variable_neighborhood_search": "VNS",
+    "hybrid_genetic_search": "HGS-VNS",
     "alns_fixed": "Fixed ALNS",
     "alns_pinn": "Point energy ALNS",
     "alns_pinn_uq": "UQ energy ALNS",
@@ -45,13 +49,30 @@ METHOD_LABELS = {
 
 SMALL_REFERENCE_ORDER = ["milp_highs", "alns_pinn", "alns_pinn_full"]
 
-METHOD_ORDER = [
+MAIN_ALGORITHM_ORDER = [
     "greedy_nearest",
     "ga",
     "aco",
+    "simulated_annealing",
+    "tabu_search",
+    "variable_neighborhood_search",
+    "hybrid_genetic_search",
+    "alns_pinn_full",
+]
+
+METHOD_ORDER = MAIN_ALGORITHM_ORDER
+
+ABLATION_METHOD_ORDER = [
     "alns_fixed",
     "alns_pinn",
     "alns_pinn_uq",
+    "no_pinn",
+    "no_uq",
+    "no_risk_value",
+    "no_adaptive",
+    "no_clustering",
+    "no_energy_repair",
+    "no_sync_repair",
     "alns_pinn_full",
 ]
 
@@ -296,7 +317,7 @@ def ablation_table() -> None:
     df = pd.read_csv(EXP / "P4_ablation" / "analysis_data" / f"P4_ablation_{RUN_ID}_summary.csv")
     if "feasible_top_risk_coverage_mean" not in df.columns:
         df["feasible_top_risk_coverage_mean"] = df["top_risk_coverage_mean"]
-    order = ["no_pinn", "no_uq", "no_risk_value", "no_adaptive", "no_clustering", "no_energy_repair", "no_sync_repair", "alns_pinn_full"]
+    order = [method for method in ABLATION_METHOD_ORDER if method in set(df["method"])]
     df = df.set_index("method").loc[order].reset_index()
     best = {
         "makespan_mean": best_mask(df, "makespan_mean", "min"),
@@ -340,7 +361,8 @@ def stress_table_text(df: pd.DataFrame) -> str:
     if "feasible_top_risk_coverage_mean" not in df.columns:
         df = df.copy()
         df["feasible_top_risk_coverage_mean"] = df["top_risk_coverage_mean"]
-    order = ["alns_fixed", "no_uq", "no_risk_value", "no_energy_repair", "no_sync_repair", "alns_pinn_full"]
+    order = ["alns_fixed", "alns_pinn", "alns_pinn_uq", "no_uq", "no_risk_value", "no_energy_repair", "no_sync_repair", "alns_pinn_full"]
+    order = [method for method in order if method in set(df["method"])]
     cases = [case for case in ["sparse_high_wind", "tight_battery", "very_sparse_corridor"] if case in set(df["stress_case"])]
     lines = [
         r"\begin{table}[H]",
