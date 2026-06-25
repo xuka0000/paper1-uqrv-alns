@@ -36,9 +36,9 @@ a:hover {
   text-decoration: underline;
 }
 
-.hero {
+.docs-header {
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, #ffffff 0%, #f7faf9 100%);
+  background: #f7faf9;
 }
 
 .topbar {
@@ -62,11 +62,11 @@ a:hover {
   font-size: 14px;
 }
 
-.hero-grid {
+.intro-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
   gap: 34px;
-  align-items: center;
+  align-items: start;
   max-width: 1120px;
   margin: 0 auto;
   padding: 36px 22px 50px;
@@ -83,8 +83,8 @@ a:hover {
 h1 {
   margin: 0;
   max-width: 760px;
-  font-size: clamp(34px, 6vw, 58px);
-  line-height: 1.02;
+  font-size: 48px;
+  line-height: 1.08;
   letter-spacing: 0;
 }
 
@@ -126,11 +126,38 @@ h1 {
   color: #ffffff;
 }
 
-.teaser {
+.quick-map {
   margin: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
 }
 
-.teaser img,
+.quick-map h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.quick-map ol {
+  margin: 0;
+  padding-left: 21px;
+}
+
+.quick-map li {
+  margin: 9px 0;
+}
+
+code {
+  padding: 2px 4px;
+  border: 1px solid #e3e9e8;
+  border-radius: 4px;
+  background: #f9fbfb;
+  color: #31585b;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 0.92em;
+}
+
 .media-card img {
   display: block;
   width: 100%;
@@ -157,13 +184,13 @@ h2 {
   letter-spacing: 0;
 }
 
-.abstract-section {
+.overview-section {
   max-width: 820px;
   margin: 0 auto 42px;
   text-align: left;
 }
 
-.abstract-section p {
+.overview-section p {
   margin: 0;
   color: var(--muted);
   font-size: 17px;
@@ -196,7 +223,7 @@ h2 {
   font-weight: 640;
 }
 
-.method-strip {
+.doc-flow {
   display: grid;
   grid-template-columns: 1fr auto 1fr auto 1fr;
   gap: 12px;
@@ -283,7 +310,7 @@ h2 {
   margin: 0 0 10px;
 }
 
-.evidence-table,
+.code-table,
 .boundary {
   margin-top: 42px;
 }
@@ -337,7 +364,7 @@ footer {
     flex-direction: column;
   }
 
-  .hero-grid,
+  .intro-grid,
   .sections,
   .media {
     grid-template-columns: 1fr;
@@ -347,7 +374,7 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .method-strip {
+  .doc-flow {
     grid-template-columns: 1fr;
   }
 

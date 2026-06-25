@@ -2,7 +2,7 @@
 
 GitHub repository: https://github.com/xuka0000/paper1-uqrv-alns
 
-Project page: https://xuka0000.github.io/paper1-uqrv-alns/
+Code documentation: https://xuka0000.github.io/paper1-uqrv-alns/
 
 This directory is organized as a standard research-code project. It uses one
 shared Python source tree instead of one duplicated code copy per manuscript
@@ -22,7 +22,7 @@ subsection.
 | `manuscript_context/` | LaTeX context used by manuscript-output tests and table-generation scripts. |
 | `validation/` | Delivery validation notes and manifests. |
 | `metadata/` | Source package manifest, checksum note, and original by-section readme. |
-| `docs/` | Project structure, source mapping, and working notes. |
+| `docs/` | Code documentation, model/algorithm mapping, source mapping, and working notes. |
 
 ## Validate
 

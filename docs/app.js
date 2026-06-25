@@ -115,13 +115,15 @@ function render(data) {
   text("title", data.title);
   text("subtitle", data.subtitle);
   text("authors", data.authors);
-  text("abstract", data.abstract);
-  text("teaser-caption", data.teaser.caption);
+  text("overview", data.overview);
+  text("teaser-caption", data.teaser ? data.teaser.caption : "");
   text("updated-at", `Updated ${data.updated_at}`);
 
   const teaser = document.getElementById("teaser-image");
-  teaser.src = data.teaser.image;
-  teaser.alt = data.teaser.alt;
+  if (teaser && data.teaser) {
+    teaser.src = data.teaser.image;
+    teaser.alt = data.teaser.alt;
+  }
 
   renderButtons(data.buttons);
   renderHighlights(data.result_highlights);
