@@ -26,15 +26,23 @@ This work &  & Y & Y & Y & Y & Y & Probabilistic energy screening and risk-value
 \toprule
 Towers & Method & Makespan & Risk-time & Top-risk cov. & Infeasible & Runtime (s) \\
 \midrule
-100 & Fixed ALNS & 699.95 & 327 & 0.256 & 0.0020 & 0.318 \\
-100 & Point energy ALNS & 714.43 & 189 & 0.972 & 0.0020 & 0.100 \\
-100 & UQ energy ALNS & 720.96 & 190 & 0.972 & 0.0000 & 0.098 \\
-100 & Proposed & 718.58 & 188 & 0.972 & 0.0000 & 0.429 \\
+100 & Nearest & 564.20 & 254 & 0.260 & 0.0020 & 0.005 \\
+100 & GA & 725.32 & 191 & 0.972 & 0.0020 & 0.077 \\
+100 & ACO & 717.67 & 190 & 0.968 & 0.0020 & 0.118 \\
+100 & SA & 716.86 & 190 & 0.972 & 0.0000 & 0.048 \\
+100 & Tabu & 716.86 & 190 & 0.972 & 0.0000 & 0.067 \\
+100 & VNS & 718.52 & 189 & 0.972 & 0.0000 & 0.052 \\
+100 & HGS-VNS & 718.52 & 189 & 0.972 & 0.0000 & 0.195 \\
+100 & Proposed & 525.22 & 147 & 0.824 & 0.0000 & 1.514 \\
 \addlinespace[2pt]
-500 & Fixed ALNS & 3624.31 & 1702 & 0.237 & 0.0032 & 5.863 \\
-500 & Point energy ALNS & 3627.36 & 1005 & 0.984 & 0.0032 & 1.950 \\
-500 & UQ energy ALNS & 3638.98 & 1001 & 0.985 & 0.0000 & 1.903 \\
-500 & Proposed & 3701.02 & 1035 & 0.974 & 0.0000 & 7.932 \\
+500 & Nearest & 2764.30 & 1192 & 0.241 & 0.0032 & 0.071 \\
+500 & GA & 3693.48 & 1020 & 0.981 & 0.0032 & 1.253 \\
+500 & ACO & 3644.80 & 1002 & 0.975 & 0.0032 & 1.388 \\
+500 & SA & 3654.58 & 997 & 0.987 & 0.0000 & 1.144 \\
+500 & Tabu & 3654.58 & 997 & 0.987 & 0.0000 & 1.213 \\
+500 & VNS & 3608.20 & 988 & 0.981 & 0.0000 & 1.157 \\
+500 & HGS-VNS & 3608.20 & 988 & 0.981 & 0.0000 & 1.772 \\
+500 & Proposed & 2318.02 & 586 & 1.000 & 0.0000 & 6.888 \\
 \addlinespace[2pt]
 \bottomrule
 \end{tabular}
@@ -69,9 +77,9 @@ AirLab telemetry & Telemetry-weather linear & 41 flights & 0.890 Wh & 1.000 & 0.
 \toprule
 Case & Best non-full & Full risk-time & Baseline risk-time & Reduction & Full cov. & Baseline cov. & Full infeas. \\
 \midrule
-Public Bay Area Full & ACO & 105 & 104 & -0.268\% & 1.000 & 1.000 & 0.000 \\
-Public Dallas Fort Worth Full & Point energy ALNS & 152 & 153 & 0.748\% & 0.867 & 1.000 & 0.100 \\
-Public Los Angeles Inland Full & GA & 142 & 141 & -0.783\% & 0.933 & 0.933 & 0.000 \\
+Public Bay Area Full & ACO & 86 & 104 & 17.733\% & 0.373 & 1.000 & 0.000 \\
+Public Dallas Fort Worth Full & ACO & 146 & 156 & 6.402\% & 0.847 & 1.000 & 0.109 \\
+Public Los Angeles Inland Full & ACO & 119 & 141 & 15.667\% & 0.787 & 0.933 & 0.000 \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -85,26 +93,26 @@ Public Los Angeles Inland Full & GA & 142 & 141 & -0.783\% & 0.933 & 0.933 & 0.0
 \toprule
 Stress case & Method & Risk-time & Top-risk cov. & Infeasible & Improving moves \\
 \midrule
-sparse high wind & Fixed ALNS & 212 & 0.250 & 0.745 & 20.9 \\
-sparse high wind & No UQ & 158 & 0.633 & 0.745 & 18.9 \\
-sparse high wind & No risk-value & 215 & 0.250 & 0.555 & 18.9 \\
-sparse high wind & No energy repair & 167 & 0.611 & 0.555 & 15.7 \\
-sparse high wind & No sync repair & 167 & 0.611 & 0.555 & 14.9 \\
-sparse high wind & Proposed & 167 & 0.611 & 0.555 & 15.2 \\
+sparse high wind & Fixed ALNS & 187 & 0.389 & 0.883 & 57.8 \\
+sparse high wind & No UQ & 147 & 0.567 & 0.915 & 57.7 \\
+sparse high wind & No risk-value & 182 & 0.350 & 0.749 & 55.9 \\
+sparse high wind & No energy repair & 160 & 0.433 & 0.790 & 59.9 \\
+sparse high wind & No sync repair & 153 & 0.406 & 0.775 & 56.2 \\
+sparse high wind & Proposed & 147 & 0.828 & 0.555 & 59.1 \\
 \addlinespace[2pt]
-tight battery & Fixed ALNS & 227 & 0.244 & 0.741 & 19.6 \\
-tight battery & No UQ & 145 & 0.772 & 0.741 & 19.5 \\
-tight battery & No risk-value & 229 & 0.244 & 0.466 & 19.7 \\
-tight battery & No energy repair & 149 & 0.756 & 0.465 & 17.7 \\
-tight battery & No sync repair & 149 & 0.756 & 0.465 & 13.0 \\
-tight battery & Proposed & 149 & 0.756 & 0.465 & 16.9 \\
+tight battery & Fixed ALNS & 141 & 0.400 & 0.811 & 59.0 \\
+tight battery & No UQ & 134 & 0.439 & 0.837 & 57.0 \\
+tight battery & No risk-value & 136 & 0.389 & 0.718 & 55.5 \\
+tight battery & No energy repair & 140 & 0.394 & 0.746 & 54.2 \\
+tight battery & No sync repair & 135 & 0.483 & 0.729 & 52.4 \\
+tight battery & Proposed & 126 & 0.917 & 0.465 & 54.0 \\
 \addlinespace[2pt]
-very sparse corridor & Fixed ALNS & 329 & 0.264 & 0.732 & 22.8 \\
-very sparse corridor & No UQ & 259 & 0.624 & 0.731 & 16.3 \\
-very sparse corridor & No risk-value & 333 & 0.264 & 0.646 & 23.7 \\
-very sparse corridor & No energy repair & 268 & 0.536 & 0.646 & 21.2 \\
-very sparse corridor & No sync repair & 268 & 0.536 & 0.646 & 17.6 \\
-very sparse corridor & Proposed & 268 & 0.536 & 0.646 & 19.4 \\
+very sparse corridor & Fixed ALNS & 356 & 0.356 & 0.886 & 60.4 \\
+very sparse corridor & No UQ & 283 & 0.512 & 0.911 & 62.8 \\
+very sparse corridor & No risk-value & 355 & 0.340 & 0.751 & 61.3 \\
+very sparse corridor & No energy repair & 285 & 0.524 & 0.774 & 60.3 \\
+very sparse corridor & No sync repair & 282 & 0.544 & 0.786 & 57.7 \\
+very sparse corridor & Proposed & 250 & 0.892 & 0.647 & 63.7 \\
 \addlinespace[2pt]
 \bottomrule
 \end{tabular}

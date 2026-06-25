@@ -74,12 +74,15 @@ Documentation:
 - `docs/api.md`
 - `docs/experiments.md`
 - `docs/claim_algorithm_evidence_ledger.md`
+- `docs/final_experiment_completeness_20260625.md`
 
 Main rebuilt result run:
 
 ```powershell
-.\RUN_REPRODUCE_FULL.ps1 -ExperimentId P2_algorithm_comparison -RunId final_model_rebuild_P2_full_20260625 -Seeds 10
+.\RUN_REPRODUCE_FULL.ps1 -ExperimentId P2_algorithm_comparison -RunId main_external_portfolio_full_20260625 -Seeds 10
 ```
 
-The rebuilt results replace the old manuscript-facing algorithm-comparison
-evidence. Legacy result files remain for traceability only.
+The complete supplementary experiment suite uses run id
+`final_complete_full_20260625` for P1/P3/P4/P5/P6/P8/P10/P11, and dedicated
+`final_complete_public_*_20260625` run ids for the three public GIS cases.
+Legacy result files remain for traceability only.

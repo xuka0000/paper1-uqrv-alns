@@ -20,14 +20,21 @@ from uqrv.proposal_design import ProposalSizeConfig, generate_custom_scenario
 from uqrv.solvers import solve
 
 
-RUN_ID = "multi_tower_repair2_full_20260612"
-P11_RUN_ID = "repair_stress_repair2_20260612"
+RUN_ID = "final_complete_full_20260625"
+P2_RUN_ID = "main_external_portfolio_full_20260625"
+P10_RUN_ID = "final_complete_full_20260625"
+P11_RUN_ID = "final_complete_full_20260625"
+P9_RUN_IDS = {
+    "public_bay_area_full": "final_complete_public_bay_area_full_20260625",
+    "public_dallas_fort_worth_full": "final_complete_public_dallas_fort_worth_full_20260625",
+    "public_los_angeles_inland_full": "final_complete_public_los_angeles_inland_full_20260625",
+}
 EXPERIMENTS = PROJECT_ROOT / "results" / "experiments"
 OUT = PROJECT_ROOT / "results/figures/tre2style"
 MANUSCRIPT_DIR = PROJECT_ROOT / "manuscript_context" / "tre_published_style"
 MANUSCRIPT_FIGS = MANUSCRIPT_DIR / "figures"
 TABLES_TEX = MANUSCRIPT_DIR / "generated_tables.tex"
-ANALYSIS_MD = PROJECT_ROOT / "docs/project" / "tre2_full_manuscript_figure_table_plan_20260527.md"
+ANALYSIS_MD = PROJECT_ROOT / "docs/project" / "tre2_full_manuscript_figure_table_plan_20260625.md"
 
 PALETTE = {
     "pale_teal": "#BFDFD2",
@@ -325,8 +332,8 @@ def fig3_algorithm_effects() -> Path:
 
 def fig4_energy_evidence() -> Path:
     p3 = read_summary("P3_pinn_prediction_accuracy")
-    p10 = pd.read_csv(EXPERIMENTS / "P10_energy_telemetry_calibration" / "analysis_data" / "P10_energy_telemetry_calibration_airlab_energy_calibration_stop_batch_20260606_summary.csv")
-    pred = pd.read_csv(EXPERIMENTS / "P10_energy_telemetry_calibration" / "analysis_data" / "P10_energy_telemetry_calibration_airlab_energy_calibration_stop_batch_20260606_predictions.csv")
+    p10 = pd.read_csv(EXPERIMENTS / "P10_energy_telemetry_calibration" / "analysis_data" / f"P10_energy_telemetry_calibration_{P10_RUN_ID}_summary.csv")
+    pred = pd.read_csv(EXPERIMENTS / "P10_energy_telemetry_calibration" / "analysis_data" / f"P10_energy_telemetry_calibration_{P10_RUN_ID}_predictions.csv")
     fig, axes = plt.subplots(1, 3, figsize=(7.2, 2.45), constrained_layout=True)
 
     high = p3[p3["uncertainty"].eq("high")].set_index("prediction_model").loc[["fixed_physics", "point_pinn", "probabilistic_pinn"]].reset_index()
@@ -470,8 +477,8 @@ def fig7_scalability_screening() -> Path:
 def write_tables() -> None:
     p2 = read_summary("P2_algorithm_comparison")
     p3 = read_summary("P3_pinn_prediction_accuracy")
-    p9 = pd.read_csv(EXPERIMENTS / "P9_real_gis_case" / "analysis_data" / "P9_real_gis_case_multi_region_pairwise.csv")
-    p10 = pd.read_csv(EXPERIMENTS / "P10_energy_telemetry_calibration" / "analysis_data" / "P10_energy_telemetry_calibration_airlab_energy_calibration_stop_batch_20260606_summary.csv")
+    p9 = read_gis_pairwise_summary()
+    p10 = pd.read_csv(EXPERIMENTS / "P10_energy_telemetry_calibration" / "analysis_data" / f"P10_energy_telemetry_calibration_{P10_RUN_ID}_summary.csv")
     p11 = pd.read_csv(EXPERIMENTS / "P11_repair_stress" / "analysis_data" / f"P11_repair_stress_{P11_RUN_ID}_summary.csv")
 
     lines: list[str] = []
@@ -600,7 +607,7 @@ def write_tables() -> None:
 def write_analysis_doc(stems: list[Path]) -> None:
     text = f"""# TRE2-Style Full Manuscript Figure/Table Plan
 
-Date: 2026-05-27
+Date: 2026-06-25
 
 ## Quantified TRE2 pattern used
 
@@ -622,16 +629,44 @@ Date: 2026-05-27
 
 - P9 GIS cases use public tower/weather sources but proxy risk/value labels.
 - P10 uses real AirLab quadcopter telemetry, not transmission-line inspection telemetry.
-- P11 supports broad framework robustness but not independent final-quality gains for energy-minimum or synchronization-aware repair operators.
+- P11 supports robustness for RWCT, feasible top-risk coverage and infeasible-sortie rate; runtime is not the best metric for the complete method.
 """
     ANALYSIS_MD.write_text(text, encoding="utf-8")
 
 
 def read_summary(experiment_id: str) -> pd.DataFrame:
-    path = EXPERIMENTS / experiment_id / "analysis_data" / f"{experiment_id}_{RUN_ID}_summary.csv"
+    run_id = P2_RUN_ID if experiment_id == "P2_algorithm_comparison" else RUN_ID
+    path = EXPERIMENTS / experiment_id / "analysis_data" / f"{experiment_id}_{run_id}_summary.csv"
     if not path.exists():
         raise FileNotFoundError(path)
     return pd.read_csv(path)
+
+
+def read_gis_pairwise_summary() -> pd.DataFrame:
+    rows = []
+    for case_id, run_id in P9_RUN_IDS.items():
+        df = pd.read_csv(EXPERIMENTS / "P9_real_gis_case" / "analysis_data" / f"P9_real_gis_case_{run_id}_summary.csv")
+        full = df[df["method"].eq("alns_pinn_full")].iloc[0]
+        external = df[df["method"].ne("alns_pinn_full")]
+        best_risk = external.loc[external["risk_weighted_completion_time_mean"].idxmin()]
+        best_cov = external.loc[external["top_risk_coverage_mean"].idxmax()]
+        rows.append(
+            {
+                "case_id": case_id,
+                "best_nonfull_risk_method": best_risk.method,
+                "full_risk_time": full.risk_weighted_completion_time_mean,
+                "best_nonfull_risk_time": best_risk.risk_weighted_completion_time_mean,
+                "full_risk_reduction_vs_best_nonfull_pct": (
+                    (best_risk.risk_weighted_completion_time_mean - full.risk_weighted_completion_time_mean)
+                    / best_risk.risk_weighted_completion_time_mean
+                    * 100.0
+                ),
+                "full_top_risk_coverage": full.top_risk_coverage_mean,
+                "best_nonfull_top_risk_coverage": best_cov.top_risk_coverage_mean,
+                "full_infeasible_rate": full.infeasible_sortie_rate_mean,
+            }
+        )
+    return pd.DataFrame(rows)
 
 
 def label_panels(axes) -> None:

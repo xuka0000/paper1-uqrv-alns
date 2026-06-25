@@ -9,13 +9,14 @@ import pandas as pd
 PROJECT = Path(__file__).resolve().parents[1]
 EXP = PROJECT / "results" / "experiments"
 MANUSCRIPT = PROJECT / "manuscript_context" / "tre_published_style"
-RUN_ID = "multi_tower_repair2_full_20260612"
-P10_RUN_ID = "airlab_energy_calibration_stop_batch_20260606"
-P11_RUN_ID = "repair_stress_repair2_20260612"
+RUN_ID = "final_complete_full_20260625"
+P2_RUN_ID = "main_external_portfolio_full_20260625"
+P10_RUN_ID = "final_complete_full_20260625"
+P11_RUN_ID = "final_complete_full_20260625"
 P9_RUN_IDS = {
-    "public_bay_area_full": "public_bay_area_full_repair2_20260612",
-    "public_dallas_fort_worth_full": "public_dallas_fort_worth_full_repair2_20260612",
-    "public_los_angeles_inland_full": "public_los_angeles_inland_full_repair2_20260612",
+    "public_bay_area_full": "final_complete_public_bay_area_full_20260625",
+    "public_dallas_fort_worth_full": "final_complete_public_dallas_fort_worth_full_20260625",
+    "public_los_angeles_inland_full": "final_complete_public_los_angeles_inland_full_20260625",
 }
 
 METHOD_LABELS = {
@@ -194,7 +195,7 @@ def small_reference_table() -> None:
 
 
 def algorithm_table() -> None:
-    df = pd.read_csv(EXP / "P2_algorithm_comparison" / "analysis_data" / f"P2_algorithm_comparison_{RUN_ID}_summary.csv")
+    df = pd.read_csv(EXP / "P2_algorithm_comparison" / "analysis_data" / f"P2_algorithm_comparison_{P2_RUN_ID}_summary.csv")
     df = df[df["method"].isin(METHOD_ORDER)].copy()
     towers = sorted(df["tower_count"].unique())
     lines = [
@@ -457,7 +458,7 @@ def gis_table() -> None:
 
 
 def scalability_screening_table() -> None:
-    p2 = pd.read_csv(EXP / "P2_algorithm_comparison" / "analysis_data" / f"P2_algorithm_comparison_{RUN_ID}_summary.csv")
+    p2 = pd.read_csv(EXP / "P2_algorithm_comparison" / "analysis_data" / f"P2_algorithm_comparison_{P2_RUN_ID}_summary.csv")
     p6 = pd.read_csv(EXP / "P6_candidate_stop_screening" / "analysis_data" / f"P6_candidate_stop_screening_{RUN_ID}_summary.csv")
     p8 = pd.read_csv(EXP / "P8_sensitivity" / "analysis_data" / f"P8_sensitivity_{RUN_ID}_summary.csv")
 
@@ -594,12 +595,26 @@ TABLE_WRITERS = {
 
 
 def main(argv: list[str] | None = None) -> int:
-    global RUN_ID
+    global RUN_ID, P2_RUN_ID, P10_RUN_ID, P11_RUN_ID, P9_RUN_IDS
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-id", default=RUN_ID)
+    parser.add_argument("--p2-run-id", default=P2_RUN_ID)
+    parser.add_argument("--p10-run-id", default=P10_RUN_ID)
+    parser.add_argument("--p11-run-id", default=P11_RUN_ID)
+    parser.add_argument("--p9-bay-run-id", default=P9_RUN_IDS["public_bay_area_full"])
+    parser.add_argument("--p9-dallas-run-id", default=P9_RUN_IDS["public_dallas_fort_worth_full"])
+    parser.add_argument("--p9-la-run-id", default=P9_RUN_IDS["public_los_angeles_inland_full"])
     parser.add_argument("--only", default="all", choices=["all", *TABLE_WRITERS.keys()])
     args = parser.parse_args(argv)
     RUN_ID = args.run_id
+    P2_RUN_ID = args.p2_run_id
+    P10_RUN_ID = args.p10_run_id
+    P11_RUN_ID = args.p11_run_id
+    P9_RUN_IDS = {
+        "public_bay_area_full": args.p9_bay_run_id,
+        "public_dallas_fort_worth_full": args.p9_dallas_run_id,
+        "public_los_angeles_inland_full": args.p9_la_run_id,
+    }
 
     if args.only == "all":
         selected = TABLE_WRITERS.items()
@@ -607,7 +622,10 @@ def main(argv: list[str] | None = None) -> int:
         selected = [(args.only, TABLE_WRITERS[args.only])]
     for _, writer in selected:
         writer()
-    print(f"Wrote {args.only} manuscript result table(s) for run id {RUN_ID}.")
+    print(
+        f"Wrote {args.only} manuscript result table(s) for run id {RUN_ID}; "
+        f"P2 run id {P2_RUN_ID}."
+    )
     return 0
 
 

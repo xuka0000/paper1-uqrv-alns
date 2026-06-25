@@ -8,15 +8,18 @@
 \toprule
 Method & Stop mode & Makespan $\downarrow$ & RWCT $\downarrow$ & Top/feas. cov. $\uparrow$ & Infeas. $\downarrow$ & Time (s) $\downarrow$ & Acc. & Imp. \\
 \midrule
-No surrogate & kmeans & 416.93 & 198 & 0.233/0.233 & 0.020 & \textbf{0.104} & 89.0 & 21.4 \\
-No UQ & kmeans & 449.94 & 120 & 0.942/0.933 & 0.018 & 0.128 & 76.8 & 19.4 \\
-No risk-value & kmeans & \textbf{415.74} & 197 & 0.233/0.233 & \textbf{0.000} & 0.134 & 89.8 & 21.0 \\
-No adaptive & kmeans & 437.83 & \textbf{116} & 0.933/0.933 & \textbf{0.000} & 0.125 & 58.4 & 23.1 \\
-No clustering & direct & 484.52 & 129 & 0.958/0.958 & \textbf{0.000} & 0.213 & 75.9 & 15.1 \\
-No energy repair & kmeans & 441.84 & 117 & 0.933/0.933 & \textbf{0.000} & 0.128 & 87.6 & 16.6 \\
-No sync repair & kmeans & 441.84 & 117 & 0.933/0.933 & \textbf{0.000} & 0.127 & 84.2 & 11.2 \\
+Fixed ALNS & kmeans & 282.27 & 112 & 0.458/0.442 & 0.223 & 2.097 & 57.5 & 29.2 \\
+Point energy ALNS & kmeans & 282.27 & 112 & 0.458/0.442 & 0.223 & 2.152 & 57.5 & 29.2 \\
+UQ energy ALNS & kmeans & \textbf{275.04} & 109 & 0.450/0.450 & 0.027 & 1.831 & 62.5 & 30.6 \\
+No surrogate & kmeans & 282.27 & 112 & 0.458/0.442 & 0.223 & 2.135 & 57.5 & 29.2 \\
+No UQ & kmeans & 292.41 & 112 & 0.475/0.467 & 0.299 & 1.952 & 53.4 & 23.7 \\
+No risk-value & kmeans & \textbf{275.04} & 109 & 0.450/0.450 & 0.027 & 1.921 & 62.5 & 30.6 \\
+No adaptive & kmeans & 282.44 & 102 & 0.567/0.567 & 0.038 & \textbf{1.558} & 46.4 & 21.7 \\
+No clustering & direct & 369.56 & 110 & \textbf{0.817/0.817} & \textbf{0.000} & 1.648 & 56.4 & 25.8 \\
+No energy repair & kmeans & 278.20 & 106 & 0.492/0.483 & 0.029 & 1.902 & 57.8 & 24.8 \\
+No sync repair & kmeans & 292.07 & 106 & 0.533/0.533 & 0.029 & 1.616 & 56.4 & 25.1 \\
 \rowcolor{gray!10}
-\textbf{Proposed} & kmeans & 443.51 & 117 & \textbf{0.967/0.967} & \textbf{0.000} & 0.213 & 76.2 & 17.4 \\
+\textbf{Proposed} & kmeans & 308.14 & \textbf{97} & 0.742/0.742 & \textbf{0.000} & 1.848 & 62.4 & 27.0 \\
 \bottomrule
 \end{tabular}
 \end{table}
