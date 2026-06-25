@@ -109,6 +109,58 @@ function renderBoundaries(boundaries) {
   });
 }
 
+function renderSourceFiles(sourceFiles) {
+  const container = document.getElementById("source-file-groups");
+  if (!container) {
+    return;
+  }
+  container.innerHTML = "";
+  const labels = {
+    package: "Package Modules",
+    script: "Experiment And Figure Scripts",
+    test: "Test Sources",
+    entrypoint: "Root Entrypoints",
+  };
+  Object.keys(labels).forEach((category) => {
+    const items = sourceFiles.filter((item) => item.category === category);
+    if (items.length === 0) {
+      return;
+    }
+    const group = document.createElement("section");
+    group.className = "catalog-group";
+    const heading = document.createElement("h3");
+    heading.textContent = `${labels[category]} (${items.length})`;
+    group.appendChild(heading);
+
+    items.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "file-card";
+
+      const path = document.createElement("code");
+      path.textContent = item.path;
+
+      const purpose = document.createElement("p");
+      purpose.textContent = item.purpose;
+
+      const entries = document.createElement("div");
+      entries.className = "file-meta";
+      const entryLabel = document.createElement("strong");
+      entryLabel.textContent = "Main entries";
+      const entryText = document.createElement("span");
+      entryText.textContent = item.main_entries.join(", ");
+      entries.append(entryLabel, entryText);
+
+      const role = document.createElement("p");
+      role.className = "paper-role";
+      role.textContent = item.paper_role;
+
+      card.append(path, purpose, entries, role);
+      group.appendChild(card);
+    });
+    container.appendChild(group);
+  });
+}
+
 function render(data) {
   document.title = data.title;
   text("venue", data.venue);
@@ -128,6 +180,7 @@ function render(data) {
   renderButtons(data.buttons);
   renderHighlights(data.result_highlights);
   renderSections(data.sections);
+  renderSourceFiles(data.source_files || []);
   renderMedia(data.media_sections);
   renderEvidence(data.evidence);
   renderBoundaries(data.boundaries);

@@ -7,6 +7,20 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DOCS = PROJECT_ROOT / "docs"
 
 
+def repository_source_paths():
+    paths = []
+    for root in ["src", "scripts", "tests"]:
+        paths.extend(
+            path.relative_to(PROJECT_ROOT).as_posix()
+            for path in (PROJECT_ROOT / root).rglob("*.py")
+        )
+    paths.extend(
+        path.relative_to(PROJECT_ROOT).as_posix()
+        for path in PROJECT_ROOT.glob("RUN_*.ps1")
+    )
+    return sorted(paths)
+
+
 class CodeDocumentationPageTests(unittest.TestCase):
     def test_github_pages_files_exist(self):
         for relative in [
@@ -59,9 +73,25 @@ class CodeDocumentationPageTests(unittest.TestCase):
         self.assertIn("Code Map", html)
         self.assertIn("Module Guide", html)
         self.assertIn("Reproduction", html)
+        self.assertIn("Every Source File", html)
         self.assertNotIn("Project Page", html)
         self.assertNotIn("Abstract", html)
         self.assertNotIn("Main Evidence", html)
+
+    def test_source_file_catalog_covers_every_repository_source_file(self):
+        data = json.loads((DOCS / "data" / "site.json").read_text(encoding="utf-8"))
+        catalog = data["source_files"]
+        documented_paths = sorted(item["path"] for item in catalog)
+        self.assertEqual(documented_paths, repository_source_paths())
+
+        required_categories = {"package", "script", "test", "entrypoint"}
+        self.assertTrue(required_categories.issubset({item["category"] for item in catalog}))
+        for item in catalog:
+            with self.subTest(path=item["path"]):
+                self.assertGreaterEqual(len(item["purpose"]), 60)
+                self.assertGreaterEqual(len(item["paper_role"]), 40)
+                self.assertTrue(item["main_entries"])
+                self.assertTrue(all(entry.strip() for entry in item["main_entries"]))
 
     def test_code_documentation_preserves_experiment_evidence_and_boundaries(self):
         data = json.loads((DOCS / "data" / "site.json").read_text(encoding="utf-8"))

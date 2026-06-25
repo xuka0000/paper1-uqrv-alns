@@ -158,6 +158,697 @@
       "source": "docs/model.md; docs/algorithm.md; docs/api.md; docs/experiments.md; docs/claim_algorithm_evidence_ledger.md"
     }
   ],
+  "source_files": [
+    {
+      "category": "package",
+      "path": "src/uqrv/__init__.py",
+      "purpose": "Package initializer that exposes the UQ-RV-ALNS simulation package as an importable Python module for all runners and tests.",
+      "main_entries": [
+        "uqrv package import"
+      ],
+      "paper_role": "Keeps the research code usable as one shared package instead of duplicated per experiment subsection."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/alns_operators.py",
+      "purpose": "Defines ALNS destroy moves, repair operators, adaptive operator scoring, and simulated-annealing acceptance utilities used by schedule search.",
+      "main_entries": [
+        "DestroyMove",
+        "AdaptiveOperatorWeights",
+        "random_removal",
+        "synchronization_aware_insert_repair"
+      ],
+      "paper_role": "Implements the operator-level details behind the algorithm pseudocode and exported operator diagnostics."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/candidate_stops.py",
+      "purpose": "Builds clustered candidate stop sets and screens tower-stop service pairs before route and sortie scheduling begin.",
+      "main_entries": [
+        "CandidateStopSet",
+        "generate_clustered_stops",
+        "screen_service_pairs"
+      ],
+      "paper_role": "Supports the candidate-stop construction and screening experiments reported for scalable corridor instances."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/energy.py",
+      "purpose": "Implements deterministic and uncertain UAV energy estimation, including distance, climb, wind, payload, and q95 feasibility checks.",
+      "main_entries": [
+        "EnergyBreakdown",
+        "EnergyEstimate",
+        "EnergyModel"
+      ],
+      "paper_role": "Provides the physical energy interface used by the mathematical model and feasibility constraints."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/energy_surrogate.py",
+      "purpose": "Provides probabilistic surrogate energy prediction, synthetic training samples, and evaluation helpers for surrogate accuracy experiments.",
+      "main_entries": [
+        "ProbabilisticEnergySurrogate",
+        "SimulationTrainedEnergySurrogate",
+        "generate_energy_training_samples"
+      ],
+      "paper_role": "Connects the PINN/surrogate energy branch to the experiment rows and energy prediction accuracy evidence."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/gis_case.py",
+      "purpose": "Loads and writes public GIS case files including towers, candidate stops, roads, weather, metadata, and template documentation.",
+      "main_entries": [
+        "load_gis_case",
+        "write_gis_case_templates"
+      ],
+      "paper_role": "Feeds geometry-grounded public scenarios while keeping public/proxy evidence boundaries explicit."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/io_utils.py",
+      "purpose": "Centralizes experiment directory creation, CSV writing, JSON writing, Markdown writing, and row summarization helpers.",
+      "main_entries": [
+        "ensure_experiment_dirs",
+        "write_rows_csv",
+        "summarize_rows"
+      ],
+      "paper_role": "Keeps raw rows, summaries, and run metadata reproducible across all experiment scripts."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/metrics.py",
+      "purpose": "Evaluates executable plans into makespan, weighted completion, risk coverage, route distance, energy, and feasibility metrics.",
+      "main_entries": [
+        "evaluate_plan"
+      ],
+      "paper_role": "Produces the metric columns used by result tables, figures, and statistical tests."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/milp_reference.py",
+      "purpose": "Builds small-instance exact or fallback reference plans for validating heuristic quality on tractable cases.",
+      "main_entries": [
+        "solve_milp_reference"
+      ],
+      "paper_role": "Supports the exact-reference experiment and gives a calibration point for heuristic result claims."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/online.py",
+      "purpose": "Generates online disruption events and simulates online replanning policy behavior over precomputed inspection plans.",
+      "main_entries": [
+        "Event",
+        "OnlineResult",
+        "generate_events",
+        "simulate_online_policy"
+      ],
+      "paper_role": "Supports online replanning evidence and separates dynamic-policy experiments from the static main comparison."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/priority.py",
+      "purpose": "Computes risk-value tower priority weights and scaled priority maps from scenario risk and task value attributes.",
+      "main_entries": [
+        "risk_value_priority_map",
+        "scaled_risk_value_priority_map"
+      ],
+      "paper_role": "Implements the priority term used by the RWCT objective and risk-value scheduling claims."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/proposal_design.py",
+      "purpose": "Creates manuscript-scale synthetic scenarios, custom scenario variants, and experiment matrices with controlled size settings.",
+      "main_entries": [
+        "ProposalSizeConfig",
+        "generate_proposal_scenario",
+        "build_proposal_experiment_matrix"
+      ],
+      "paper_role": "Defines the standardized scenario generation layer used by publishable experiment runners."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/public_data_ingestion.py",
+      "purpose": "Fetches or builds public GIS inputs from OSM/HIFLD/NASA POWER style sources and writes normalized GIS case rows.",
+      "main_entries": [
+        "BBox",
+        "parse_bbox",
+        "build_public_gis_case",
+        "write_public_gis_case"
+      ],
+      "paper_role": "Documents how public geometry and weather are turned into GIS case inputs without overstating field validation."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/rv_alns.py",
+      "purpose": "Implements the schedule-state RV-ALNS solver, initial construction, destroy-repair loop, local search, and portfolio selection.",
+      "main_entries": [
+        "ScheduleStateAlnsResult",
+        "RvAlnsConfig",
+        "solve_schedule_state_alns"
+      ],
+      "paper_role": "This is the proposed algorithm implementation aligned with the manuscript pseudocode and P2 main method."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/scenario.py",
+      "purpose": "Defines base data objects for towers, stops, weather, and scenarios, plus synthetic scenario generation utilities.",
+      "main_entries": [
+        "Tower",
+        "Stop",
+        "Weather",
+        "Scenario",
+        "generate_scenario"
+      ],
+      "paper_role": "Provides the common data model consumed by every solver, metric, and experiment runner."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/solvers.py",
+      "purpose": "Contains the solver facade, plan data structures, external baselines, operator-ALNS variants, and metric-aware schedule selection.",
+      "main_entries": [
+        "PlanTask",
+        "PlanSortie",
+        "Plan",
+        "solve"
+      ],
+      "paper_role": "Separates external baseline algorithms from the proposed ALNS while exporting a single experiment-facing solver API."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/stat_tests.py",
+      "purpose": "Implements Holm adjustment, paired method comparisons, Wilcoxon-style p values, rank-biserial effects, and bootstrap intervals.",
+      "main_entries": [
+        "holm_adjust",
+        "compare_paired_methods"
+      ],
+      "paper_role": "Generates the statistical evidence used after the P2 main experiment rows are produced."
+    },
+    {
+      "category": "package",
+      "path": "src/uqrv/stop_batch_model.py",
+      "purpose": "Builds same-stop sortie patterns, service graphs, schedule assignments, synchronized schedule states, and objective breakdowns.",
+      "main_entries": [
+        "ModelParameters",
+        "SortiePattern",
+        "ServiceGraph",
+        "ScheduleState",
+        "build_service_graph",
+        "evaluate_schedule_state"
+      ],
+      "paper_role": "This file is the main mathematical-model implementation for sortie sets, timing equations, and objective terms."
+    },
+    {
+      "category": "script",
+      "path": "scripts/audit_gis_metric_alignment.py",
+      "purpose": "Audits GIS case metric alignment by reading case CSV rows, ranking metrics, and writing alignment diagnostics.",
+      "main_entries": [
+        "main",
+        "build_metric_alignment_rows"
+      ],
+      "paper_role": "Checks that public GIS metric interpretation is consistent before those outputs are used in manuscript evidence."
+    },
+    {
+      "category": "script",
+      "path": "scripts/build_delivery_package.py",
+      "purpose": "Assembles a reproducible delivery package with code, experiment packages, datasets, figure sources, LaTeX, and readme files.",
+      "main_entries": [
+        "main"
+      ],
+      "paper_role": "Supports external handoff and archive preparation after code, tables, figures, and validation materials are regenerated."
+    },
+    {
+      "category": "script",
+      "path": "scripts/build_public_gis_case.py",
+      "purpose": "Command-line wrapper that builds a public GIS case from geographic bounds and public data ingestion settings.",
+      "main_entries": [
+        "main"
+      ],
+      "paper_role": "Creates public geometry and weather inputs for GIS-grounded case experiments."
+    },
+    {
+      "category": "script",
+      "path": "scripts/generate_manuscript_figures.py",
+      "purpose": "Generates the older manuscript figure set from experiment summaries, including comparison, robustness, ablation, online, and scalability plots.",
+      "main_entries": [
+        "main",
+        "plot_core_comparison",
+        "plot_scalability"
+      ],
+      "paper_role": "Maintains legacy figure-generation support for traceability while newer TRE-style figures are generated separately."
+    },
+    {
+      "category": "script",
+      "path": "scripts/generate_publishable_figures.py",
+      "purpose": "Generates publication-ready figures for framework, instances, operators, validation, algorithm comparison, energy, ablation, and scalability.",
+      "main_entries": [
+        "main",
+        "fig4_algorithm_comparison",
+        "fig6_ablation"
+      ],
+      "paper_role": "Transforms experiment output tables into manuscript-facing visual evidence files."
+    },
+    {
+      "category": "script",
+      "path": "scripts/generate_tre2_algorithm_mechanism.py",
+      "purpose": "Draws TRE-style algorithm mechanism panels for screening, insertion, reassignment, arrows, labels, and contact-sheet updates.",
+      "main_entries": [
+        "main",
+        "draw_screening_panel",
+        "draw_insertion_panel"
+      ],
+      "paper_role": "Produces algorithm-mechanism graphics that correspond to the proposed method description."
+    },
+    {
+      "category": "script",
+      "path": "scripts/generate_tre2_style_outputs.py",
+      "purpose": "Builds the TRE-style figure and table bundle including topology, framework, algorithm effects, energy, ablation, GIS, and scalability.",
+      "main_entries": [
+        "main",
+        "fig3_algorithm_effects",
+        "fig6_public_gis_cases",
+        "write_tables"
+      ],
+      "paper_role": "This is the main style-specific output generator for current documentation and manuscript artifacts."
+    },
+    {
+      "category": "script",
+      "path": "scripts/project_figures/build_fig1_ppt_icon_network.py",
+      "purpose": "Creates an icon-based network figure and PowerPoint assets for towers, stops, vehicles, UAV sorties, legends, and labels.",
+      "main_entries": [
+        "render_png",
+        "draw_tower",
+        "draw_uav_sortie"
+      ],
+      "paper_role": "Supports editable visual assets for the system topology and dispatch illustration."
+    },
+    {
+      "category": "script",
+      "path": "scripts/project_figures/build_reference_style_icon_figures.py",
+      "purpose": "Builds reference-style icon figures and PowerPoint slides with reusable tags, towers, patterns, and canvas utilities.",
+      "main_entries": [
+        "draw_fig1",
+        "draw_fig2"
+      ],
+      "paper_role": "Provides editable figure variants for manuscript visual refinement and style matching."
+    },
+    {
+      "category": "script",
+      "path": "scripts/redraw_tre2_algorithm_figures.py",
+      "purpose": "Redraws TRE2 algorithm framework and mechanism figures with boxes, arrows, screening, repair, and stop-move panels.",
+      "main_entries": [
+        "main",
+        "draw_framework",
+        "draw_mechanisms"
+      ],
+      "paper_role": "Regenerates algorithm diagrams when figure styling or explanatory labels change."
+    },
+    {
+      "category": "script",
+      "path": "scripts/redraw_tre2_experiment_design_figures.py",
+      "purpose": "Redraws enriched experiment-design figures, screening surfaces, and GIS operation-state panels from summary data.",
+      "main_entries": [
+        "main",
+        "draw_fig7_enriched",
+        "draw_gis_operation_state"
+      ],
+      "paper_role": "Documents the experimental setup and public-case visualization for manuscript figures."
+    },
+    {
+      "category": "script",
+      "path": "scripts/redraw_tre2_fig7_fig8.py",
+      "purpose": "Redraws later TRE2 figures for screening, insertion, reassignment, scalability, and figure contact sheets.",
+      "main_entries": [
+        "main",
+        "draw_fig7",
+        "draw_fig8"
+      ],
+      "paper_role": "Updates high-numbered figure panels after result-table or style changes."
+    },
+    {
+      "category": "script",
+      "path": "scripts/redraw_tre2_priority_figures.py",
+      "purpose": "Redraws priority-focused topology, stress heatmap, and public GIS figures with panel labels and saved assets.",
+      "main_entries": [
+        "main",
+        "fig1_topology_dispatch",
+        "fig5_stress_heatmaps"
+      ],
+      "paper_role": "Creates visual evidence for priority dispatch and stress-analysis sections."
+    },
+    {
+      "category": "script",
+      "path": "scripts/redraw_tre2_results_figures.py",
+      "purpose": "Redraws algorithm-effects and energy-evidence figures from summary files with panel labels and publication formatting.",
+      "main_entries": [
+        "main",
+        "draw_algorithm_effects",
+        "draw_energy_evidence"
+      ],
+      "paper_role": "Regenerates core result figures after main experiment or energy evidence changes."
+    },
+    {
+      "category": "script",
+      "path": "scripts/redraw_tre2_system_scene.py",
+      "purpose": "Draws a system-scene figure with corridor, support layer, weather, energy, towers, vehicle, UAV, arrows, and legend.",
+      "main_entries": [
+        "main",
+        "draw_background",
+        "draw_corridor"
+      ],
+      "paper_role": "Provides a conceptual system illustration for the vehicle-UAV inspection workflow."
+    },
+    {
+      "category": "script",
+      "path": "scripts/render_submission_preview.py",
+      "purpose": "Renders selected PDF pages and contact sheets so submission files can be visually inspected before delivery.",
+      "main_entries": [
+        "main",
+        "render_pages",
+        "contact_sheet"
+      ],
+      "paper_role": "Supports final submission QA for generated manuscript PDFs and figure previews."
+    },
+    {
+      "category": "script",
+      "path": "scripts/run_airlab_energy_calibration.py",
+      "purpose": "Loads AirLab flight telemetry, fits calibration parameters, predicts held-out energy, and writes calibration outputs.",
+      "main_entries": [
+        "main",
+        "load_airlab_flights",
+        "run_calibration"
+      ],
+      "paper_role": "Limits the AirLab evidence to energy-branch calibration rather than full field validation."
+    },
+    {
+      "category": "script",
+      "path": "scripts/run_experiment_suite.py",
+      "purpose": "Runs legacy E-series experiment suites with solver rows, online rows, selected experiments, and quick/full switches.",
+      "main_entries": [
+        "main",
+        "run_experiment"
+      ],
+      "paper_role": "Keeps earlier experiment families reproducible while final P-series runners remain the manuscript focus."
+    },
+    {
+      "category": "script",
+      "path": "scripts/run_public_gis_case_experiment.py",
+      "purpose": "Runs solver methods on a loaded public GIS case and writes case-specific diagnostics and output rows.",
+      "main_entries": [
+        "main",
+        "run_case",
+        "write_outputs"
+      ],
+      "paper_role": "Executes the public GIS experiment path with the same solver interface used elsewhere."
+    },
+    {
+      "category": "script",
+      "path": "scripts/run_publishable_experiments.py",
+      "purpose": "Runs publishable P-series solver and prediction experiments, maps methods, attaches diagnostics, and writes outputs.",
+      "main_entries": [
+        "main",
+        "run_solver_experiment",
+        "run_prediction_experiment"
+      ],
+      "paper_role": "This is the main experiment runner behind P2, P4, prediction, screening, and publishable synthetic results."
+    },
+    {
+      "category": "script",
+      "path": "scripts/run_repair_stress_experiment.py",
+      "purpose": "Runs repair-stress experiments and writes diagnostics for difficult removed-service and repair scenarios.",
+      "main_entries": [
+        "main",
+        "run_stress",
+        "write_outputs"
+      ],
+      "paper_role": "Supports stress-test evidence after the main algorithm comparison is established."
+    },
+    {
+      "category": "script",
+      "path": "scripts/run_statistical_tests.py",
+      "purpose": "Reads completed experiment CSV files, builds paired statistical rows, and writes P7 statistical summaries.",
+      "main_entries": [
+        "main",
+        "build_statistical_rows",
+        "write_outputs"
+      ],
+      "paper_role": "Generates significance evidence for the rebuilt P2 main experiment."
+    },
+    {
+      "category": "script",
+      "path": "scripts/train_energy_surrogate.py",
+      "purpose": "Trains the energy surrogate from generated samples and writes fitted model artifacts and evaluation summaries.",
+      "main_entries": [
+        "main",
+        "train_and_write"
+      ],
+      "paper_role": "Supports the energy surrogate branch and prediction-accuracy experiment outputs."
+    },
+    {
+      "category": "script",
+      "path": "scripts/write_elsevier_latex.py",
+      "purpose": "Writes Elsevier-style LaTeX materials, synchronizes figures, formats metrics context, highlights, bibliography, and readme files.",
+      "main_entries": [
+        "main",
+        "sync_figures",
+        "tex"
+      ],
+      "paper_role": "Exports manuscript-ready LaTeX assets from the current result and figure state."
+    },
+    {
+      "category": "script",
+      "path": "scripts/write_full_result_tables.py",
+      "purpose": "Formats and writes full result tables for algorithm comparison, energy, ablation, stress, and small-reference evidence.",
+      "main_entries": [
+        "algorithm_table",
+        "energy_table",
+        "ablation_table",
+        "stress_table"
+      ],
+      "paper_role": "Regenerates manuscript-facing tables directly from result summaries."
+    },
+    {
+      "category": "script",
+      "path": "scripts/write_manuscript_draft.py",
+      "purpose": "Builds Markdown, LaTeX, and DOCX manuscript drafts from figures, summaries, and generated section text helpers.",
+      "main_entries": [
+        "main",
+        "build_context",
+        "build_markdown",
+        "build_latex"
+      ],
+      "paper_role": "Creates draft manuscript material after code outputs and result tables are refreshed."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_airlab_energy_calibration.py",
+      "purpose": "Tests AirLab calibration loading, calibration metrics, and output-writing behavior for the telemetry energy branch.",
+      "main_entries": [
+        "AirLabEnergyCalibrationTests"
+      ],
+      "paper_role": "Protects the evidence boundary for energy calibration and prevents broken telemetry outputs."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_alns_operators.py",
+      "purpose": "Tests ALNS destroy and repair operators on simple scenarios, including segment behavior and repair feasibility.",
+      "main_entries": [
+        "AlnsOperatorTests"
+      ],
+      "paper_role": "Checks that operator-level algorithm components behave before they are used in proposed-method runs."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_candidate_stops.py",
+      "purpose": "Tests clustered candidate-stop generation, service-pair screening, and scenario augmentation with generated stops.",
+      "main_entries": [
+        "CandidateStopTests"
+      ],
+      "paper_role": "Protects the candidate stop construction used by scalability and screening experiments."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_energy.py",
+      "purpose": "Tests energy model estimates, uncertainty behavior, and feasibility logic for UAV sortie calculations.",
+      "main_entries": [
+        "EnergyTests"
+      ],
+      "paper_role": "Validates the energy interface used by q95 service filtering and feasibility diagnostics."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_energy_surrogate.py",
+      "purpose": "Tests probabilistic and simulation-trained energy surrogate predictions, samples, and evaluation metrics.",
+      "main_entries": [
+        "EnergySurrogateTests"
+      ],
+      "paper_role": "Protects the surrogate energy branch used by prediction-accuracy evidence."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_energy_training_script.py",
+      "purpose": "Tests the training script interface and generated energy-surrogate model artifacts.",
+      "main_entries": [
+        "EnergyTrainingScriptTests"
+      ],
+      "paper_role": "Ensures the train_energy_surrogate.py CLI remains usable for reproducible energy-model outputs."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_gis_case.py",
+      "purpose": "Tests GIS case template writing and loading of towers, stops, roads, weather, and metadata.",
+      "main_entries": [
+        "GisCaseTests"
+      ],
+      "paper_role": "Protects the public GIS case input format used by GIS-grounded experiments."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_gis_metric_audit.py",
+      "purpose": "Tests GIS metric audit ranking and alignment output from simplified rows.",
+      "main_entries": [
+        "GisMetricAuditTests"
+      ],
+      "paper_role": "Guards metric-alignment checks for public GIS result interpretation."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_io_utils.py",
+      "purpose": "Tests experiment directory creation, row writing, JSON/Markdown writing, and summary helpers.",
+      "main_entries": [
+        "IoUtilsTests"
+      ],
+      "paper_role": "Keeps experiment output files reproducible and consistently structured."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_online.py",
+      "purpose": "Tests event generation and online replanning policy simulation behavior.",
+      "main_entries": [
+        "OnlineTests"
+      ],
+      "paper_role": "Protects dynamic replanning experiment code separate from the static main comparison."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_project_page.py",
+      "purpose": "Tests that the GitHub Pages documentation is code-oriented and covers every repository source file.",
+      "main_entries": [
+        "CodeDocumentationPageTests"
+      ],
+      "paper_role": "Prevents the public documentation page from drifting back into a high-level project showcase."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_proposal_publishable.py",
+      "purpose": "Tests proposal scenario generation and publishable experiment matrix construction.",
+      "main_entries": [
+        "ProposalPublishableTests"
+      ],
+      "paper_role": "Protects standardized scenario generation used by publishable experiment runners."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_public_data_ingestion.py",
+      "purpose": "Tests public data ingestion helpers such as bounding boxes, projection, row building, and case writing.",
+      "main_entries": [
+        "PublicDataIngestionTests"
+      ],
+      "paper_role": "Guards the public GIS data-preparation path and its evidence boundaries."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_publishable_outputs.py",
+      "purpose": "Tests generated table and output formatting helpers for publishable experiment summaries.",
+      "main_entries": [
+        "PublishableOutputTests"
+      ],
+      "paper_role": "Protects manuscript-facing table-generation behavior from result-row schema changes."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_publishable_runner.py",
+      "purpose": "Tests publishable experiment runner behavior, method mapping, diagnostics, and output generation.",
+      "main_entries": [
+        "PublishableRunnerTests"
+      ],
+      "paper_role": "Guards the main P-series experiment execution path used for final evidence."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_rv_alns_schedule_state.py",
+      "purpose": "Tests schedule-state ALNS construction, schedule evaluation, and proposed-method behavior.",
+      "main_entries": [
+        "ScheduleStateAlnsTests"
+      ],
+      "paper_role": "Directly protects the proposed algorithm implementation aligned with manuscript pseudocode."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_scenario.py",
+      "purpose": "Tests base scenario generation and scenario object invariants for towers, stops, weather, and depot data.",
+      "main_entries": [
+        "ScenarioTests"
+      ],
+      "paper_role": "Protects the data layer consumed by all algorithms and experiments."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_solvers.py",
+      "purpose": "Tests solver facade behavior, external baseline availability, and solver output consistency.",
+      "main_entries": [
+        "SolverTests"
+      ],
+      "paper_role": "Ensures P2 compares the proposed method against available external baselines through the shared API."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_stat_tests.py",
+      "purpose": "Tests statistical comparison helpers, Holm adjustment, paired comparisons, and effect-size outputs.",
+      "main_entries": [
+        "StatTestTests"
+      ],
+      "paper_role": "Protects the P7 statistical-test evidence generated from P2 result rows."
+    },
+    {
+      "category": "test",
+      "path": "tests/test_stop_batch_model.py",
+      "purpose": "Tests service-graph construction, schedule-state timing, objective breakdowns, and plan-task conversion.",
+      "main_entries": [
+        "StopBatchModelTests"
+      ],
+      "paper_role": "Protects the mathematical-model implementation that connects equations to executable schedule states."
+    },
+    {
+      "category": "entrypoint",
+      "path": "RUN_REPRODUCE_FULL.ps1",
+      "purpose": "Full-scale PowerShell wrapper that sets PYTHONPATH and routes experiment ids to publishable, GIS, AirLab, or repair-stress runners.",
+      "main_entries": [
+        "ExperimentId",
+        "RunId",
+        "Seeds"
+      ],
+      "paper_role": "Provides the command used for manuscript-scale reproduction such as the rebuilt P2 main run."
+    },
+    {
+      "category": "entrypoint",
+      "path": "RUN_REPRODUCE_QUICK.ps1",
+      "purpose": "Quick-scale PowerShell wrapper that sets PYTHONPATH and routes experiment ids to smoke-sized validation jobs.",
+      "main_entries": [
+        "ExperimentId",
+        "RunId"
+      ],
+      "paper_role": "Provides fast checks for P-series and legacy experiment paths before full runs are launched."
+    },
+    {
+      "category": "entrypoint",
+      "path": "RUN_TESTS.ps1",
+      "purpose": "Repository-level PowerShell test entrypoint that sets PYTHONPATH and runs unittest discovery over the tests directory.",
+      "main_entries": [
+        "py -3.9 -m unittest discover"
+      ],
+      "paper_role": "This is the main validation command used before claiming code or documentation readiness."
+    }
+  ],
   "media_sections": [
     {
       "title": "Generated Algorithm Artifact",
